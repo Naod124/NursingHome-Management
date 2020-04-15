@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GanttProject.gan" beforeDir="false" afterPath="$PROJECT_DIR$/GanttProject.gan" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NursingHomeSystem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NursingHomeSystem.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/META-INF/NursingHomeSystem.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/controller/AddNewPatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/controller/AddNewPatientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/controller/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/controller/LogInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/controller/LogInPanelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/controller/LogInPanelController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/controller/NurseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/controller/NurseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/controller/PlanerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/controller/PlanerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/Diagnose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/Diagnose.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/LogIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/LogIn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/Medicin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/Medicin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/Nurse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/Nurse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/NursingHomeManagement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/Patient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/Patient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/Staff.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/model/Staff.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/NursingHomeSystem/sample/view/myStyle.css" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,8 +88,12 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1aBk0zwkXs1nxRIjhuDgOZB6fq2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -83,12 +110,15 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/JavaFx/openjfx-13.0.2_windows-x64_bin-sdk/javafx-sdk-13.0.2/lib" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/javafx-sdk-11.0.2/lib" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -126,7 +156,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
       <module name="NursingHomeSystem" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\wael-\JavaFx\openjfx-13.0.2_windows-x64_bin-sdk\javafx-sdk-13.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path \Users\Ali\Desktop\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sample.controller.*" />
@@ -188,11 +218,12 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
+      <workItem from="1586976940496" duration="2575000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1302000" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -202,14 +233,19 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1374" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586226199950">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="298" y="127" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586977455748">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="298" y="127" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1586977455748" />
     <state x="1374" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1586226199950" />
     <state x="1725" y="419" key="#com.intellij.ide.util.MemberChooser" timestamp="1586972280959">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1725" y="419" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400@0.0.2560.1400" timestamp="1586972280959" />
+    <state x="618" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586977462085">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="618" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1586977462085" />
     <state x="688" y="1" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1586309213731">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -222,29 +258,35 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="949" y="319" key="#myStyle.xsl/0.0.2560.1400@0.0.2560.1400" timestamp="1586434515526" />
-    <state x="1626" y="445" key="FileChooserDialogImpl" timestamp="1586225284780">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="946" y="262" key="FileChooserDialogImpl" timestamp="1586977405765">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="946" y="262" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1586977405765" />
     <state x="1626" y="445" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1586225284780" />
-    <state width="2517" height="122" key="GridCell.Tab.0.bottom" timestamp="1586973561495">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1586980473563">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586980473563" />
     <state width="2517" height="122" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1586973561495" />
-    <state width="2517" height="122" key="GridCell.Tab.0.center" timestamp="1586973561495">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1586980473563">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586980473563" />
     <state width="2517" height="122" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1586973561495" />
-    <state width="2517" height="122" key="GridCell.Tab.0.left" timestamp="1586973561495">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1586980473563">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586980473563" />
     <state width="2517" height="122" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1586973561495" />
-    <state width="2517" height="122" key="GridCell.Tab.0.right" timestamp="1586973561495">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1586980473563">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586980473563" />
     <state width="2517" height="122" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1586973561495" />
-    <state x="778" y="281" key="SettingsEditor" timestamp="1586436019588">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="467" y="0" key="SettingsEditor" timestamp="1586977414271">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="467" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1586977414271" />
     <state x="778" y="281" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1586436019588" />
     <state x="1616" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1586894156805">
       <screen x="0" y="0" width="2560" height="1400" />

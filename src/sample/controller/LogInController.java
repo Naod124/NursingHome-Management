@@ -27,29 +27,22 @@ public class LogInController {
 
     @FXML
     public void nurseScene(ActionEvent actionEvent) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/LogInPanel.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        SwitchScene sc = new SwitchScene();
+        sc.newScene(actionEvent, "/sample/view/LogInPanel.fxml");
+
     }
 
     @FXML
     public void planerScene(ActionEvent actionEvent) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/LogInPanel.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        SwitchScene sc = new SwitchScene();
+        sc.newScene(actionEvent, "/sample/view/LogInPanel.fxml");
+
     }
 
     @FXML
     public void adminScene(ActionEvent actionEvent) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/LogInPanel.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        SwitchScene sc = new SwitchScene();
+        sc.newScene(actionEvent, "/sample/view/LogInPanel.fxml");
     }
 
     @FXML

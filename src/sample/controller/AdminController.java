@@ -14,11 +14,8 @@ public class AdminController {
     public Label welcomeLabel;
 
     public void back(ActionEvent actionEvent) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/LogIn.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        SwitchScene sc = new SwitchScene();
+        sc.newScene(actionEvent, "/sample/view/LogIn.fxml");
     }
 
     public void exit(ActionEvent actionEvent) {

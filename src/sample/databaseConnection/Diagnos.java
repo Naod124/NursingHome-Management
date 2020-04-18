@@ -13,7 +13,7 @@ public class Diagnos extends Connect {
     }
 
 
-    public void vnsertIntoDiagnosTable(){
+    public void insertIntoDiagnosTable(){
     }
 
     public void updateIntoDiagnosTable(){

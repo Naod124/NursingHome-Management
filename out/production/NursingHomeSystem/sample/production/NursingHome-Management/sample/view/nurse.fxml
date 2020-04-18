@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.NurseController">
+    <children>
+        <Pane prefHeight="418.0" prefWidth="492.0" style="-fx-background-color: #47A3FF;">
+            <children>
+                <Label layoutX="145.0" layoutY="14.0" text="Nursing Home System" textFill="WHITE">
+                    <font>
+                        <Font name="Century Gothic" size="27.0"/>
+                    </font>
+                </Label>
+                <Button layoutX="14.0" layoutY="365.0" mnemonicParsing="false"
+                        style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Exit"/>
+                <Button layoutX="415.0" layoutY="365.0" mnemonicParsing="false"
+                        style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Back"/>
+                <VBox layoutX="118.0" layoutY="103.0" prefHeight="278.0" prefWidth="167.0" spacing="30.0">
+                    <children>
+                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="101.0"
+                                style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;"
+                                text="Patients visits"/>
+                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0"
+                                style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;"
+                                text="Create daily schedule"/>
+                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="111.0"
+                                style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;"
+                                text="Check Schedule"/>
+                        <Button mnemonicParsing="false" prefHeight="32.0"
+                                style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;"
+                                text="Get Assigned patients"/>
+                    </children>
+                </VBox>
+                <Label layoutX="31.0" layoutY="58.0" text="Nurse Panel" textFill="#f5f5f5">
+                    <font>
+                        <Font name="Century Gothic Italic" size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane layoutX="490.0" prefHeight="418.0" prefWidth="144.0" style="-fx-background-color: #4F7BFF;">
+            <children>
+                <ImageView fitHeight="119.0" fitWidth="122.0" layoutX="12.0" layoutY="67.0">
+                    <image>
+                        <Image url="@../../medicalIcons/receptionist-icon.png"/>
+                    </image>
+                </ImageView>
+                <Button layoutX="46.0" layoutY="209.0" minWidth="53.0" mnemonicParsing="false" prefHeight="34.0"
+                        prefWidth="53.0" style="-fx-background-radius: 200; -fx-background-color: #47A3FF;"
+                        text="Help"/>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

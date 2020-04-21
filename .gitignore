@@ -1,2 +1,4 @@
-.idea/
-.out/
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/misc.xml
+out/

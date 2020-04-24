@@ -13,10 +13,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LogInPanelController {
-    @FXML
-    private TextField passWord;
-    @FXML
-    private TextField userName;
+    @FXML private TextField passWord;
+    @FXML private TextField userName;
 
     public void back(ActionEvent actionEvent) throws IOException {
         Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/LogIn.fxml"));
@@ -26,8 +24,14 @@ public class LogInPanelController {
         stage.show();
     }
 
-    public void logIn(ActionEvent actionEvent) throws IOException {
-
+    public void logIn(ActionEvent actionEvent) throws IOException { //i will add later some sql statements once the database is done
+        if (userName.getText().equals("Nurse@email.com") && (passWord.getText().equals("1234"))) {
+            String link = "/sample/view/nurse.fxml";
+            SwitchScene sc = new SwitchScene();
+            sc.newScene(actionEvent, link);
+        }else{
+            System.out.println("Error");
+        }
 
     }
 }

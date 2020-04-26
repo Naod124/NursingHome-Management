@@ -1,8 +1,6 @@
 package sample.databaseConnection;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+ import java.sql.*;
 
 public class Medcin extends Connect {
     private Connection connection;

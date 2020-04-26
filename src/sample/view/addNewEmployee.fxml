@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddNewEmployeeController">
+   <children>
+      <Pane layoutX="-1.0" prefHeight="400.0" prefWidth="463.0" style="-fx-background-color: #47A3FF;">
+         <children>
+            <Label layoutX="92.0" layoutY="14.0" text="Nursing Home System">
+               <font>
+                  <Font name="Century Gothic" size="27.0" />
+               </font>
+            </Label>
+            <VBox layoutX="121.0" layoutY="69.0" prefHeight="278.0" prefWidth="69.0" spacing="20.0">
+               <children>
+                  <Label blendMode="DARKEN" text="First name:" />
+                  <Label alignment="CENTER" text="Last name:" />
+                  <Label alignment="CENTER" text="Address:" />
+                  <Label alignment="CENTER" text="SSN:" />
+                  <Label alignment="CENTER" text="Age:" />
+                  <Label alignment="CENTER" text="E-mail:" />
+                  <Label text="User Name:" />
+                  <Label text="Password:" />
+                  <Label text="Role:" />
+               </children>
+            </VBox>
+            <VBox layoutX="204.0" layoutY="69.0" prefHeight="283.0" prefWidth="150.0" spacing="11.0">
+               <children>
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <TextField />
+                  <TextField />
+               </children>
+            </VBox>
+            <HBox layoutX="204.0" layoutY="361.0" prefHeight="25.0" prefWidth="185.0" spacing="8.0">
+               <children>
+                  <JFXCheckBox checkedColor="#4f7bff" text="Doctor" unCheckedColor="#4f7bff" />
+                  <JFXCheckBox checkedColor="#4f7bff" text="Nurse" unCheckedColor="#4f7bff" />
+                  <JFXCheckBox checkedColor="#4f7bff" text="Planer" unCheckedColor="#4f7bff" />
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane layoutX="461.0" prefHeight="400.0" prefWidth="140.0" style="-fx-background-color: #4F7BFF;">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="79.0" layoutX="31.0" layoutY="70.0">
+               <image>
+                  <Image url="@../../medicalIcons/receptionist-icon.png" />
+               </image>
+            </ImageView>
+            <VBox alignment="CENTER" layoutX="20.0" layoutY="171.0" prefHeight="154.0" prefWidth="100.0" spacing="20.0">
+               <children>
+                  <JFXButton fx:id="help" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Help" />
+                  <JFXButton fx:id="add" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Add" />
+                  <JFXButton fx:id="cancel" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Cancel" />
+                  <JFXButton fx:id="baclToMain" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Back to main" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

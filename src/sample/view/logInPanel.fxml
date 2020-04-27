@@ -22,12 +22,12 @@
                 </Label>
                 <ImageView fitHeight="40.0" fitWidth="47.0" layoutX="128.0" layoutY="120.0">
                     <image>
-                        <Image url="@../../medicalIcons/person-icon.png" />
+                        <Image url="@../medicalIcons/person-icon.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="40.0" fitWidth="47.0" layoutX="128.0" layoutY="211.0">
                     <image>
-                        <Image url="@../../medicalIcons/Login-icon.png" />
+                        <Image url="@../medicalIcons/Login-icon.png" />
                     </image>
                 </ImageView>
                 <Button layoutX="14.0" layoutY="354.0" mnemonicParsing="false" onAction="#back" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Back" />
@@ -38,7 +38,7 @@
                 <Button layoutX="55.0" layoutY="311.0" mnemonicParsing="false" onAction="#logIn" style="-fx-background-radius: 200; -fx-background-color: #47A3FF;" text="Log in" />
                 <ImageView fitHeight="106.0" fitWidth="98.0" layoutX="33.0" layoutY="149.0">
                     <image>
-                        <Image url="@../../medicalIcons/Hospital-blue-icon.png" />
+                        <Image url="@../medicalIcons/Hospital-blue-icon.png" />
                     </image>
                 </ImageView>
             </children>

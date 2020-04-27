@@ -19,7 +19,7 @@
               <Button layoutX="52.0" layoutY="342.0" mnemonicParsing="false" onAction="#cancel" prefHeight="34.0" prefWidth="64.0" style="-fx-background-radius: 200; -fx-background-color: #47A3FF;" text="Cancel" />
             <ImageView fitHeight="94.0" fitWidth="102.0" layoutX="33.0" layoutY="63.0">
                <image>
-                  <Image url="@../../medicalIcons/receptionist-icon.png" />
+                  <Image url="@../medicalIcons/receptionist-icon.png" />
                </image>
             </ImageView>
             <Button layoutX="52.0" layoutY="210.0" mnemonicParsing="false" onAction="#help" prefHeight="34.0" prefWidth="64.0" style="-fx-background-radius: 200; -fx-background-color: #47A3FF;" text="Help" />

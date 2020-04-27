@@ -3,14 +3,9 @@ package sample.controller;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import sample.model.*;
 
 
@@ -50,14 +45,14 @@ public class AddNewEmployeeController implements Initializable {
     }
 
     public void cancel(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent , "admin.fxml");
+        sc.newScene(actionEvent , "view/admin.fxml");
     }
 
     public void help(ActionEvent actionEvent) {
     }
 
     public void backToMain(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent , "logIn.fxml");
+        sc.newScene(actionEvent , "view/logIn.fxml");
     }
 
     public void chooseRole(ActionEvent actionEvent) {

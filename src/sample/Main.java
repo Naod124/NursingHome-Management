@@ -16,7 +16,7 @@ public class Main extends Application {
         conn.open();
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("sample/view/LogIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/LogIn.fxml"));
         primaryStage.setTitle("Nursing Home System");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

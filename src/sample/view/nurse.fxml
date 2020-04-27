@@ -50,7 +50,7 @@
             <children>
                 <ImageView fitHeight="119.0" fitWidth="122.0" layoutX="12.0" layoutY="67.0">
                     <image>
-                        <Image url="@../../medicalIcons/receptionist-icon.png"/>
+                        <Image url="@../medicalIcons/receptionist-icon.png"/>
                     </image>
                 </ImageView>
                 <Button layoutX="46.0" layoutY="209.0" minWidth="53.0" mnemonicParsing="false" prefHeight="34.0"

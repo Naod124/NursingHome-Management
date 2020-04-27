@@ -2,13 +2,7 @@ package sample.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -18,7 +12,7 @@ public class LogInPanelController {
     private SwitchScene sc = new SwitchScene();
 
     public void back(ActionEvent actionEvent) throws IOException {
-      sc.newScene(actionEvent,"LogIn.fxml");
+      sc.newScene(actionEvent,"view/LogIn.fxml");
     }
 
     public void logIn(ActionEvent actionEvent) throws IOException { //i will add later some sql statements once the database is done

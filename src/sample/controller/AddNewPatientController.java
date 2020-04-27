@@ -2,17 +2,11 @@ package sample.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import sample.model.Patient;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Stack;
 
 public class AddNewPatientController {
     @FXML
@@ -51,7 +45,7 @@ public class AddNewPatientController {
     }
 
     public void cancel(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent, "/sample/view/LogIn.fxml");
+        sc.newScene(actionEvent, "LogIn.fxml");
     }
 
 

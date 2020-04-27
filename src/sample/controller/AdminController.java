@@ -2,12 +2,7 @@ package sample.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -19,7 +14,7 @@ public class AdminController {
 
 
     public void back(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent, "/sample/view/LogIn.fxml");
+        sc.newScene(actionEvent, "LogIn.fxml");
     }
 
     public void exit(ActionEvent actionEvent) {

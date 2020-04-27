@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -46,28 +45,24 @@
                   <TextField />
                </children>
             </VBox>
-            <HBox layoutX="204.0" layoutY="361.0" prefHeight="25.0" prefWidth="185.0" spacing="8.0">
-               <children>
-                  <JFXCheckBox checkedColor="#4f7bff" text="Doctor" unCheckedColor="#4f7bff" />
-                  <JFXCheckBox checkedColor="#4f7bff" text="Nurse" unCheckedColor="#4f7bff" />
-                  <JFXCheckBox checkedColor="#4f7bff" text="Planer" unCheckedColor="#4f7bff" />
-               </children>
-            </HBox>
+            <CheckBox layoutX="184.0" layoutY="365.0" mnemonicParsing="false" text="Doctor" />
+            <CheckBox layoutX="264.0" layoutY="365.0" mnemonicParsing="false" text="Nurse" />
+            <CheckBox layoutX="343.0" layoutY="365.0" mnemonicParsing="false" text="Planer" />
          </children>
       </Pane>
       <Pane layoutX="461.0" prefHeight="400.0" prefWidth="140.0" style="-fx-background-color: #4F7BFF;">
          <children>
             <ImageView fitHeight="75.0" fitWidth="79.0" layoutX="31.0" layoutY="70.0">
                <image>
-                  <Image url="@../../medicalIcons/receptionist-icon.png" />
+                  <Image url="@../medicalIcons/receptionist-icon.png" />
                </image>
             </ImageView>
             <VBox alignment="CENTER" layoutX="20.0" layoutY="171.0" prefHeight="154.0" prefWidth="100.0" spacing="20.0">
                <children>
-                  <JFXButton fx:id="help" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Help" />
-                  <JFXButton fx:id="add" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Add" />
-                  <JFXButton fx:id="cancel" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Cancel" />
-                  <JFXButton fx:id="baclToMain" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Back to main" />
+                  <Button mnemonicParsing="false" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Help" />
+                  <Button mnemonicParsing="false" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Add" />
+                  <Button mnemonicParsing="false" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Cancel" />
+                  <Button mnemonicParsing="false" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Back to main" />
                </children>
             </VBox>
          </children>

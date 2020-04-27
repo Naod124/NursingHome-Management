@@ -12,17 +12,18 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Connect conn = new Connect();
-        conn.open();
+        //Connect conn = new Connect();
+        //conn.open();
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("view/LogIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/LogIn.fxml"));
         primaryStage.setTitle("Nursing Home System");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
 
-    public static void main(String[] args) { launch(args);
+    public static void main(String[] args) {
+        launch(args);
     }
 }

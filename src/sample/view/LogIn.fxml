@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -18,34 +18,34 @@
                         <Font name="Bodoni MT Bold Italic" size="27.0" />
                     </font>
                 </Label>
-                <HBox layoutX="68.0" layoutY="247.0" prefHeight="100.0" prefWidth="272.0" spacing="20.0">
-                    <children>
-                        <Button fx:id="admin" mnemonicParsing="false" onAction="#adminScene" prefHeight="39.0" prefWidth="73.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Admin" textFill="#e0dddd" />
-                        <Button fx:id="planer" mnemonicParsing="false" onAction="#planerScene" prefHeight="39.0" prefWidth="73.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Planer" textFill="#e0dddd" />
-                        <Button fx:id="nurse" mnemonicParsing="false" onAction="#nurseScene" prefHeight="39.0" prefWidth="73.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Nurse" textFill="#e0dddd" />
-                    </children>
+                <HBox alignment="CENTER" layoutX="68.0" layoutY="247.0" prefHeight="52.0" prefWidth="300.0" spacing="20.0">
+               <children>
+                  <JFXButton onAction="#adminScene" prefHeight="43.0" prefWidth="78.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Admin" />
+                  <JFXButton onAction="#nurseScene" prefHeight="43.0" prefWidth="78.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Nurse" />
+                  <JFXButton onAction="#planerScene" prefHeight="43.0" prefWidth="78.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Planer" />
+               </children>
                 </HBox>
                 <Label layoutX="68.0" layoutY="14.0" prefHeight="40.0" prefWidth="272.0" text="Nursing Home System" textFill="#e0dddd">
                     <font>
                         <Font name="Bodoni MT Bold Italic" size="25.0" />
                     </font>
                 </Label>
-                <Button layoutX="21.0" layoutY="347.0" mnemonicParsing="false" onAction="#Exit" prefHeight="39.0" prefWidth="73.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Exit" textFill="#e0dddd" />
                 <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="154.0" layoutY="114.0">
                     <image>
                         <Image url="@../../medicalIcons/Hospital-blue-icon.png" />
                     </image>
                 </ImageView>
+            <JFXButton layoutX="14.0" layoutY="358.0" prefHeight="40.0" prefWidth="77.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Exit" />
             </children>
         </Pane>
         <Pane layoutX="408.0" layoutY="-4.0" prefHeight="406.0" prefWidth="192.0" style="-fx-background-color: #4F7BFF;">
             <children>
-                <Button layoutX="53.0" layoutY="244.0" mnemonicParsing="false" onAction="#help" prefHeight="39.0" prefWidth="73.0" style="-fx-background-radius: 200; -fx-background-color: #47A3FF;" text="Help" />
                 <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="39.0" layoutY="109.0">
                     <image>
                         <Image url="@../../medicalIcons/receptionist-icon.png" />
                     </image>
                 </ImageView>
+            <JFXButton layoutX="51.0" layoutY="240.0" prefHeight="43.0" prefWidth="77.0" style="-fx-background-radius: 200; -fx-background-color: #47A3FF;" text="Help" />
             </children>
         </Pane>
     </children>

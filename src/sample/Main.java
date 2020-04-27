@@ -12,8 +12,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        //Connect conn = new Connect();
-        //conn.open();
+        Connect conn = new Connect();
+        conn.open();
 
 
         Parent root = FXMLLoader.load(getClass().getResource("sample/view/LogIn.fxml"));

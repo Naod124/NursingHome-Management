@@ -34,15 +34,6 @@ public class RemoveEmployeeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//        staffToView.setValue("Doctors");
-//        staffToView.setValue("Nurses");
-//        staffToView.setValue("Planers");
-//        staffToView.setValue("Assistants");
-//        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("employees.ser"))) {
-//            staff = (ArrayList<Staff>) objectInputStream.readObject();
-//        } catch (IOException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
 
     }
 }

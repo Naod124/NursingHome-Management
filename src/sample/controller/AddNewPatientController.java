@@ -31,7 +31,11 @@ public class AddNewPatientController {
     private TextField email;
     @FXML
     private TextField password;
+
     private ArrayList<Patient> patients = new ArrayList<>();
+
+    private SwitchScene sc = new SwitchScene();
+
 
     public void add(ActionEvent actionEvent) {
 
@@ -47,11 +51,7 @@ public class AddNewPatientController {
     }
 
     public void cancel(ActionEvent actionEvent) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/LogIn.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        sc.newScene(actionEvent, "/sample/view/LogIn.fxml");
     }
 
 

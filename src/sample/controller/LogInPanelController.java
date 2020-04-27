@@ -15,13 +15,10 @@ import java.io.IOException;
 public class LogInPanelController {
     @FXML private TextField passWord;
     @FXML private TextField userName;
+    private SwitchScene sc = new SwitchScene();
 
     public void back(ActionEvent actionEvent) throws IOException {
-        Parent parent = FXMLLoader.load(getClass().getResource("/sample/view/LogIn.fxml"));
-        Scene scene = new Scene(parent);
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+      sc.newScene(actionEvent,"LogIn.fxml");
     }
 
     public void logIn(ActionEvent actionEvent) throws IOException { //i will add later some sql statements once the database is done

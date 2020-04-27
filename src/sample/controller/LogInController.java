@@ -24,24 +24,22 @@ public class LogInController {
     private TextField userName;
     @FXML
     private TextField passWord;
+    private SwitchScene sc = new SwitchScene();
 
     @FXML
     public void nurseScene(ActionEvent actionEvent) throws IOException {
-        SwitchScene sc = new SwitchScene();
         sc.newScene(actionEvent, "/sample/view/LogInPanel.fxml");
 
     }
 
     @FXML
     public void planerScene(ActionEvent actionEvent) throws IOException {
-        SwitchScene sc = new SwitchScene();
         sc.newScene(actionEvent, "/sample/view/LogInPanel.fxml");
 
     }
 
     @FXML
     public void adminScene(ActionEvent actionEvent) throws IOException {
-        SwitchScene sc = new SwitchScene();
         sc.newScene(actionEvent, "/sample/view/LogInPanel.fxml");
     }
 

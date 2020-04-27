@@ -30,7 +30,7 @@ public class Staff extends Connect{
         }catch (SQLException a) {
 
         }
-
+return 0;
     }
 
 }

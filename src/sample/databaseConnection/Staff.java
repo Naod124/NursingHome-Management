@@ -23,13 +23,16 @@ public class Staff extends Connect {
     }
     public int verifyStaffLogin(String username, String password) { // The Log in verification method. Returns 1 incase found, else
         try {
-            connection = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("Select `Username`, `Password` from `Log in` where Username = " + username + " AND " + password + ";  ");
-
+            Connection connect = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
+            PreparedStatement statement = connect.prepareStatement("select Username,Password FROM login where Username =? AND Password =?;");
+            statement.setString(1, username);
+            statement.setString(2, password);
+            ResultSet rs = statement.executeQuery();
+            System.out.println();
+            rs.next();
+            return rs.getRow();
         } catch (SQLException a) {
-
+            return 0;
         }
-        return 0;
     }
 }

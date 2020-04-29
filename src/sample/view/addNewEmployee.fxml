@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -45,9 +45,7 @@
                   <TextField />
                </children>
             </VBox>
-            <CheckBox layoutX="184.0" layoutY="365.0" mnemonicParsing="false" text="Doctor" />
-            <CheckBox layoutX="264.0" layoutY="365.0" mnemonicParsing="false" text="Nurse" />
-            <CheckBox layoutX="343.0" layoutY="365.0" mnemonicParsing="false" text="Planer" />
+            <ChoiceBox fx:id="chooseRole" layoutX="204.0" layoutY="361.0" prefHeight="25.0" prefWidth="150.0" />
          </children>
       </Pane>
       <Pane layoutX="461.0" prefHeight="400.0" prefWidth="140.0" style="-fx-background-color: #4F7BFF;">
@@ -59,10 +57,10 @@
             </ImageView>
             <VBox alignment="CENTER" layoutX="20.0" layoutY="171.0" prefHeight="154.0" prefWidth="100.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Help" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Add" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Cancel" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Back to main" />
+                  <Button mnemonicParsing="false" onAction="#help" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Help" />
+                  <Button mnemonicParsing="false" onAction="#add" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Add" />
+                  <Button mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Cancel" />
+                  <Button mnemonicParsing="false" onAction="#backToMain" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Back to main" />
                </children>
             </VBox>
          </children>

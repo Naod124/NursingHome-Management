@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import sample.model.*;
 
@@ -17,11 +18,7 @@ import java.util.ResourceBundle;
 
 public class AddNewEmployeeController implements Initializable {
     @FXML
-    private ChoiceBox<String> chooseRole;
-    @FXML
-    private JFXComboBox<String> employeeRole;
-    @FXML
-    private ChoiceBox<String> chooseEmployeeRole;
+    private ChoiceBox<String> role;
     @FXML
     private TextField userName;
     @FXML
@@ -35,7 +32,7 @@ public class AddNewEmployeeController implements Initializable {
     @FXML
     private TextField ssn;
     @FXML
-    private TextField age;
+    private DatePicker dOb;
     @FXML
     private TextField email;
 
@@ -48,12 +45,12 @@ public class AddNewEmployeeController implements Initializable {
         String lastNameO    = lastName.getText();
         String addressO = address.getText();
         String SSN = ssn.getText();
-        int ageO = Integer.parseInt(age.getText());
+        String ageO = dOb.getProperties().toString() ;
         String Email = email.getText();
         String username = userName.getText();
         String password = passWord.getText();
-        String role = chooseRole.getValue();
-        switch (role){
+        String roleO = role.getValue();
+        switch (roleO){
             case "Nurse":
                 LogIn logIn = new LogIn(username,password);
                 Nurse nurse = new Nurse(firstNameO,lastNameO,addressO,SSN,ageO,Email,logIn,20000);
@@ -81,6 +78,6 @@ public class AddNewEmployeeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        chooseRole.getItems().addAll("Nurse","Planer","Assistant");
+        role.getItems().addAll("Nurse","Planer","Assistant");
     }
 }

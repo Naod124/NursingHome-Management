@@ -12,7 +12,22 @@ public class Staff extends Connect {
     }
 
 
-    public void insertIntoPStaffTable() {
+    public void insertIntoPStaffTable(String firstName , String lastName ,String ssn , String dOb , String address , String email , double salary , String role) {
+        try {
+
+            Connection connect = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
+            PreparedStatement statement = connect.prepareStatement("insert into staff (FirstName,LastName,SSN,Adress,DateOfbirth,Email,Salary,Role) values (?,?,?,?,?,?,?,?);");
+            statement.setString(1,firstName);
+            statement.setString(2,lastName);
+            statement.setString(3,ssn);
+            statement.setString(4,dOb);
+            statement.setString(5,address);
+            statement.setString(6,email);
+            statement.setString(7, String.valueOf(salary));
+            statement.setString(8,role);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void updateIntoStaffTable() {

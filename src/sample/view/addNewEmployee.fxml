@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -20,13 +21,13 @@
                   <Font name="Century Gothic" size="27.0" />
                </font>
             </Label>
-            <VBox layoutX="121.0" layoutY="69.0" prefHeight="278.0" prefWidth="69.0" spacing="20.0">
+            <VBox layoutX="90.0" layoutY="69.0" prefHeight="311.0" prefWidth="100.0" spacing="20.0">
                <children>
                   <Label blendMode="DARKEN" text="First name:" />
                   <Label alignment="CENTER" text="Last name:" />
                   <Label alignment="CENTER" text="Address:" />
                   <Label alignment="CENTER" text="SSN:" />
-                  <Label alignment="CENTER" text="Age:" />
+                  <Label alignment="CENTER" text="Date of birthday:" />
                   <Label alignment="CENTER" text="E-mail:" />
                   <Label text="User Name:" />
                   <Label text="Password:" />
@@ -35,17 +36,17 @@
             </VBox>
             <VBox layoutX="204.0" layoutY="69.0" prefHeight="283.0" prefWidth="150.0" spacing="11.0">
                <children>
-                  <TextField />
-                  <TextField />
-                  <TextField />
-                  <TextField />
-                  <TextField />
-                  <TextField />
-                  <TextField />
-                  <TextField />
+                  <TextField fx:id="firstName" />
+                  <TextField fx:id="lastName" />
+                  <TextField fx:id="address" />
+                  <TextField fx:id="ssn" />
+                  <DatePicker fx:id="dOb" />
+                  <TextField fx:id="email" />
+                  <TextField fx:id="userName" />
+                  <TextField fx:id="passWord" />
                </children>
             </VBox>
-            <ChoiceBox fx:id="chooseRole" layoutX="204.0" layoutY="361.0" prefHeight="25.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="role" layoutX="204.0" layoutY="361.0" prefHeight="25.0" prefWidth="150.0" />
          </children>
       </Pane>
       <Pane layoutX="461.0" prefHeight="400.0" prefWidth="140.0" style="-fx-background-color: #4F7BFF;">

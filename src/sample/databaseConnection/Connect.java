@@ -9,9 +9,13 @@ public static final String DB_NAME = "nursinghome";
 public static final String CONNECTION_URL = "jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome?useSSL=false";
 public static final String PASSWORD = "Vw3J!60l-0kd";
 
-    public Connection getConn() {
-        return conn;
+private static Connect instance = new Connect();
+private Connect(){
+}
+  public static Connect getInstance(){
+    return instance;
     }
+
 
     public Boolean open(){
 
@@ -35,5 +39,8 @@ public static final String PASSWORD = "Vw3J!60l-0kd";
             System.out.println("Could not close connection" + e.getMessage());
         }
 
+    }
+    public Connection getConn() {
+        return conn;
     }
 }

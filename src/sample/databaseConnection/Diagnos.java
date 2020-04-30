@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Diagnos extends Connect {
+public class Diagnos  {
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;

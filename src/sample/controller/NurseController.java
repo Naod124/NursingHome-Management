@@ -17,24 +17,21 @@ public class NurseController {
     private Button managepatientbutton;
     @FXML
     private Button removepatientbutton;
-   @FXML private Button exitbutton;
-   @FXML private Button backbutton;
+   @FXML
+   private Button exitbutton;
+   @FXML
+   private Button backbutton;
 
-    private SwitchScene sc = new SwitchScene();
 
 
     @FXML
     public void managepatientscene(ActionEvent ae) throws IOException {
-        Node node = (Node) ae.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
+        SwitchScene sc = new SwitchScene();
+        Node node = (Node)ae.getSource();
+        Stage stage = (Stage)node.getScene().getWindow();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample/view/ManagePatient.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            System.out.println("Hi");
-        }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/ManagePatient.fxml"));
+        Parent root = loader.load();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -43,16 +40,11 @@ public class NurseController {
 
     @FXML
     public void removescene(ActionEvent ae) throws IOException {
-        Node node = (Node) ae.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
+        Node node = (Node)ae.getSource();
+        Stage stage = (Stage)node.getScene().getWindow();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample/view/RemovePatient.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            System.out.println("Hi");
-        }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/RemovePatient.fxml"));
+        Parent root = loader.load();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -62,7 +54,7 @@ public class NurseController {
         Node node = (Node) ae.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/LogIn.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/LogIn.fxml"));
         Parent root = null;
         try {
             root = loader.load();

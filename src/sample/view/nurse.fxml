@@ -24,7 +24,6 @@
                     <children>
                   <Button fx:id="managepatientbutton" mnemonicParsing="false" onAction="#managepatientscene" prefHeight="31.0" prefWidth="177.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Add/update patient info" />
                         <Button fx:id="removepatientbutton" mnemonicParsing="false" onAction="#removescene" prefHeight="32.0" prefWidth="178.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Remove patient" />
-                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="170.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Create daily schedule" />
                         <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="169.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Check Schedule" />
                         <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="169.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Get Assigned patients" />
                     </children>

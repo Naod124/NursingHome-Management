@@ -6,7 +6,7 @@ import sample.model.Patient;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class PatientQueries extends Connect {
+public class PatientQueries  {
 
     private Connection connection;
     private ResultSet rs;

@@ -5,14 +5,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import sample.databaseConnection.PatientQueries;
 import sample.model.DataSource;
-import sample.model.Patient;
 import sample.model.PatientTable;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -21,7 +26,6 @@ public class ManagePatientController implements Initializable {
 
     private ObservableList<PatientTable> obList = FXCollections.observableArrayList();
     private Connection conn;
-    private Statement stmt;
     PreparedStatement pstmt = null;
 
     @FXML private TableView <PatientTable> table;
@@ -31,10 +35,6 @@ public class ManagePatientController implements Initializable {
     @FXML private TableColumn <PatientTable, String> lastnamecol;
     @FXML private TableColumn <PatientTable, String> dobcol;
     @FXML private TableColumn <PatientTable, String> gendercol;
-    @FXML private Button addbutton;
-    @FXML private Button updatebutton;
-    @FXML private Button deletebutton;
-    @FXML private Button viewbutton;
     @FXML private TextField ssntextfield;
     @FXML private TextField firstnametextfield;
     @FXML private TextField lastnametextfield;
@@ -118,8 +118,13 @@ public class ManagePatientController implements Initializable {
           Alert a = new Alert(Alert.AlertType.CONFIRMATION);
           a.setHeaderText("Information added");
           a.showAndWait();
+          table.getItems().clear();
           handleView();
-
+          ssntextfield.clear();
+          firstnametextfield.clear();
+          lastnametextfield.clear();
+          datetextfield.clear();
+          gendertextfield.clear();
 
       } catch (SQLException e) {
           System.out.println(e.getMessage());
@@ -144,43 +149,18 @@ public class ManagePatientController implements Initializable {
             Alert a = new Alert(Alert.AlertType.CONFIRMATION);
             a.setHeaderText("Information updated");
             a.showAndWait();
+            table.getItems().clear();
             handleView();
+            ssntextfield.clear();
+            firstnametextfield.clear();
+            lastnametextfield.clear();
+            datetextfield.clear();
+            gendertextfield.clear();
     } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
       }
 
-      @FXML public void handledelete() throws SQLException {
-          conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                  "nursinghome", "Vw3J!60l-0kd");
-
-        // while (ssncol.isEditable()){
-         //  firstnametextfield.setEditable(false);
-        //   lastnametextfield.setEditable(false);
-        //   datetextfield.setEditable(false);
-        //   gendertextfield.setEditable(false);
-        //
-        // }
-        /*  if   (table.getSelectionModel().isSelected(1,ssncol)) {
-              firstnametextfield.setEditable(false);
-              lastnametextfield.setEditable(false);
-              datetextfield.setEditable(false);
-              gendertextfield.setEditable(false);
-*/
-              try {
-                  String updateQuery = "DELETE FROM patient WHERE SSN = ?";
-                  pstmt = conn.prepareStatement(updateQuery);
-                  pstmt.setString(1, ssntextfield.getText());
-                  pstmt.executeUpdate();
-                  Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-                  a.setHeaderText("Information updated");
-                  a.showAndWait();
-                  table.getItems().clear();
-                  handleView();
-              } catch (SQLException e) {
-                  System.out.println(e.getMessage());
-              }
-          }
 
 
       @FXML public void handleView() throws SQLException {
@@ -217,12 +197,6 @@ public class ManagePatientController implements Initializable {
 
 
 
-
-         // table.setEditable(true);
-
-
-
-
          /* PatientQueries p = new PatientQueries();
 
           DataSource.getInstance().setPatient(p.getPatientsinfo());
@@ -238,5 +212,28 @@ public class ManagePatientController implements Initializable {
       }
           table.getItems().addAll(obList);
 */}
+
+    @FXML
+    public void back(ActionEvent ae) throws IOException {
+        Node node = (Node) ae.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/nurse.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            System.out.println("Hi");
+        }
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    public void exit(ActionEvent ae) throws IOException {
+        System.exit(0);
+
+    }
 
 }

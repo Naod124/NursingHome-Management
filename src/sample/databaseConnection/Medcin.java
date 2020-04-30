@@ -2,7 +2,7 @@ package sample.databaseConnection;
 
  import java.sql.*;
 
-public class Medcin extends Connect {
+public class Medcin {
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;

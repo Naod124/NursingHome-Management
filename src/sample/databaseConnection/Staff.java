@@ -5,7 +5,7 @@ import javafx.scene.control.TextField;
 
 import java.sql.*;
 
-public class Staff extends Connect {
+public class Staff  {
 
     private Connection connection;
     private Statement statement;

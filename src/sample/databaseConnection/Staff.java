@@ -1,5 +1,8 @@
 package sample.databaseConnection;
 
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+
 import java.sql.*;
 
 public class Staff extends Connect {
@@ -12,19 +15,28 @@ public class Staff extends Connect {
     }
 
 
-    public void insertIntoPStaffTable(String firstName , String lastName ,String ssn , String dOb , String address , String email , double salary , String role) {
+    public void insertIntoPStaffTable(String firstName , String lastName , String ssn , String address, DatePicker dOb , String email , double salary , String role, String userName , String password) {
         try {
 
-            Connection connect = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
-            PreparedStatement statement = connect.prepareStatement("insert into staff (FirstName,LastName,SSN,Adress,DateOfbirth,Email,Salary,Role) values (?,?,?,?,?,?,?,?);");
-            statement.setString(1,firstName);
-            statement.setString(2,lastName);
-            statement.setString(3,ssn);
-            statement.setString(4,dOb);
-            statement.setString(5,address);
+            connection = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
+            PreparedStatement statement = connection.prepareStatement("insert into staff (FirstName,LastName,SSN,Adress,DateOfbirth,Email,Salary,Role) values (?,?,?,?,?,?,?,?);");
+            PreparedStatement statement1 = connection.prepareStatement("insert into login (Username,Password,staff_SSN) values (?,?,?);");
+
+            statement.setString(1,ssn);
+            statement.setString(2,firstName);
+            statement.setString(3,lastName);
+            statement.setString(4,address);
+            statement.setString(5,dOb.getEditor().getText());
             statement.setString(6,email);
             statement.setString(7, String.valueOf(salary));
             statement.setString(8,role);
+            statement1.setString(1,userName);
+            statement1.setString(2,password);
+            statement1.setString(3,ssn);
+            statement.execute();
+            statement.close();
+            statement1.execute();
+            statement1.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

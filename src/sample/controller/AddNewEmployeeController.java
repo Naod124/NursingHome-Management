@@ -1,6 +1,7 @@
 package sample.controller;
 
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,10 +14,15 @@ import sample.model.*;
 
 import java.io.*;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 
 public class AddNewEmployeeController implements Initializable {
+
+    @FXML
+    private DatePicker dOb;
     @FXML
     private ChoiceBox<String> role;
     @FXML
@@ -32,8 +38,6 @@ public class AddNewEmployeeController implements Initializable {
     @FXML
     private TextField ssn;
     @FXML
-    private DatePicker dOb;
-    @FXML
     private TextField email;
 
     private SwitchScene sc = new SwitchScene();
@@ -41,43 +45,38 @@ public class AddNewEmployeeController implements Initializable {
     private static ArrayList<Staff> staff = new ArrayList<>();
 
     public void add(ActionEvent actionEvent) throws FileNotFoundException {
-        String firstNameO = firstName.getText();
-        String lastNameO    = lastName.getText();
-        String addressO = address.getText();
-        String SSN = ssn.getText();
-        String ageO = dOb.getProperties().toString() ;
-        String Email = email.getText();
-        String username = userName.getText();
-        String password = passWord.getText();
-        String roleO = role.getValue();
-        switch (roleO){
-            case "Nurse":
-                LogIn logIn = new LogIn(username,password);
-                Nurse nurse = new Nurse(firstNameO,lastNameO,addressO,SSN,ageO,Email,logIn,20000);
-            case "Planer":
-                LogIn logIn1 = new LogIn(username,password);
-                Nurse planer = new Nurse(firstNameO,lastNameO,addressO,SSN,ageO,Email,logIn1,20000);
-            case "Assistant":
-                LogIn logIn2 = new LogIn(username,password);
-                Nurse assistant = new Nurse(firstNameO,lastNameO,addressO,SSN,ageO,Email,logIn2,20000);
-        }
+        try {
+            String firstNameO = firstName.getText();
+            String lastNameO = lastName.getText();
+            String addressO = address.getText();
+            String SSN = ssn.getText();
 
+            String Email = email.getText();
+            String username = userName.getText();
+            String password = passWord.getText();
+            String roleO = role.getValue();
+            sample.databaseConnection.Staff logIn = new sample.databaseConnection.Staff();
+            logIn.insertIntoPStaffTable(firstNameO, lastNameO, SSN, addressO, dOb, Email, 20000, roleO, username, password);
+            System.out.println("Done ! Check DataBase");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void cancel(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent , "/sample/view/admin.fxml");
+        sc.newScene(actionEvent, "/sample/view/admin.fxml");
     }
 
     public void help(ActionEvent actionEvent) {
     }
 
     public void backToMain(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent , "/sample/view/logIn.fxml");
+        sc.newScene(actionEvent, "/sample/view/logIn.fxml");
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        role.getItems().addAll("Nurse","Planer","Assistant");
+        role.getItems().addAll("Nurse", "Planer", "Assistant");
     }
 }

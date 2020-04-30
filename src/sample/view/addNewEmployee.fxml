@@ -44,9 +44,9 @@
                   <TextField fx:id="email" />
                   <TextField fx:id="userName" />
                   <TextField fx:id="passWord" />
+                  <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="150.0" />
                </children>
             </VBox>
-            <ChoiceBox fx:id="role" layoutX="204.0" layoutY="361.0" prefHeight="25.0" prefWidth="150.0" />
          </children>
       </Pane>
       <Pane layoutX="461.0" prefHeight="400.0" prefWidth="140.0" style="-fx-background-color: #4F7BFF;">

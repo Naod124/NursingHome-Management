@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sample.databaseConnection.Connect;
-import sample.databaseConnection.Medcin;
 
 public class Main extends Application {
 
@@ -16,7 +15,7 @@ public class Main extends Application {
         conn.open();
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("view/LogIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/nurse.fxml"));
         primaryStage.setTitle("Nursing Home System");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

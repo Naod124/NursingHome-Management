@@ -1,25 +1,32 @@
 package sample.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class Patient implements Serializable {
+
+    private String SSN;
     private String firstName;
     private String lastName;
-    private String address;
-    private String SSN;
-    private int age;
-    private String eMail;
-    private LogIn logIn;
-    private Stack<Diagnose> diagnoses;
+    private String dob;
+    private String gender;
+    private ArrayList<Diagnose> diagnoses;
 
-    public Patient(String firstName, String lastName, String address, String SSN, int age, String eMail) {
+    public Patient(String SSN, String firstName, String lastName, String dob, String gender) {
+        this.SSN = SSN;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address = address;
+        this.dob = dob;
+        this.gender = gender;
+    }
+
+    public String getSSN() {
+        return SSN;
+    }
+
+    public void setSSN(String SSN) {
         this.SSN = SSN;
-        this.age = age;
-        this.eMail = eMail;
     }
 
     public String getFirstName() {
@@ -38,65 +45,40 @@ public class Patient implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getAddress() {
-        return address;
+    public String getDob() {
+        return dob;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
-    public String getSSN() {
-        return SSN;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSSN(String SSN) {
-        this.SSN = SSN;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String geteMail() {
-        return eMail;
-    }
-
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
-    }
-
-    public LogIn getLogIn() {
-        return logIn;
-    }
-
-    public void setLogIn(LogIn logIn) {
-        this.logIn = logIn;
-    }
-
-    public Stack<Diagnose> getDiagnoses() {
+    public ArrayList<Diagnose> getDiagnoses() {
         return diagnoses;
     }
 
-    public void setDiagnoses(Stack<Diagnose> diagnoses) {
+    public void setDiagnoses(ArrayList<Diagnose> diagnoses) {
         this.diagnoses = diagnoses;
     }
 
     @Override
     public String toString() {
         return "Patient{" +
-                "firstName='" + firstName + '\'' +
+                "SSN='" + SSN + '\'' +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", SSN='" + SSN + '\'' +
-                ", age=" + age +
-                ", eMail='" + eMail + '\'' +
-                ", logIn=" + logIn +
+                ", dob='" + dob + '\'' +
+                ", gender='" + gender + '\'' +
                 ", diagnoses=" + diagnoses +
                 '}';
     }
+
 }

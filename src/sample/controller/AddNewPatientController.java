@@ -31,7 +31,7 @@ public class AddNewPatientController {
     private SwitchScene sc = new SwitchScene();
 
 
-    public void add(ActionEvent actionEvent) {
+  /*  public void add(ActionEvent actionEvent) {
 
         Patient patient = new Patient(firstName.getText(), lastName.getText(), address.getText(), ssn.getText(), Integer.parseInt(age.getText()), email.getText());
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("patient.ser"))) {
@@ -42,7 +42,7 @@ public class AddNewPatientController {
         }
         System.out.println(readPatient());
 
-    }
+    }*/
 
     public void cancel(ActionEvent actionEvent) throws IOException {
         sc.newScene(actionEvent, "LogIn.fxml");

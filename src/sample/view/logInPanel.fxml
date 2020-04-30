@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,7 +14,6 @@
     <children>
         <Pane layoutX="-1.0" layoutY="-1.0" prefHeight="403.0" prefWidth="438.0" style="-fx-background-color: #47A3FF;">
             <children>
-                <TextField fx:id="passWord" layoutX="215.0" layoutY="211.0" promptText="Password" />
                 <TextField fx:id="userName" layoutX="215.0" layoutY="120.0" promptText="User Name" />
                 <Label layoutX="157.0" layoutY="14.0" prefHeight="40.0" prefWidth="267.0" text="Nursing Home System" textFill="#543636">
                     <font>
@@ -31,6 +31,7 @@
                     </image>
                 </ImageView>
                 <Button layoutX="14.0" layoutY="354.0" mnemonicParsing="false" onAction="#back" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Back" />
+            <PasswordField fx:id="passWord" layoutX="215.0" layoutY="219.0" promptText="password" />
             </children>
         </Pane>
         <Pane layoutX="436.0" layoutY="-1.0" prefHeight="403.0" prefWidth="164.0" style="-fx-background-color: #4F7BFF;">

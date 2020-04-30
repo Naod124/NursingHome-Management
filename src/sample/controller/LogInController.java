@@ -25,18 +25,18 @@ public class LogInController {
 
     @FXML
     public void nurseScene(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent, "view/LogInPanel.fxml");
+        sc.newScene(actionEvent, "/sample/view/LogInPanel.fxml");
 
     }
 
     @FXML
     public void planerScene(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent, "view/LogInPanel.fxml");
+        sc.newScene(actionEvent, "/sample/view/LogInPanel.fxml");
     }
 
     @FXML
     public void adminScene(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent, "view/LogInPanel.fxml");
+        sc.newScene(actionEvent, "/sample/view/LogInPanel.fxml");
     }
 
     @FXML

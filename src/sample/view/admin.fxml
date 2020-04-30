@@ -1,55 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AdminController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AdminController">
     <children>
-        <Label fx:id="welcomeLabel" layoutX="287.0" layoutY="76.0" prefHeight="17.0" prefWidth="0.0"/>
-        <Pane layoutX="444.0" layoutY="-1.0" prefHeight="401.0" prefWidth="158.0"
-              style="-fx-background-color: #4F7BFF;">
+        <Label fx:id="welcomeLabel" layoutX="287.0" layoutY="76.0" prefHeight="17.0" prefWidth="0.0" />
+        <Pane layoutX="444.0" layoutY="-1.0" prefHeight="401.0" prefWidth="158.0" style="-fx-background-color: #4F7BFF;">
             <children>
                 <ImageView fitHeight="108.0" fitWidth="107.0" layoutX="26.0" layoutY="59.0">
                     <image>
-                        <Image url="@../medicalIcons/receptionist-icon.png"/>
+                        <Image url="@../medicalIcons/receptionist-icon.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="52.0" layoutY="201.0" mnemonicParsing="false" onAction="#help" prefHeight="40.0"
-                        prefWidth="60.0" style="-fx-background-radius: 200; -fx-background-color: #47A3FF;"
-                        text="Help"/>
+                <Button layoutX="52.0" layoutY="201.0" mnemonicParsing="false" onAction="#help" prefHeight="40.0" prefWidth="60.0" style="-fx-background-radius: 200; -fx-background-color: #47A3FF;" text="Help" />
             </children>
         </Pane>
         <Pane prefHeight="400.0" prefWidth="444.0" style="-fx-background-color: #47A3FF;">
             <children>
-                <Button layoutX="262.0" layoutY="108.0" mnemonicParsing="false" onAction="#addNewStuff"
-                        prefHeight="60.0" prefWidth="140.0"
-                        style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Add new staff"/>
-                <Button layoutX="262.0" layoutY="231.0" mnemonicParsing="false" onAction="#removeStaff"
-                        prefHeight="60.0" prefWidth="140.0"
-                        style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Remove staff"/>
-                <Button layoutX="32.0" layoutY="346.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0"
-                        prefWidth="60.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;"
-                        text="Back"/>
-                <Button layoutX="342.0" layoutY="346.0" mnemonicParsing="false" onAction="#exit" prefHeight="40.0"
-                        prefWidth="60.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;"
-                        text="Exit"/>
+                <Button layoutX="262.0" layoutY="108.0" mnemonicParsing="false" onAction="#addNewStaff" prefHeight="60.0" prefWidth="140.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Add new staff" />
+                <Button layoutX="262.0" layoutY="231.0" mnemonicParsing="false" onAction="#removeStaff" prefHeight="60.0" prefWidth="140.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Remove staff" />
+                <Button layoutX="32.0" layoutY="346.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="60.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Back" />
+                <Button layoutX="342.0" layoutY="346.0" mnemonicParsing="false" onAction="#exit" prefHeight="40.0" prefWidth="60.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Exit" />
                 <Label layoutX="112.0" layoutY="14.0" text="Nursing Home System">
                     <font>
-                        <Font name="Century Gothic" size="27.0"/>
+                        <Font name="Century Gothic" size="27.0" />
                     </font>
                 </Label>
-                <Button layoutX="25.0" layoutY="170.0" mnemonicParsing="false" onAction="#viewPatients"
-                        prefHeight="60.0" prefWidth="175.0"
-                        style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="View Patients"/>
+                <Button layoutX="25.0" layoutY="170.0" mnemonicParsing="false" onAction="#viewPatients" prefHeight="60.0" prefWidth="175.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="View Patients" />
                 <Label layoutX="62.0" layoutY="77.0" prefHeight="34.0" prefWidth="121.0" text="Admin panel">
                     <font>
-                        <Font name="Century Gothic Italic" size="18.0"/>
+                        <Font name="Century Gothic Italic" size="18.0" />
                     </font>
                 </Label>
             </children>

@@ -6,7 +6,7 @@ public class Connect {
 
 private Connection conn;
 public static final String DB_NAME = "nursinghome";
-public static final String CONNECTION_URL = "jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome";
+public static final String CONNECTION_URL = "jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome?useSSL=false";
 public static final String PASSWORD = "Vw3J!60l-0kd";
 
     public Connection getConn() {

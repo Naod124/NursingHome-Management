@@ -14,17 +14,20 @@ public class AdminController {
 
 
     public void back(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent, "LogIn.fxml");
+        sc.newScene(actionEvent, "/sample/view/LogIn.fxml");
     }
+
 
     public void exit(ActionEvent actionEvent) {
         System.exit(0);
     }
 
-    public void addNewStuff(ActionEvent actionEvent) {
+    public void addNewStaff(ActionEvent actionEvent) throws IOException {
+        sc.newScene(actionEvent, "/sample/view/addNewEmployee.fxml");
     }
 
-    public void removeStaff(ActionEvent actionEvent) {
+    public void removeStaff(ActionEvent actionEvent) throws IOException {
+        sc.newScene(actionEvent, "/sample/view/removeEmployee.fxml");
     }
 
     public void viewPatients(ActionEvent actionEvent) {

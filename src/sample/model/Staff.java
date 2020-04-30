@@ -5,17 +5,17 @@ public class Staff {
     private String lastName ;
     private String address ;
     private String SSN ;
-    private int age ;
+    private String dOb ;
     private String eMail;
     private LogIn logIn;
     private double salary ;
 
-    public Staff(String firstName, String lastName, String address, String SSN, int age, String eMail, LogIn logIn, double salary) {
+    public Staff(String firstName, String lastName, String address, String SSN, String dOb, String eMail, LogIn logIn, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.SSN = SSN;
-        this.age = age;
+        this.dOb = dOb;
         this.eMail = eMail;
         this.logIn = logIn;
         this.salary = salary;
@@ -53,12 +53,12 @@ public class Staff {
         this.SSN = SSN;
     }
 
-    public int getAge() {
-        return age;
+    public String getdOb() {
+        return dOb;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setdOb(String age) {
+        this.dOb = dOb;
     }
 
     public String geteMail() {

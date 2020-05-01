@@ -23,7 +23,6 @@ import java.sql.*;
 import java.util.ResourceBundle;
 
 public class ManagePatientController implements Initializable {
-
     private ObservableList<PatientTable> obList = FXCollections.observableArrayList();
     private Connection conn;
     PreparedStatement pstmt = null;
@@ -40,7 +39,7 @@ public class ManagePatientController implements Initializable {
     @FXML private TextField lastnametextfield;
     @FXML private TextField datetextfield;
     @FXML private TextField gendertextfield;
-
+    private SwitchScene sc = new SwitchScene();
 
 
     public void refreshDataSource(){
@@ -215,19 +214,7 @@ public class ManagePatientController implements Initializable {
 
     @FXML
     public void back(ActionEvent ae) throws IOException {
-        Node node = (Node) ae.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/nurse.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            System.out.println("Hi");
-        }
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        sc.newScene(ae,"/sample/view/nurse.fxml");
     }
 
     @FXML

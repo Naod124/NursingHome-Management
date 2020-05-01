@@ -7,6 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+
     <orderEntry type="library" exported="" name="lib" level="project" />
     <orderEntry type="module-library">
       <library>
@@ -21,14 +22,6 @@
       <library>
         <CLASSES>
           <root url="jar://$USER_HOME$/Desktop/mysql-connector-java-8.0.11.jar!/" />
-
-    <orderEntry type="library" name="jfoenix-9.0.8" level="project" />
-    <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/mysql-connector-java-8.0.20/mysql-connector-java-8.0.20/mysql-connector-java-8.0.20.jar!/" />
-
         </CLASSES>
         <JAVADOC />
         <SOURCES />

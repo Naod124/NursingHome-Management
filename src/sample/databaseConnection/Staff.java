@@ -1,8 +1,5 @@
 package sample.databaseConnection;
 
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
-
 import java.sql.*;
 
 public class Staff  {
@@ -21,7 +18,6 @@ public class Staff  {
             connection = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
             PreparedStatement statement = connection.prepareStatement("insert into staff (FirstName,LastName,SSN,Adress,DateOfbirth,Email,Salary,Role) values (?,?,?,?,?,?,?,?);");
             PreparedStatement statement1 = connection.prepareStatement("insert into login (Username,Password,staff_SSN) values (?,?,?);");
-
             statement.setString(1,firstName);
             statement.setString(2,lastName);
             statement.setString(3,ssn);
@@ -45,8 +41,14 @@ public class Staff  {
     public void updateIntoStaffTable() {
 
     }
-    public void viewStaffTable() {
-
+    public void viewAllStaffTable() {
+        try {
+            connection = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
+            PreparedStatement statement = connection.prepareStatement("select * from staff;");
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     public int verifyStaffLogin(String username, String password) { // The Log in verification method. Returns 1 incase found, else
         try {

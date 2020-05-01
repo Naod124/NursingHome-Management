@@ -1,39 +1,104 @@
 package sample.controller;
 
-import com.jfoenix.controls.JFXCheckBox;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
-import sample.model.Staff;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import sample.model.StaffTable;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.net.URL;
-import java.util.ArrayList;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class RemoveEmployeeController implements Initializable {
     @FXML
-    private JFXCheckBox all;
+    private TableColumn<StaffTable, String> firstName;
     @FXML
-    private JFXCheckBox doctor;
+    private TableColumn<StaffTable, String> lastName ;
     @FXML
-    private JFXCheckBox nurse;
+    private TableColumn<StaffTable, String> ssn;
     @FXML
-    private JFXCheckBox planer;
+    private TableColumn<StaffTable, String> email;
     @FXML
-    private JFXCheckBox assistant;
+    private TableColumn<StaffTable, String> address;
     @FXML
+    private TableColumn<StaffTable, String> role;
+    @FXML
+    private CheckBox all;
+    @FXML
+    private CheckBox nurses;
+    @FXML
+    private CheckBox planers;
+    @FXML
+    private TableView<StaffTable> employeesTable;
+
+    private Connection conn;
+    private PreparedStatement pstmt;
+
+    private ObservableList<StaffTable> obList = FXCollections.observableArrayList();
+
     private ComboBox<String> staffToView;
-    @FXML
-    private ListView<String> employees;
-    ArrayList<Staff> staff = new ArrayList<>();
+
+    private sample.databaseConnection.Staff DB = new sample.databaseConnection.Staff();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            viewStaff();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public void removeEmployee(ActionEvent actionEvent) {
+
+    }
+
+    public void back(ActionEvent actionEvent) {
+    }
+
+    public void backToMain(ActionEvent actionEvent) {
+    }
+
+    public void help(ActionEvent actionEvent) {
+    }
+
+    public void viewStaff() throws SQLException {
+        ResultSet rs;
+        String selectQuery = "SELECT * FROM STAFF;";
+
+        conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                "nursinghome", "Vw3J!60l-0kd");
+        rs = conn.createStatement().executeQuery(selectQuery);
+
+        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        ssn.setCellValueFactory(new PropertyValueFactory<>("ssn"));
+        email.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        address.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        role.setCellValueFactory(new PropertyValueFactory<>("Role"));
+
+        while (rs.next()) {
+            StaffTable pt = new StaffTable("FirstName","LastName", "SSN", "E-mail", "Address", "Role");
+
+            pt.setFirstName(rs.getString("FirstName"));
+            pt.setLastName(rs.getString("LastName"));
+            pt.setSsn(rs.getString("ssn"));
+            pt.setEmail(rs.getString("Email"));
+            pt.setAddress(rs.getString("Adress"));
+            pt.setRole(rs.getString("Role"));
+
+            obList.add(pt);
+
+        }
+
+        employeesTable.setItems(obList);
 
     }
 }

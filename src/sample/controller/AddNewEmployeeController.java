@@ -1,11 +1,8 @@
 package sample.controller;
 
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDatePicker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -16,13 +13,11 @@ import java.io.*;
 import java.net.URL;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 
 public class AddNewEmployeeController implements Initializable {
-
     @FXML
-    private DatePicker dOb;
+    private TextField dOb;
     @FXML
     private ChoiceBox<String> role;
     @FXML
@@ -50,13 +45,13 @@ public class AddNewEmployeeController implements Initializable {
             String lastNameO = lastName.getText();
             String addressO = address.getText();
             String SSN = ssn.getText();
-
+            String dob = dOb.getText();
             String Email = email.getText();
             String username = userName.getText();
             String password = passWord.getText();
             String roleO = role.getValue();
             sample.databaseConnection.Staff logIn = new sample.databaseConnection.Staff();
-            logIn.insertIntoPStaffTable(firstNameO, lastNameO, SSN, addressO, dOb, Email, 20000, roleO, username, password);
+            logIn.insertIntoPStaffTable(firstNameO, lastNameO, SSN, addressO, dob, Email, 20000, roleO, username, password);
             System.out.println("Done ! Check DataBase");
         } catch (Exception e) {
             e.printStackTrace();

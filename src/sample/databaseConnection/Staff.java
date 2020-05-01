@@ -15,18 +15,18 @@ public class Staff  {
     }
 
 
-    public void insertIntoPStaffTable(String firstName , String lastName , String ssn , String address, DatePicker dOb , String email , double salary , String role, String userName , String password) {
+    public void insertIntoPStaffTable(String firstName , String lastName , String ssn , String address, String dOb , String email , double salary , String role, String userName , String password) {
         try {
 
             connection = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
             PreparedStatement statement = connection.prepareStatement("insert into staff (FirstName,LastName,SSN,Adress,DateOfbirth,Email,Salary,Role) values (?,?,?,?,?,?,?,?);");
             PreparedStatement statement1 = connection.prepareStatement("insert into login (Username,Password,staff_SSN) values (?,?,?);");
 
-            statement.setString(1,ssn);
-            statement.setString(2,firstName);
-            statement.setString(3,lastName);
+            statement.setString(1,firstName);
+            statement.setString(2,lastName);
+            statement.setString(3,ssn);
             statement.setString(4,address);
-            statement.setString(5,dOb.getEditor().getText());
+            statement.setString(5, dOb);
             statement.setString(6,email);
             statement.setString(7, String.valueOf(salary));
             statement.setString(8,role);

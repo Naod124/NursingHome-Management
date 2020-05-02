@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.model.StaffTable;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -20,7 +21,7 @@ public class RemoveEmployeeController implements Initializable {
     @FXML
     private TableColumn<StaffTable, String> firstName;
     @FXML
-    private TableColumn<StaffTable, String> lastName ;
+    private TableColumn<StaffTable, String> lastName;
     @FXML
     private TableColumn<StaffTable, String> ssn;
     @FXML
@@ -40,6 +41,7 @@ public class RemoveEmployeeController implements Initializable {
 
     private Connection conn;
     private PreparedStatement pstmt;
+    private SwitchScene sc = new SwitchScene();
 
     private ObservableList<StaffTable> obList = FXCollections.observableArrayList();
 
@@ -49,6 +51,7 @@ public class RemoveEmployeeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        employeesTable.setEditable(true);
         try {
             viewStaff();
         } catch (SQLException e) {
@@ -56,14 +59,16 @@ public class RemoveEmployeeController implements Initializable {
         }
     }
 
-    public void removeEmployee(ActionEvent actionEvent) {
-
+    public void removeEmployee(ActionEvent actionEvent) throws SQLException {
+        deleteEmployeeFromTable();
     }
 
-    public void back(ActionEvent actionEvent) {
+    public void back(ActionEvent actionEvent) throws IOException {
+        sc.newScene(actionEvent,"/sample/view/admin.fxml");
     }
 
-    public void backToMain(ActionEvent actionEvent) {
+    public void backToMain(ActionEvent actionEvent) throws IOException {
+        sc.newScene(actionEvent,"/sample/view/logIn.fxml");
     }
 
     public void help(ActionEvent actionEvent) {
@@ -85,7 +90,7 @@ public class RemoveEmployeeController implements Initializable {
         role.setCellValueFactory(new PropertyValueFactory<>("Role"));
 
         while (rs.next()) {
-            StaffTable pt = new StaffTable("FirstName","LastName", "SSN", "E-mail", "Address", "Role");
+            StaffTable pt = new StaffTable("FirstName", "LastName", "SSN", "E-mail", "Address", "Role");
 
             pt.setFirstName(rs.getString("FirstName"));
             pt.setLastName(rs.getString("LastName"));
@@ -100,6 +105,19 @@ public class RemoveEmployeeController implements Initializable {
 
         employeesTable.setItems(obList);
 
+    }
+
+    public void deleteEmployeeFromTable() throws SQLException {
+        conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                "nursinghome", "Vw3J!60l-0kd");
+        StaffTable employeeToremove = employeesTable.getSelectionModel().getSelectedItem();
+        String deleteQuery = "DELETE FROM staff WHERE SSN = ?";
+        pstmt = conn.prepareStatement(deleteQuery);
+        pstmt.setString(1, employeeToremove.getSsn());
+        pstmt.executeUpdate();
+        employeesTable.getItems().clear();
+        viewStaff();
+        System.out.println("Database updated !");
     }
 }
 

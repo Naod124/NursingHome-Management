@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import sample.model.PatientTable;
+import sample.model.StaffTable;
 
 import java.io.IOException;
 import java.sql.*;
@@ -26,13 +27,6 @@ public class RemovePatientController {
 
 
     @FXML private TableView<PatientTable> table;
-
-
-    @FXML private Button deletebutton;
-    @FXML private Button viewbutton;
-    @FXML private Button backbutton;
-    @FXML private Button exitbutton;
-    @FXML private TextField ssntextfield;
     @FXML private TableColumn<PatientTable, String> ssncol;
     @FXML private TableColumn <PatientTable, String> firstnamecol;
     @FXML private TableColumn <PatientTable, String> lastnamecol;
@@ -76,16 +70,16 @@ public class RemovePatientController {
         conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
                 "nursinghome", "Vw3J!60l-0kd");
         try {
+            PatientTable customerToremove = table.getSelectionModel().getSelectedItem();
             String updateQuery = "DELETE FROM patient WHERE SSN = ?";
             pstmt = conn.prepareStatement(updateQuery);
-            pstmt.setString(1, ssntextfield.getText());
+            pstmt.setString(1, customerToremove.getSsn());
             pstmt.executeUpdate();
             Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setHeaderText("Information removed");
+            a.setHeaderText("Patient removed");
             a.showAndWait();
             table.getItems().clear();
             viewpatient();
-            ssntextfield.clear();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

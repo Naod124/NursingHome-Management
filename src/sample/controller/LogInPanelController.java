@@ -22,7 +22,7 @@ public class LogInPanelController {
     public void logIn(ActionEvent actionEvent) throws IOException, SQLException {//i will add later some sql statements once the database is done
         Staff login = new Staff();
         int row = login.verifyStaffLogin(userName.getText(), passWord.getText());
-        System.out.println(row);
+
 
         if (row == 1 && userName.getText().endsWith("@admin.com")) {
                 SwitchScene sc = new SwitchScene();

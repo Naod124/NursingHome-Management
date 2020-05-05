@@ -2,10 +2,8 @@ package sample.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-import sample.databaseConnection.Connect;
-import sample.databaseConnection.Staff;
+import sample.databaseConnection.StaffQueries;
 
 import java.io.IOException;
 import java.sql.*;
@@ -20,7 +18,7 @@ public class LogInPanelController {
     }
 
     public void logIn(ActionEvent actionEvent) throws IOException, SQLException {//i will add later some sql statements once the database is done
-        Staff login = new Staff();
+        StaffQueries login = new StaffQueries();
         int row = login.verifyStaffLogin(userName.getText(), passWord.getText());
         System.out.println(row);
 

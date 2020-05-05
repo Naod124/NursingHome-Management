@@ -19,7 +19,7 @@
                     </font>
                 </Label>
                 <Button fx:id="exitbutton" layoutX="14.0" layoutY="365.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Exit" />
-                <Button fx:id="backbutton" layoutX="415.0" layoutY="365.0" mnemonicParsing="false" onAction="#back" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Back" />
+                <Button fx:id="backbutton" layoutX="409.0" layoutY="365.0" mnemonicParsing="false" onAction="#back" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Sign out" />
                 <VBox layoutX="118.0" layoutY="103.0" prefHeight="278.0" prefWidth="167.0" spacing="30.0">
                     <children>
                   <Button fx:id="managepatientbutton" mnemonicParsing="false" onAction="#managepatientscene" prefHeight="31.0" prefWidth="177.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Add/update patient info" />

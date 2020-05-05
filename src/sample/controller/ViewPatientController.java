@@ -34,7 +34,7 @@ public class ViewPatientController implements Initializable {
     private SwitchScene sc = new SwitchScene();
     private ObservableList<PatientTable> obList = FXCollections.observableArrayList();
 
-    public void exit(ActionEvent actionEvent) {
+    public void exit() {
         System.exit(0);
     }
 

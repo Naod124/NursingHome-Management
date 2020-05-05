@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,9 +16,11 @@ import sample.model.PatientTable;
 import sample.model.StaffTable;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
+import java.util.ResourceBundle;
 
-public class RemovePatientController {
+public class RemovePatientController implements Initializable {
 
     ManagePatientController mp = new ManagePatientController();
 
@@ -33,7 +36,16 @@ public class RemovePatientController {
     @FXML private TableColumn <PatientTable, String> dobcol;
     @FXML private TableColumn <PatientTable, String> gendercol;
 
-@FXML public void viewpatient() throws SQLException {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            viewpatient();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+ public void viewpatient() throws SQLException {
     ResultSet rs;
     String selectQuery = "SELECT * FROM PATIENT;";
 
@@ -107,8 +119,6 @@ public class RemovePatientController {
         System.exit(0);
 
     }
-
-
 
 
 

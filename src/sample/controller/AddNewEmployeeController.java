@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import sample.databaseConnection.StaffQueries;
+
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,7 +44,7 @@ public class AddNewEmployeeController implements Initializable {
             String username = userName.getText();
             String password = passWord.getText();
             String roleO = role.getValue();
-            sample.databaseConnection.Staff logIn = new sample.databaseConnection.Staff();
+            StaffQueries logIn = new StaffQueries();
             logIn.insertIntoPStaffTable(firstNameO, lastNameO, SSN, addressO, dob, Email, 20000, roleO, username, password);
             System.out.println("Done ! Check DataBase");
         } catch (Exception e) {

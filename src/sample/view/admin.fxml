@@ -25,8 +25,8 @@
             <children>
                 <Button layoutX="62.0" layoutY="201.0" mnemonicParsing="false" onAction="#addNewStaff" prefHeight="60.0" prefWidth="107.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Add new staff" />
                 <Button layoutX="66.0" layoutY="278.0" mnemonicParsing="false" onAction="#removeStaff" prefHeight="60.0" prefWidth="107.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Remove staff" />
-                <Button layoutX="342.0" layoutY="298.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="60.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Back" />
-                <Button layoutX="342.0" layoutY="346.0" mnemonicParsing="false" onAction="#exit" prefHeight="40.0" prefWidth="60.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Exit" />
+                <Button layoutX="332.0" layoutY="298.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="70.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Sign out" />
+                <Button layoutX="332.0" layoutY="346.0" mnemonicParsing="false" onAction="#exit" prefHeight="40.0" prefWidth="70.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Exit" />
                 <Label layoutX="112.0" layoutY="14.0" text="Nursing Home System">
                     <font>
                         <Font name="Century Gothic" size="27.0" />

@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Diagnos  {
+public class DiagnosQueries {
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
 
-    public Diagnos(){
+    public DiagnosQueries(){
     }
 
 

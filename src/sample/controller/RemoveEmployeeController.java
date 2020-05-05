@@ -10,6 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import sample.databaseConnection.StaffQueries;
 import sample.model.StaffTable;
 
 import java.io.IOException;
@@ -47,7 +48,7 @@ public class RemoveEmployeeController implements Initializable {
 
     private ComboBox<String> staffToView;
 
-    private sample.databaseConnection.Staff DB = new sample.databaseConnection.Staff();
+    private StaffQueries DB = new StaffQueries();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

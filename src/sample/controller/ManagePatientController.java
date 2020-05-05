@@ -26,9 +26,9 @@ public class ManagePatientController implements Initializable {
     private ObservableList<PatientTable> obList = FXCollections.observableArrayList();
     private Connection conn;
     PreparedStatement pstmt = null;
+   private ResultSet rs;
 
     @FXML private TableView <PatientTable> table;
-
     @FXML private TableColumn <PatientTable, String> ssncol;
     @FXML private TableColumn <PatientTable, String> firstnamecol;
     @FXML private TableColumn <PatientTable, String> lastnamecol;
@@ -60,49 +60,16 @@ public class ManagePatientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        table.setEditable(true);
-        ssncol.setEditable(true);
-
-
+        try {
+            handleView();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void statements(){
-    try {
-        conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
-        pstmt.setString(1,ssntextfield.getText());
-        pstmt.setString(2,firstnametextfield.getText());
-        pstmt.setString(3,lastnametextfield.getText());
-        pstmt.setString(4,datetextfield.getText());
-        pstmt.setString(5,gendertextfield.getText());
-        pstmt.executeUpdate();
-        Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-        a.setHeaderText("Information updated");
-        a.showAndWait();
-
-
-    } catch (SQLException e) {
-        System.out.println(e.getMessage());
-    }
-    }
 
     @FXML
     public void handleAdd(ActionEvent ae){
-      /*  table.getItems().clear();
-        if (ae.getSource() == addbutton){
-
-            for (int i = 0; i < DataSource.getInstance().getPatient().size(); i++) {
-                obList.add(new PatientTable(DataSource.getInstance().getPatient().get(i).getSSN(),
-                        DataSource.getInstance().getPatient().get(i).getFirstName(),
-                        DataSource.getInstance().getPatient().get(i).getLastName(),
-                        DataSource.getInstance().getPatient().get(i).getDob(),
-                        DataSource.getInstance().getPatient().get(i).getGender()));
-            }
-            table.setItems(obList);
-            refreshDataSource();
-
-        }
-*/
       try{
           conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
                   "nursinghome", "Vw3J!60l-0kd");
@@ -117,8 +84,8 @@ public class ManagePatientController implements Initializable {
           Alert a = new Alert(Alert.AlertType.CONFIRMATION);
           a.setHeaderText("Information added");
           a.showAndWait();
-          table.getItems().clear();
-          handleView();
+         table.getItems().clear();
+         handleView();
           ssntextfield.clear();
           firstnametextfield.clear();
           lastnametextfield.clear();
@@ -162,13 +129,20 @@ public class ManagePatientController implements Initializable {
 
 
 
-      @FXML public void handleView() throws SQLException {
-          ResultSet rs;
+       public void handleView() throws SQLException {
           String selectQuery = "SELECT * FROM PATIENT;";
 
-          conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                  "nursinghome", "Vw3J!60l-0kd");
-          rs = conn.createStatement().executeQuery(selectQuery);
+          try {
+              conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                      "nursinghome", "Vw3J!60l-0kd");
+          } catch (SQLException e) {
+              e.printStackTrace();
+          }
+          try {
+              rs = conn.createStatement().executeQuery(selectQuery);
+          } catch (SQLException e) {
+              e.printStackTrace();
+          }
 
 
           ssncol.setCellValueFactory(new PropertyValueFactory<>("Ssn"));
@@ -178,15 +152,40 @@ public class ManagePatientController implements Initializable {
           gendercol.setCellValueFactory(new PropertyValueFactory<>("Gender"));
 
 
-          while (rs.next()){
+          while (true){
+              try {
+                  if (!rs.next()) break;
+              } catch (SQLException e) {
+                  e.printStackTrace();
+              }
               PatientTable pt = new PatientTable("SSN", "FirstName", "LastName","DateOfBirth","Gender");
 
 
-              pt.setSsn(rs.getString("SSN"));
-              pt.setFirstName(rs.getString("FirstName"));
-              pt.setLastName(rs.getString("LastName"));
-              pt.setDateOfBirth(rs.getString("DateOfBirth"));
-              pt.setGender(rs.getString("Gender"));
+              try {
+                  pt.setSsn(rs.getString("SSN"));
+              } catch (SQLException e) {
+                  e.printStackTrace();
+              }
+              try {
+                  pt.setFirstName(rs.getString("FirstName"));
+              } catch (SQLException e) {
+                  e.printStackTrace();
+              }
+              try {
+                  pt.setLastName(rs.getString("LastName"));
+              } catch (SQLException e) {
+                  e.printStackTrace();
+              }
+              try {
+                  pt.setDateOfBirth(rs.getString("DateOfBirth"));
+              } catch (SQLException e) {
+                  e.printStackTrace();
+              }
+              try {
+                  pt.setGender(rs.getString("Gender"));
+              } catch (SQLException e) {
+                  e.printStackTrace();
+              }
 
               obList.add(pt);
 
@@ -209,8 +208,8 @@ public class ManagePatientController implements Initializable {
                                 DataSource.getInstance().getPatient().get(i).getGender()));
 
       }
-          table.getItems().addAll(obList);
-*/}
+          table.getItems().addAll(obList);*/
+}
 
     @FXML
     public void back(ActionEvent ae) throws IOException {

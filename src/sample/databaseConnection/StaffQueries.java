@@ -2,13 +2,13 @@ package sample.databaseConnection;
 
 import java.sql.*;
 
-public class Staff  {
+public class StaffQueries {
 
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
 
-    public Staff() {
+    public StaffQueries() {
     }
 
 

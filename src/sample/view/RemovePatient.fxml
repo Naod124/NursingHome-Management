@@ -29,8 +29,7 @@
                         <TableColumn fx:id="gendercol" prefWidth="75.0" text="Gender" />
                     </columns>
                 </TableView>
-                <Button fx:id="deletebutton" layoutX="268.0" layoutY="338.0" mnemonicParsing="false" onAction="#removePatient" text="Delete" />
-                <Button fx:id="viewbutton" layoutX="155.0" layoutY="338.0" mnemonicParsing="false" onAction="#viewpatient" prefHeight="27.0" prefWidth="58.0" text="View" />
+                <Button fx:id="deletebutton" layoutX="264.0" layoutY="338.0" mnemonicParsing="false" onAction="#removePatient" prefHeight="27.0" prefWidth="62.0" text="Delete" />
             </children>
         </Pane>
         <Pane layoutX="485.0" prefHeight="438.0" prefWidth="174.0" style="-fx-background-color: #4F7BFF;">

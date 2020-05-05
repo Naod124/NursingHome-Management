@@ -31,8 +31,7 @@
               </columns>
             </TableView>
             <Button fx:id="addbutton" layoutX="64.0" layoutY="325.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #4F7BFF; -fx-background-radius: 200;" text="Add" />
-            <Button fx:id="updatebutton" layoutX="161.0" layoutY="325.0" mnemonicParsing="false" onAction="#handleupdate" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #4F7BFF; -fx-background-radius: 200;" text="Update" />
-            <Button fx:id="viewbutton" layoutX="258.0" layoutY="325.0" mnemonicParsing="false" onAction="#handleView" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #4F7BFF; -fx-background-radius: 200;" text="View" />
+            <Button fx:id="updatebutton" layoutX="161.0" layoutY="325.0" mnemonicParsing="false" onAction="#handleupdate" prefHeight="27.0" prefWidth="68.0" style="-fx-background-color: #4F7BFF; -fx-background-radius: 200;" text="Update" />
             <TextField fx:id="ssntextfield" layoutX="453.0" layoutY="39.0" prefHeight="27.0" prefWidth="98.0" promptText="yymmdd****" />
             <TextField fx:id="firstnametextfield" layoutX="453.0" layoutY="111.0" prefHeight="27.0" prefWidth="98.0" promptText="First Name" />
             <TextField fx:id="lastnametextfield" layoutX="453.0" layoutY="185.0" prefHeight="27.0" prefWidth="98.0" promptText="Last Name" />

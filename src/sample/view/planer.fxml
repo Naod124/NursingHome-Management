@@ -18,7 +18,7 @@
                   <Font name="Century Gothic" size="27.0" />
                </font>
             </Label>
-            <Button layoutX="114.0" layoutY="127.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="143.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Create daily schedule" />
+            <Button layoutX="114.0" layoutY="127.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="169.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Create daily schedule" />
             <Label layoutX="84.0" layoutY="72.0" text="Planer panel">
                <font>
                   <Font size="20.0" />

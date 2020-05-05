@@ -2,12 +2,12 @@ package sample.databaseConnection;
 
  import java.sql.*;
 
-public class Medcin {
+public class MedcinQueries {
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
 
-    public Medcin(){
+    public MedcinQueries(){
     }
 
 

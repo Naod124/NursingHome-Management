@@ -1,18 +1,12 @@
 package sample.controller;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import sample.databaseConnection.PatientQueries;
 import sample.model.DataSource;
 import sample.model.PatientTable;
@@ -193,22 +187,6 @@ public class ManagePatientController implements Initializable {
 
           table.setItems(obList);
 
-
-
-         /* PatientQueries p = new PatientQueries();
-
-          DataSource.getInstance().setPatient(p.getPatientsinfo());
-
-        for (int i = 0; i < DataSource.getInstance().getPatient().size(); i++) {
-                        obList.addAll(new PatientTable(
-                                DataSource.getInstance().getPatient().get(i).getSSN(),
-                                DataSource.getInstance().getPatient().get(i).getFirstName() ,
-                                       DataSource.getInstance().getPatient().get(i).getLastName(),
-                                DataSource.getInstance().getPatient().get(i).getDob(),
-                                DataSource.getInstance().getPatient().get(i).getGender()));
-
-      }
-          table.getItems().addAll(obList);*/
 }
 
     @FXML

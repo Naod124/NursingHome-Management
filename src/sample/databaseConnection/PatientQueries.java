@@ -45,7 +45,7 @@ public class PatientQueries  {
 
             rs = stmt.executeQuery(viewQuery);
             while (rs.next()){
-                for (int i = 0; i < DataSource.getInstance().getPatient().size(); i++) {
+
 
                     patientsinfo.add(new sample.model.Patient(
                             rs.getString(1),
@@ -53,13 +53,14 @@ public class PatientQueries  {
                             rs.getString(3),
                             rs.getString(4),
                             rs.getString(5)));
-                }
+
            }
             connection.close();
         } catch (Exception e) {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
+
     }
     public void insertIntoPatientTable(String SSN, String FirstName, String LastName, String DateOfBirth, String Gender)
             throws SQLException {

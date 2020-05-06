@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class PatientTable {
 
 
-    private SimpleStringProperty ssn,firstName,lastName,dateOfBirth,gender;
+    private SimpleStringProperty ssn,firstName,lastName,fullName,dateOfBirth,gender,timeTo, timeFrom,description;
 
     public PatientTable(String ssn, String firstName,
                         String lastName, String dateOfBirth, String gender) {
@@ -16,6 +16,44 @@ public class PatientTable {
         this.gender = new SimpleStringProperty(gender);
     }
 
+    public PatientTable(String fullName, String timeTo, String timeFrom, String description) {
+        this.fullName = new SimpleStringProperty(fullName);
+        this.timeTo = new SimpleStringProperty(timeTo);
+        this.timeFrom = new SimpleStringProperty(timeFrom);
+        this.description = new SimpleStringProperty(description);
+    }
+
+    public String getFullName() {
+        return fullName.get();
+    }
+
+    public SimpleStringProperty fullNameProperty() {
+        return fullName;
+    }
+
+    public String getTimeTo() {
+        return timeTo.get();
+    }
+
+    public SimpleStringProperty timeToProperty() {
+        return timeTo;
+    }
+
+    public String getTimeFrom() {
+        return timeFrom.get();
+    }
+
+    public SimpleStringProperty timeFromProperty() {
+        return timeFrom;
+    }
+
+    public String getDescription() {
+        return description.get();
+    }
+
+    public SimpleStringProperty descriptionProperty() {
+        return description;
+    }
 
     public String getSsn() {
         return ssn.get();

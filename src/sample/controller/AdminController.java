@@ -36,4 +36,7 @@ public class AdminController {
 
     public void help(ActionEvent actionEvent) {
     }
+
+    public void viewAllEmployees(ActionEvent actionEvent) {
+    }
 }

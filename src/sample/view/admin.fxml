@@ -11,12 +11,12 @@
 
 <AnchorPane prefHeight="469.0" prefWidth="676.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AdminController">
     <children>
-          <Button layoutX="590.0" layoutY="415.0" mnemonicParsing="false" onAction="#help" prefHeight="44.0" prefWidth="72.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Help" textFill="#0db9de">
+          <Button layoutX="554.0" layoutY="415.0" mnemonicParsing="false" onAction="#help" prefHeight="46.0" prefWidth="108.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="Help" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-          <Button layoutX="14.0" layoutY="415.0" mnemonicParsing="false" onAction="#back" prefHeight="44.0" prefWidth="108.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Sign out" textFill="#0db9de">
+          <Button layoutX="14.0" layoutY="415.0" mnemonicParsing="false" onAction="#back" prefHeight="44.0" prefWidth="108.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="Sign out" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
@@ -39,21 +39,26 @@
             </ImageView>
          </graphic>
       </Label>
-      <VBox layoutX="233.0" layoutY="126.0" prefHeight="163.0" prefWidth="210.0" spacing="30.0">
+      <VBox alignment="CENTER" layoutX="207.0" layoutY="93.0" prefHeight="357.0" prefWidth="262.0" spacing="20.0">
          <children>
-                <Button alignment="CENTER" mnemonicParsing="false" onAction="#addNewStaff" prefHeight="44.0" prefWidth="213.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Add new employee" textFill="#0db9de">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#viewAllEmployees" prefHeight="46.0" prefWidth="262.0" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="View all employees" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font></Button>
+            <Separator prefHeight="2.0" prefWidth="262.0" style="-fx-background-color: #0db9de;" />
+                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#viewPatients" prefHeight="46.0" prefWidth="265.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="View all Patients" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Button>
-            <Separator prefHeight="200.0" style="-fx-background-color: #0db9de;" />
-                <Button alignment="CENTER" mnemonicParsing="false" onAction="#removeStaff" prefHeight="44.0" prefWidth="213.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Remove employee" textFill="#0db9de">
+            <Separator prefHeight="0.0" prefWidth="262.0" style="-fx-background-color: #0db9de;" />
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#addNewStaff" prefHeight="46.0" prefWidth="265.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="Add new employee" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Button>
-            <Separator prefHeight="200.0" style="-fx-background-color: #0db9de;" />
-                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#viewPatients" prefHeight="44.0" prefWidth="212.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="View Patients" textFill="#0db9de">
+            <Separator prefHeight="0.0" prefWidth="262.0" style="-fx-background-color: #0db9de;" />
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#removeStaff" prefHeight="46.0" prefWidth="262.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="Remove employee" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="20.0" />
                </font>

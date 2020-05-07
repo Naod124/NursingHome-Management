@@ -50,51 +50,51 @@
       </Button>
       <VBox layoutX="890.0" layoutY="109.0" prefHeight="287.0" prefWidth="117.0" spacing="33.0">
          <children>
-            <TextField fx:id="ssntextfield" prefHeight="27.0" prefWidth="98.0" promptText="yymmdd****" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1;">
+            <TextField fx:id="ssntextfield" prefHeight="30.0" prefWidth="117.0" promptText="yymmdd****" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1; -fx-border-radius: 200;">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding></TextField>
-            <TextField fx:id="firstnametextfield" prefHeight="27.0" prefWidth="98.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1;">
+            <TextField fx:id="firstnametextfield" prefHeight="30.0" prefWidth="117.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1; -fx-border-radius: 200;">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding></TextField>
-            <TextField fx:id="lastnametextfield" prefHeight="27.0" prefWidth="98.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1;">
+            <TextField fx:id="lastnametextfield" prefHeight="30.0" prefWidth="117.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1; -fx-border-radius: 200;">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding></TextField>
-            <TextField fx:id="gendertextfield" prefHeight="27.0" prefWidth="98.0" promptText="Gender" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1;">
+            <TextField fx:id="gendertextfield" prefHeight="30.0" prefWidth="117.0" promptText="Gender" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1; -fx-border-radius: 200;">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding></TextField>
-            <TextField fx:id="datetextfield" prefHeight="27.0" prefWidth="98.0" promptText="yyyy-mm-dd" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1;">
+            <TextField fx:id="datetextfield" prefHeight="30.0" prefWidth="117.0" promptText="yyyy-mm-dd" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1; -fx-border-radius: 200;">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding></TextField>
          </children>
       </VBox>
-      <VBox alignment="CENTER" layoutX="787.0" layoutY="110.0" prefHeight="265.0" prefWidth="100.0" spacing="40.0">
+      <VBox alignment="CENTER" layoutX="787.0" layoutY="110.0" prefHeight="265.0" prefWidth="100.0" spacing="43.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="40.0" text="SSN: " textFill="#0db9de">
+            <Label prefHeight="17.0" prefWidth="40.0" text="SSN" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label text="First name:" textFill="#0db9de">
+            <Label text="First name" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label text="Last name:" textFill="#0db9de">
+            <Label text="Last name" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label text="Gender:" textFill="#0db9de">
+            <Label text="Gender" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label text="Date of birth:" textFill="#0db9de">
+            <Label text="Date of birth" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>

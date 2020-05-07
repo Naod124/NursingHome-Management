@@ -5,45 +5,61 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.NurseController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.NurseController">
     <children>
-        <Pane prefHeight="418.0" prefWidth="492.0" style="-fx-background-color: #47A3FF;">
-            <children>
-                <Label layoutX="145.0" layoutY="14.0" text="Nursing Home System" textFill="WHITE">
-                    <font>
-                        <Font name="Century Gothic" size="27.0" />
-                    </font>
-                </Label>
-                <Button fx:id="exitbutton" layoutX="14.0" layoutY="365.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Exit" />
-                <Button fx:id="backbutton" layoutX="409.0" layoutY="365.0" mnemonicParsing="false" onAction="#back" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Sign out" />
-                <VBox layoutX="118.0" layoutY="103.0" prefHeight="278.0" prefWidth="167.0" spacing="30.0">
-                    <children>
-                  <Button fx:id="managepatientbutton" mnemonicParsing="false" onAction="#managepatientscene" prefHeight="31.0" prefWidth="177.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Add/update patient info" />
-                        <Button fx:id="removepatientbutton" mnemonicParsing="false" onAction="#removescene" prefHeight="32.0" prefWidth="178.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Remove patient" />
-                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="169.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Check Schedule" />
-                        <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="169.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Get Assigned patients" />
-                    </children>
-                </VBox>
-                <Label layoutX="31.0" layoutY="58.0" text="Nurse Panel" textFill="#f5f5f5">
-                    <font>
-                        <Font name="Century Gothic Italic" size="20.0" />
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Pane layoutX="490.0" prefHeight="418.0" prefWidth="144.0" style="-fx-background-color: #4F7BFF;">
-            <children>
-                <ImageView fitHeight="119.0" fitWidth="122.0" layoutX="12.0" layoutY="67.0">
-                    <image>
-                        <Image url="@../medicalIcons/receptionist-icon.png" />
-                    </image>
-                </ImageView>
-                <Button layoutX="46.0" layoutY="209.0" minWidth="53.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="53.0" style="-fx-background-radius: 200; -fx-background-color: #47A3FF;" text="Help" />
-            </children>
-        </Pane>
+          <Button fx:id="backbutton" layoutX="18.0" layoutY="359.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #484d4c;" text="Sign out" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+          <Button layoutX="527.0" layoutY="359.0" minWidth="53.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="59.0" style="-fx-background-color: #484d4c;" text="Help" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+          <VBox layoutX="193.0" layoutY="100.0" prefHeight="278.0" prefWidth="233.0" spacing="30.0">
+              <children>
+            <Button fx:id="managepatientbutton" mnemonicParsing="false" onAction="#managepatientscene" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Add/update patient info" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Button>
+                  <Button fx:id="removepatientbutton" mnemonicParsing="false" onAction="#removescene" prefHeight="39.0" prefWidth="235.0" style="-fx-background-color: #484d4c;" text="Remove patient" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Button>
+                  <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="236.0" style="-fx-background-color: #484d4c;" text="Check Schedule" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Button>
+                  <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Get Assigned patients" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Button>
+              </children>
+          </VBox>
+      <Label layoutX="164.0" layoutY="32.0" prefHeight="37.0" prefWidth="101.0" text="Nursing" textFill="#1ad4be">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="265.0" layoutY="17.0" prefHeight="67.0" prefWidth="153.0" text="Home" textFill="#0db9de">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="30.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="67.0" fitWidth="68.0">
+               <image>
+                  <Image url="@../medicalIcons/stay-at-home.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
     </children>
 </AnchorPane>

@@ -5,34 +5,31 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.PlanerController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.PlanerController">
    <children>
-      <Button layoutX="264.0" layoutY="175.0" mnemonicParsing="false" text="Button" />
-      <Pane prefHeight="406.0" prefWidth="476.0" style="-fx-background-color: #47A3FF;">
-         <children>
-            <Label layoutX="98.0" layoutY="14.0" text="Nursing Home System">
-               <font>
-                  <Font name="Century Gothic" size="27.0" />
-               </font>
-            </Label>
-            <Button layoutX="114.0" layoutY="127.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="169.0" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Create daily schedule" />
-            <Label layoutX="84.0" layoutY="72.0" text="Planer panel">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane layoutX="474.0" prefHeight="406.0" prefWidth="126.0" style="-fx-background-color: #4F7BFF;">
-         <children>
-            <ImageView fitHeight="58.0" fitWidth="62.0" layoutX="32.0" layoutY="95.0">
+      <Button layoutX="189.0" layoutY="137.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Create daily schedule">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="164.0" layoutY="32.0" prefHeight="37.0" prefWidth="101.0" text="Nursing" textFill="#1ad4be">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="265.0" layoutY="14.0" prefHeight="60.0" prefWidth="171.0" text="Home" textFill="#0db9de">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="30.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="73.0" fitWidth="93.0">
                <image>
-                  <Image url="@../medicalIcons/receptionist-icon.png" />
+                  <Image url="@../medicalIcons/stay-at-home.png" />
                </image>
             </ImageView>
-         </children></Pane>
+         </graphic>
+      </Label>
    </children>
 </AnchorPane>

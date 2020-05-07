@@ -7,38 +7,45 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="438.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ViewPatientController">
+<AnchorPane prefHeight="700.0" prefWidth="1020.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ViewPatientController">
     <children>
-        <Pane prefHeight="438.0" prefWidth="555.0" style="-fx-background-color: #47A3FF;">
-            <children>
-                <Label layoutX="177.0" layoutY="14.0" prefHeight="30.0" prefWidth="204.0" text="Nursing Home System" textFill="WHITE">
-                    <font>
-                        <Font name="System Italic" size="20.0" />
-                    </font></Label>
-                <Button layoutX="14.0" layoutY="404.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Exit" />
-                <Button layoutX="500.0" layoutY="404.0" mnemonicParsing="false" onAction="#back" style="-fx-background-radius: 200; -fx-background-color: #4F7BFF;" text="Back" />
-                <TableView fx:id="table" layoutX="13.0" layoutY="55.0" prefHeight="334.0" prefWidth="532.0">
-                    <columns>
-                        <TableColumn fx:id="ssncol" prefWidth="117.0" text="SSN" />
-                        <TableColumn fx:id="firstnamecol" prefWidth="103.0" text="First name" />
-                        <TableColumn fx:id="lastnamecol" prefWidth="101.0" text="Last name" />
-                        <TableColumn fx:id="dobcol" prefWidth="112.0" text="Date of birth" />
-                        <TableColumn fx:id="gendercol" prefWidth="110.0" text="Gender" />
-                    </columns>
-                </TableView>
-            </children>
-        </Pane>
-        <Pane layoutX="554.0" prefHeight="438.0" prefWidth="165.0" style="-fx-background-color: #4F7BFF;">
-            <children>
-                <ImageView fitHeight="119.0" fitWidth="122.0" layoutX="29.0" layoutY="111.0">
-                    <image>
-                        <Image url="@../medicalIcons/receptionist-icon.png" />
-                    </image>
-                </ImageView>
-            </children>
-        </Pane>
+          <Button layoutX="14.0" layoutY="646.0" mnemonicParsing="false" onAction="#exit" prefHeight="37.0" prefWidth="74.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Exit">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+          <Button layoutX="932.0" layoutY="646.0" mnemonicParsing="false" onAction="#back" prefHeight="37.0" prefWidth="74.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Back">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+      <TableView fx:id="table" layoutX="42.0" layoutY="76.0" prefHeight="548.0" prefWidth="948.0">
+         <columns>
+            <TableColumn fx:id="ssncol" prefWidth="174.0" text="SSN" />
+            <TableColumn fx:id="firstnamecol" prefWidth="219.0" text="First name" />
+            <TableColumn fx:id="lastnamecol" prefWidth="194.0" text="Last name" />
+            <TableColumn fx:id="dobcol" prefWidth="211.0" text="Date of birth" />
+            <TableColumn fx:id="gendercol" prefWidth="149.0" text="Gender" />
+         </columns>
+      </TableView>
+      <Label layoutX="422.0" layoutY="14.0" prefHeight="37.0" prefWidth="102.0" text="Nursing" textFill="#1ad4be">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="496.0" layoutY="14.0" prefHeight="51.0" prefWidth="102.0" text="Home" textFill="#0db9de">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="20.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="39.0">
+               <image>
+                  <Image url="@../medicalIcons/stay-at-home.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
     </children>
 </AnchorPane>

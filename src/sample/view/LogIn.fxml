@@ -5,48 +5,51 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.LogInController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="659.0" prefWidth="904.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.LogInController">
     <children>
-        <Pane layoutY="-1.0" prefHeight="403.0" prefWidth="408.0" style="-fx-background-color: #47A3FF;">
-            <children>
-                <Label layoutX="145.0" layoutY="54.0" text="Log in as:" textFill="#e0dddd">
-                    <font>
-                        <Font name="Bodoni MT Bold Italic" size="27.0" />
-                    </font>
-                </Label>
-                <HBox alignment="CENTER" layoutX="54.0" layoutY="235.0" prefHeight="52.0" prefWidth="300.0" spacing="20.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#adminScene" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #4F7BFF; -fx-background-radius: 200;" text="Admin" />
-                  <Button mnemonicParsing="false" onAction="#nurseScene" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #4F7BFF; -fx-background-radius: 200;" text="Nurse" />
-                  <Button mnemonicParsing="false" onAction="#planerScene" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #4F7BFF; -fx-background-radius: 200;" text="Planer" />
-               </children>
-                </HBox>
-                <Label layoutX="68.0" layoutY="14.0" prefHeight="40.0" prefWidth="272.0" text="Nursing Home System" textFill="#e0dddd">
-                    <font>
-                        <Font name="Bodoni MT Bold Italic" size="25.0" />
-                    </font>
-                </Label>
-            <ImageView fitHeight="100.0" fitWidth="118.0" layoutX="145.0" layoutY="112.0">
+          <Label layoutX="253.0" layoutY="68.0" prefHeight="50.0" prefWidth="134.0" text="Nursing" textFill="#1ad4be">
+              <font>
+                  <Font name="Calisto MT Bold Italic" size="40.0" />
+              </font>
+          </Label>
+      <Label layoutX="387.0" layoutY="50.0" prefHeight="85.0" prefWidth="222.0" text="Home" textFill="#0db9de">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="45.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="75.0" fitWidth="98.0">
                <image>
-                  <Image url="@../medicalIcons/Hospital-blue-icon.png" />
+                  <Image url="@../medicalIcons/stay-at-home.png" />
                </image>
             </ImageView>
-            <Button layoutX="14.0" layoutY="349.0" mnemonicParsing="false" onAction="#exit" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #4F7BFF; -fx-background-radius: 200;" text="Exit" />
-            </children>
-        </Pane>
-        <Pane layoutX="408.0" layoutY="-4.0" prefHeight="406.0" prefWidth="192.0" style="-fx-background-color: #4F7BFF;">
-            <children>
-                <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="39.0" layoutY="109.0">
-                    <image>
-                        <Image url="@../medicalIcons/receptionist-icon.png" />
-                    </image>
-                </ImageView>
-            <Button layoutX="49.0" layoutY="224.0" mnemonicParsing="false" onAction="#help" prefHeight="40.0" prefWidth="80.0" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Help" />
-            </children>
-        </Pane>
+         </graphic>
+      </Label>
+      <VBox alignment="CENTER" layoutX="380.0" layoutY="213.0" prefHeight="256.0" prefWidth="144.0" spacing="40.0">
+         <children>
+                  <Button mnemonicParsing="false" onAction="#signIn" prefHeight="0.0" prefWidth="109.0" style="-fx-background-radius: 200; -fx-background-color: white;" text="Sign In" textFill="#01a0fa">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="69.0" fitWidth="77.0">
+               <image>
+                  <Image url="@../medicalIcons/receptionist-icon.png" />
+               </image>
+            </ImageView>
+                <Button mnemonicParsing="false" onAction="#contactUs" prefHeight="0.0" prefWidth="134.0" style="-fx-background-radius: 200; -fx-background-color: white;" text="Contact us" textFill="#01a0fa">
+               <font>
+                  <Font name="System Italic" size="22.0" />
+               </font>
+            </Button>
+                <Button mnemonicParsing="false" onAction="#exit" prefHeight="11.0" prefWidth="134.0" style="-fx-background-radius: 200; -fx-background-color: white;" text="Exit" textFill="#01a0fa">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
     </children>
 </AnchorPane>

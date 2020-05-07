@@ -7,63 +7,111 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddNewEmployeeController">
+<AnchorPane prefHeight="519.0" prefWidth="793.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddNewEmployeeController">
    <children>
-      <Pane layoutX="-1.0" prefHeight="400.0" prefWidth="463.0" style="-fx-background-color: #47A3FF;">
+      <VBox layoutX="317.0" layoutY="84.0" prefHeight="385.0" prefWidth="269.0" spacing="20.0">
          <children>
-            <Label layoutX="92.0" layoutY="14.0" text="Nursing Home System">
+            <TextField fx:id="firstName" prefHeight="25.0" prefWidth="403.0" promptText="first name" />
+            <TextField fx:id="lastName" promptText="last name" />
+            <TextField fx:id="address" promptText="Place of residence" />
+            <TextField fx:id="ssn" promptText="Social security number" />
+            <TextField fx:id="dOb" promptText="YYYY-MM-DD" />
+            <TextField fx:id="email" promptText="Post E-address" />
+            <TextField fx:id="userName" promptText="username" />
+            <TextField fx:id="passWord" promptText="password" />
+            <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="321.0" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="682.0" layoutY="443.0" prefHeight="110.0" prefWidth="82.0" spacing="20.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#add" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Add" textFill="#0db9de">
                <font>
-                  <Font name="Century Gothic" size="27.0" />
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#help" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Help" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="180.0" layoutY="84.0" prefHeight="311.0" prefWidth="100.0" spacing="20.0">
+         <children>
+            <Label text="First Name" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <VBox layoutX="90.0" layoutY="69.0" prefHeight="311.0" prefWidth="100.0" spacing="20.0">
-               <children>
-                  <Label blendMode="DARKEN" text="First name:" />
-                  <Label alignment="CENTER" text="Last name:" />
-                  <Label alignment="CENTER" text="Address:" />
-                  <Label alignment="CENTER" text="SSN:" />
-                  <Label alignment="CENTER" text="Date of birthday:" />
-                  <Label alignment="CENTER" text="E-mail:" />
-                  <Label text="User Name:" />
-                  <Label text="Password:" />
-                  <Label text="Role:" />
-               </children>
-            </VBox>
-            <VBox layoutX="204.0" layoutY="69.0" prefHeight="283.0" prefWidth="150.0" spacing="11.0">
-               <children>
-                  <TextField fx:id="firstName" promptText="first name" />
-                  <TextField fx:id="lastName" promptText="last name" />
-                  <TextField fx:id="address" promptText="Place of residence" />
-                  <TextField fx:id="ssn" promptText="Social security number" />
-                  <TextField fx:id="dOb" promptText="YYYY-MM-DD" />
-                  <TextField fx:id="email" promptText="Post E-address" />
-                  <TextField fx:id="userName" promptText="username" />
-                  <TextField fx:id="passWord" promptText="password" />
-                  <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="150.0" />
-               </children>
-            </VBox>
+            <Label alignment="CENTER" text="Last name:" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" text="Address:" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" text="SSN:" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" text="Date of birthday:" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" text="E-mail:" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label text="User Name:" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label text="Password:" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label text="Role:" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
          </children>
-      </Pane>
-      <Pane layoutX="461.0" prefHeight="400.0" prefWidth="140.0" style="-fx-background-color: #4F7BFF;">
-         <children>
-            <ImageView fitHeight="75.0" fitWidth="79.0" layoutX="31.0" layoutY="70.0">
-               <image>
-                  <Image url="@../medicalIcons/receptionist-icon.png" />
-               </image>
-            </ImageView>
-            <VBox alignment="CENTER" layoutX="20.0" layoutY="171.0" prefHeight="154.0" prefWidth="100.0" spacing="20.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#help" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Help" />
-                  <Button mnemonicParsing="false" onAction="#add" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Add" />
-                  <Button mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Cancel" />
-                  <Button mnemonicParsing="false" onAction="#backToMain" style="-fx-background-color: #47A3FF; -fx-background-radius: 200;" text="Back to main" />
-               </children>
-            </VBox>
-         </children>
-      </Pane>
+      </VBox>
+      <Button layoutX="31.0" layoutY="451.0" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Cancel" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="31.0" layoutY="502.0" mnemonicParsing="false" onAction="#backToMain" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Back to main" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="608.0" layoutY="21.0" prefHeight="37.0" prefWidth="102.0" text="Nursing" textFill="#1ad4be">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="677.0" layoutY="14.0" prefHeight="51.0" prefWidth="102.0" text="Home" textFill="#0db9de">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="35.0" text="Register new employee" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

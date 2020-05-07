@@ -200,4 +200,6 @@ public class ManagePatientController implements Initializable {
 
     }
 
+    public void help(ActionEvent actionEvent) {
+    }
 }

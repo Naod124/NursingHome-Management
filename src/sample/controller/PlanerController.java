@@ -17,12 +17,20 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PlanerController implements Initializable {
-    @FXML ChoiceBox patient;
-    @FXML ChoiceBox fromTime;
-    @FXML ChoiceBox toTime;
-    @FXML TextArea description;
-    @FXML Label patientNameLabel;
-    @FXML Label patientSSNLabel;
+
+    @FXML
+    private ChoiceBox patient;
+    @FXML
+    private ChoiceBox fromTime;
+    @FXML
+    private ChoiceBox toTime;
+    @FXML
+    private TextArea description;
+    @FXML
+    private Label patientNameLabel;
+    @FXML
+    private Label patientSSNLabel;
+
     public String ssnQ;
     public static ArrayList<Patient> pa = null;
     public static Patient patientHere;

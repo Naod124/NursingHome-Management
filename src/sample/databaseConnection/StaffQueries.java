@@ -1,5 +1,10 @@
 package sample.databaseConnection;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.cell.PropertyValueFactory;
+import sample.model.StaffTable;
+
 import java.sql.*;
 
 public class StaffQueries {
@@ -7,6 +12,12 @@ public class StaffQueries {
     private Connection connection;
     private Statement statement;
     private ResultSet resultSet;
+    private PreparedStatement pstmt;
+
+
+
+    private ObservableList<StaffTable> obList = FXCollections.observableArrayList();
+
 
     public StaffQueries() {
     }
@@ -41,11 +52,42 @@ public class StaffQueries {
     public void updateIntoStaffTable() {
 
     }
-    public void viewAllStaffTable() {
+    public void viewAllStaffTable() throws SQLException {
+        ResultSet rs;
+        String selectQuery = "SELECT * FROM STAFF;";
+
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                "nursinghome", "Vw3J!60l-0kd");
+        rs = connection.createStatement().executeQuery(selectQuery);
+
+
+
+        while (rs.next()) {
+            StaffTable pt = new StaffTable("FirstName", "LastName", "SSN", "E-mail", "Address", "Role");
+
+            pt.setFirstName(rs.getString("FirstName"));
+            pt.setLastName(rs.getString("LastName"));
+            pt.setSsn(rs.getString("ssn"));
+            pt.setEmail(rs.getString("Email"));
+            pt.setAddress(rs.getString("Adress"));
+            pt.setRole(rs.getString("Role"));
+
+            obList.add(pt);
+
+        }
+
+
+    }
+
+    public void removeStaff(String ssn){
         try {
-            connection = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
-            PreparedStatement statement = connection.prepareStatement("select * from staff;");
-            statement.execute();
+
+            connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                    "nursinghome", "Vw3J!60l-0kd");
+            String deleteQuery = "DELETE FROM staff WHERE SSN = ?";
+            pstmt = connection.prepareStatement(deleteQuery);
+            pstmt.setString(1, ssn);
+            pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -63,5 +105,29 @@ public class StaffQueries {
         } catch (SQLException a) {
             return 0;
         }
+    }
+
+    public void planerApply(Object patient_name, Object time_from, Object time_to, String description){
+
+        try {
+
+            Connection connect = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                    "nursinghome", "Vw3J!60l-0kd");
+            PreparedStatement statement = connect.prepareStatement("INSERT INTO schedule (patient_name, time_from, time_to, description) VALUES(?,?,?,?);");
+            statement.setString(1, (String) patient_name);
+            statement.setString(2, (String) time_from);
+            statement.setString(3, (String) time_to);
+            statement.setString(4, description);
+            statement.executeUpdate();
+        } catch (SQLException e){
+
+        }
+    }
+    public ObservableList<StaffTable> getObList() {
+        return obList;
+    }
+
+    public void setObList(ObservableList<StaffTable> obList) {
+        this.obList = obList;
     }
 }

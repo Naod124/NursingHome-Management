@@ -9,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.databaseConnection.Connect;
+import sample.databaseConnection.PatientQueries;
 import sample.model.PatientTable;
 
 import java.net.URL;
@@ -39,14 +40,19 @@ public class ScheduleController implements Initializable {
     }
 
     public ObservableList<PatientTable> getPatients() throws SQLException {
-        ObservableList<PatientTable> patients = FXCollections.observableArrayList();
+       /* ObservableList<PatientTable> patients = FXCollections.observableArrayList();
         Connection conn = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
         ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM schedule;");
         while (rs.next()) {
-            patients.add(new PatientTable(rs.getString("patient_name"),rs.getString("time_from"),rs.getString("time_to"),rs.getString("description")));
+            patients.add(new PatientTable(rs.getString("patient_name")
+                    ,rs.getString("time_from"),rs.getString("time_to")
+                    ,rs.getString("description")));
 
-        }
-                    return patients;
+        }*/
+
+        PatientQueries pq = new PatientQueries();
+        pq.scheduleView();
+                    return pq.getPatients();
 
     }
 }

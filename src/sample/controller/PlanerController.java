@@ -2,13 +2,12 @@ package sample.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import sample.databaseConnection.Connect;
 import sample.databaseConnection.PatientQueries;
+import sample.databaseConnection.StaffQueries;
 import sample.model.Patient;
+import sample.model.Staff;
 
 import java.io.*;
 import java.net.URL;
@@ -76,7 +75,7 @@ public class PlanerController implements Initializable {
     }
 
     public void apply() throws SQLException {
-        Connection connect = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
+       /* Connection connect = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
         PreparedStatement statement = connect.prepareStatement("INSERT INTO schedule (patient_name, time_from, time_to, description) VALUES(?,?,?,?);");
         statement.setString(1, (String) patient.getValue());
         statement.setString(2, (String) fromTime.getValue());
@@ -84,6 +83,16 @@ public class PlanerController implements Initializable {
         statement.setString(4, description.getText());
         statement.executeUpdate();
         System.out.println("Worked!");
+    */
+       try{
+        StaffQueries sq = new StaffQueries();
+        sq.planerApply(patient.getValue(), fromTime.getValue(), toTime.getValue(), description.getText());
+           Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+           a.setHeaderText("INSERTED!");
+           a.showAndWait();
+    } catch (Exception e){
+           System.out.println();
+       }
     }
 
 

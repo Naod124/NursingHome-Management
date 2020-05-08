@@ -1,26 +1,29 @@
 package sample.databaseConnection;
 
-import sample.model.DataSource;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import sample.model.Patient;
+import sample.model.PatientTable;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class PatientQueries  {
+public class PatientQueries {
 
     private Connection connection;
     private ResultSet rs;
     private Statement stmt;
+    private PreparedStatement pstmt;
 
-    private ArrayList <sample.model.Patient> patientsinfo;
+    private ArrayList<sample.model.Patient> patientsinfo;
 
 
-    public void pConnect() throws SQLException {
 
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
+    ObservableList<PatientTable> patients = FXCollections.observableArrayList();
 
-    }
+    private ObservableList<Object> obList = FXCollections.observableArrayList();
+
+
     public PatientQueries() throws SQLException {
         connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
                 "nursinghome", "Vw3J!60l-0kd");
@@ -30,38 +33,61 @@ public class PatientQueries  {
     }
 
 
-
-
-
     public void viewPatientTable() throws SQLException {
 
+        String selectQuery = "SELECT * FROM PATIENT;";
 
-        String viewQuery = "SELECT * FROM patient;";
-
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
         try {
-            stmt = connection.createStatement();
+            connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                    "nursinghome", "Vw3J!60l-0kd");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            rs = connection.createStatement().executeQuery(selectQuery);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        while (true) {
+            try {
+                if (!rs.next()) break;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            PatientTable pt = new PatientTable("SSN", "FirstName", "LastName", "DateOfBirth", "Gender");
 
-            rs = stmt.executeQuery(viewQuery);
-            while (rs.next()){
 
-
-                    patientsinfo.add(new sample.model.Patient(
-                            rs.getString(1),
-                            rs.getString(2),
-                            rs.getString(3),
-                            rs.getString(4),
-                            rs.getString(5)));
-
-           }
-            connection.close();
-        } catch (Exception e) {
-            System.err.println("Got an exception! ");
-            System.err.println(e.getMessage());
+            try {
+                pt.setSsn(rs.getString("SSN"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                pt.setFirstName(rs.getString("FirstName"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                pt.setLastName(rs.getString("LastName"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                pt.setDateOfBirth(rs.getString("DateOfBirth"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                pt.setGender(rs.getString("Gender"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            obList.add(pt);
+            setObList(obList);
         }
 
     }
+
     public void insertIntoPatientTable(String SSN, String FirstName, String LastName, String DateOfBirth, String Gender)
             throws SQLException {
         connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
@@ -70,54 +96,96 @@ public class PatientQueries  {
         String insertQuery = "INSERT INTO patient(SSN, FirstName, LastName, DateOfBirth, Gender) VALUES(?,?,?,?,?);";
 
 
-        try (PreparedStatement pstmt = connection.prepareStatement(insertQuery)){
-            pstmt.setString(1,SSN);
-            pstmt.setString(2,FirstName);
-            pstmt.setString(3,LastName);
-            pstmt.setString(4,DateOfBirth);
-            pstmt.setString(5,Gender);
+        try (PreparedStatement pstmt = connection.prepareStatement(insertQuery)) {
+            pstmt.setString(1, SSN);
+            pstmt.setString(2, FirstName);
+            pstmt.setString(3, LastName);
+            pstmt.setString(4, DateOfBirth);
+            pstmt.setString(5, Gender);
             pstmt.executeUpdate();
         }
 
 
     }
 
-    public void updateIntoPatientTable(String FirstName, String LastName, String Gender) throws SQLException {
+    public void updateIntoPatientTable(String FirstName, String LastName, String Date, String Gender,
+                                       String SSN) throws SQLException {
+
         connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
                 "nursinghome", "Vw3J!60l-0kd");
-        String updateQuery = "UPDATE patient set FirstName = ?, LastName = ?, Gender = ? WHERE id = ?";
-                 try (PreparedStatement ptsmt = connection.prepareStatement(updateQuery)){
-                     ptsmt.setString(1,FirstName);
-                     ptsmt.setString(2,LastName);
-                     ptsmt.setString(3,Gender);
-                     ptsmt.executeUpdate();
-
-                 } catch (SQLException e){
-                     System.out.println(e.getMessage());
-
-                 }
+        String updateQuery = "UPDATE patient SET FirstName = ?,LastName = ?,DateOfBirth = ?, Gender = ?  WHERE SSN = ?";
+        pstmt = connection.prepareStatement(updateQuery);
+        pstmt.setString(1, FirstName);
+        pstmt.setString(2, LastName);
+        pstmt.setString(3, Date);
+        pstmt.setString(4, Gender);
+        pstmt.setString(5, SSN);
+        pstmt.executeUpdate();
 
     }
+
     public void deleteFromPatientTable(String SSN, String FirstName, String LastName, String DateOfBirth, String Gender) throws SQLException {
         connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
                 "nursinghome", "Vw3J!60l-0kd");
 
-        String deleteQuery =  "DELETE FROM patient WHERE SSN = ?";
-              try (PreparedStatement ptsmt = connection.prepareStatement(deleteQuery)){
-                 ptsmt.setString(1,SSN);
-                 ptsmt.setString(2,FirstName);
-                 ptsmt.setString(3,LastName);
-                 ptsmt.setString(4,DateOfBirth);
-                 ptsmt.setString(5,Gender);
-                 ptsmt.executeUpdate();
+        String deleteQuery = "DELETE FROM patient WHERE SSN = ?";
+        try (PreparedStatement ptsmt = connection.prepareStatement(deleteQuery)) {
+            ptsmt.setString(1, SSN);
+            ptsmt.setString(2, FirstName);
+            ptsmt.setString(3, LastName);
+            ptsmt.setString(4, DateOfBirth);
+            ptsmt.setString(5, Gender);
+            ptsmt.executeUpdate();
 
 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
 
-    }       catch(SQLException e){
-                  System.out.println(e.getMessage());
-
-              }
+        }
     }
+
+    public void removePatient(String ssn) throws SQLException {
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                "nursinghome", "Vw3J!60l-0kd");
+        String updateQuery = "DELETE FROM patient WHERE SSN = ?";
+        pstmt = connection.prepareStatement(updateQuery);
+        pstmt.setString(1, ssn);
+        pstmt.executeUpdate();
+    }
+
+    public void scheduleView() {
+        ObservableList<PatientTable> patients = FXCollections.observableArrayList();
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                    "nursinghome", "Vw3J!60l-0kd");
+            ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM schedule;");
+            while (rs.next()) {
+                patients.add(new PatientTable(rs.getString("patient_name")
+                        , rs.getString("time_from"), rs.getString("time_to")
+                        , rs.getString("description")));
+            }
+            setPatients(patients);
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public ObservableList<Object> getObList() {
+        return obList;
+    }
+    public void setObList(ObservableList<Object> obList) {
+        this.obList = obList;
+    }
+
+    public ObservableList<PatientTable> getPatients() {
+        return patients;
+    }
+
+    public void setPatients(ObservableList<PatientTable> patients) {
+        this.patients = patients;
+    }
+
 
     public ArrayList<Patient> getPatientsinfo() {
         return patientsinfo;

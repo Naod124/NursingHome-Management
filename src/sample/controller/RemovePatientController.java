@@ -12,8 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import sample.databaseConnection.PatientQueries;
 import sample.model.PatientTable;
-import sample.model.StaffTable;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,10 +26,9 @@ public class RemovePatientController implements Initializable {
 
     private Connection conn;
     PreparedStatement pstmt;
-    private ObservableList<PatientTable> obList = FXCollections.observableArrayList();
 
 
-    @FXML private TableView<PatientTable> table;
+    @FXML private TableView<Object> table;
     @FXML private TableColumn<PatientTable, String> ssncol;
     @FXML private TableColumn <PatientTable, String> firstnamecol;
     @FXML private TableColumn <PatientTable, String> lastnamecol;
@@ -39,62 +38,45 @@ public class RemovePatientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            viewpatient();
+            seepatient();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
- public void viewpatient() throws SQLException {
-    ResultSet rs;
-    String selectQuery = "SELECT * FROM PATIENT;";
+ public void seepatient() throws SQLException {
+     ssncol.setCellValueFactory(new PropertyValueFactory<>("Ssn"));
+     firstnamecol.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+     lastnamecol.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+     dobcol.setCellValueFactory(new PropertyValueFactory<>("DateOfBirth"));
+     gendercol.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+     PatientQueries pq = new PatientQueries();
+     pq.viewPatientTable();
 
-    conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-            "nursinghome", "Vw3J!60l-0kd");
-    rs = conn.createStatement().executeQuery(selectQuery);
-
-
-    ssncol.setCellValueFactory(new PropertyValueFactory<>("Ssn"));
-    firstnamecol.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-    lastnamecol.setCellValueFactory(new PropertyValueFactory<>("LastName"));
-    dobcol.setCellValueFactory(new PropertyValueFactory<>("DateOfBirth"));
-    gendercol.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+     table.setItems(pq.getObList());
 
 
-    while (rs.next()){
-        PatientTable pt = new PatientTable("SSN", "FirstName", "LastName","DateOfBirth","Gender");
+ }
+    @FXML public void deletePatient() throws SQLException {
+
+       try {
+           PatientQueries pq = new PatientQueries();
+           PatientTable pt = (PatientTable) table.getSelectionModel().getSelectedItem();
+           pq.removePatient( pt.getSsn());
+           Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+           a.setHeaderText("Patient removed");
+           a.showAndWait();
+           table.getItems().clear();
+           seepatient();
+       }
+       catch (SQLException e){
+           Alert a = new Alert(Alert.AlertType.ERROR);
+           a.setHeaderText("ERROR");
+           a.showAndWait();
+
+       }
 
 
-        pt.setSsn(rs.getString("SSN"));
-        pt.setFirstName(rs.getString("FirstName"));
-        pt.setLastName(rs.getString("LastName"));
-        pt.setDateOfBirth(rs.getString("DateOfBirth"));
-        pt.setGender(rs.getString("Gender"));
-
-        obList.add(pt);
-
-    }
-
-    table.setItems(obList);
-
-}
-    @FXML public void removePatient() throws SQLException {
-        conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
-        try {
-            PatientTable customerToremove = table.getSelectionModel().getSelectedItem();
-            String updateQuery = "DELETE FROM patient WHERE SSN = ?";
-            pstmt = conn.prepareStatement(updateQuery);
-            pstmt.setString(1, customerToremove.getSsn());
-            pstmt.executeUpdate();
-            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setHeaderText("Patient removed");
-            a.showAndWait();
-            table.getItems().clear();
-            viewpatient();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     @FXML

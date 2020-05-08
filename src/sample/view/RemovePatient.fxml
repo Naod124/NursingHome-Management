@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="681.0" prefWidth="852.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.RemovePatientController">
     <children>
-          <Button layoutX="338.0" layoutY="537.0" mnemonicParsing="false" onAction="#removePatient" prefHeight="65.0" prefWidth="136.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Delete" textFill="#0db9de">
+          <Button layoutX="338.0" layoutY="537.0" mnemonicParsing="false" onAction="#deletePatient" prefHeight="65.0" prefWidth="136.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Delete" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="30.0" />
          </font>

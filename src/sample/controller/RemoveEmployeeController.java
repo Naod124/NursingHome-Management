@@ -5,12 +5,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import sample.databaseConnection.PatientQueries;
 import sample.databaseConnection.StaffQueries;
+import sample.model.PatientTable;
 import sample.model.StaffTable;
 
 import java.io.IOException;
@@ -76,12 +75,6 @@ public class RemoveEmployeeController implements Initializable {
     }
 
     public void viewStaff() throws SQLException {
-        ResultSet rs;
-        String selectQuery = "SELECT * FROM STAFF;";
-
-        conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
-        rs = conn.createStatement().executeQuery(selectQuery);
 
         firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
@@ -89,36 +82,21 @@ public class RemoveEmployeeController implements Initializable {
         email.setCellValueFactory(new PropertyValueFactory<>("Email"));
         address.setCellValueFactory(new PropertyValueFactory<>("Address"));
         role.setCellValueFactory(new PropertyValueFactory<>("Role"));
+        StaffQueries sq = new StaffQueries();
+        sq.viewAllStaffTable();
 
-        while (rs.next()) {
-            StaffTable pt = new StaffTable("FirstName", "LastName", "SSN", "E-mail", "Address", "Role");
-
-            pt.setFirstName(rs.getString("FirstName"));
-            pt.setLastName(rs.getString("LastName"));
-            pt.setSsn(rs.getString("ssn"));
-            pt.setEmail(rs.getString("Email"));
-            pt.setAddress(rs.getString("Adress"));
-            pt.setRole(rs.getString("Role"));
-
-            obList.add(pt);
-
-        }
-
-        employeesTable.setItems(obList);
+        employeesTable.setItems(sq.getObList());
 
     }
 
     public void deleteEmployeeFromTable() throws SQLException {
-        conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
-        StaffTable employeeToremove = employeesTable.getSelectionModel().getSelectedItem();
-        String deleteQuery = "DELETE FROM staff WHERE SSN = ?";
-        pstmt = conn.prepareStatement(deleteQuery);
-        pstmt.setString(1, employeeToremove.getSsn());
-        pstmt.executeUpdate();
+        StaffQueries sq = new StaffQueries();
+        StaffTable st =  employeesTable.getSelectionModel().getSelectedItem();
+        sq.removeStaff(st.getSsn());
+        Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+        a.setHeaderText("Staff member removed");
+        a.showAndWait();
         employeesTable.getItems().clear();
-        viewStaff();
-        System.out.println("Database updated !");
-    }
+        viewStaff();}
 }
 

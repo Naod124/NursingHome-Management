@@ -12,17 +12,17 @@
 
 <AnchorPane prefHeight="519.0" prefWidth="793.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddNewEmployeeController">
    <children>
-      <VBox layoutX="317.0" layoutY="84.0" prefHeight="385.0" prefWidth="269.0" spacing="20.0">
+      <VBox layoutX="316.0" layoutY="55.0" prefHeight="385.0" prefWidth="269.0" spacing="20.0">
          <children>
-            <TextField fx:id="firstName" prefHeight="25.0" prefWidth="403.0" promptText="first name" />
-            <TextField fx:id="lastName" promptText="last name" />
-            <TextField fx:id="address" promptText="Place of residence" />
-            <TextField fx:id="ssn" promptText="Social security number" />
-            <TextField fx:id="dOb" promptText="YYYY-MM-DD" />
-            <TextField fx:id="email" promptText="Post E-address" />
-            <TextField fx:id="userName" promptText="username" />
-            <TextField fx:id="passWord" promptText="password" />
-            <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="321.0" />
+            <TextField fx:id="firstName" prefHeight="25.0" prefWidth="403.0" promptText="first name" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
+            <TextField fx:id="lastName" promptText="last name" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
+            <TextField fx:id="address" promptText="Place of residence" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
+            <TextField fx:id="ssn" promptText="Social security number" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
+            <TextField fx:id="dOb" promptText="YYYY-MM-DD" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
+            <TextField fx:id="email" promptText="Post E-address" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
+            <TextField fx:id="userName" promptText="username" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
+            <TextField fx:id="passWord" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
+            <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="321.0" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200;" />
          </children>
       </VBox>
       <VBox alignment="CENTER" layoutX="682.0" layoutY="443.0" prefHeight="110.0" prefWidth="82.0" spacing="20.0">
@@ -39,61 +39,61 @@
             </Button>
          </children>
       </VBox>
-      <VBox layoutX="180.0" layoutY="84.0" prefHeight="311.0" prefWidth="100.0" spacing="20.0">
+      <VBox layoutX="162.0" layoutY="52.0" prefHeight="385.0" prefWidth="136.0" spacing="28.0">
          <children>
             <Label text="First Name" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" text="Last name:" textFill="#0db9de">
+            <Label alignment="CENTER" text="Last name" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" text="Address:" textFill="#0db9de">
+            <Label alignment="CENTER" text="Address" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" text="SSN:" textFill="#0db9de">
+            <Label alignment="CENTER" text="SSN" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" text="Date of birthday:" textFill="#0db9de">
+            <Label alignment="CENTER" prefHeight="25.0" prefWidth="130.0" text="Date of birthday" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" text="E-mail:" textFill="#0db9de">
+            <Label alignment="CENTER" text="E-mail" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <Label text="User Name:" textFill="#0db9de">
+            <Label text="User Name" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <Label text="Password:" textFill="#0db9de">
+            <Label text="Password" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
-            <Label text="Role:" textFill="#0db9de">
+            <Label text="Role" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>
             </Label>
          </children>
       </VBox>
-      <Button layoutX="31.0" layoutY="451.0" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Cancel" textFill="#0db9de">
+      <Button layoutX="14.0" layoutY="461.0" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Cancel" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Button>
-      <Button layoutX="31.0" layoutY="502.0" mnemonicParsing="false" onAction="#backToMain" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Back to main" textFill="#0db9de">
+      <Button layoutX="14.0" layoutY="501.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="37.0" prefWidth="121.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Back to main" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>
@@ -107,8 +107,15 @@
          <font>
             <Font name="Calisto MT Bold Italic" size="20.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="35.0">
+               <image>
+                  <Image url="@../medicalIcons/stay-at-home.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Label>
-      <Label layoutX="44.0" layoutY="35.0" text="Register new employee" textFill="#0db9de">
+      <Label layoutX="14.0" layoutY="14.0" text="Register new employee" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>

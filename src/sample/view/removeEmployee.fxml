@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="762.0" prefWidth="1100.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.RemoveEmployeeController">
+<AnchorPane prefHeight="769.0" prefWidth="1017.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.RemoveEmployeeController">
    <children>
-      <TableView fx:id="employeesTable" layoutX="18.0" layoutY="59.0" prefHeight="573.0" prefWidth="808.0">
+      <TableView fx:id="employeesTable" layoutX="18.0" layoutY="59.0" prefHeight="573.0" prefWidth="835.0">
         <columns>
           <TableColumn fx:id="firstName" prefWidth="135.0" text="First Name" />
           <TableColumn fx:id="lastName" prefWidth="148.0" text="Last Name" />
@@ -42,12 +42,12 @@
             </CheckBox>
          </children>
       </HBox>
-      <Label layoutX="895.0" layoutY="19.0" prefHeight="37.0" prefWidth="102.0" text="Nursing" textFill="#1ad4be">
+      <Label layoutX="855.0" layoutY="18.0" prefHeight="37.0" prefWidth="102.0" text="Nursing" textFill="#1ad4be">
          <font>
             <Font name="Calisto MT Bold Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="962.0" layoutY="14.0" prefHeight="51.0" prefWidth="102.0" text="Home" textFill="#0db9de">
+      <Label layoutX="922.0" layoutY="13.0" prefHeight="51.0" prefWidth="102.0" text="Home" textFill="#0db9de">
          <font>
             <Font name="Calisto MT Bold Italic" size="20.0" />
          </font>
@@ -69,7 +69,7 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="1013.0" layoutY="705.0" mnemonicParsing="false" onAction="#help" style="-fx-background-color: transparent;" text="Help" textFill="#0db9de">
+      <Button layoutX="937.0" layoutY="705.0" mnemonicParsing="false" onAction="#help" style="-fx-background-color: transparent;" text="Help" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>

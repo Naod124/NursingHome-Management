@@ -20,9 +20,9 @@ private Connect(){
     public Boolean open(){
 
         System.out.println("Connecting database...");
-    try {
-        conn = DriverManager.getConnection(CONNECTION_URL,DB_NAME,PASSWORD);
-        System.out.println("Database connected!");
+        try {
+            conn = DriverManager.getConnection(CONNECTION_URL,DB_NAME,PASSWORD);
+            System.out.println("Database connected!");
         return true;
     } catch (SQLException e) {
         System.out.println("Could not connect to a database" + e.getMessage());

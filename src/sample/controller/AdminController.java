@@ -37,6 +37,8 @@ public class AdminController {
     public void help(ActionEvent actionEvent) {
     }
 
-    public void viewAllEmployees(ActionEvent actionEvent) {
+    public void viewAllEmployees(ActionEvent actionEvent) throws IOException {
+        sc.newScene(actionEvent,"/sample/view/viewEmployees.fxml");
+
     }
 }

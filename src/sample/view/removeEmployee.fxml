@@ -25,17 +25,17 @@
       </TableView>
       <HBox layoutX="288.0" layoutY="14.0" prefHeight="24.0" prefWidth="315.0" spacing="50.0">
          <children>
-            <CheckBox fx:id="all" mnemonicParsing="false" style="-fx-text-fill: #327b89;" text="All">
+            <CheckBox fx:id="all" mnemonicParsing="false" onAction="#showAll" style="-fx-text-fill: #327b89;" text="All">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="nurses" mnemonicParsing="false" style="-fx-text-fill: #327b89;" text="Nurses">
+            <CheckBox fx:id="nurses" mnemonicParsing="false" onAction="#showNurses" style="-fx-text-fill: #327b89;" text="Nurses">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="planers" mnemonicParsing="false" style="-fx-text-fill: #327b89;" text="Planers">
+            <CheckBox fx:id="planers" mnemonicParsing="false" onAction="#showPlaners" style="-fx-text-fill: #327b89;" text="Planers">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

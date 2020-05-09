@@ -53,7 +53,7 @@ public class LogInPanelController {
 
         }else {
             passWord .setText(passWord.getPromptText());
-            passWord.setPromptText("");
+            passWord.setPromptText("Password");
             passWord.setDisable(false);
         }
     }

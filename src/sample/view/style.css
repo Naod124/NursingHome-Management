@@ -1,7 +1,18 @@
 .text-field {
     -fx-prompt-text-fill: #0db9de;
+    -fx-background-color: transparent ;
+    -fx-border-color :  #0db9de ;
+    -fx-font-family :  Quicksand ;
+    -fx-font-size :  15;
+    -fx-border-width : 2 ;
+    -fx-border-radius : 200 ;
 }
 
 .password-field {
     -fx-prompt-text-fill: red;
 }
+.button{
+-fx-background-color :#484d4c;
+ -fx-text-fill : #0db9de ;
+}
+

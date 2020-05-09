@@ -64,11 +64,11 @@ public class RemoveEmployeeController implements Initializable {
     }
 
     public void back(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent,"/sample/view/admin.fxml");
+        sc.newScene(actionEvent, "/sample/view/admin.fxml");
     }
 
     public void backToMain(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent,"/sample/view/logIn.fxml");
+        sc.newScene(actionEvent, "/sample/view/logIn.fxml");
     }
 
     public void help(ActionEvent actionEvent) {
@@ -89,14 +89,73 @@ public class RemoveEmployeeController implements Initializable {
 
     }
 
+    public void viewNurse() throws SQLException {
+        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        ssn.setCellValueFactory(new PropertyValueFactory<>("ssn"));
+        email.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        address.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        role.setCellValueFactory(new PropertyValueFactory<>("Role"));
+        StaffQueries sq = new StaffQueries();
+        sq.viewNurseTable();
+        employeesTable.setItems(sq.getObList());
+    }
+
+    public void viewPlaner() throws SQLException {
+        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        ssn.setCellValueFactory(new PropertyValueFactory<>("ssn"));
+        email.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        address.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        role.setCellValueFactory(new PropertyValueFactory<>("Role"));
+        StaffQueries sq = new StaffQueries();
+        sq.viewPlanerTable();
+        employeesTable.setItems(sq.getObList());
+    }
+
+    public void showAll(ActionEvent actionEvent) throws SQLException {
+        if (all.isSelected()) {
+            viewStaff();
+            nurses.setDisable(true);
+            planers.setDisable(true);
+        } else {
+            nurses.setDisable(false);
+            planers.setDisable(false);
+        }
+    }
+
+    public void showNurses(ActionEvent actionEvent) throws SQLException {
+        if (nurses.isSelected()) {
+            viewNurse();
+            all.setDisable(true);
+            planers.setDisable(true);
+        } else {
+            all.setDisable(false);
+            planers.setDisable(false);
+        }
+
+    }
+
+    public void showPlaners(ActionEvent actionEvent) throws SQLException {
+        if (planers.isSelected()) {
+            viewPlaner();
+            nurses.setDisable(true);
+            all.setDisable(true);
+        } else {
+            nurses.setDisable(false);
+            all.setDisable(false);
+        }
+    }
+
     public void deleteEmployeeFromTable() throws SQLException {
         StaffQueries sq = new StaffQueries();
-        StaffTable st =  employeesTable.getSelectionModel().getSelectedItem();
+        StaffTable st = employeesTable.getSelectionModel().getSelectedItem();
         sq.removeStaff(st.getSsn());
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
         a.setHeaderText("Staff member removed");
         a.showAndWait();
         employeesTable.getItems().clear();
-        viewStaff();}
+        viewStaff();
+    }
 }
 

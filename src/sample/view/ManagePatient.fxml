@@ -23,50 +23,50 @@
             <TableColumn fx:id="gendercol" prefWidth="146.0" text="Gender" />
         </columns>
       </TableView>
-      <Button layoutX="821.0" layoutY="443.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: #484d4c;" text="Add" textFill="#0db9de">
+      <Button layoutX="821.0" layoutY="443.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="34.0" prefWidth="83.0" stylesheets="@style.css" text="Add" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="813.0" layoutY="497.0" mnemonicParsing="false" onAction="#handleupdate" prefHeight="44.0" prefWidth="100.0" style="-fx-background-color: #484d4c;" text="Update" textFill="#0db9de">
+      <Button layoutX="813.0" layoutY="497.0" mnemonicParsing="false" onAction="#handleupdate" prefHeight="44.0" prefWidth="100.0" stylesheets="@style.css" text="Update" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-  <Button layoutX="14.0" layoutY="575.0" mnemonicParsing="false" onAction="#back" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: #484d4c;" text="Back" textFill="#0db9de">
+  <Button layoutX="14.0" layoutY="575.0" mnemonicParsing="false" onAction="#back" prefHeight="34.0" prefWidth="83.0" stylesheets="@style.css" text="Back" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-  <Button layoutX="14.0" layoutY="617.0" mnemonicParsing="false" onAction="#exit" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: #484d4c;" text="Exit" textFill="#0db9de">
+  <Button layoutX="14.0" layoutY="617.0" mnemonicParsing="false" onAction="#exit" prefHeight="34.0" prefWidth="83.0" stylesheets="@style.css" text="Exit" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-  <Button layoutX="889.0" layoutY="621.0" minWidth="53.0" mnemonicParsing="false" onAction="#help" prefHeight="34.0" prefWidth="83.0" style="-fx-background-color: #484d4c;" text="Help" textFill="#0db9de">
+  <Button layoutX="889.0" layoutY="621.0" minWidth="53.0" mnemonicParsing="false" onAction="#help" prefHeight="34.0" prefWidth="83.0" stylesheets="@style.css" text="Help" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
       <VBox layoutX="890.0" layoutY="109.0" prefHeight="287.0" prefWidth="117.0" spacing="33.0">
          <children>
-            <TextField fx:id="ssntextfield" prefHeight="30.0" prefWidth="117.0" promptText="yymmdd****" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1; -fx-border-radius: 200;">
+            <TextField fx:id="ssntextfield" prefHeight="30.0" prefWidth="117.0" promptText="yymmdd****" stylesheets="@style.css">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding></TextField>
-            <TextField fx:id="firstnametextfield" prefHeight="30.0" prefWidth="117.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1; -fx-border-radius: 200;">
+            <TextField fx:id="firstnametextfield" prefHeight="30.0" prefWidth="117.0" promptText="First Name" stylesheets="@style.css">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding></TextField>
-            <TextField fx:id="lastnametextfield" prefHeight="30.0" prefWidth="117.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1; -fx-border-radius: 200;">
+            <TextField fx:id="lastnametextfield" prefHeight="30.0" prefWidth="117.0" promptText="Last Name" stylesheets="@style.css">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding></TextField>
-            <TextField fx:id="gendertextfield" prefHeight="30.0" prefWidth="117.0" promptText="Gender" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1; -fx-border-radius: 200;">
+            <TextField fx:id="gendertextfield" prefHeight="30.0" prefWidth="117.0" promptText="Gender" stylesheets="@style.css">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding></TextField>
-            <TextField fx:id="datetextfield" prefHeight="30.0" prefWidth="117.0" promptText="yyyy-mm-dd" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: Quicksand; -fx-font-size: 15; -fx-border-width: 2; -fx-border-radius: 1; -fx-border-radius: 200;">
+            <TextField fx:id="datetextfield" prefHeight="30.0" prefWidth="117.0" promptText="yyyy-mm-dd" stylesheets="@style.css">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding></TextField>

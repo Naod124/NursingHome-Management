@@ -77,7 +77,58 @@ public class StaffQueries {
         }
 
 
+    }    public void viewNurseTable() throws SQLException {
+        ResultSet rs;
+        String selectQuery = "select * from staff where Role = 'nurse' ";
+
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                "nursinghome", "Vw3J!60l-0kd");
+        rs = connection.createStatement().executeQuery(selectQuery);
+
+
+
+        while (rs.next()) {
+            StaffTable pt = new StaffTable("FirstName", "LastName", "SSN", "E-mail", "Address", "Role");
+
+            pt.setFirstName(rs.getString("FirstName"));
+            pt.setLastName(rs.getString("LastName"));
+            pt.setSsn(rs.getString("ssn"));
+            pt.setEmail(rs.getString("Email"));
+            pt.setAddress(rs.getString("Adress"));
+            pt.setRole(rs.getString("Role"));
+
+            obList.add(pt);
+
+        }
+
+
+    }      public void viewPlanerTable() throws SQLException {
+        ResultSet rs;
+        String selectQuery = "select * from staff where Role = 'planer' ";
+
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                "nursinghome", "Vw3J!60l-0kd");
+        rs = connection.createStatement().executeQuery(selectQuery);
+
+
+
+        while (rs.next()) {
+            StaffTable pt = new StaffTable("FirstName", "LastName", "SSN", "E-mail", "Address", "Role");
+
+            pt.setFirstName(rs.getString("FirstName"));
+            pt.setLastName(rs.getString("LastName"));
+            pt.setSsn(rs.getString("ssn"));
+            pt.setEmail(rs.getString("Email"));
+            pt.setAddress(rs.getString("Adress"));
+            pt.setRole(rs.getString("Role"));
+
+            obList.add(pt);
+
+        }
+
+
     }
+
 
     public void removeStaff(String ssn){
         try {

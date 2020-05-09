@@ -1,0 +1,7 @@
+.text-field {
+    -fx-prompt-text-fill: red;
+}
+
+.password-field {
+    -fx-prompt-text-fill: red;
+}

@@ -49,7 +49,6 @@ public class ViewPatientController implements Initializable {
     @FXML
     public void handleView() throws SQLException {
 
-
         ssncol.setCellValueFactory(new PropertyValueFactory<>("Ssn"));
         firstnamecol.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         lastnamecol.setCellValueFactory(new PropertyValueFactory<>("LastName"));
@@ -59,7 +58,6 @@ public class ViewPatientController implements Initializable {
         pq.viewPatientTable();
 
         table.setItems(pq.getObList());
-
 
     }
 

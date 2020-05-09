@@ -38,6 +38,7 @@ public class ViewEmployeesController implements Initializable {
     private CheckBox planers;
 
     private SwitchScene sc = new SwitchScene();
+    private StaffQueries staffQueries = new StaffQueries();
 
 
     @Override
@@ -59,39 +60,21 @@ public class ViewEmployeesController implements Initializable {
     }
 
     public void viewStaff() throws SQLException {
-        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
-        ssn.setCellValueFactory(new PropertyValueFactory<>("ssn"));
-        email.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        address.setCellValueFactory(new PropertyValueFactory<>("Address"));
-        role.setCellValueFactory(new PropertyValueFactory<>("Role"));
-        StaffQueries sq = new StaffQueries();
-        sq.viewAllStaffTable();
-        employeesTable.setItems(sq.getObList());
+        setEmployeesTable();
+        staffQueries.viewAllStaffTable();
+        employeesTable.setItems(staffQueries.getObList());
     }
 
     public void viewNurse() throws SQLException {
-        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
-        ssn.setCellValueFactory(new PropertyValueFactory<>("ssn"));
-        email.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        address.setCellValueFactory(new PropertyValueFactory<>("Address"));
-        role.setCellValueFactory(new PropertyValueFactory<>("Role"));
-        StaffQueries sq = new StaffQueries();
-        sq.viewNurseTable();
-        employeesTable.setItems(sq.getObList());
+        setEmployeesTable();
+        staffQueries.viewNurseTable();
+        employeesTable.setItems(staffQueries.getObList());
     }
 
     public void viewPlaner() throws SQLException {
-        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
-        ssn.setCellValueFactory(new PropertyValueFactory<>("ssn"));
-        email.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        address.setCellValueFactory(new PropertyValueFactory<>("Address"));
-        role.setCellValueFactory(new PropertyValueFactory<>("Role"));
-        StaffQueries sq = new StaffQueries();
-        sq.viewPlanerTable();
-        employeesTable.setItems(sq.getObList());
+        setEmployeesTable();
+        staffQueries.viewPlanerTable();
+        employeesTable.setItems(staffQueries.getObList());
     }
 
     public void back(ActionEvent actionEvent) throws IOException {
@@ -145,5 +128,14 @@ public class ViewEmployeesController implements Initializable {
             nurses.setDisable(false);
             all.setDisable(false);
         }
+    }
+
+    public void setEmployeesTable() {
+        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        ssn.setCellValueFactory(new PropertyValueFactory<>("ssn"));
+        email.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        address.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        role.setCellValueFactory(new PropertyValueFactory<>("Role"));
     }
 }

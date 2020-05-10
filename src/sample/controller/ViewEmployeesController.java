@@ -98,6 +98,7 @@ public class ViewEmployeesController implements Initializable {
 
     public void showAll(ActionEvent actionEvent) throws SQLException {
         if (all.isSelected()) {
+            employeesTable.getItems().clear();
             viewStaff();
             nurses.setDisable(true);
             planers.setDisable(true);
@@ -109,6 +110,7 @@ public class ViewEmployeesController implements Initializable {
 
     public void showNurses(ActionEvent actionEvent) throws SQLException {
         if (nurses.isSelected()) {
+            employeesTable.getItems().clear();
             viewNurse();
             all.setDisable(true);
             planers.setDisable(true);
@@ -121,6 +123,7 @@ public class ViewEmployeesController implements Initializable {
 
     public void showPlaners(ActionEvent actionEvent) throws SQLException {
         if (planers.isSelected()) {
+            employeesTable.getItems().clear();
             viewPlaner();
             nurses.setDisable(true);
             all.setDisable(true);

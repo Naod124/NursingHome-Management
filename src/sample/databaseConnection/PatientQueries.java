@@ -22,6 +22,8 @@ public class PatientQueries {
     ObservableList<PatientTable> patients = FXCollections.observableArrayList();
 
     private ObservableList<Object> obList = FXCollections.observableArrayList();
+    private ObservableList<Object> obzList = FXCollections.observableArrayList();
+    private ObservableList<Object> obfList = FXCollections.observableArrayList();
 
 
     public PatientQueries() throws SQLException {
@@ -168,7 +170,117 @@ public class PatientQueries {
         } catch (SQLException e){
             System.out.println(e.getMessage());
         }
+
     }
+    public void sortByName(){
+
+        String selectQuery = "SELECT * FROM PATIENT order by FirstName";
+
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                    "nursinghome", "Vw3J!60l-0kd");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            rs = connection.createStatement().executeQuery(selectQuery);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        while (true) {
+            try {
+                if (!rs.next()) break;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            PatientTable pt = new PatientTable("SSN", "FirstName", "LastName", "DateOfBirth", "Gender");
+
+
+            try {
+                pt.setSsn(rs.getString("SSN"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                pt.setFirstName(rs.getString("FirstName"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                pt.setLastName(rs.getString("LastName"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                pt.setDateOfBirth(rs.getString("DateOfBirth"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                pt.setGender(rs.getString("Gender"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            obzList.add(pt);
+            setObzList(obzList);
+        }
+    }
+
+
+    public void sortZtoA(){
+
+        String selectQuery = "SELECT * FROM PATIENT order by FirstName desc";
+
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                    "nursinghome", "Vw3J!60l-0kd");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            rs = connection.createStatement().executeQuery(selectQuery);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        while (true) {
+            try {
+                if (!rs.next()) break;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            PatientTable pt = new PatientTable("SSN", "FirstName", "LastName", "DateOfBirth", "Gender");
+
+
+            try {
+                pt.setSsn(rs.getString("SSN"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                pt.setFirstName(rs.getString("FirstName"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                pt.setLastName(rs.getString("LastName"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                pt.setDateOfBirth(rs.getString("DateOfBirth"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                pt.setGender(rs.getString("Gender"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            obfList.add(pt);
+            setObzList(obfList);
+        }
+    }
+
 
 
     public ObservableList<Object> getObList() {
@@ -176,6 +288,20 @@ public class PatientQueries {
     }
     public void setObList(ObservableList<Object> obList) {
         this.obList = obList;
+    }
+    public ObservableList<Object> getObzList() {
+        return obzList;
+    }
+
+    public void setObzList(ObservableList<Object> obzList) {
+        this.obzList = obzList;
+    }
+    public ObservableList<Object> getObfList() {
+        return obfList;
+    }
+
+    public void setObfList(ObservableList<Object> obfList) {
+        this.obfList = obfList;
     }
 
     public ObservableList<PatientTable> getPatients() {

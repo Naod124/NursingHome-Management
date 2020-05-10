@@ -92,7 +92,7 @@ public class ManagePatientController implements Initializable {
 
 
     @FXML
-    public void handleupdate() {
+    public void handleUpdate() {
 
         try {
             PatientQueries pq = new PatientQueries();
@@ -126,6 +126,31 @@ public class ManagePatientController implements Initializable {
         table.setItems(pq.getObList());
 
     }
+
+    @FXML public void sorter() throws SQLException {
+        rows();
+        PatientQueries pq = new PatientQueries();
+        pq.sortByName();
+        table.setItems(pq.getObzList());
+
+    }
+
+    @FXML public void zToAsort() throws SQLException {
+        rows();
+        PatientQueries pq = new PatientQueries();
+        pq.sortZtoA();
+        table.setItems(pq.getObfList());
+
+    }
+
+    private void rows() throws SQLException {
+        ssncol.setCellValueFactory(new PropertyValueFactory<>("Ssn"));
+        firstnamecol.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        lastnamecol.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        dobcol.setCellValueFactory(new PropertyValueFactory<>("DateOfBirth"));
+        gendercol.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+    }
+
 
 
 

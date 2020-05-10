@@ -9,14 +9,6 @@ import java.io.IOException;
 
 public class NurseController {
 
-    @FXML
-    private Button managepatientbutton;
-    @FXML
-    private Button removepatientbutton;
-   @FXML
-   private Button exitbutton;
-   @FXML
-   private Button backbutton;
 
     SwitchScene sc = new SwitchScene();
 

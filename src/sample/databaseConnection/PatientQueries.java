@@ -166,6 +166,7 @@ public class PatientQueries {
                         , rs.getString("time_from"), rs.getString("time_to")
                         , rs.getString("description")));
             }
+           FXCollections.sort(patients);
             setPatients(patients);
         } catch (SQLException e){
             System.out.println(e.getMessage());
@@ -313,7 +314,19 @@ public class PatientQueries {
     }
 
 
-    public ArrayList<Patient> getPatientsinfo() {
+    public ArrayList<Patient> getPatientsinfo() throws SQLException {
+        getAllPatientsToArrayList();
         return patientsinfo;
     }
+
+    public void getAllPatientsToArrayList() throws SQLException {
+        Connection connect = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
+        PreparedStatement statement = connect.prepareStatement("select * From patient;");
+        ResultSet rs = statement.executeQuery();
+        while (rs.next()) {
+            patientsinfo.add(new Patient(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)));
+        }
+
+    }
+
 }

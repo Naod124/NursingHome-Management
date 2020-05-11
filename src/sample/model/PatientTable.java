@@ -2,7 +2,7 @@ package sample.model;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class PatientTable {
+public class PatientTable implements Comparable<PatientTable>{
 
 
     private SimpleStringProperty ssn,firstName,lastName,fullName,dateOfBirth,gender,timeTo, timeFrom,description;
@@ -113,5 +113,16 @@ public class PatientTable {
 
     public void setGender(String gender) {
         this.gender.set(gender);
+    }
+
+    @Override
+    public int compareTo(PatientTable o) {
+        if (getTimeFrom().charAt(0)  > o.getTimeFrom().charAt(0) ) {
+            return 1;
+        } else if (getTimeFrom().charAt(0) < o.getTimeFrom().charAt(0) ){
+            return -1;
+        }else{
+            return 0;
+        }
     }
 }

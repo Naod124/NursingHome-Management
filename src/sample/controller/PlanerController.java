@@ -50,6 +50,7 @@ public class PlanerController implements Initializable {
              pa = psql.getPatientsinfo();
             for (Patient patients : pa){
                 patient.getItems().addAll(patients.getFirstName()+" "+patients.getLastName());
+                System.out.println(pa);
 
             }
         } catch (SQLException throwables) {
@@ -100,8 +101,8 @@ public class PlanerController implements Initializable {
 
 public ArrayList<String> getBoxValues() {
     ArrayList<String> time = new ArrayList<>();
-        time.add("8:00"); time.add("8:30"); time.add("9:00");
-        time.add("9:30"); time.add("10:00"); time.add("10:30");
+        time.add("08:00"); time.add("08:30"); time.add("09:00");
+        time.add("09:30"); time.add("10:00"); time.add("10:30");
         time.add("11:00"); time.add("11:30"); time.add("12:00");
         time.add("12:30"); time.add("13:00"); time.add("13:30");
         time.add("14:00"); time.add("14:30"); time.add("15:00");

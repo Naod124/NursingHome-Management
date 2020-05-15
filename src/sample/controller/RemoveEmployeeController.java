@@ -141,4 +141,3 @@ public class RemoveEmployeeController implements Initializable {
         role.setCellValueFactory(new PropertyValueFactory<>("Role"));
     }
 }
-

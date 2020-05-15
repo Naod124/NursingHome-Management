@@ -2,11 +2,9 @@ package sample.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
-
-
+import sample.databaseConnection.StaffQueries;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -31,39 +29,18 @@ public class ResetPasswordController   {
     int randomCode = rand.nextInt(999999);
 
 
-    Connection conn;
-    ResultSet rs;
-    PreparedStatement ps;
-    Statement statement;
-
-
-
     @FXML public void send() throws SQLException {
 
-        String password = null;
-
-        try {
-
-            conn = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                    "nursinghome", "Vw3J!60l-0kd");
-            String view = "Select Password from login where Username = " + "\'" + emailtxtfield.getText() + "\'"  ;
-
-            statement = conn.createStatement();
-            rs = statement.executeQuery(view);
-
-            while (rs.next()){
-
-                String  b = rs.getString(1);
-                password = b;
-            }
-
+       try{
+        StaffQueries sq = new StaffQueries();
+        sq.sendEmail(emailtxtfield.getText());
 
             String Host = "smtp.gmail.com";
             String User = "nursingHomeManagement@gmail.com";
             String pass = "nursingHome10";
             String to = emailtxtfield.getText();
-            String Subject = "Reset code";
-            String message = "Your password is " + password;
+            String Subject = "Forgot password";
+            String message = "Your password is " + sq.getPassword();
             boolean sessionDebug = false;
 
             Properties props = new Properties();
@@ -86,7 +63,7 @@ public class ResetPasswordController   {
             transport.close();
 
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setHeaderText("The code has been sent to your email");
+            a.setHeaderText("Your password has been sent to your email");
             a.showAndWait();
 
 
@@ -111,4 +88,3 @@ public class ResetPasswordController   {
 
 
 }
-

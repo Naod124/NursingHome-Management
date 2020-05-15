@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="690.0" prefWidth="1037.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ManagePatientController">
+<AnchorPane prefHeight="690.0" prefWidth="1037.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddPatientController">
 <children>
       <TableView fx:id="table" layoutX="17.0" layoutY="14.0" prefHeight="548.0" prefWidth="751.0">
         <columns>
@@ -23,12 +23,7 @@
             <TableColumn fx:id="gendercol" prefWidth="146.0" text="Gender" />
         </columns>
       </TableView>
-      <Button layoutX="821.0" layoutY="443.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="34.0" prefWidth="83.0" stylesheets="@style.css" text="Add" textFill="#0db9de">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="824.0" layoutY="498.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="44.0" prefWidth="100.0" stylesheets="@style.css" text="Update" textFill="#0db9de">
+      <Button layoutX="833.0" layoutY="484.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="34.0" prefWidth="83.0" stylesheets="@style.css" text="Add" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>

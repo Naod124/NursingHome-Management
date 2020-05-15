@@ -19,10 +19,7 @@ import java.util.ResourceBundle;
 
 public class RemovePatientController implements Initializable {
 
-    ManagePatientController mp = new ManagePatientController();
 
-    private Connection conn;
-    PreparedStatement pstmt;
 
 
     @FXML private TableView<Object> table;
@@ -35,18 +32,14 @@ public class RemovePatientController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
-            seepatient();
+            seePatient();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
- public void seepatient() throws SQLException {
-     ssncol.setCellValueFactory(new PropertyValueFactory<>("Ssn"));
-     firstnamecol.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-     lastnamecol.setCellValueFactory(new PropertyValueFactory<>("LastName"));
-     dobcol.setCellValueFactory(new PropertyValueFactory<>("DateOfBirth"));
-     gendercol.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+ public void seePatient() throws SQLException {
+     rows();
      PatientQueries pq = new PatientQueries();
      pq.viewPatientTable();
 
@@ -64,7 +57,7 @@ public class RemovePatientController implements Initializable {
            a.setHeaderText("Patient removed");
            a.showAndWait();
            table.getItems().clear();
-           seepatient();
+           seePatient();
        }
        catch (SQLException e){
            Alert a = new Alert(Alert.AlertType.ERROR);
@@ -75,6 +68,17 @@ public class RemovePatientController implements Initializable {
 
 
     }
+
+
+    public void rows(){
+        ssncol.setCellValueFactory(new PropertyValueFactory<>("Ssn"));
+        firstnamecol.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        lastnamecol.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        dobcol.setCellValueFactory(new PropertyValueFactory<>("DateOfBirth"));
+        gendercol.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+
+    }
+
 
     @FXML
     public void back(ActionEvent ae) throws IOException {

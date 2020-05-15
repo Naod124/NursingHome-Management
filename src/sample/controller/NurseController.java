@@ -15,18 +15,21 @@ public class NurseController {
 
 
     @FXML
-    public void managepatientscene(ActionEvent ae) throws IOException {
+    public void addPatientScene(ActionEvent ae) throws IOException {
 
-        sc.newScene(ae,"../view/ManagePatient.fxml");
+        sc.newScene(ae,"../view/addPatient.fxml");
 
     }
 
     @FXML
-    public void removescene(ActionEvent ae) throws IOException {
+    public void removeScene(ActionEvent ae) throws IOException {
 
         sc.newScene(ae,"../view/RemovePatient.fxml");
 
 }
+    @FXML public void editPatientScene(ActionEvent ae) throws IOException {
+        sc.newScene(ae, "../view/editPatient.fxml");
+    }
     @FXML
     public void back(ActionEvent ae) throws IOException {
 
@@ -39,6 +42,8 @@ public class NurseController {
         System.exit(0);
 
     }
+
+
 
 
 

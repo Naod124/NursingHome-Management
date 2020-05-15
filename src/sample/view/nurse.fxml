@@ -22,12 +22,17 @@
       </Button>
           <VBox layoutX="193.0" layoutY="100.0" prefHeight="278.0" prefWidth="233.0" spacing="30.0">
               <children>
-            <Button fx:id="managepatientbutton" mnemonicParsing="false" onAction="#managepatientscene" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Add/update patient info" textFill="#0db9de">
+            <Button fx:id="managepatientbutton" mnemonicParsing="false" onAction="#addPatientScene" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Add new patient " textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Button>
-                  <Button fx:id="removepatientbutton" mnemonicParsing="false" onAction="#removescene" prefHeight="39.0" prefWidth="235.0" style="-fx-background-color: #484d4c;" text="Remove patient" textFill="#0db9de">
+            <Button fx:id="edit" mnemonicParsing="false" onAction="#editPatientScene" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Edit Patient info" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Button>
+                  <Button fx:id="removepatientbutton" mnemonicParsing="false" onAction="#removeScene" prefHeight="39.0" prefWidth="235.0" style="-fx-background-color: #484d4c;" text="Remove patient" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>

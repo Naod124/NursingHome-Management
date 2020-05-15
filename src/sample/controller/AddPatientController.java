@@ -14,10 +14,8 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class ManagePatientController implements Initializable {
-    private Connection conn;
-    PreparedStatement pstmt = null;
-    private ResultSet rs;
+public class AddPatientController implements Initializable {
+
 
     @FXML
     private TableView<Object> table;
@@ -91,35 +89,12 @@ public class ManagePatientController implements Initializable {
     }
 
 
-    @FXML
-    public void handleUpdate() {
 
-        try {
-            PatientQueries pq = new PatientQueries();
-            pq.updateIntoPatientTable(firstnametextfield.getText(), lastnametextfield.getText(),
-                    datetextfield.getText(), gendertextfield.getText(), ssntextfield.getText());
-            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setHeaderText("Information updated");
-            a.showAndWait();
-            table.getItems().clear();
-            viewPatient();
-            ssntextfield.clear();
-            firstnametextfield.clear();
-            lastnametextfield.clear();
-            datetextfield.clear();
-            gendertextfield.clear();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
+
     public void viewPatient() throws SQLException {
 
 
-        ssncol.setCellValueFactory(new PropertyValueFactory<>("Ssn"));
-        firstnamecol.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-        lastnamecol.setCellValueFactory(new PropertyValueFactory<>("LastName"));
-        dobcol.setCellValueFactory(new PropertyValueFactory<>("DateOfBirth"));
-        gendercol.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+        rows();
         PatientQueries pq = new PatientQueries();
         pq.viewPatientTable();
 
@@ -149,6 +124,7 @@ public class ManagePatientController implements Initializable {
         lastnamecol.setCellValueFactory(new PropertyValueFactory<>("LastName"));
         dobcol.setCellValueFactory(new PropertyValueFactory<>("DateOfBirth"));
         gendercol.setCellValueFactory(new PropertyValueFactory<>("Gender"));
+
     }
 
 

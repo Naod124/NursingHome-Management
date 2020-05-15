@@ -14,6 +14,7 @@ public class StaffQueries {
     private ResultSet resultSet;
     private PreparedStatement pstmt;
 
+    private String password;
 
 
     private ObservableList<StaffTable> obList = FXCollections.observableArrayList();
@@ -174,6 +175,38 @@ public class StaffQueries {
 
         }
     }
+
+    public void sendEmail(String email) {
+
+        try {
+
+            connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                    "nursinghome", "Vw3J!60l-0kd");
+            String view = "Select Password from login where Username = " + "\'" + email + "\'";
+
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(view);
+
+            while (resultSet.next()) {
+
+                password = resultSet.getString(1);
+            }
+
+            setPassword(password);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public ObservableList<StaffTable> getObList() {
         return obList;
     }

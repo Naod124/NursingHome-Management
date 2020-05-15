@@ -6,7 +6,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import sample.databaseConnection.StaffQueries;
-
 import java.io.IOException;
 import java.sql.*;
 
@@ -28,15 +27,15 @@ public class LogInPanelController {
         int row = login.verifyStaffLogin(userName.getText(), passWord.getText());
 
 
-        if (row == 1 && userName.getText().endsWith("@admin.com")) {
+        if (row == 1 && userName.getText().endsWith("@yahoo.com")) {
             SwitchScene sc = new SwitchScene();
             sc.newScene(actionEvent, "/sample/view/admin.fxml");
 
-        } else if (row == 1 && userName.getText().endsWith("@nurse.com")) {
+        } else if (row == 1 && userName.getText().endsWith("@gmail.com")) {
             SwitchScene sc = new SwitchScene();
             sc.newScene(actionEvent, "/sample/view/nurse.fxml");
 
-        } else if (row == 1 && userName.getText().endsWith("@planer.com")) {
+        } else if (row == 1 && userName.getText().endsWith("@hotmail.com")) {
             SwitchScene sc = new SwitchScene();
             sc.newScene(actionEvent, "/sample/view/planer.fxml");
 

@@ -111,7 +111,7 @@ public class PatientQueries {
     }
 
     public void updateIntoPatientTable(String FirstName, String LastName, String Date, String Gender,
-                                       String SSN) throws SQLException {
+                                       Object SSN) throws SQLException {
 
         connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
                 "nursinghome", "Vw3J!60l-0kd");
@@ -121,7 +121,7 @@ public class PatientQueries {
         pstmt.setString(2, LastName);
         pstmt.setString(3, Date);
         pstmt.setString(4, Gender);
-        pstmt.setString(5, SSN);
+        pstmt.setString(5, (String) SSN);
         pstmt.executeUpdate();
 
     }

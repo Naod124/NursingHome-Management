@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.databaseConnection.StaffQueries;
 import sample.model.StaffTable;
@@ -16,6 +17,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ViewEmployeesController implements Initializable {
+    @FXML
+    private TextField employeeLastName;
     @FXML
     private TableView<StaffTable> employeesTable;
     @FXML
@@ -140,5 +143,12 @@ public class ViewEmployeesController implements Initializable {
         email.setCellValueFactory(new PropertyValueFactory<>("Email"));
         address.setCellValueFactory(new PropertyValueFactory<>("Address"));
         role.setCellValueFactory(new PropertyValueFactory<>("Role"));
+    }
+
+    public void show(ActionEvent actionEvent) throws SQLException {
+        employeesTable.getItems().clear();
+        setEmployeesTable();
+        staffQueries.searchEmployeeByLastName(employeeLastName.getText());
+        employeesTable.setItems(staffQueries.getObList());
     }
 }

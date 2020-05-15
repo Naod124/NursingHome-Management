@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -79,5 +80,16 @@
                 <Font name="Quicksand Medium" size="15.0" />
             </font>
         </Button>
+      <Label layoutX="178.0" layoutY="605.0" stylesheets="@style.css" text="Search By Last Name" textFill="#1ad4be">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="employeeLastName" layoutX="332.0" layoutY="599.0" promptText="Employee last Name" />
+      <Button layoutX="535.0" layoutY="597.0" mnemonicParsing="false" onAction="#show" prefHeight="37.0" prefWidth="68.0" text="Show">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

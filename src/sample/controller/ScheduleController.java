@@ -1,6 +1,7 @@
 package sample.controller;
 
 
+import com.sun.glass.ui.CommonDialogs;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,11 +10,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import sample.databaseConnection.PatientQueries;
+import sample.model.ExportToPdf;
 import sample.model.PatientTable;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ScheduleController implements Initializable {
@@ -24,6 +30,9 @@ public class ScheduleController implements Initializable {
     @FXML private TableColumn<PatientTable, String> description;
     @FXML private Button previousPage;
     @FXML private Button deletePatient;
+    @FXML private Button pdfButton;
+    public String path;
+    public List<String> lis;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -39,6 +48,8 @@ public class ScheduleController implements Initializable {
             throwables.printStackTrace();
             throwables.getMessage();
         }
+        ObservableList<PatientTable> p = patientScheduleTableView.getItems();
+        System.out.println(p);
     }
 
     public ObservableList<PatientTable> getPatients() throws SQLException {
@@ -69,6 +80,18 @@ public class ScheduleController implements Initializable {
             System.out.println(s.getMessage());
         }
 
+    }
+
+    public void ScheduleToPdf() {
+        FileChooser fc = new FileChooser();
+        File f = fc.showSaveDialog(null);
+        if (f != null) {
+            path = f.getAbsolutePath();
+            System.out.println(path);
+           ObservableList<PatientTable> p = patientScheduleTableView.getItems();
+            ExportToPdf pdf = new ExportToPdf();
+            pdf.createSchedulePdf(p, path);
+        }
     }
 
     public void backTo() {

@@ -281,6 +281,21 @@ public class PatientQueries {
             setObzList(obfList);
         }
     }
+    public void removeSelectedPatientSchedule(String patientName, String time_from, String time_to, String description) {
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                    "nursinghome", "Vw3J!60l-0kd");
+            String deleteQuery = "DELETE FROM schedule WHERE patient_name = ? and time_from = ? and time_to = ? and description = ?;";
+            pstmt = connection.prepareStatement(deleteQuery);
+            pstmt.setString(1, patientName);
+            pstmt.setString(2, time_from);
+            pstmt.setString(3, time_to);
+            pstmt.setString(4, description);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 

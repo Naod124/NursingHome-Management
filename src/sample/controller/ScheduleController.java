@@ -4,7 +4,9 @@ package sample.controller;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.databaseConnection.PatientQueries;
@@ -20,6 +22,8 @@ public class ScheduleController implements Initializable {
     @FXML private TableColumn<PatientTable, String> timeFrom;
     @FXML private TableColumn<PatientTable, String> timeTO;
     @FXML private TableColumn<PatientTable, String> description;
+    @FXML private Button previousPage;
+    @FXML private Button deletePatient;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -51,6 +55,23 @@ public class ScheduleController implements Initializable {
         PatientQueries pq = new PatientQueries();
         pq.scheduleView();
                     return pq.getPatients();
+
+    }
+
+    public void deleteSelectedSchedule() {
+        try {
+            PatientTable result = patientScheduleTableView.getSelectionModel().getSelectedItem();
+            PatientQueries pq = new PatientQueries();
+            pq.removeSelectedPatientSchedule(result.getFullName(), result.getTimeFrom(), result.getTimeTo(), result.getDescription());
+            System.out.println(result.getFullName()+" "+result.getTimeFrom()+" "+result.getTimeTo()+" "+result.getDescription());
+            System.out.println(result.getTimeFrom());
+        }catch(SQLException s){
+            System.out.println(s.getMessage());
+        }
+
+    }
+
+    public void backTo() {
 
     }
 }

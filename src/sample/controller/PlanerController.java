@@ -17,18 +17,14 @@ import java.util.ResourceBundle;
 
 public class PlanerController implements Initializable {
 
-    @FXML
-    private ChoiceBox patient;
-    @FXML
-    private ChoiceBox fromTime;
-    @FXML
-    private ChoiceBox toTime;
-    @FXML
-    private TextArea description;
-    @FXML
-    private Label patientNameLabel;
-    @FXML
-    private Label patientSSNLabel;
+    @FXML private ChoiceBox patient;
+    @FXML private ChoiceBox fromTime;
+    @FXML private ChoiceBox toTime;
+    @FXML private TextArea description;
+    @FXML private Label patientNameLabel;
+    @FXML private Label patientSSNLabel;
+
+
 
     public String ssnQ;
     public static ArrayList<Patient> pa = null;
@@ -44,19 +40,6 @@ public class PlanerController implements Initializable {
             toTime.getItems().addAll(choiceBoxTimes);
         }
 
-        try {
-            PatientQueries psql = new PatientQueries();
-            psql.viewPatientTable();
-             pa = psql.getPatientsinfo();
-            for (Patient patients : pa){
-                patient.getItems().addAll(patients.getFirstName()+" "+patients.getLastName());
-                System.out.println(pa);
-
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
         patient.setOnAction(e ->{
             String a = (String) patient.getValue();
             String[] b = a.split(" ");
@@ -70,9 +53,22 @@ public class PlanerController implements Initializable {
             }
         });
 
+        labelSetter();
+
     }
     public void labelSetter() {
+        try {
+            PatientQueries psql = new PatientQueries();
+            psql.viewPatientTable();
+            pa = psql.getPatientsinfo();
+            for (Patient patients : pa){
+                patient.getItems().addAll(patients.getFirstName()+" "+patients.getLastName());
+                System.out.println(pa);
 
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     public void apply() throws SQLException {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
@@ -14,5 +15,7 @@
             <TableColumn fx:id="description" prefWidth="231.5999755859375" text="Description" />
         </columns>
       </TableView>
+      <Button fx:id="previousPage" layoutX="23.0" layoutY="361.0" mnemonicParsing="false" onAction="#backTo" text="&lt; back" />
+      <Button fx:id="deletePatient" layoutX="469.0" layoutY="361.0" mnemonicParsing="false" onAction="#deleteSelectedSchedule" text="Delete " />
    </children>
 </Pane>

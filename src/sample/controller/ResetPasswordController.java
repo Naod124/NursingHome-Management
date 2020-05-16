@@ -68,7 +68,9 @@ public class ResetPasswordController   {
 
 
         } catch (MessagingException mx){
-            System.out.println(mx.getMessage());
+           Alert a = new Alert(Alert.AlertType.ERROR);
+           a.setTitle("Error!");
+           a.setContentText("Sorry, the desired information could not be sent!"+"\n"+"Try again...");
 
         }
     }

@@ -3,6 +3,7 @@ package sample.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import sample.databaseConnection.StaffQueries;
@@ -49,6 +50,9 @@ public class AddNewEmployeeController implements Initializable {
             System.out.println("Done ! Check DataBase");
         } catch (Exception e) {
             e.printStackTrace();
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Error!");
+            a.setContentText("Adding a staff member did not go through!"+"\n"+"Please try again...");
         }
     }
 

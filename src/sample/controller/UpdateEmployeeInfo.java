@@ -2,6 +2,7 @@ package sample.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import sample.databaseConnection.StaffQueries;
@@ -32,8 +33,14 @@ public class UpdateEmployeeInfo {
 
     private StaffQueries staffQueries = new StaffQueries();
 
-    public void update(ActionEvent actionEvent) throws SQLException {
-        staffQueries.updateIntoStaffTable(firstName.getText(), lastName.getText(), dOb.getText(), ssn.getText(), email.getText(), role.getValue(), address.getText(), salary.getText());
+    public void update(ActionEvent actionEvent)  {
+        try {
+            staffQueries.updateIntoStaffTable(firstName.getText(), lastName.getText(), dOb.getText(), ssn.getText(), email.getText(), role.getValue(), address.getText(), salary.getText());
+        }catch (SQLException e) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Error!");
+            a.setContentText("Sorry, updating employer information was not possible!"+"\n"+"Try again...");
+        }
     }
 
     public void help(ActionEvent actionEvent) {

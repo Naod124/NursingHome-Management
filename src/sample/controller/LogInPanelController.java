@@ -2,6 +2,7 @@ package sample.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -40,7 +41,9 @@ public class LogInPanelController {
             sc.newScene(actionEvent, "/sample/view/planer.fxml");
 
         } else {
-            System.out.println("Error");
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Error!");
+            a.setContentText("Sorry, logging in was not possible please make sure your account information is correct!"+"\n"+"Try again...");
         }
     }
 
@@ -58,6 +61,6 @@ public class LogInPanelController {
     }
 
     public void forgetPassword(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent,"../view/ResetPassword.fxml");
+        sc.newScene(actionEvent,"/sample/view/ResetPassword.fxml");
     }
 }

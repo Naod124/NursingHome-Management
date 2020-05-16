@@ -85,22 +85,24 @@ public class AddPatientController implements Initializable {
             gendertextfield.clear();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Error!");
+            a.setContentText("Adding a patient did not go through!"+"\n"+"Please try again...");
         }
     }
 
 
 
 
-    public void viewPatient() throws SQLException {
+        public void viewPatient() throws SQLException {
 
+            rows();
+            PatientQueries pq = new PatientQueries();
+            pq.viewPatientTable();
 
-        rows();
-        PatientQueries pq = new PatientQueries();
-        pq.viewPatientTable();
+            table.setItems(pq.getObList());
 
-        table.setItems(pq.getObList());
-
-    }
+        }
 
     @FXML public void sorter() throws SQLException {
         rows();

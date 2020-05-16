@@ -122,14 +122,21 @@ public class RemoveEmployeeController implements Initializable {
         }
     }
 
-    public void deleteEmployeeFromTable() throws SQLException {
-        StaffTable st = employeesTable.getSelectionModel().getSelectedItem();
-        staffQueries.removeStaff(st.getSsn());
-        Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-        a.setHeaderText("Staff member removed");
-        a.showAndWait();
-        employeesTable.getItems().clear();
-        viewStaff();
+    public void deleteEmployeeFromTable()  {
+        try {
+
+            StaffTable st = employeesTable.getSelectionModel().getSelectedItem();
+            staffQueries.removeStaff(st.getSsn());
+            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+            a.setHeaderText("Staff member removed");
+            a.showAndWait();
+            employeesTable.getItems().clear();
+            viewStaff();
+        }catch (SQLException e) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Error!");
+            a.setContentText("Sorry, removing patient could not go through"+"\n"+"Try again...");
+        }
     }
 
     public void setEmployeesTable() {

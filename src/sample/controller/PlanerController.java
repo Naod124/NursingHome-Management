@@ -92,7 +92,9 @@ public class PlanerController implements Initializable {
            a.setHeaderText("INSERTED!");
            a.showAndWait();
     } catch (Exception e){
-           System.out.println();
+           Alert a = new Alert(Alert.AlertType.ERROR);
+           a.setTitle("Error!");
+           a.setContentText("Sorry, We could not apply your information!"+"\n"+"Try again...");
        }
     }
 

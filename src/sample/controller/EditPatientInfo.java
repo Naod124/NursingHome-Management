@@ -88,6 +88,9 @@ public class EditPatientInfo implements Initializable {
 
         catch (SQLException e) {
             System.out.println(e.getMessage());
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Error!");
+            a.setContentText("updating a patient did not go through!"+"\n"+"Please try again...");
         }
 
     }

@@ -3,10 +3,7 @@ package sample.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.databaseConnection.StaffQueries;
 import sample.model.StaffTable;
@@ -46,6 +43,25 @@ public class ViewEmployeesController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        final Tooltip tooltipEmplyoeeTxtField = new Tooltip();
+        tooltipEmplyoeeTxtField.setText("Enter the emplyoees last name that you want to find ");
+        employeeLastName.setTooltip(tooltipEmplyoeeTxtField);
+
+        final Tooltip tooltipAllCheckBox = new Tooltip();
+        tooltipAllCheckBox.setText("Check this box to view all emplyoees");
+        all.setTooltip(tooltipAllCheckBox);
+
+        final Tooltip tooltipNurse = new Tooltip();
+        tooltipNurse.setText("Check this box to view only the nurses");
+        nurses.setTooltip(tooltipNurse);
+
+        final Tooltip tooltipPlaner = new Tooltip();
+        tooltipPlaner.setText("Check this box to view the planers");
+        planers.setTooltip(tooltipPlaner);
+
+
+
         employeesTable.setEditable(true);
         try {
             if (all.isSelected()) {

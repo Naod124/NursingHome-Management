@@ -15,11 +15,6 @@
                 <Font name="System Bold Italic" size="16.0" />
             </font>
         </Button>
-        <Button layoutX="527.0" layoutY="604.0" minWidth="53.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="59.0" style="-fx-background-color: #484d4c;" text="Help" textFill="#0db9de">
-            <font>
-                <Font name="System Bold Italic" size="16.0" />
-            </font>
-        </Button>
         <VBox layoutX="193.0" layoutY="100.0" prefHeight="278.0" prefWidth="233.0" spacing="30.0">
             <children>
                 <Button fx:id="managepatientbutton" mnemonicParsing="false" onAction="#addPatientScene" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Add new patient " textFill="#0db9de">

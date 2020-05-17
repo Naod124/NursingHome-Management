@@ -33,11 +33,6 @@
                         <Font name="System Bold Italic" size="16.0" />
                     </font>
                 </Button>
-                <Button mnemonicParsing="false" onAction="#help" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Help" textFill="#0db9de">
-                    <font>
-                        <Font name="System Bold Italic" size="16.0" />
-                    </font>
-                </Button>
             </children>
         </VBox>
         <VBox layoutX="226.0" layoutY="60.0" prefHeight="385.0" prefWidth="136.0" spacing="28.0">

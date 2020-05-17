@@ -56,7 +56,7 @@
             </ImageView>
          </graphic>
       </Label>
-      <Button layoutX="834.0" layoutY="634.0" mnemonicParsing="false" onAction="#add" prefHeight="44.0" prefWidth="102.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Add">
+      <Button fx:id="addButton" layoutX="823.0" layoutY="634.0" mnemonicParsing="false" onAction="#add" prefHeight="44.0" prefWidth="102.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Add">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
@@ -145,12 +145,12 @@
             </Label>
          </children>
       </VBox>
-      <Button layoutX="936.0" layoutY="672.0" mnemonicParsing="false" onAction="#remove" prefHeight="44.0" prefWidth="102.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Remove">
+      <Button fx:id="removeButton" layoutX="926.0" layoutY="672.0" mnemonicParsing="false" onAction="#remove" prefHeight="44.0" prefWidth="112.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Remove">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="732.0" layoutY="672.0" mnemonicParsing="false" onAction="#update" prefHeight="44.0" prefWidth="102.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Update">
+      <Button fx:id="UpdateButton" layoutX="732.0" layoutY="672.0" mnemonicParsing="false" onAction="#update" prefHeight="44.0" prefWidth="102.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Update">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>

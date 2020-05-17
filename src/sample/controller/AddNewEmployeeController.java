@@ -3,9 +3,7 @@ package sample.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import sample.databaseConnection.StaffQueries;
 
 import java.io.*;
@@ -31,6 +29,8 @@ public class AddNewEmployeeController implements Initializable {
     private TextField ssn;
     @FXML
     private TextField email;
+
+    @FXML private Button addButton;
 
     private SwitchScene sc = new SwitchScene();
 
@@ -71,5 +71,54 @@ public class AddNewEmployeeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         role.getItems().addAll("Nurse", "Planer", "Assistant");
+
+        final Tooltip tooltipSsn = new Tooltip();
+        tooltipSsn.setText("Enter the social security number of the emplyoee. It shall be in this format: yymmdd****");
+        ssn.setTooltip(tooltipSsn);
+
+        final Tooltip tooltipFirstName = new Tooltip();
+        tooltipFirstName.setText("Enter the first name");
+        firstName.setTooltip(tooltipFirstName);
+
+
+        final Tooltip tooltipLastName = new Tooltip();
+        tooltipLastName.setText("Enter the last name");
+        lastName.setTooltip(tooltipLastName);
+
+
+        final Tooltip tooltipDob = new Tooltip();
+        tooltipDob.setText("Enter your birthday in this format: YYYY-MM-DD");
+        dOb.setTooltip(tooltipDob);
+
+
+        final Tooltip tooltipPlaceBorn = new Tooltip();
+        tooltipPlaceBorn.setText("Enter the place of residence");
+        address.setTooltip(tooltipPlaceBorn);
+
+
+        final Tooltip tooltipEmail = new Tooltip();
+        tooltipEmail.setText("Enter your email adress");
+        email.setTooltip(tooltipEmail);
+
+
+        final Tooltip tooltipUsername = new Tooltip();
+        tooltipUsername.setText("Type in your username. Username is the same as email");
+        userName.setTooltip(tooltipUsername);
+
+
+        final Tooltip tooltipPassword = new Tooltip();
+        tooltipPassword.setText("Enter the password. It can contain any character");
+        passWord.setTooltip(tooltipPassword);
+
+
+        final Tooltip tooltipRole = new Tooltip();
+        tooltipRole.setText("Select the role for this emplyoee");
+        role.setTooltip(tooltipRole);
+
+
+        final Tooltip tooltipAddButton = new Tooltip();
+        tooltipAddButton.setText("Press this button when you have entered all information to add this employee");
+        addButton.setTooltip(tooltipAddButton);
+
     }
 }

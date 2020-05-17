@@ -35,6 +35,22 @@ SwitchScene sc = new SwitchScene();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        final Tooltip tooltipPatients = new Tooltip();
+        tooltipPatients.setText("Choose the patient");
+        patient.setTooltip(tooltipPatients);
+
+        final Tooltip tooltipFromTime = new Tooltip();
+        tooltipFromTime.setText("choose a t time from");
+        fromTime.setTooltip(tooltipFromTime);
+
+
+        final Tooltip tooltiptoTime = new Tooltip();
+        tooltipFromTime.setText("choose a t time to");
+        fromTime.setTooltip(tooltiptoTime);
+
+
+
         ArrayList<String> time = getBoxValues();
         for (String choiceBoxTimes : time){
             fromTime.getItems().addAll(choiceBoxTimes);

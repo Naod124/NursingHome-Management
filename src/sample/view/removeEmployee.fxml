@@ -74,7 +74,7 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="888.0" layoutY="337.0" mnemonicParsing="false" onAction="#removeEmployee" style="-fx-background-color: transparent;" text="Remove" textFill="#0db9de">
+      <Button fx:id="removeButton" layoutX="888.0" layoutY="337.0" mnemonicParsing="false" onAction="#removeEmployee" style="-fx-background-color: transparent;" text="Remove" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>

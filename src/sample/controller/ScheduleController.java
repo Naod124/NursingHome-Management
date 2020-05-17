@@ -69,7 +69,7 @@ public class ScheduleController implements Initializable {
 
     }
 
-    public void deleteSelectedSchedule() {
+  /*  public void deleteSelectedSchedule() {
         try {
             PatientTable result = patientScheduleTableView.getSelectionModel().getSelectedItem();
             PatientQueries pq = new PatientQueries();
@@ -81,7 +81,7 @@ public class ScheduleController implements Initializable {
         }
 
     }
-
+*/
     public void ScheduleToPdf() {
         FileChooser fc = new FileChooser();
         File f = fc.showSaveDialog(null);

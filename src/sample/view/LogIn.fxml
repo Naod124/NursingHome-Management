@@ -29,7 +29,7 @@
       </Label>
       <VBox alignment="CENTER" layoutX="341.0" layoutY="147.0" prefHeight="351.0" prefWidth="192.0" spacing="40.0">
          <children>
-                  <Button mnemonicParsing="false" onAction="#signIn" prefHeight="65.0" prefWidth="192.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Sign In" textFill="#21e3ad">
+                  <Button fx:id="signIn" mnemonicParsing="false" onAction="#signIn" prefHeight="65.0" prefWidth="192.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Sign In" textFill="#21e3ad">
                <font>
                   <Font name="System Bold Italic" size="30.0" />
                </font>
@@ -39,12 +39,12 @@
                   <Image url="@../medicalIcons/receptionist-icon.png" />
                </image>
             </ImageView>
-                <Button mnemonicParsing="false" onAction="#contactUs" prefHeight="54.0" prefWidth="192.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Contact us" textFill="#15c9cc">
+                <Button fx:id="contactUs" mnemonicParsing="false" onAction="#contactUs" prefHeight="54.0" prefWidth="192.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Contact us" textFill="#15c9cc">
                <font>
                   <Font name="System Bold Italic" size="25.0" />
                </font>
             </Button>
-                <Button mnemonicParsing="false" onAction="#exit" prefHeight="54.0" prefWidth="193.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Exit" textFill="#01a0fa">
+                <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exit" prefHeight="54.0" prefWidth="193.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Exit" textFill="#01a0fa">
                <font>
                   <Font name="System Bold Italic" size="25.0" />
                </font>

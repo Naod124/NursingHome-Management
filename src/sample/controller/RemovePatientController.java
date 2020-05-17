@@ -28,9 +28,21 @@ public class RemovePatientController implements Initializable {
     @FXML private TableColumn <PatientTable, String> lastnamecol;
     @FXML private TableColumn <PatientTable, String> dobcol;
     @FXML private TableColumn <PatientTable, String> gendercol;
+    @FXML
+    private Button removeButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        final Tooltip tooltipTable = new Tooltip();
+        tooltipTable.setText("Press on the row you want to delete");
+        table.setTooltip(tooltipTable);
+
+
+        final Tooltip tooltipRemoveButton = new Tooltip();
+        tooltipRemoveButton.setText("Press this button to remove the selected row");
+        removeButton.setTooltip(tooltipRemoveButton);
+
         try {
             seePatient();
         } catch (SQLException e) {

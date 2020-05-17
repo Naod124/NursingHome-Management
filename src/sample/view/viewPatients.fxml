@@ -16,7 +16,7 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-          <Button layoutX="932.0" layoutY="646.0" mnemonicParsing="false" onAction="#back" prefHeight="37.0" prefWidth="74.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Back">
+          <Button layoutX="891.0" layoutY="646.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="115.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Back">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>

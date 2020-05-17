@@ -11,11 +11,6 @@
 
 <AnchorPane prefHeight="469.0" prefWidth="676.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AdminController">
     <children>
-          <Button layoutX="554.0" layoutY="415.0" mnemonicParsing="false" onAction="#help" prefHeight="46.0" prefWidth="108.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="Help" textFill="#0db9de">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Button>
           <Button layoutX="14.0" layoutY="415.0" mnemonicParsing="false" onAction="#back" prefHeight="44.0" prefWidth="108.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="Sign out" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />

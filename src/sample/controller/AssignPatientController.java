@@ -10,11 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import sample.databaseConnection.PatientQueries;
@@ -85,6 +81,35 @@ public class AssignPatientController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
+
+		final Tooltip tooltipSsn = new Tooltip();
+		tooltipSsn.setText("Enter the patients social security number. It shall be in this format: yymmdd****");
+		ssntextfield.setTooltip(tooltipSsn);
+
+
+		final Tooltip tooltipFirstname = new Tooltip();
+		tooltipFirstname.setText("Enter the firstname of the patient");
+		firstnametextfield.setTooltip(tooltipFirstname);
+
+
+		final Tooltip tooltipLastname = new Tooltip();
+		tooltipLastname.setText("Enter the lastname of the patient");
+		lastnametextfield.setTooltip(tooltipLastname);
+
+
+		final Tooltip tooltipdate = new Tooltip();
+		tooltipdate.setText("Enter date of birth of the patient in this format: YYYY-MM-DD");
+		datetextfield.setTooltip(tooltipdate);
+
+		final Tooltip tooltipGender = new Tooltip();
+		tooltipGender.setText("Enter sex of the patient. It shall be Male or Female");
+		gendertextfield.setTooltip(tooltipGender);
+
+		final Tooltip tooltipFreeTime = new Tooltip();
+		tooltipFreeTime.setText("choose a free time");
+		freetime.setTooltip(tooltipFreeTime);
+
+
 		try {
 			handleView();
 		} catch (SQLException e) {

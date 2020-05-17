@@ -39,6 +39,15 @@ public class AddPatientController implements Initializable {
     private TextField datetextfield;
     @FXML
     private TextField gendertextfield;
+
+    @FXML
+    private Button aTozButton;
+
+    @FXML
+    private Button zToaButton;
+    @FXML
+    private Button addButton;
+
     private SwitchScene sc = new SwitchScene();
 
 
@@ -58,6 +67,41 @@ public class AddPatientController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        final Tooltip tooltipSsn = new Tooltip();
+        tooltipSsn.setText("Enter the patients social security number. It shall be in this format: yymmdd****");
+        ssntextfield.setTooltip(tooltipSsn);
+
+
+        final Tooltip tooltipFirstname = new Tooltip();
+        tooltipFirstname.setText("Enter the firstname of the patient");
+        firstnametextfield.setTooltip(tooltipFirstname);
+
+
+        final Tooltip tooltipLastname = new Tooltip();
+        tooltipLastname.setText("Enter the lastname of the patient");
+        lastnametextfield.setTooltip(tooltipLastname);
+
+
+        final Tooltip tooltipdate = new Tooltip();
+        tooltipdate.setText("Enter date of birth of the patient in this format: YYYY-MM-DD");
+        datetextfield.setTooltip(tooltipdate);
+
+        final Tooltip tooltipGender = new Tooltip();
+        tooltipGender.setText("Enter sex of the patient. It shall be Male or Female");
+        gendertextfield.setTooltip(tooltipGender);
+
+        final Tooltip tooltipAdd = new Tooltip();
+        tooltipAdd.setText("Press this button after you har filled up all information to add this patient");
+        addButton.setTooltip(tooltipAdd);
+
+        final Tooltip tooltipZtoA = new Tooltip();
+        tooltipZtoA.setText("Press this button to sort the table from Z-A by patients First name ");
+        zToaButton.setTooltip(tooltipZtoA);
+
+        final Tooltip tooltipAtoZ = new Tooltip();
+        tooltipAtoZ.setText("Press this button to sort the table from A-Z by patients First name");
+        aTozButton.setTooltip(tooltipAtoZ);
 
         try {
             viewPatient();

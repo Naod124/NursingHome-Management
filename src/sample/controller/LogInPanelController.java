@@ -2,22 +2,49 @@ package sample.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import sample.databaseConnection.StaffQueries;
-import java.io.IOException;
-import java.sql.*;
 
-public class LogInPanelController {
+import javax.tools.Tool;
+import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+
+public class LogInPanelController implements Initializable {
     @FXML
     private CheckBox showPass;
     @FXML
     private PasswordField passWord;
     @FXML
     private TextField userName;
+    @FXML
+    private Button forgotPassButton;
+
     private SwitchScene sc = new SwitchScene();
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        final Tooltip tooltipUsername = new Tooltip();
+        tooltipUsername.setText("Enter your username if you are admin, nurse or planer");
+        userName.setTooltip(tooltipUsername);
+
+        final Tooltip tooltipPassword = new Tooltip();
+        tooltipPassword.setText("Enter your password to access all functions for your role");
+        passWord.setTooltip(tooltipPassword);
+
+        final Tooltip tooltipShowPass = new Tooltip();
+        tooltipShowPass.setText("check this box if you wish to see your password");
+        showPass.setTooltip(tooltipShowPass);
+
+        final Tooltip tooltipForgotPassword = new Tooltip();
+        tooltipForgotPassword.setText("Press this button if you forgot your password and wish to reset it");
+        forgotPassButton.setTooltip(tooltipForgotPassword);
+
+    }
+
 
     public void back(ActionEvent actionEvent) throws IOException {
         sc.newScene(actionEvent, "/sample/view/LogIn.fxml");
@@ -63,4 +90,6 @@ public class LogInPanelController {
     public void forgetPassword(ActionEvent actionEvent) throws IOException {
         sc.newScene(actionEvent, "/sample/view/forgotPassword.fxml");
     }
+
+
 }

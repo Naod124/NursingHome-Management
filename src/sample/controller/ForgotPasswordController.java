@@ -2,10 +2,8 @@ package sample.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import sample.databaseConnection.StaffQueries;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -13,12 +11,15 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.tools.Tool;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.*;
 import java.util.Properties;
 import java.util.Random;
+import java.util.ResourceBundle;
 
-public class ForgotPasswordController {
+public class ForgotPasswordController implements Initializable {
 
     @FXML
     private TextField emailtxtfield;
@@ -34,6 +35,9 @@ public class ForgotPasswordController {
 
     @FXML
     private PasswordField verifypassword;
+
+    @FXML
+    private Button sendButton;
 
 
     SwitchScene sc = new SwitchScene();
@@ -135,4 +139,32 @@ public class ForgotPasswordController {
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        final Tooltip tooltipEmail = new Tooltip();
+        tooltipEmail.setText("Enter your Email where you will receive a reset code. Email shall be your username.");
+        emailtxtfield.setTooltip(tooltipEmail);
+
+        final Tooltip tooltipSend = new Tooltip();
+        tooltipSend.setText("Press this button after you entered your email to receive a reset code so you can create new password");
+        sendButton.setTooltip(tooltipSend);
+
+        final Tooltip tooltipNewPassword = new Tooltip();
+        tooltipNewPassword.setText("Enter a the new password");
+        newPassword.setTooltip(tooltipNewPassword);
+
+        final Tooltip tooltipReset = new Tooltip();
+        tooltipReset.setText("Check your email and enter the reset code you have received there");
+        resettxtfield.setTooltip(tooltipReset);
+
+        final Tooltip tooltipVerifyPassword = new Tooltip();
+        tooltipVerifyPassword.setText("Repeat the password you entered for safety reason");
+        verifypassword.setTooltip(tooltipVerifyPassword);
+
+        final Tooltip tooltipConfirm = new Tooltip();
+        tooltipConfirm.setText("Press this button when you have filled up all these textfields to update your password");
+        confirmButon.setTooltip(tooltipConfirm);
+
+    }
 }

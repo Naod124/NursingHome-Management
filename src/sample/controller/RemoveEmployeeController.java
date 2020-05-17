@@ -34,6 +34,8 @@ public class RemoveEmployeeController implements Initializable {
     @FXML
     private TableView<StaffTable> employeesTable;
 
+    @FXML private Button removeButton;
+
     private Connection conn;
     private PreparedStatement pstmt;
     private SwitchScene sc = new SwitchScene();
@@ -43,6 +45,30 @@ public class RemoveEmployeeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        final Tooltip tooltipAllCheckBox = new Tooltip();
+        tooltipAllCheckBox.setText("Check this box to view all emplyoees");
+        all.setTooltip(tooltipAllCheckBox);
+
+        final Tooltip tooltipNurse = new Tooltip();
+        tooltipNurse.setText("Check this box to view only the nurses");
+        nurses.setTooltip(tooltipNurse);
+
+        final Tooltip tooltipPlaner = new Tooltip();
+        tooltipPlaner.setText("Check this box to view only the planers ");
+        planers.setTooltip(tooltipPlaner);
+
+
+        final Tooltip tooltipTable = new Tooltip();
+        tooltipTable.setText("Press on the row you want to delete");
+        employeesTable.setTooltip(tooltipTable);
+
+
+        final Tooltip tooltipRemoveButton = new Tooltip();
+        tooltipRemoveButton.setText("Press this button to remove the selected row");
+        removeButton.setTooltip(tooltipRemoveButton);
+
+
         employeesTable.setEditable(true);
         try {
             viewStaff();

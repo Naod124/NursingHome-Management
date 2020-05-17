@@ -19,7 +19,7 @@
          </font>
       </Button>
       <PasswordField fx:id="passWord" layoutX="231.0" layoutY="211.0" promptText="Password" stylesheets="@style.css" />
-          <Button layoutX="421.0" layoutY="326.0" mnemonicParsing="false" onAction="#logIn" prefHeight="0.0" prefWidth="160.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Log in" textFill="#0db9de">
+          <Button fx:id="loginButton" layoutX="421.0" layoutY="326.0" mnemonicParsing="false" onAction="#logIn" prefHeight="0.0" prefWidth="160.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Log in" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="25.0" />
          </font>
@@ -61,7 +61,7 @@
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </CheckBox>
-      <Button contentDisplay="CENTER" layoutX="226.0" layoutY="254.0" mnemonicParsing="false" onAction="#forgetPassword" prefHeight="37.0" prefWidth="160.0" style="-fx-background-color: #484d4c;" text="Forgot password ?" textFill="#0db9de">
+      <Button fx:id="forgotPassButton" contentDisplay="CENTER" layoutX="226.0" layoutY="254.0" mnemonicParsing="false" onAction="#forgetPassword" prefHeight="37.0" prefWidth="160.0" style="-fx-background-color: #484d4c;" text="Forgot password ?" textFill="#0db9de">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

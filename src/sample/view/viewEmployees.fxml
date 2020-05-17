@@ -85,7 +85,7 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="employeeLastName" layoutX="332.0" layoutY="599.0" promptText="Employee last Name" />
+      <TextField fx:id="employeeLastName" layoutX="332.0" layoutY="599.0" />
       <Button layoutX="535.0" layoutY="597.0" mnemonicParsing="false" onAction="#show" prefHeight="37.0" prefWidth="68.0" text="Show">
          <font>
             <Font name="System Bold Italic" size="16.0" />

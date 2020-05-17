@@ -1,8 +1,11 @@
 package sample.model;
 
 import javafx.beans.property.SimpleStringProperty;
+import sample.databaseConnection.PatientQueries;
 
-public class StaffTable {
+import java.sql.SQLException;
+
+public class StaffTable implements Runnable{
 
     private SimpleStringProperty firstName,lastName, ssn, email, address, role;
 
@@ -13,6 +16,9 @@ public class StaffTable {
         this.email = new SimpleStringProperty(email);
         this.address = new SimpleStringProperty(address);
         this.role = new SimpleStringProperty(role);
+    }
+    public StaffTable() {
+
     }
 
     public String getFirstName() {
@@ -85,5 +91,15 @@ public class StaffTable {
 
     public void setRole(String role) {
         this.role.set(role);
+    }
+
+    @Override
+    public void run() {
+        PatientQueries pq = new PatientQueries();
+        try {
+            pq.truncateSchedule();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

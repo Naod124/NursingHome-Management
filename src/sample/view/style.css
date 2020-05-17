@@ -16,3 +16,31 @@
  -fx-text-fill : #0db9de ;
 }
 
+
+.combo-box {
+    -fx-prompt-text-fill: #0db9de;
+    -fx-background-color: transparent ;
+    -fx-border-color :  #0db9de ;
+    -fx-font-family :  Quicksand ;
+    -fx-font-size :  15.0;
+    -fx-border-width : 2.0 ;
+    -fx-border-radius : 200.0 ;
+}
+
+
+.text-area {
+    -fx-prompt-text-fill: #0db9de;
+    -fx-background-color: transparent ;
+    -fx-border-color :  #0db9de ;
+    -fx-font-family :  Quicksand ;
+    -fx-font-size :  15.0;   
+}
+
+.date-picker {
+    -fx-prompt-text-fill: #0db9de;
+    -fx-background-color: transparent ;
+    -fx-border-color :  #0db9de ;
+    -fx-font-family :  Quicksand ;
+    -fx-font-size :  15.0;
+    -fx-border-color:none;    
+}

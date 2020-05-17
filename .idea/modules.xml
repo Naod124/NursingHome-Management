@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NursingHomeSystem.iml" filepath="$PROJECT_DIR$/NursingHomeSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NursingHome-Management.iml" filepath="$PROJECT_DIR$/NursingHome-Management.iml" />
     </modules>
   </component>
 </project>

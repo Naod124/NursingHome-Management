@@ -36,6 +36,11 @@ public class NurseController {
         sc.newScene(ae, "../view/LogIn.fxml");
 
     }
+    @FXML
+    public void changePassword(ActionEvent ae) throws IOException {
+
+        sc.newScene(ae, "../view/NewPassword.fxml");
+    }
 
     @FXML
     public void exit(ActionEvent ae) throws IOException {

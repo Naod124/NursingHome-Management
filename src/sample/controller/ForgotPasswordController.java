@@ -3,6 +3,8 @@ package sample.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import sample.databaseConnection.StaffQueries;
 import javax.mail.Message;
@@ -16,11 +18,29 @@ import java.sql.*;
 import java.util.Properties;
 import java.util.Random;
 
-public class ResetPasswordController   {
+public class ForgotPasswordController {
 
     @FXML
     private TextField emailtxtfield;
+
+    @FXML
+    private PasswordField newPassword;
+
+    @FXML
+    private TextField resettxtfield;
+
+    @FXML
+    private Button confirmButon;
+
+    @FXML
+    private PasswordField verifypassword;
+
+
     SwitchScene sc = new SwitchScene();
+
+    Alert a = new Alert(Alert.AlertType.INFORMATION);
+    Alert f = new Alert(Alert.AlertType.ERROR);
+
 
 
 
@@ -39,8 +59,8 @@ public class ResetPasswordController   {
             String User = "nursingHomeManagement@gmail.com";
             String pass = "nursingHome10";
             String to = emailtxtfield.getText();
-            String Subject = "Forgot password";
-            String message = "Your password is " + sq.getPassword();
+            String Subject = "Reset code";
+            String message = "Your reset code is " + randomCode;
             boolean sessionDebug = false;
 
             Properties props = new Properties();
@@ -63,16 +83,42 @@ public class ResetPasswordController   {
             transport.close();
 
             Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setHeaderText("Your password has been sent to your email");
+            a.setHeaderText(" Reset code has been sent to your email");
             a.showAndWait();
 
 
         } catch (MessagingException mx){
-           Alert a = new Alert(Alert.AlertType.ERROR);
-           a.setTitle("Error!");
-           a.setContentText("Sorry, the desired information could not be sent!"+"\n"+"Try again...");
+           f.setTitle("Error!");
+           f.setContentText("Sorry, the desired information could not be sent!"+"\n"+"Try again...");
 
         }
+
+    }
+
+
+    @FXML public void confirmButton(){
+        int b = Integer.parseInt(resettxtfield.getText());
+
+        if (randomCode == b){
+
+            if (newPassword.getText().equals(verifypassword.getText())) {
+                StaffQueries sq = new StaffQueries();
+                sq.newPassword(emailtxtfield.getText(), verifypassword.getText());
+                a.setHeaderText("Password Updated!");
+            }
+            else {
+                f.setHeaderText("Password does not match");
+                f.showAndWait();
+            }
+        }
+        else {
+            f.setHeaderText("Reset code does not match");
+            f.setContentText("It doesn't match with the one sent to your email");
+            f.showAndWait();
+        }
+        a.showAndWait();
+
+
     }
 
     @FXML public void signOut(ActionEvent ae) throws IOException {

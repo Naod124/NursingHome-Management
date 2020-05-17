@@ -61,6 +61,6 @@ public class LogInPanelController {
     }
 
     public void forgetPassword(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent,"/sample/view/ResetPassword.fxml");
+        sc.newScene(actionEvent, "/sample/view/forgotPassword.fxml");
     }
 }

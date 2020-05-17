@@ -1,5 +1,6 @@
 package sample.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -29,7 +30,7 @@ public class PlanerController implements Initializable {
     public String ssnQ;
     public static ArrayList<Patient> pa = null;
     public static Patient patientHere;
-
+SwitchScene sc = new SwitchScene();
 
 
     @Override
@@ -93,6 +94,10 @@ public class PlanerController implements Initializable {
            a.setContentText("Sorry, We could not apply your information!"+"\n"+"Try again...");
        }
     }
+
+   @FXML public void changePassword(ActionEvent event) throws IOException {
+       sc.newScene(event, "../view/NewPassword.fxml");
+   }
 
 
 

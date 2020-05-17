@@ -264,6 +264,18 @@ public class StaffQueries {
         }
     }
 
+    public void newPassword(String email, String Pass) {
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                    "nursinghome", "Vw3J!60l-0kd");
+            String Update = "Update login set Password = ? where Username = " + "\'" + email + "\'";
+            pstmt = connection.prepareStatement(Update);
+            pstmt.setString(1, Pass);
+            pstmt.executeUpdate();
+        } catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
     public String getPassword() {
         return password;
     }

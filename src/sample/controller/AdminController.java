@@ -33,6 +33,10 @@ public class AdminController {
     public void viewPatients(ActionEvent actionEvent) throws IOException {
         sc.newScene(actionEvent,"/sample/view/viewPatients.fxml");
     }
+    public void changePassword(ActionEvent event) throws IOException {
+        sc.newScene(event, "../view/NewPassword.fxml");
+
+    }
 
     public void help(ActionEvent actionEvent) {
     }

@@ -2,14 +2,16 @@ package sample.databaseConnection;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sample.model.AssignTable;
-import sample.model.DiagnoseTable;
-import sample.model.Patient;
-import sample.model.PatientTable;
+import sample.model.*;
 
 import java.sql.*;
+import java.time.Duration;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
-
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 
 public class PatientQueries {
@@ -354,6 +356,33 @@ public class PatientQueries {
         }
         return list;
     }
+
+    public void scheduleTruncateThread() {
+        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Copenhagen"));
+        ZonedDateTime nextRun = now.withHour(0).withMinute(0).withSecond(0);
+        if (now.compareTo(nextRun) == 1) {
+            nextRun = nextRun.plusDays(1);
+
+        }
+
+        Duration duration = Duration.between(now, nextRun);
+        long initalDelay = duration.getSeconds();
+        StaffTable p = new StaffTable();
+
+        ScheduledExecutorService pool =  Executors.newScheduledThreadPool(1);
+        pool.scheduleAtFixedRate(p, initalDelay, TimeUnit.DAYS.toSeconds(1), TimeUnit.SECONDS);
+
+    }
+
+    public void truncateSchedule() throws SQLException {
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
+                "Vw3J!60l-0kd");
+        String selectQuery = "TRUNCATE schedule;";
+        PreparedStatement statement = connection.prepareStatement(selectQuery);
+        statement.executeUpdate();
+    }
+
+
 
 
     public ObservableList<Object> getObList() {

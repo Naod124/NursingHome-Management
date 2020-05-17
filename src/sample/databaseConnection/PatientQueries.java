@@ -2,11 +2,15 @@ package sample.databaseConnection;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import sample.model.AssignTable;
+import sample.model.DiagnoseTable;
 import sample.model.Patient;
 import sample.model.PatientTable;
 
 import java.sql.*;
 import java.util.ArrayList;
+
+
 
 public class PatientQueries {
 
@@ -17,23 +21,23 @@ public class PatientQueries {
 
     private ArrayList<sample.model.Patient> patientsinfo;
 
-
-
     ObservableList<PatientTable> patients = FXCollections.observableArrayList();
 
     private ObservableList<Object> obList = FXCollections.observableArrayList();
     private ObservableList<Object> obzList = FXCollections.observableArrayList();
     private ObservableList<Object> obfList = FXCollections.observableArrayList();
 
-
-    public PatientQueries() throws SQLException {
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
-
+    public PatientQueries() {
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                    "nursinghome", "Vw3J!60l-0kd");
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         patientsinfo = new ArrayList<>();
     }
-
 
     public void viewPatientTable() throws SQLException {
 
@@ -52,12 +56,12 @@ public class PatientQueries {
         }
         while (true) {
             try {
-                if (!rs.next()) break;
+                if (!rs.next())
+                    break;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            PatientTable pt = new PatientTable("SSN", "FirstName", "LastName", "DateOfBirth", "Gender");
-
+            PatientTable pt = new PatientTable("SSN", "FirstName", "LastName", "DateOfBirth", "Gender", "FreeTime");
 
             try {
                 pt.setSsn(rs.getString("SSN"));
@@ -84,6 +88,11 @@ public class PatientQueries {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            try {
+                pt.setFreeTime(rs.getString("FreeTime"));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             obList.add(pt);
             setObList(obList);
         }
@@ -92,11 +101,10 @@ public class PatientQueries {
 
     public void insertIntoPatientTable(String SSN, String FirstName, String LastName, String DateOfBirth, String Gender)
             throws SQLException {
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
+                "Vw3J!60l-0kd");
 
         String insertQuery = "INSERT INTO patient(SSN, FirstName, LastName, DateOfBirth, Gender) VALUES(?,?,?,?,?);";
-
 
         try (PreparedStatement pstmt = connection.prepareStatement(insertQuery)) {
             pstmt.setString(1, SSN);
@@ -107,28 +115,28 @@ public class PatientQueries {
             pstmt.executeUpdate();
         }
 
-
     }
 
-    public void updateIntoPatientTable(String FirstName, String LastName, String Date, String Gender,
-                                       Object SSN) throws SQLException {
+    public void updateIntoPatientTable(String FirstName, String LastName, String Date, String Gender, String SSN)
+            throws SQLException {
 
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
+                "Vw3J!60l-0kd");
         String updateQuery = "UPDATE patient SET FirstName = ?,LastName = ?,DateOfBirth = ?, Gender = ?  WHERE SSN = ?";
         pstmt = connection.prepareStatement(updateQuery);
         pstmt.setString(1, FirstName);
         pstmt.setString(2, LastName);
         pstmt.setString(3, Date);
         pstmt.setString(4, Gender);
-        pstmt.setString(5, (String) SSN);
+        pstmt.setString(5, SSN);
         pstmt.executeUpdate();
 
     }
 
-    public void deleteFromPatientTable(String SSN, String FirstName, String LastName, String DateOfBirth, String Gender) throws SQLException {
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
+    public void deleteFromPatientTable(String SSN, String FirstName, String LastName, String DateOfBirth, String Gender)
+            throws SQLException {
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
+                "Vw3J!60l-0kd");
 
         String deleteQuery = "DELETE FROM patient WHERE SSN = ?";
         try (PreparedStatement ptsmt = connection.prepareStatement(deleteQuery)) {
@@ -139,7 +147,6 @@ public class PatientQueries {
             ptsmt.setString(5, Gender);
             ptsmt.executeUpdate();
 
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
 
@@ -147,8 +154,8 @@ public class PatientQueries {
     }
 
     public void removePatient(String ssn) throws SQLException {
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
+                "Vw3J!60l-0kd");
         String updateQuery = "DELETE FROM patient WHERE SSN = ?";
         pstmt = connection.prepareStatement(updateQuery);
         pstmt.setString(1, ssn);
@@ -162,18 +169,18 @@ public class PatientQueries {
                     "nursinghome", "Vw3J!60l-0kd");
             ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM schedule;");
             while (rs.next()) {
-                patients.add(new PatientTable(rs.getString("patient_name")
-                        , rs.getString("time_from"), rs.getString("time_to")
-                        , rs.getString("description")));
+                patients.add(new PatientTable(rs.getString("patient_name"), rs.getString("time_from"),
+                        rs.getString("time_to"), rs.getString("description")));
             }
-           FXCollections.sort(patients);
+            FXCollections.sort(patients);
             setPatients(patients);
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
     }
-    public void sortByName(){
+
+    public void sortByName() {
 
         String selectQuery = "SELECT * FROM PATIENT order by FirstName";
 
@@ -190,12 +197,12 @@ public class PatientQueries {
         }
         while (true) {
             try {
-                if (!rs.next()) break;
+                if (!rs.next())
+                    break;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
             PatientTable pt = new PatientTable("SSN", "FirstName", "LastName", "DateOfBirth", "Gender");
-
 
             try {
                 pt.setSsn(rs.getString("SSN"));
@@ -227,8 +234,7 @@ public class PatientQueries {
         }
     }
 
-
-    public void sortZtoA(){
+    public void sortZtoA() {
 
         String selectQuery = "SELECT * FROM PATIENT order by FirstName desc";
 
@@ -245,12 +251,12 @@ public class PatientQueries {
         }
         while (true) {
             try {
-                if (!rs.next()) break;
+                if (!rs.next())
+                    break;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
             PatientTable pt = new PatientTable("SSN", "FirstName", "LastName", "DateOfBirth", "Gender");
-
 
             try {
                 pt.setSsn(rs.getString("SSN"));
@@ -281,30 +287,83 @@ public class PatientQueries {
             setObzList(obfList);
         }
     }
-    public void removeSelectedPatientSchedule(String patientName, String time_from, String time_to, String description) {
+
+    public void AssignNursetoPatient(String PatientSSN, String time, String nurseSSN, String Freetime)
+            throws SQLException {
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
+                "Vw3J!60l-0kd");
+        String updateQuery = "INSERT INTO timetable(appointed_time, occupiedby, SSN) VALUES(?,?,?);";
+        pstmt = connection.prepareStatement(updateQuery);
+        pstmt.setString(1, time);
+        pstmt.setString(2, nurseSSN);
+        pstmt.setString(3, PatientSSN);
+        pstmt.executeUpdate();
+
+        // update the free time of patient
+        String updateQuery2 = "UPDATE patient SET FreeTime = ? WHERE SSN = ?;";
+        PreparedStatement pstmt1 = connection.prepareStatement(updateQuery2);
+        pstmt1.setString(1, Freetime);
+        pstmt1.setString(2, PatientSSN);
+        pstmt1.executeUpdate();
+
+    }
+
+    public int getNurseSSN(String username, String password) throws SQLException {
+        int id = 0;
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
+                "Vw3J!60l-0kd");
+        String selectQuery = "SELECT staff_SSN FROM login where Username =? AND Password =?;";
+        PreparedStatement statement = connection.prepareStatement(selectQuery);
+        statement.setString(1, username);
+        statement.setString(2, password);
+        ResultSet rs = statement.executeQuery();
+        while (rs.next()) {
+            id = rs.getInt("staff_SSN");
+        }
+
+        return id;
+    }
+
+
+    // for getting item from the database
+    public ArrayList<AssignTable> viewAssigneTable() throws SQLException {
+        ArrayList<AssignTable> list = new ArrayList<>();
+        // select query for getting data from patient and their diagnoses from diagnose table
+        String selectQuery = "SELECT * FROM patient,timetable where patient.SSN = timetable.SSN;";
+
         try {
             connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
                     "nursinghome", "Vw3J!60l-0kd");
-            String deleteQuery = "DELETE FROM schedule WHERE patient_name = ? and time_from = ? and time_to = ? and description = ?;";
-            pstmt = connection.prepareStatement(deleteQuery);
-            pstmt.setString(1, patientName);
-            pstmt.setString(2, time_from);
-            pstmt.setString(3, time_to);
-            pstmt.setString(4, description);
-            pstmt.executeUpdate();
+            ResultSet resultSet = connection.createStatement().executeQuery(selectQuery);
+
+            while (resultSet.next()) {
+                // creating object and setting data
+                AssignTable asign = new AssignTable("", "", "", "", "", "", "");
+                asign.setSsn(resultSet.getString("SSN"));
+                asign.setFirstName(resultSet.getString("FirstName"));
+                asign.setLastName(resultSet.getString("LastName"));
+                asign.setDateOfBirth(resultSet.getString("DateOfBirth"));
+                asign.setGender(resultSet.getString("Gender"));
+                asign.setAppointed_time(resultSet.getString("appointed_time"));
+                asign.setOccupiedby(resultSet.getString("occupiedby"));
+
+                list.add(asign);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return list;
     }
-
 
 
     public ObservableList<Object> getObList() {
         return obList;
     }
+
     public void setObList(ObservableList<Object> obList) {
         this.obList = obList;
     }
+
     public ObservableList<Object> getObzList() {
         return obzList;
     }
@@ -312,6 +371,7 @@ public class PatientQueries {
     public void setObzList(ObservableList<Object> obzList) {
         this.obzList = obzList;
     }
+
     public ObservableList<Object> getObfList() {
         return obfList;
     }
@@ -328,7 +388,6 @@ public class PatientQueries {
         this.patients = patients;
     }
 
-
     public ArrayList<Patient> getPatientsinfo() throws SQLException {
         getAllPatientsToArrayList();
         return patientsinfo;
@@ -339,7 +398,8 @@ public class PatientQueries {
         PreparedStatement statement = connect.prepareStatement("select * From patient;");
         ResultSet rs = statement.executeQuery();
         while (rs.next()) {
-            patientsinfo.add(new Patient(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5)));
+            patientsinfo.add(
+                    new Patient(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
         }
 
     }

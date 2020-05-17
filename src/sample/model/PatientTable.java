@@ -2,13 +2,12 @@ package sample.model;
 
 import javafx.beans.property.SimpleStringProperty;
 
-public class PatientTable implements Comparable<PatientTable>{
+public class PatientTable implements Comparable<PatientTable> {
 
+    private SimpleStringProperty ssn, firstName, lastName, fullName, dateOfBirth, gender, timeTo, timeFrom, description,
+            FreeTime;
 
-    private SimpleStringProperty ssn,firstName,lastName,fullName,dateOfBirth,gender,timeTo, timeFrom,description;
-
-    public PatientTable(String ssn, String firstName,
-                        String lastName, String dateOfBirth, String gender) {
+    public PatientTable(String ssn, String firstName, String lastName, String dateOfBirth, String gender) {
         this.ssn = new SimpleStringProperty(ssn);
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
@@ -21,6 +20,17 @@ public class PatientTable implements Comparable<PatientTable>{
         this.timeTo = new SimpleStringProperty(timeTo);
         this.timeFrom = new SimpleStringProperty(timeFrom);
         this.description = new SimpleStringProperty(description);
+    }
+
+    public PatientTable(String ssn, String firstName, String lastName, String dateOfBirth, String gender,
+                        String freetime) {
+        this.ssn = new SimpleStringProperty(ssn);
+        this.firstName = new SimpleStringProperty(firstName);
+        this.lastName = new SimpleStringProperty(lastName);
+        this.dateOfBirth = new SimpleStringProperty(dateOfBirth);
+        this.gender = new SimpleStringProperty(gender);
+        this.FreeTime = new SimpleStringProperty(freetime);
+
     }
 
     public String getFullName() {
@@ -115,13 +125,21 @@ public class PatientTable implements Comparable<PatientTable>{
         this.gender.set(gender);
     }
 
+    public String getFreeTime() {
+        return FreeTime.get();
+    }
+
+    public void setFreeTime(String freeTime) {
+        this.FreeTime.set(freeTime);
+    }
+
     @Override
     public int compareTo(PatientTable o) {
-        if (getTimeFrom().charAt(0)  > o.getTimeFrom().charAt(0) ) {
+        if (getTimeFrom().charAt(0) > o.getTimeFrom().charAt(0)) {
             return 1;
-        } else if (getTimeFrom().charAt(0) < o.getTimeFrom().charAt(0) ){
+        } else if (getTimeFrom().charAt(0) < o.getTimeFrom().charAt(0)) {
             return -1;
-        }else{
+        } else {
             return 0;
         }
     }

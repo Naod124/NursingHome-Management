@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -36,17 +37,9 @@
                 <Font name="System Bold Italic" size="16.0" />
             </font>
         </Button>
-      <Label layoutX="5.0" layoutY="96.0" prefHeight="67.0" prefWidth="540.0" text="This application is for the Admin, Nurses and planer that works in this nursing home.  " textFill="WHITE" />
-      <Label layoutX="5.0" layoutY="147.0" prefHeight="67.0" prefWidth="600.0" text="If you are the Adminstrator then log in with your admin login information and you can therefore" textFill="WHITE" />
-      <Label layoutX="5.0" layoutY="181.0" prefHeight="67.0" prefWidth="576.0" text="have the access to view all patients,view all employees, add emplyoees and remove " textFill="WHITE" />
-      <Label layoutX="5.0" layoutY="214.0" prefHeight="67.0" prefWidth="331.0" text="employees that no longer are working here." textFill="WHITE" />
-      <Label layoutX="8.0" layoutY="248.0" prefHeight="67.0" prefWidth="600.0" text="If you are a Nurse then log in with your admin login information and you can therefore have the" textFill="WHITE" />
-      <Label layoutX="2.0" layoutY="282.0" prefHeight="67.0" prefWidth="583.0" text="options to to view all patients, remove patients, edit patient info, get assigned patients " textFill="WHITE" />
-      <Label layoutX="14.0" layoutY="316.0" prefHeight="50.0" prefWidth="331.0" text="and check their diagnosis" textFill="WHITE" />
-      <Label layoutX="5.0" layoutY="349.0" prefHeight="50.0" prefWidth="591.0" text="If you are the planer then log in with your admin login information and you can therefore" textFill="WHITE" />
-      <Label layoutX="5.0" layoutY="383.0" prefHeight="67.0" prefWidth="331.0" text="create the schedule for the nurses." textFill="WHITE" />
-      <Label layoutX="265.0" layoutY="417.0" prefHeight="50.0" prefWidth="274.0" text="For more information please contact us:" textFill="RED" />
-      <Label layoutX="336.0" layoutY="494.0" prefHeight="37.0" prefWidth="192.0" text="PhoneNumber: 0720376735" textFill="RED" />
-      <Label layoutX="309.0" layoutY="459.0" prefHeight="37.0" prefWidth="292.0" text="E-Mail - nursinghomemanagement@gmail.com" textFill="#f50303" />
+      <Label layoutX="246.0" layoutY="420.0" prefHeight="50.0" prefWidth="274.0" text="For more information please contact us:" textFill="#0db9de" />
+      <Label layoutX="246.0" layoutY="494.0" prefHeight="37.0" prefWidth="192.0" text="PhoneNumber: 0720376735" textFill="#0db9de" />
+      <Label layoutX="246.0" layoutY="459.0" prefHeight="37.0" prefWidth="292.0" text="E-Mail: nursinghomemanagement@gmail.com" textFill="#0db9de" />
+      <TextArea fx:id="txtarea" layoutX="18.0" layoutY="101.0" prefHeight="326.0" prefWidth="494.0" />
     </children>
 </AnchorPane>

@@ -55,8 +55,9 @@ public class LogInController implements Initializable {
     }
 
     @FXML
-    public void contactUs(ActionEvent actionEvent) throws IOException {
+    public void Help(ActionEvent actionEvent) throws IOException {
 
+        sc.newScene(actionEvent,"/sample/view/Help.fxml");
     }
 
 

@@ -1,5 +1,7 @@
 package sample.controller;
 
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,10 +14,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 public class ViewEmployeesController implements Initializable {
     @FXML
-    private TextField employeeLastName;
+    private TextField searchIdField;
+    @FXML
+    private TextField searchLastNameField;
     @FXML
     private TableView<StaffTable> employeesTable;
     @FXML
@@ -40,13 +45,12 @@ public class ViewEmployeesController implements Initializable {
     private SwitchScene sc = new SwitchScene();
     private StaffQueries staffQueries = new StaffQueries();
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         final Tooltip tooltipEmplyoeeTxtField = new Tooltip();
         tooltipEmplyoeeTxtField.setText("Enter the emplyoees last name that you want to find ");
-        employeeLastName.setTooltip(tooltipEmplyoeeTxtField);
+        searchLastNameField.setTooltip(tooltipEmplyoeeTxtField);
 
         final Tooltip tooltipAllCheckBox = new Tooltip();
         tooltipAllCheckBox.setText("Check this box to view all emplyoees");
@@ -61,22 +65,63 @@ public class ViewEmployeesController implements Initializable {
         planers.setTooltip(tooltipPlaner);
 
 
-
         employeesTable.setEditable(true);
         try {
-            if (all.isSelected()) {
-                viewStaff();
-            } else if (nurses.isSelected()) {
-                viewNurse();
-            } else if (planers.isSelected()) {
-                viewPlaner();
-            } else viewStaff();
-
+            viewStaff();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        searchFunctionById();
+        searchFunctionByLastName();
 
     }
+
+    public void searchFunctionById() {
+        FilteredList<StaffTable> filteredList = new FilteredList<StaffTable>(staffQueries.getObList(), b -> true);
+        searchIdField.setOnKeyReleased(e -> {
+            searchIdField.textProperty().addListener(((observableValue, oldValue, newValue) -> {
+                filteredList.setPredicate((Predicate<? super StaffTable>) s -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    if (s.getSsn().contains(newValue)) {
+                        return true;
+                    } else if (s.getSsn().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    }
+                    return false;
+                });
+            }));
+            SortedList<StaffTable> sortedList = new SortedList<>(filteredList);
+            sortedList.comparatorProperty().bind(employeesTable.comparatorProperty());
+            employeesTable.setItems(sortedList);
+        });
+    }
+
+    public void searchFunctionByLastName() {
+        FilteredList<StaffTable> filteredList = new FilteredList<StaffTable>(staffQueries.getObList(), b -> true);
+        searchLastNameField.setOnKeyReleased(e -> {
+            searchLastNameField.textProperty().addListener(((observableValue, oldValue, newValue) -> {
+                filteredList.setPredicate((Predicate<? super StaffTable>) s -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    if (s.getLastName().contains(newValue)) {
+                        return true;
+                    } else if (s.getLastName().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    }
+                    return false;
+                });
+            }));
+            SortedList<StaffTable> sortedList = new SortedList<>(filteredList);
+            sortedList.comparatorProperty().bind(employeesTable.comparatorProperty());
+            employeesTable.setItems(sortedList);
+        });
+    }
+
 
     public void viewStaff() throws SQLException {
         setEmployeesTable();
@@ -161,10 +206,6 @@ public class ViewEmployeesController implements Initializable {
         role.setCellValueFactory(new PropertyValueFactory<>("Role"));
     }
 
-    public void show(ActionEvent actionEvent) throws SQLException {
-        employeesTable.getItems().clear();
-        setEmployeesTable();
-        staffQueries.searchEmployeeByLastName(employeeLastName.getText());
-        employeesTable.setItems(staffQueries.getObList());
+    public void updateEmployeeInfo(ActionEvent actionEvent) {
     }
 }

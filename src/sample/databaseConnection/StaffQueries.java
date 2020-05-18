@@ -2,8 +2,6 @@ package sample.databaseConnection;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-import javafx.scene.control.cell.PropertyValueFactory;
 import sample.model.StaffTable;
 
 import java.sql.*;
@@ -169,54 +167,7 @@ public class StaffQueries {
         }
     }
 
-    public void searchEmployeeByLastName(String lastName) throws SQLException {
-
-        String selectQuery = " select * from staff where LastName like '?%';";
-
-        pstmt = connection.prepareStatement(selectQuery);
-        pstmt.setString(1, lastName);
-        pstmt.executeQuery(selectQuery);
-        rs = connection.createStatement().executeQuery(selectQuery);
-
-        while (rs.next()) {
-            StaffTable pt = new StaffTable("FirstName", "LastName",
-                    "SSN", "E-mail", "Address", "Role");
-
-            pt.setFirstName(rs.getString("FirstName"));
-            pt.setLastName(rs.getString("LastName"));
-            pt.setSsn(rs.getString("ssn"));
-            pt.setEmail(rs.getString("Email"));
-            pt.setAddress(rs.getString("Adress"));
-            pt.setRole(rs.getString("Role"));
-
-            obList.add(pt);
-
-        }
-    }
-
-    public void searchEmployeeBySSN(String SSN) throws SQLException {
-
-        String selectQuery = "SELECT * FROM staff WHERE SSN LIKE '?%';";
-
-
-        rs = connection.createStatement().executeQuery(selectQuery);
-
-
-        while (rs.next()) {
-            StaffTable pt = new StaffTable("FirstName", "LastName", "SSN", "E-mail", "Address", "Role");
-
-            pt.setFirstName(rs.getString("FirstName"));
-            pt.setLastName(rs.getString("LastName"));
-            pt.setSsn(rs.getString("ssn"));
-            pt.setEmail(rs.getString("Email"));
-            pt.setAddress(rs.getString("Adress"));
-            pt.setRole(rs.getString("Role"));
-
-            obList.add(pt);
-        }
-    }
-
-    public int verifyStaffLogin(String username, String password) { // The Log in verification method. Returns 1 incase found, else
+   public int verifyStaffLogin(String username, String password) { // The Log in verification method. Returns 1 incase found, else
         try {
             PreparedStatement statement = connection.prepareStatement("select Username,Password FROM login where Username =? AND Password =?;");
             statement.setString(1, username);

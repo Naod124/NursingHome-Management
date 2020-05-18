@@ -30,7 +30,8 @@ public class AddNewEmployeeController implements Initializable {
     @FXML
     private TextField email;
 
-    @FXML private Button addButton;
+    @FXML
+    private Button addButton;
 
     private SwitchScene sc = new SwitchScene();
 
@@ -52,7 +53,7 @@ public class AddNewEmployeeController implements Initializable {
             e.printStackTrace();
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error!");
-            a.setContentText("Adding a staff member did not go through!"+"\n"+"Please try again...");
+            a.setContentText("Adding a staff member did not go through!" + "\n" + "Please try again...");
         }
     }
 

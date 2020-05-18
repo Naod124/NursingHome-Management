@@ -39,7 +39,7 @@ public class UpdateEmployeeInfo {
     public void update(ActionEvent actionEvent)  {
         try {
             staffQueries.updateIntoStaffTable(firstName.getText(), lastName.getText(), dOb.getText(), ssn.getText(), email.getText(), role.getValue(), address.getText(), salary.getText());
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error!");
             a.setContentText("Sorry, updating employer information was not possible!"+"\n"+"Try again...");

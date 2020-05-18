@@ -27,7 +27,7 @@
       </VBox>
       <VBox alignment="CENTER" layoutX="682.0" layoutY="443.0" prefHeight="110.0" prefWidth="82.0" spacing="20.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#add" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Add" textFill="#0db9de">
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Add" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="16.0" />
                </font>

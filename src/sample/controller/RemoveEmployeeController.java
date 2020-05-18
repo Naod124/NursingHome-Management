@@ -1,4 +1,7 @@
 package sample.controller;
+
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,8 +14,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 public class RemoveEmployeeController implements Initializable {
+    @FXML
+    private TextField searchLastNameField;
+    @FXML
+    private TextField searchIdField;
     @FXML
     private TableColumn<StaffTable, String> firstName;
     @FXML
@@ -34,7 +42,8 @@ public class RemoveEmployeeController implements Initializable {
     @FXML
     private TableView<StaffTable> employeesTable;
 
-    @FXML private Button removeButton;
+    @FXML
+    private Button removeButton;
 
     private Connection conn;
     private PreparedStatement pstmt;
@@ -75,7 +84,56 @@ public class RemoveEmployeeController implements Initializable {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        searchFunctionById();
+        searchFunctionByLastName();
     }
+
+    public void searchFunctionById() {
+        FilteredList<StaffTable> filteredList = new FilteredList<StaffTable>(staffQueries.getObList(), b -> true);
+        searchIdField.setOnKeyReleased(e -> {
+            searchIdField.textProperty().addListener(((observableValue, oldValue, newValue) -> {
+                filteredList.setPredicate((Predicate<? super StaffTable>) s -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    if (s.getSsn().contains(newValue)) {
+                        return true;
+                    } else if (s.getSsn().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    }
+                    return false;
+                });
+            }));
+            SortedList<StaffTable> sortedList = new SortedList<>(filteredList);
+            sortedList.comparatorProperty().bind(employeesTable.comparatorProperty());
+            employeesTable.setItems(sortedList);
+        });
+    }
+
+    public void searchFunctionByLastName() {
+        FilteredList<StaffTable> filteredList = new FilteredList<StaffTable>(staffQueries.getObList(), b -> true);
+        searchLastNameField.setOnKeyReleased(e -> {
+            searchLastNameField.textProperty().addListener(((observableValue, oldValue, newValue) -> {
+                filteredList.setPredicate((Predicate<? super StaffTable>) s -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    if (s.getLastName().contains(newValue)) {
+                        return true;
+                    } else if (s.getLastName().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    }
+                    return false;
+                });
+            }));
+            SortedList<StaffTable> sortedList = new SortedList<>(filteredList);
+            sortedList.comparatorProperty().bind(employeesTable.comparatorProperty());
+            employeesTable.setItems(sortedList);
+        });
+    }
+
 
     public void removeEmployee(ActionEvent actionEvent) throws SQLException {
         deleteEmployeeFromTable();
@@ -148,7 +206,7 @@ public class RemoveEmployeeController implements Initializable {
         }
     }
 
-    public void deleteEmployeeFromTable()  {
+    public void deleteEmployeeFromTable() {
         try {
 
             StaffTable st = employeesTable.getSelectionModel().getSelectedItem();
@@ -158,7 +216,7 @@ public class RemoveEmployeeController implements Initializable {
             a.showAndWait();
             employeesTable.getItems().clear();
             viewStaff();
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error!");
             a.setContentText("Sorry, removing patient could not go through"+"\n"+"Try again...");

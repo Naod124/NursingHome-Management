@@ -22,15 +22,15 @@ public class VisitQueries {
 					"nursinghome", "Vw3J!60l-0kd");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 
 	// insert query for adding diagnosis
 	public void insertIntoTable(String visitor, String SSN, String visitortime, String Freetime) throws SQLException {
 
-		connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
-				"Vw3J!60l-0kd");
+
+
 
 		// query for inserting visitor into patient table
 		String insertQuery = "UPDATE patient SET visitor = ?, visitortime = ? WHERE SSN = ?;";
@@ -52,8 +52,7 @@ public class VisitQueries {
 
 	// Update query for adding diagnosis
 	public void UpdateIntoTable(String visitor, String SSN, String visitortime, String Freetime) throws SQLException {
-		connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
-				"Vw3J!60l-0kd");
+
 
 		// query for inserting visitor into patient table
 		String insertQuery = "UPDATE patient SET visitor = ?, visitortime = ? WHERE SSN = ?;";
@@ -81,8 +80,8 @@ public class VisitQueries {
 		String selectQuery = "SELECT * FROM patient;";
 
 		try {
-			connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-					"nursinghome", "Vw3J!60l-0kd");
+
+
 			resultSet = connection.createStatement().executeQuery(selectQuery);
 
 			while (resultSet.next()) {
@@ -100,7 +99,7 @@ public class VisitQueries {
 				list.add(visit);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 		return list;
 	}
@@ -108,8 +107,7 @@ public class VisitQueries {
 	// for delete item from the database
 	public void deleteIntoTable(String SSN) throws SQLException {
 
-		connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
-				"Vw3J!60l-0kd");
+
 
 		String updateQuery = "UPDATE patient SET visitor = '', visitortime = '' where SSN = ?;";
 

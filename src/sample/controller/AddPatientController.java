@@ -51,22 +51,17 @@ public class AddPatientController implements Initializable {
     private SwitchScene sc = new SwitchScene();
 
 
-    public void refreshDataSource() {
-        try {
-            PatientQueries p = new PatientQueries();
-            p.viewPatientTable();
 
-            DataSource.getInstance().setPatient(p.getPatientsinfo());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-
-        }
-
-    }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        try {
+            viewPatient();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         final Tooltip tooltipSsn = new Tooltip();
         tooltipSsn.setText("Enter the patients social security number. It shall be in this format: yymmdd****");
@@ -103,11 +98,7 @@ public class AddPatientController implements Initializable {
         tooltipAtoZ.setText("Press this button to sort the table from A-Z by patients First name");
         aTozButton.setTooltip(tooltipAtoZ);
 
-        try {
-            viewPatient();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
     }
 
 

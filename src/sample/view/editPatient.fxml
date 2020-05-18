@@ -23,7 +23,7 @@
                 <TableColumn fx:id="gendercol" prefWidth="146.0" text="Gender" />
             </columns>
         </TableView>
-        <Button layoutX="824.0" layoutY="498.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="44.0" prefWidth="100.0" stylesheets="@style.css" text="Update" textFill="#0db9de">
+        <Button fx:id="updateButton" layoutX="824.0" layoutY="498.0" mnemonicParsing="false" onAction="#handleUpdate" prefHeight="44.0" prefWidth="100.0" stylesheets="@style.css" text="Update" textFill="#0db9de">
             <font>
                 <Font name="System Bold Italic" size="20.0" />
             </font>
@@ -108,12 +108,12 @@
                 </ImageView>
             </graphic>
         </Label>
-        <Button layoutX="811.0" layoutY="542.0" mnemonicParsing="false" onAction="#sorter" prefHeight="40.0" prefWidth="126.0" stylesheets="@style.css" text="Sort A-Z" textFill="#0db9de">
+        <Button fx:id="aTozbutton" layoutX="811.0" layoutY="542.0" mnemonicParsing="false" onAction="#sorter" prefHeight="40.0" prefWidth="126.0" stylesheets="@style.css" text="Sort A-Z" textFill="#0db9de">
             <font>
                 <Font name="System Bold Italic" size="20.0" />
             </font>
         </Button>
-        <Button layoutX="816.0" layoutY="582.0" mnemonicParsing="false" onAction="#zToAsort" prefHeight="40.0" prefWidth="117.0" stylesheets="@style.css" text="Sort Z-A" textFill="#0db9de">
+        <Button fx:id="zToaButton" layoutX="816.0" layoutY="582.0" mnemonicParsing="false" onAction="#zToAsort" prefHeight="40.0" prefWidth="117.0" stylesheets="@style.css" text="Sort Z-A" textFill="#0db9de">
             <font>
                 <Font name="System Bold Italic" size="20.0" />
             </font>

@@ -73,7 +73,7 @@ public class RemoveEmployeeController implements Initializable {
         try {
             viewStaff();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -162,6 +162,7 @@ public class RemoveEmployeeController implements Initializable {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error!");
             a.setContentText("Sorry, removing patient could not go through"+"\n"+"Try again...");
+            a.showAndWait();
         }
     }
 

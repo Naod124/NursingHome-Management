@@ -21,7 +21,8 @@ public class DiagnosQueries {
                     "nursinghome", "Vw3J!60l-0kd");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+
+            System.out.println(e.getMessage());
         }
     }
 
@@ -30,8 +31,7 @@ public class DiagnosQueries {
     public void insertIntoDiagnosTable(String diagnose, String SSN) throws SQLException {
         // keep track of diagnosis id that is added on diagnose table
         int insertid = 0;
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
-                "Vw3J!60l-0kd");
+
 
         // query for inserting data
         String insertQuery = "INSERT INTO diagnos (DiagnosType) VALUES(?);";
@@ -60,8 +60,9 @@ public class DiagnosQueries {
     // update query for adding diagnosis
     public void updateIntoDiagnosTable(String diagnose, String SSN) throws SQLException {
         int id = 0;
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
-                "Vw3J!60l-0kd");
+
+
+
         // query  of getting id of diagnose with respect to patient
         String idQuery = "SELECT diagnoseid FROM patient where SSN = ?";
         PreparedStatement pstmt1 = connection.prepareStatement(idQuery);
@@ -107,7 +108,8 @@ public class DiagnosQueries {
                 list.add(diagnose);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+
         }
         return list;
     }
@@ -115,8 +117,8 @@ public class DiagnosQueries {
     // for delete item from the database
     public void deleteIntoDiagnosTable(String SSN) throws SQLException {
         int id = 0;
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
-                "Vw3J!60l-0kd");
+
+
         // query  of getting id of diagnose with respect to patient
         String idQuery = "SELECT diagnoseid FROM patient where SSN = ?";
         PreparedStatement pstmt = connection.prepareStatement(idQuery);

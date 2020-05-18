@@ -29,6 +29,9 @@ public class Main extends Application {
             System.out.println("Fatal error: Could not connect to database");
             Platform.exit();
         }
+        else {
+            System.out.println("Database connected!");
+        }
     }
 
     @Override

@@ -71,6 +71,7 @@ public class LogInPanelController implements Initializable {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error!");
             a.setContentText("Sorry, logging in was not possible please make sure your account information is correct!"+"\n"+"Try again...");
+            a.showAndWait();
         }
     }
 

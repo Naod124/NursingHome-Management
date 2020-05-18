@@ -39,7 +39,7 @@
                   <Image url="@../medicalIcons/receptionist-icon.png" />
                </image>
             </ImageView>
-                <Button fx:id="contactUs" mnemonicParsing="false" onAction="#contactUs" prefHeight="54.0" prefWidth="192.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Contact us" textFill="#15c9cc">
+                <Button fx:id="contactUs" mnemonicParsing="false" onAction="#Help" prefHeight="54.0" prefWidth="192.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="About us" textFill="#15c9cc">
                <font>
                   <Font name="System Bold Italic" size="25.0" />
                </font>

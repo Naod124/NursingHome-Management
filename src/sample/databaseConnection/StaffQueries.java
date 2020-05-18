@@ -12,7 +12,7 @@ public class StaffQueries {
 
     private Connection connection;
     private Statement statement;
-    private ResultSet resultSet;
+    private ResultSet rs;
     private PreparedStatement pstmt;
 
     private String password;
@@ -21,6 +21,15 @@ public class StaffQueries {
 
 
     public StaffQueries() {
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
+                    "nursinghome", "Vw3J!60l-0kd");
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
     }
 
 
@@ -48,13 +57,15 @@ public class StaffQueries {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
+
     }
 
     public void updateIntoStaffTable(String FirstName, String LastName, String Date,
                                      String SSN, String Email, String Role, String Adress, String Salary) throws SQLException {
 
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
+
         String updateQuery = "UPDATE staff SET FirstName = ?,LastName = ?,DateOfBirth = ? , Email = ? , Salary = ? , Role = ? , Adress = ? WHERE SSN = ?";
         pstmt = connection.prepareStatement(updateQuery);
         pstmt.setString(1, FirstName);
@@ -69,11 +80,9 @@ public class StaffQueries {
     }
 
     public void viewAllStaffTable() throws SQLException {
-        ResultSet rs;
         String selectQuery = "SELECT * FROM STAFF;";
 
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
+
         rs = connection.createStatement().executeQuery(selectQuery);
 
 
@@ -95,11 +104,9 @@ public class StaffQueries {
     }
 
     public void viewNurseTable() throws SQLException {
-        ResultSet rs;
+
         String selectQuery = "select * from staff where Role = 'nurse' ";
 
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
         rs = connection.createStatement().executeQuery(selectQuery);
 
 
@@ -121,16 +128,17 @@ public class StaffQueries {
     }
 
     public void viewPlanerTable() throws SQLException {
-        ResultSet rs;
+
+
         String selectQuery = "select * from staff where Role = 'planer' ";
 
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
+
         rs = connection.createStatement().executeQuery(selectQuery);
 
 
         while (rs.next()) {
-            StaffTable pt = new StaffTable("FirstName", "LastName", "SSN", "E-mail", "Address", "Role");
+            StaffTable pt = new StaffTable("FirstName", "LastName",
+                    "SSN", "E-mail", "Address", "Role");
 
             pt.setFirstName(rs.getString("FirstName"));
             pt.setLastName(rs.getString("LastName"));
@@ -150,29 +158,29 @@ public class StaffQueries {
     public void removeStaff(String ssn) {
         try {
 
-            connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                    "nursinghome", "Vw3J!60l-0kd");
+
             String deleteQuery = "DELETE FROM staff WHERE SSN = ?";
+
             pstmt = connection.prepareStatement(deleteQuery);
             pstmt.setString(1, ssn);
             pstmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
     public void searchEmployeeByLastName(String lastName) throws SQLException {
-        ResultSet rs;
+
         String selectQuery = " select * from staff where LastName like '?%';";
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
+
         pstmt = connection.prepareStatement(selectQuery);
         pstmt.setString(1, lastName);
         pstmt.executeQuery(selectQuery);
         rs = connection.createStatement().executeQuery(selectQuery);
 
         while (rs.next()) {
-            StaffTable pt = new StaffTable("FirstName", "LastName", "SSN", "E-mail", "Address", "Role");
+            StaffTable pt = new StaffTable("FirstName", "LastName",
+                    "SSN", "E-mail", "Address", "Role");
 
             pt.setFirstName(rs.getString("FirstName"));
             pt.setLastName(rs.getString("LastName"));
@@ -187,11 +195,10 @@ public class StaffQueries {
     }
 
     public void searchEmployeeBySSN(String SSN) throws SQLException {
-        ResultSet rs;
+
         String selectQuery = "SELECT * FROM staff WHERE SSN LIKE '?%';";
 
-        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                "nursinghome", "Vw3J!60l-0kd");
+
         rs = connection.createStatement().executeQuery(selectQuery);
 
 
@@ -211,15 +218,16 @@ public class StaffQueries {
 
     public int verifyStaffLogin(String username, String password) { // The Log in verification method. Returns 1 incase found, else
         try {
-            Connection connect = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
-            PreparedStatement statement = connect.prepareStatement("select Username,Password FROM login where Username =? AND Password =?;");
+            PreparedStatement statement = connection.prepareStatement("select Username,Password FROM login where Username =? AND Password =?;");
             statement.setString(1, username);
             statement.setString(2, password);
-            ResultSet rs = statement.executeQuery();
+             rs = statement.executeQuery();
             System.out.println();
             rs.next();
             return rs.getRow();
         } catch (SQLException a) {
+            System.out.println(a.getMessage());
+
             return 0;
         }
     }
@@ -228,15 +236,16 @@ public class StaffQueries {
 
         try {
 
-            Connection connect = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                    "nursinghome", "Vw3J!60l-0kd");
-            PreparedStatement statement = connect.prepareStatement("INSERT INTO schedule (patient_name, time_from, time_to, description) VALUES(?,?,?,?);");
+
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO schedule (patient_name, time_from, time_to, description) VALUES(?,?,?,?);");
             statement.setString(1, (String) patient_name);
             statement.setString(2, (String) time_from);
             statement.setString(3, (String) time_to);
             statement.setString(4, description);
             statement.executeUpdate();
         } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
 
         }
     }
@@ -245,29 +254,28 @@ public class StaffQueries {
 
         try {
 
-            connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                    "nursinghome", "Vw3J!60l-0kd");
+
             String view = "Select Password from login where Username = " + "\'" + email + "\'";
 
             statement = connection.createStatement();
-            resultSet = statement.executeQuery(view);
+            rs = statement.executeQuery(view);
 
-            while (resultSet.next()) {
+            while (rs.next()) {
 
-                password = resultSet.getString(1);
+                password = rs.getString(1);
             }
 
             setPassword(password);
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
     public void newPassword(String email, String Pass) {
+
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome",
-                    "nursinghome", "Vw3J!60l-0kd");
+
             String Update = "Update login set Password = ? where Username = " + "\'" + email + "\'";
             pstmt = connection.prepareStatement(Update);
             pstmt.setString(1, Pass);

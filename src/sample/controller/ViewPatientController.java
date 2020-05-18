@@ -42,7 +42,8 @@ public class ViewPatientController implements Initializable {
         try {
             handleView();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
+
         }
     }
 

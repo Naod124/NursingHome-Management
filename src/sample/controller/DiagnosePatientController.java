@@ -197,6 +197,10 @@ public class DiagnosePatientController implements Initializable {
 		tooltipGender.setText("Enter sex of the patient. It shall be Male or Female");
 		gendertextfield.setTooltip(tooltipGender);
 
+		final Tooltip tooltipDiagnosis = new Tooltip();
+		tooltipDiagnosis.setText("Enter the patient Diagnosis");
+		diagnosistextfield.setTooltip(tooltipDiagnosis);
+
 		final Tooltip tooltipAddButton = new Tooltip();
 		tooltipAddButton.setText("Press this button to add the diagnos");
 		addButton.setTooltip(tooltipAddButton);

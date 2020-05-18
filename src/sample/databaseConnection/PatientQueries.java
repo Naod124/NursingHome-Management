@@ -378,8 +378,8 @@ public class PatientQueries {
         connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
                 "Vw3J!60l-0kd");
         String selectQuery = "TRUNCATE schedule;";
-        PreparedStatement statement = connection.prepareStatement(selectQuery);
-        statement.executeUpdate();
+        Statement statement = connection.createStatement();
+        statement.executeUpdate(selectQuery);
     }
 
 

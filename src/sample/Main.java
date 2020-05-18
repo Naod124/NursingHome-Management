@@ -18,6 +18,8 @@ public class Main extends Application {
         primaryStage.setTitle("Nursing Home System");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        PatientQueries pq = new PatientQueries();
+        pq.scheduleTruncateThread();
     }
 
     @Override
@@ -36,8 +38,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        PatientQueries pq = new PatientQueries();
-        pq.scheduleTruncateThread();
         launch(args);
     }
 }

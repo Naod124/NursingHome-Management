@@ -7,6 +7,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import sample.databaseConnection.StaffQueries;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class UpdateEmployeeInfo {
@@ -33,6 +34,8 @@ public class UpdateEmployeeInfo {
 
     private StaffQueries staffQueries = new StaffQueries();
 
+    SwitchScene sc = new SwitchScene();
+
     public void update(ActionEvent actionEvent)  {
         try {
             staffQueries.updateIntoStaffTable(firstName.getText(), lastName.getText(), dOb.getText(), ssn.getText(), email.getText(), role.getValue(), address.getText(), salary.getText());
@@ -40,15 +43,20 @@ public class UpdateEmployeeInfo {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error!");
             a.setContentText("Sorry, updating employer information was not possible!"+"\n"+"Try again...");
+            a.showAndWait();
+            System.out.println(e.getMessage());
         }
     }
 
-    public void help(ActionEvent actionEvent) {
-    }
+
+
 
     public void cancel(ActionEvent actionEvent) {
+        System.exit(0);
     }
 
-    public void backToMain(ActionEvent actionEvent) {
+    public void backToMain(ActionEvent actionEvent) throws IOException {
+
+        sc.newScene(actionEvent,"/sample/view/admin.fxml");
     }
 }

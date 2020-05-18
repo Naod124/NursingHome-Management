@@ -94,6 +94,7 @@ public class ForgotPasswordController implements Initializable {
         } catch (MessagingException mx){
            f.setTitle("Error!");
            f.setContentText("Sorry, the desired information could not be sent!"+"\n"+"Try again...");
+           f.showAndWait();
 
         }
 
@@ -102,6 +103,7 @@ public class ForgotPasswordController implements Initializable {
 
     @FXML public void confirmButton(){
         int b = Integer.parseInt(resettxtfield.getText());
+        Alert m = new Alert(Alert.AlertType.ERROR);
 
         if (randomCode == b){
 
@@ -109,10 +111,17 @@ public class ForgotPasswordController implements Initializable {
                 StaffQueries sq = new StaffQueries();
                 sq.newPassword(emailtxtfield.getText(), verifypassword.getText());
                 a.setHeaderText("Password Updated!");
+                a.showAndWait();
+
+                emailtxtfield.clear();
+                resettxtfield.clear();
+                newPassword.clear();
+                verifypassword.clear();
+
             }
             else {
-                f.setHeaderText("Password does not match");
-                f.showAndWait();
+                m.setHeaderText("Password does not match");
+                m.showAndWait();
             }
         }
         else {
@@ -120,7 +129,6 @@ public class ForgotPasswordController implements Initializable {
             f.setContentText("It doesn't match with the one sent to your email");
             f.showAndWait();
         }
-        a.showAndWait();
 
 
     }

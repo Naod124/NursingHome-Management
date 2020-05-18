@@ -75,7 +75,8 @@ public class GetAssignPatientController implements Initializable {
 			// setting data to table
 			table.setItems(data);
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e.getMessage());
+
 		}
 
 	}

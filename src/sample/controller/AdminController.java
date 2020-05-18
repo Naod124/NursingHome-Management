@@ -30,16 +30,14 @@ public class AdminController {
         sc.newScene(actionEvent, "/sample/view/removeEmployee.fxml");
     }
 
+
+
     public void viewPatients(ActionEvent actionEvent) throws IOException {
         sc.newScene(actionEvent,"/sample/view/viewPatients.fxml");
     }
-    public void changePassword(ActionEvent event) throws IOException {
-        sc.newScene(event, "../view/NewPassword.fxml");
 
-    }
 
-    public void help(ActionEvent actionEvent) {
-    }
+
 
     public void viewAllEmployees(ActionEvent actionEvent) throws IOException {
         sc.newScene(actionEvent,"/sample/view/viewEmployees.fxml");

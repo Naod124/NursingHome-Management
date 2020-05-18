@@ -31,6 +31,9 @@ public class RemovePatientController implements Initializable {
     @FXML
     private Button removeButton;
 
+
+    SwitchScene sc = new SwitchScene();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -46,8 +49,7 @@ public class RemovePatientController implements Initializable {
         try {
             seePatient();
         } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            System.out.println(e.getMessage());        }
     }
 
  public void seePatient() throws SQLException {
@@ -75,6 +77,7 @@ public class RemovePatientController implements Initializable {
            Alert a = new Alert(Alert.AlertType.ERROR);
            a.setHeaderText("ERROR");
            a.showAndWait();
+           System.out.println(e.getMessage());
 
        }
 
@@ -94,19 +97,7 @@ public class RemovePatientController implements Initializable {
 
     @FXML
     public void back(ActionEvent ae) throws IOException {
-        Node node = (Node) ae.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/nurse.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            System.out.println("Hi");
-        }
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        sc.newScene(ae,"/sample/view/nurse.fxml");
     }
 
     @FXML

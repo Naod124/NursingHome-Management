@@ -17,9 +17,7 @@ public class HelpController implements Initializable {
     SwitchScene sc = new SwitchScene();
 
 
-    @FXML public void HelpText(){
 
-    }
 
     @FXML public void backtoLogIn(ActionEvent ae) throws IOException {
 

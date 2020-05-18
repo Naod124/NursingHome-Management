@@ -61,7 +61,8 @@ public class EditPatientInfo implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        final Tooltip tooltipSsn = new Tooltip();
+
+       final Tooltip tooltipSsn = new Tooltip();
         tooltipSsn.setText("Enter the patients social security number that you want to modify. It shall be in this format: yymmdd****");
         ssntextfield.setTooltip(tooltipSsn);
 

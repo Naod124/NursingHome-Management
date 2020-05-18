@@ -13,7 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/view/LogIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/view/admin.fxml"));
         primaryStage.setTitle("Nursing Home System");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -25,6 +25,9 @@ public class Main extends Application {
         if(!Connect.getInstance().open()){
             System.out.println("Fatal error: Could not connect to database");
             Platform.exit();
+        }
+        else {
+            System.out.println("Database connected!");
         }
     }
 

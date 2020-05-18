@@ -65,7 +65,7 @@ public class AssignPatientController implements Initializable {
 		// get the remaining free time of the patient
 		String updateFreeTime = updateFreeTime();
 		// Adding or Asigning the patient time by nurse
-		pq.AssignNursetoPatient(ssntextfield.getText(), freetime.getValue(), String.valueOf(nurseSSN), updateFreeTime);
+		pq.AssignNurseToPatient(ssntextfield.getText(), freetime.getValue(), String.valueOf(nurseSSN), updateFreeTime);
 
 		new Alert(Alert.AlertType.INFORMATION, "Paitient Assigned Successfully").showAndWait();
 

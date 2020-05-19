@@ -18,4 +18,12 @@ public class SwitchScene {
         window.setScene(scene);
         window.show();
     }
+
+    public void newStage(String fxmlFileName) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(fxmlFileName));
+        Scene scene = new Scene(root);
+        Stage window = new Stage();
+        window.setScene(scene);
+        window.show();
+    }
 }

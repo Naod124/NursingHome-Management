@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.databaseConnection.StaffQueries;
+import sample.model.AlertMaker;
 import sample.model.StaffTable;
 
 import java.io.IOException;
@@ -16,7 +17,11 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
-public class ViewEmployeesController implements Initializable {
+public class ManageEmployeesController implements Initializable {
+    @FXML
+    private Button removeButton;
+    @FXML
+    private ContextMenu contextMenu;
     @FXML
     private TextField searchIdField;
     @FXML
@@ -24,9 +29,7 @@ public class ViewEmployeesController implements Initializable {
     @FXML
     private TableView<StaffTable> employeesTable;
     @FXML
-    private TableColumn<StaffTable, String> firstName;
-    @FXML
-    private TableColumn<StaffTable, String> lastName;
+    private TableColumn<StaffTable, String> Name;
     @FXML
     private TableColumn<StaffTable, String> ssn;
     @FXML
@@ -43,7 +46,12 @@ public class ViewEmployeesController implements Initializable {
     private CheckBox planers;
 
     private SwitchScene sc = new SwitchScene();
+
     private StaffQueries staffQueries = new StaffQueries();
+
+    private AlertMaker alertMaker = new AlertMaker();
+
+    private static StaffTable selectedItem = new StaffTable();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -64,6 +72,14 @@ public class ViewEmployeesController implements Initializable {
         tooltipPlaner.setText("Check this box to view the planers");
         planers.setTooltip(tooltipPlaner);
 
+        final Tooltip tooltipTable = new Tooltip();
+        tooltipTable.setText("Press right click on the row you want to update");
+        employeesTable.setTooltip(tooltipTable);
+
+
+        final Tooltip tooltipRemoveButton = new Tooltip();
+        tooltipRemoveButton.setText("Press this button to remove the selected row");
+        removeButton.setTooltip(tooltipRemoveButton);
 
         employeesTable.setEditable(true);
         try {
@@ -72,7 +88,7 @@ public class ViewEmployeesController implements Initializable {
             e.printStackTrace();
         }
         searchFunctionById();
-        searchFunctionByLastName();
+        searchFunctionByName();
 
     }
 
@@ -99,7 +115,7 @@ public class ViewEmployeesController implements Initializable {
         });
     }
 
-    public void searchFunctionByLastName() {
+    public void searchFunctionByName() {
         FilteredList<StaffTable> filteredList = new FilteredList<StaffTable>(staffQueries.getObList(), b -> true);
         searchLastNameField.setOnKeyReleased(e -> {
             searchLastNameField.textProperty().addListener(((observableValue, oldValue, newValue) -> {
@@ -108,9 +124,9 @@ public class ViewEmployeesController implements Initializable {
                         return true;
                     }
                     String lowerCaseFilter = newValue.toLowerCase();
-                    if (s.getLastName().contains(newValue)) {
+                    if (s.getName().contains(newValue)) {
                         return true;
-                    } else if (s.getLastName().toLowerCase().contains(lowerCaseFilter)) {
+                    } else if (s.getName().toLowerCase().contains(lowerCaseFilter)) {
                         return true;
                     }
                     return false;
@@ -121,7 +137,6 @@ public class ViewEmployeesController implements Initializable {
             employeesTable.setItems(sortedList);
         });
     }
-
 
     public void viewStaff() throws SQLException {
         setEmployeesTable();
@@ -155,10 +170,28 @@ public class ViewEmployeesController implements Initializable {
 
     }
 
-    public void unRegisterEmployee(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent, "/sample/view/removeEmployee.fxml");
-
+    public void removeEmployee(ActionEvent actionEvent) throws IOException {
+        deleteEmployeeFromTable();
     }
+
+    public void deleteEmployeeFromTable() {
+        try {
+
+            StaffTable st = employeesTable.getSelectionModel().getSelectedItem();
+            staffQueries.removeStaff(st.getSsn());
+            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+            a.setHeaderText("Staff member removed");
+            a.showAndWait();
+            employeesTable.getItems().clear();
+            viewStaff();
+        } catch (SQLException e) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Error!");
+            a.setContentText("Sorry, removing patient could not go through" + "\n" + "Try again...");
+            a.showAndWait();
+        }
+    }
+
 
     public void showAll(ActionEvent actionEvent) throws SQLException {
         if (all.isSelected()) {
@@ -198,14 +231,36 @@ public class ViewEmployeesController implements Initializable {
     }
 
     public void setEmployeesTable() {
-        firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
-        lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
         ssn.setCellValueFactory(new PropertyValueFactory<>("ssn"));
         email.setCellValueFactory(new PropertyValueFactory<>("Email"));
         address.setCellValueFactory(new PropertyValueFactory<>("Address"));
         role.setCellValueFactory(new PropertyValueFactory<>("Role"));
     }
 
-    public void updateEmployeeInfo(ActionEvent actionEvent) {
+
+    public void updateEmployeeInfo() throws IOException {
+        if (selectedItem != null) {
+            selectedItem = employeesTable.getSelectionModel().getSelectedItem();
+            System.out.println(employeesTable.getSelectionModel().getSelectedItem().getName());
+            sc.newStage("/sample/view/UpdateEmployeeInfo.fxml");
+        } else {
+            alertMaker.simpleAlert(" Please select an employee ", " No Employee selected  ");
+
+        }
     }
+
+    public static StaffTable getSelectedItem() {
+        return selectedItem;
+    }
+    //    public StaffTable wlashe() {
+//        selectedPerson = employeesTable.getSelectionModel().getSelectedItem();
+//
+//            System.out.println(selectedPerson.getFirstName());
+//            return selectedPerson;
+//        } else {
+//            alertMaker.simpleAlert(" Please select an employee ", " No Employee selected  ");
+//            return null;
+//        }
+//    }
 }

@@ -34,9 +34,9 @@
             </ImageView>
          </graphic>
       </Label>
-      <VBox alignment="CENTER" layoutX="183.0" layoutY="85.0" prefHeight="383.0" prefWidth="310.0" spacing="20.0">
+      <VBox alignment="CENTER" layoutX="183.0" layoutY="127.0" prefHeight="258.0" prefWidth="310.0" spacing="20.0">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#viewAllEmployees" prefHeight="46.0" prefWidth="262.0" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="View all employees" textFill="#0db9de">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#viewAllEmployees" prefHeight="46.0" prefWidth="262.0" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="Manage all employees" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="20.0" />
                </font></Button>
@@ -48,12 +48,6 @@
             </Button>
             <Separator prefHeight="0.0" prefWidth="262.0" style="-fx-background-color: #0db9de;" />
                 <Button alignment="CENTER" mnemonicParsing="false" onAction="#addNewStaff" prefHeight="46.0" prefWidth="265.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="Add new employee" textFill="#0db9de">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Button>
-            <Separator prefHeight="0.0" prefWidth="262.0" style="-fx-background-color: #0db9de;" />
-                <Button alignment="CENTER" mnemonicParsing="false" onAction="#removeStaff" prefHeight="46.0" prefWidth="262.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="Remove employee" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="20.0" />
                </font>

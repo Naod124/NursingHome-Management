@@ -3,46 +3,35 @@ package sample.model;
 import javafx.beans.property.SimpleStringProperty;
 import sample.databaseConnection.PatientQueries;
 
+import java.sql.Date;
 import java.sql.SQLException;
 
-public class StaffTable implements Runnable{
+public class StaffTable implements Runnable {
 
-    private SimpleStringProperty firstName,lastName, ssn, email, address, role;
+    private SimpleStringProperty name, ssn, email, address, role;
 
-    public StaffTable(String firstName,String lastName, String ssn, String email, String address, String role) {
-        this.firstName = new SimpleStringProperty(firstName);
-        this.lastName = new SimpleStringProperty(lastName);
+    public StaffTable(String firstName, String lastName, String ssn, String email, String address, String role) {
+        this.name = new SimpleStringProperty(firstName + " " + lastName);
         this.ssn = new SimpleStringProperty(ssn);
         this.email = new SimpleStringProperty(email);
         this.address = new SimpleStringProperty(address);
         this.role = new SimpleStringProperty(role);
     }
+
     public StaffTable() {
 
     }
 
-    public String getFirstName() {
-        return firstName.get();
+    public String getName() {
+        return name.get();
     }
 
-    public SimpleStringProperty firstNameProperty() {
-        return firstName;
+    public SimpleStringProperty nameProperty() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName.set(firstName);
-    }
-
-    public String getLastName() {
-        return lastName.get();
-    }
-
-    public SimpleStringProperty lastNameProperty() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName.set(lastName);
+    public void setName(String name) {
+        this.name.set(name);
     }
 
     public String getSsn() {

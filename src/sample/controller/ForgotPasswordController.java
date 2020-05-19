@@ -11,7 +11,6 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.tools.Tool;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -68,6 +67,7 @@ public class ForgotPasswordController implements Initializable {
             boolean sessionDebug = false;
 
             Properties props = new Properties();
+            props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
             props.put("mail.smtp.starttls.enable", "true");
             props.put("mail.smtp.host", "host");
             props.put("mail.smtp.port", "587");
@@ -92,6 +92,7 @@ public class ForgotPasswordController implements Initializable {
 
 
         } catch (MessagingException mx){
+           System.out.println(mx.getMessage());
            f.setTitle("Error!");
            f.setContentText("Sorry, the desired information could not be sent!"+"\n"+"Try again...");
            f.showAndWait();

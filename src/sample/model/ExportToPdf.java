@@ -88,8 +88,7 @@ public class ExportToPdf {
 
             ArrayList<PdfPCell> pdfcells = new ArrayList<>();
             for (StaffTable p : employees) {
-                pdfcells.add(new PdfPCell(new Paragraph(p.getFirstName())));
-                pdfcells.add(new PdfPCell(new Paragraph(p.getLastName())));
+                pdfcells.add(new PdfPCell(new Paragraph(p.getName())));
                 pdfcells.add(new PdfPCell(new Paragraph(p.getSsn())));
                 pdfcells.add(new PdfPCell(new Paragraph(p.getEmail())));
                 pdfcells.add(new PdfPCell(new Paragraph(p.getAddress())));

@@ -57,7 +57,6 @@ public class StaffQueries {
         }
 
 
-
     }
 
     public void updateIntoStaffTable(String FirstName, String LastName, String Date,
@@ -87,8 +86,7 @@ public class StaffQueries {
         while (rs.next()) {
             StaffTable pt = new StaffTable("FirstName", "LastName", "SSN", "E-mail", "Address", "Role");
 
-            pt.setFirstName(rs.getString("FirstName"));
-            pt.setLastName(rs.getString("LastName"));
+            pt.setName(rs.getString("FirstName") + " " + rs.getString("LastName"));
             pt.setSsn(rs.getString("ssn"));
             pt.setEmail(rs.getString("Email"));
             pt.setAddress(rs.getString("Adress"));
@@ -109,10 +107,8 @@ public class StaffQueries {
 
 
         while (rs.next()) {
-            StaffTable pt = new StaffTable("FirstName", "LastName", "SSN", "E-mail", "Address", "Role");
-
-            pt.setFirstName(rs.getString("FirstName"));
-            pt.setLastName(rs.getString("LastName"));
+            StaffTable pt = new StaffTable("FirstName", " LastName", "SSN", "E-mail", "Address", "Role");
+            pt.setName(rs.getString("FirstName") + " " + rs.getString("LastName"));
             pt.setSsn(rs.getString("ssn"));
             pt.setEmail(rs.getString("Email"));
             pt.setAddress(rs.getString("Adress"));
@@ -135,11 +131,10 @@ public class StaffQueries {
 
 
         while (rs.next()) {
-            StaffTable pt = new StaffTable("FirstName", "LastName",
+            StaffTable pt = new StaffTable("FirstName", "LastName ",
                     "SSN", "E-mail", "Address", "Role");
 
-            pt.setFirstName(rs.getString("FirstName"));
-            pt.setLastName(rs.getString("LastName"));
+            pt.setName(rs.getString("FirstName") + " " + rs.getString("LastName"));
             pt.setSsn(rs.getString("ssn"));
             pt.setEmail(rs.getString("Email"));
             pt.setAddress(rs.getString("Adress"));
@@ -167,12 +162,12 @@ public class StaffQueries {
         }
     }
 
-   public int verifyStaffLogin(String username, String password) { // The Log in verification method. Returns 1 incase found, else
+    public int verifyStaffLogin(String username, String password) { // The Log in verification method. Returns 1 incase found, else
         try {
             PreparedStatement statement = connection.prepareStatement("select Username,Password FROM login where Username =? AND Password =?;");
             statement.setString(1, username);
             statement.setString(2, password);
-             rs = statement.executeQuery();
+            rs = statement.executeQuery();
             System.out.println();
             rs.next();
             return rs.getRow();
@@ -231,10 +226,11 @@ public class StaffQueries {
             pstmt = connection.prepareStatement(Update);
             pstmt.setString(1, Pass);
             pstmt.executeUpdate();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
+
     public String getPassword() {
         return password;
     }

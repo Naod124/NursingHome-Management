@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import sample.databaseConnection.StaffQueries;
+import sample.model.AlertMaker;
 import sample.model.StaffTable;
 
 import java.io.IOException;
@@ -36,20 +37,19 @@ public class UpdateEmployeeInfo implements Initializable {
     private TextField passWord;
     @FXML
     private ChoiceBox<String> role;
-
     private StaffQueries staffQueries = new StaffQueries();
-    FXMLLoader loader = new FXMLLoader();
-    SwitchScene sc = new SwitchScene();
+    private AlertMaker alertMaker = new AlertMaker();
+    private FXMLLoader loader = new FXMLLoader();
+    private SwitchScene sc = new SwitchScene();
 
     public void update(ActionEvent actionEvent) {
         try {
             staffQueries.updateIntoStaffTable(firstName.getText(), lastName.getText(), dOb.getText(), ssn.getText(), email.getText(), role.getValue(), address.getText(), salary.getText());
+            String name = firstName.getText() + " " + lastName.getText();
+            alertMaker.infoAlert( name + " information has been successfully updated in data base " , "Successfully");
         } catch (SQLException e) {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setTitle("Error!");
-            a.setContentText("Sorry, updating employer information was not possible!" + "\n" + "Try again...");
-            a.showAndWait();
-            System.out.println(e.getMessage());
+           alertMaker.errorAlert("Sorry, updating this employer information was not possible!" + "\n" + "Try again...","Error!");
+           System.out.println(e.getMessage());
         }
     }
 
@@ -59,14 +59,12 @@ public class UpdateEmployeeInfo implements Initializable {
     }
 
     public void backToMain(ActionEvent actionEvent) throws IOException {
-
         sc.newScene(actionEvent, "/sample/view/admin.fxml");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getSelectedPerson();
-
     }
 
     public void getSelectedPerson() {

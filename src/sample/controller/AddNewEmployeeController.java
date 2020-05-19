@@ -51,7 +51,7 @@ public class AddNewEmployeeController implements Initializable {
             StaffQueries logIn = new StaffQueries();
             logIn.insertIntoPStaffTable(firstNameO, lastNameO, SSN, addressO, dob, Email, 20000, roleO, username, password);
             System.out.println("Done ! Check DataBase");
-            alertMaker.infoAlert(firstNameO + "" + lastNameO + " has been added to the dataBase as " + roleO , "Successfully" );
+            alertMaker.infoAlert(firstNameO + "" + lastNameO + " has been successfully added to the dataBase as " + roleO , "Successfully");
         } catch (Exception e) {
           alertMaker.errorAlert("Adding a staff member did not go through!" + "\n" + "Please try again...","Error!");
         }

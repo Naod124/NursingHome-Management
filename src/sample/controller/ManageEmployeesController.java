@@ -179,16 +179,11 @@ public class ManageEmployeesController implements Initializable {
 
             StaffTable st = employeesTable.getSelectionModel().getSelectedItem();
             staffQueries.removeStaff(st.getSsn());
-            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setHeaderText("Staff member removed");
-            a.showAndWait();
+            alertMaker.confirmAlert(st.getName() + " has been successfully removed from employees ", "Done!");
             employeesTable.getItems().clear();
             viewStaff();
         } catch (SQLException e) {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setTitle("Error!");
-            a.setContentText("Sorry, removing patient could not go through" + "\n" + "Try again...");
-            a.showAndWait();
+            alertMaker.errorAlert("Sorry, removing patient could not go through\" + \"\\n\" + \"Try again...", "Error!");
         }
     }
 

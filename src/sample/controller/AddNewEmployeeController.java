@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sample.databaseConnection.StaffQueries;
+import sample.model.AlertMaker;
 
 import java.io.*;
 import java.net.URL;
@@ -34,6 +35,7 @@ public class AddNewEmployeeController implements Initializable {
     private Button addButton;
 
     private SwitchScene sc = new SwitchScene();
+    private AlertMaker alertMaker = new AlertMaker();
 
     public void add(ActionEvent actionEvent) throws FileNotFoundException {
         try {
@@ -49,19 +51,14 @@ public class AddNewEmployeeController implements Initializable {
             StaffQueries logIn = new StaffQueries();
             logIn.insertIntoPStaffTable(firstNameO, lastNameO, SSN, addressO, dob, Email, 20000, roleO, username, password);
             System.out.println("Done ! Check DataBase");
+            alertMaker.infoAlert(firstNameO + "" + lastNameO + " has been added to the dataBase as " + roleO , "Successfully" );
         } catch (Exception e) {
-            e.printStackTrace();
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setTitle("Error!");
-            a.setContentText("Adding a staff member did not go through!" + "\n" + "Please try again...");
+          alertMaker.errorAlert("Adding a staff member did not go through!" + "\n" + "Please try again...","Error!");
         }
     }
 
     public void cancel(ActionEvent actionEvent) throws IOException {
         sc.newScene(actionEvent, "/sample/view/admin.fxml");
-    }
-
-    public void help(ActionEvent actionEvent) {
     }
 
     public void backToMain(ActionEvent actionEvent) throws IOException {
@@ -121,5 +118,9 @@ public class AddNewEmployeeController implements Initializable {
         tooltipAddButton.setText("Press this button when you have entered all information to add this employee");
         addButton.setTooltip(tooltipAddButton);
 
+    }
+
+    public void done(ActionEvent actionEvent) throws IOException {
+        sc.newScene(actionEvent,"/sample/view/manageEmployees.fxml");
     }
 }

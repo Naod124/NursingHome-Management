@@ -70,7 +70,7 @@ public class UpdateEmployeeInfo implements Initializable {
     }
 
     public void getSelectedPerson() {
-        loader.setLocation(getClass().getResource("/sample/view/viewEmployees.fxml"));
+        loader.setLocation(getClass().getResource("/sample/view/manageEmployees.fxml"));
         try {
             loader.load();
             StaffTable staffTable = ManageEmployeesController.getSelectedItem();

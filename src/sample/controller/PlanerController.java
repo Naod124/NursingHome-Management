@@ -115,8 +115,8 @@ public class PlanerController implements Initializable {
     }
 
     @FXML
-    public void backTo(ActionEvent event) throws IOException {
-        sc.newScene(event, "../view/planer.fxml");
+    public void backToNurse(ActionEvent event) throws IOException {
+        sc.newScene(event, "../view/nurse.fxml");
     }
 
 
@@ -141,6 +141,8 @@ public class PlanerController implements Initializable {
         time.add("16:00");
         return time;
     }
+
+
 
 
 }

@@ -62,7 +62,7 @@
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="back" layoutX="14.0" layoutY="542.0" mnemonicParsing="false" onAction="#backTo" style="-fx-background-color: #484d4c;" text="&lt; Back" textFill="#0db9de">
+      <Button fx:id="back" layoutX="14.0" layoutY="542.0" mnemonicParsing="false" onAction="#backToNurse" style="-fx-background-color: #484d4c;" text="&lt; Back" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>

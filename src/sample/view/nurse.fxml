@@ -32,6 +32,11 @@
                         <Font name="System Bold Italic" size="18.0" />
                     </font>
                 </Button>
+            <Button mnemonicParsing="false" onAction="#switchToCreateSchedule" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Create Schedule" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Button>
                 <Button mnemonicParsing="false" onAction="#getassignpatient" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Get Assigned patients" textFill="#0db9de">
                     <font>
                         <Font name="System Bold Italic" size="18.0" />

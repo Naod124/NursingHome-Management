@@ -44,6 +44,10 @@ public class NurseController {
     public void back(ActionEvent ae) throws IOException {
         sc.newScene(ae, "../view/LogIn.fxml");
     }
+    @FXML
+    public void switchToCreateSchedule(ActionEvent ae) throws IOException {
+        sc.newScene(ae, "../view/schema.fxml");
+    }
 
     @FXML
     public void exit(ActionEvent ae) throws IOException {

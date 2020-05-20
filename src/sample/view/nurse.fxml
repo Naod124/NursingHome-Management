@@ -22,17 +22,12 @@
                         <Font name="System Bold Italic" size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="edit" mnemonicParsing="false" onAction="#editPatientScene" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Edit Patient info" textFill="#0db9de">
-                    <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                    </font>
-                </Button>
                 <Button fx:id="removepatientbutton" mnemonicParsing="false" onAction="#removeScene" prefHeight="39.0" prefWidth="235.0" style="-fx-background-color: #484d4c;" text="Remove patient" textFill="#0db9de">
                     <font>
                         <Font name="System Bold Italic" size="18.0" />
                     </font>
                 </Button>
-                <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="236.0" style="-fx-background-color: #484d4c;" text="Check Schedule" textFill="#0db9de">
+                <Button mnemonicParsing="false" onAction="#schedule" prefHeight="39.0" prefWidth="236.0" style="-fx-background-color: #484d4c;" text="Check Schedule" textFill="#0db9de">
                     <font>
                         <Font name="System Bold Italic" size="18.0" />
                     </font>
@@ -59,12 +54,12 @@
                 </Button>
             </children>
         </VBox>
-        <Label layoutX="164.0" layoutY="32.0" prefHeight="37.0" prefWidth="101.0" text="Nursing" textFill="#1ad4be">
+        <Label layoutX="153.0" layoutY="32.0" prefHeight="37.0" prefWidth="112.0" text="Nursing" textFill="#1ad4be">
             <font>
                 <Font name="Calisto MT Bold Italic" size="30.0" />
             </font>
         </Label>
-        <Label layoutX="265.0" layoutY="17.0" prefHeight="67.0" prefWidth="153.0" text="Home" textFill="#0db9de">
+        <Label layoutX="265.0" layoutY="17.0" prefHeight="67.0" prefWidth="157.0" text="Home" textFill="#0db9de">
             <font>
                 <Font name="Calisto MT Bold Italic" size="30.0" />
             </font>

@@ -10,12 +10,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="904.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.LogInController">
     <children>
-          <Label layoutX="255.0" layoutY="32.0" prefHeight="50.0" prefWidth="134.0" text="Nursing" textFill="#1ad4be">
+          <Label layoutX="236.0" layoutY="32.0" prefHeight="50.0" prefWidth="153.0" text="Nursing" textFill="#1ad4be">
               <font>
                   <Font name="Calisto MT Bold Italic" size="40.0" />
               </font>
           </Label>
-      <Label layoutX="389.0" layoutY="14.0" prefHeight="85.0" prefWidth="222.0" text="Home" textFill="#0db9de">
+      <Label layoutX="389.0" layoutY="14.0" prefHeight="85.0" prefWidth="282.0" text="Home" textFill="#0db9de">
          <font>
             <Font name="Calisto MT Bold Italic" size="45.0" />
          </font>

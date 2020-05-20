@@ -14,12 +14,12 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="164.0" layoutY="32.0" prefHeight="37.0" prefWidth="101.0" text="Nursing" textFill="#1ad4be">
+      <Label layoutX="148.0" layoutY="32.0" prefHeight="37.0" prefWidth="117.0" text="Nursing" textFill="#1ad4be">
          <font>
             <Font name="Calisto MT Bold Italic" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="265.0" layoutY="14.0" prefHeight="60.0" prefWidth="171.0" text="Home" textFill="#0db9de">
+      <Label layoutX="265.0" layoutY="14.0" prefHeight="73.0" prefWidth="195.0" text="Home" textFill="#0db9de">
          <font>
             <Font name="Calisto MT Bold Italic" size="30.0" />
          </font>
@@ -31,5 +31,10 @@
             </ImageView>
          </graphic>
       </Label>
+      <Button layoutX="14.0" layoutY="336.0" mnemonicParsing="false" onAction="#signOut" prefHeight="44.0" prefWidth="153.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Sign out">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

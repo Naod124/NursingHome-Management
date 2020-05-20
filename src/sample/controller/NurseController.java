@@ -31,6 +31,11 @@ public class NurseController {
     }
 
     @FXML
+    public void schedule(ActionEvent ae) throws IOException {
+        sc.newScene(ae,"../view/displaySchedule.fxml" );
+    }
+
+    @FXML
     public void editPatientScene(ActionEvent ae) throws IOException {
         sc.newScene(ae, "../view/editPatient.fxml");
     }

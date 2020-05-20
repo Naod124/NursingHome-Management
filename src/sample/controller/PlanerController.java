@@ -112,8 +112,8 @@ SwitchScene sc = new SwitchScene();
        }
     }
 
-   @FXML public void changePassword(ActionEvent event) throws IOException {
-       sc.newScene(event, "../view/NewPassword.fxml");
+   @FXML public void backTo(ActionEvent event) throws IOException {
+       sc.newScene(event, "../view/planer.fxml");
    }
 
 

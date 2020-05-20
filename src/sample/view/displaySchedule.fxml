@@ -16,7 +16,7 @@
         </columns>
       </TableView>
       <Button fx:id="previousPage" layoutX="23.0" layoutY="361.0" mnemonicParsing="false" onAction="#backTo" text="&lt; back" />
-      <Button fx:id="deletePatient" layoutX="469.0" layoutY="361.0" mnemonicParsing="false" onAction="#deleteSelectedSchedule" text="Delete " />
+      <Button fx:id="deletePatient" layoutX="469.0" layoutY="361.0" mnemonicParsing="false"  text="Delete " />
       <Button fx:id="pdfButton" layoutX="417.0" layoutY="14.0" mnemonicParsing="false" onAction="#ScheduleToPdf" prefHeight="25.0" prefWidth="131.0" text="Export to PDF" />
    </children>
 </Pane>

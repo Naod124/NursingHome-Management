@@ -55,6 +55,8 @@ public class EditPatientInfo implements Initializable {
     @FXML
     private Button zToaButton;
 
+    int index = -1;
+
     private SwitchScene sc = new SwitchScene();
 
 
@@ -106,14 +108,26 @@ public class EditPatientInfo implements Initializable {
         }
     }
 
+    @FXML
+    public void fromTableView() {
+        index = table.getSelectionModel().getSelectedIndex();
+        if (index <= -1){
+            return;
+        }
+        ssntextfield.setText(ssncol.getCellData(index).toString());
+        firstnametextfield.setText(firstnamecol.getCellData(index).toString());
+        lastnametextfield.setText(lastnamecol.getCellData(index).toString());
+        datetextfield.setText(dobcol.getCellData(index).toString());
+        gendertextfield.setText(gendercol.getCellData(index).toString());
 
+    }
 
     @FXML
     public void handleUpdate() {
 
         try {
+            fromTableView();
             PatientQueries pq = new PatientQueries();
-            table.getSelectionModel().getSelectedItem();
             pq.updateIntoPatientTable(firstnametextfield.getText(), lastnametextfield.getText(),
                     datetextfield.getText(), gendertextfield.getText(), ssntextfield.getText());
             Alert a = new Alert(Alert.AlertType.CONFIRMATION);
@@ -134,6 +148,7 @@ public class EditPatientInfo implements Initializable {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error!");
             a.setContentText("updating a patient did not go through!"+"\n"+"Please try again...");
+            a.show();
         }
 
     }

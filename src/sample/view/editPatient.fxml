@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="690.0" prefWidth="1037.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.EditPatientInfo">
     <children>
-        <TableView fx:id="table" layoutX="17.0" layoutY="14.0" prefHeight="548.0" prefWidth="751.0">
+        <TableView fx:id="table" layoutX="17.0" layoutY="14.0" onMouseClicked="#fromTableView" prefHeight="548.0" prefWidth="751.0">
             <columns>
                 <TableColumn fx:id="ssncol" prefWidth="147.0" text="SSN" />
                 <TableColumn fx:id="firstnamecol" prefWidth="144.0" text="First name" />

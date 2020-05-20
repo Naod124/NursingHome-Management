@@ -28,8 +28,7 @@ public class RemovePatientController implements Initializable {
     @FXML private TableColumn <PatientTable, String> lastnamecol;
     @FXML private TableColumn <PatientTable, String> dobcol;
     @FXML private TableColumn <PatientTable, String> gendercol;
-    @FXML
-    private Button removeButton;
+    @FXML private Button removeButton;
 
 
     SwitchScene sc = new SwitchScene();

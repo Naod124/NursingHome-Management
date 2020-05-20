@@ -16,12 +16,12 @@
             <Font name="Calisto MT Bold Italic" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="81.0" layoutY="14.0" prefHeight="51.0" prefWidth="102.0" text="Home" textFill="#0db9de">
+      <Label layoutX="91.0" layoutY="10.0" prefHeight="51.0" prefWidth="119.0" text="Home" textFill="#0db9de">
          <font>
             <Font name="Calisto MT Bold Italic" size="20.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="32.0" fitWidth="39.0">
+            <ImageView fitHeight="32.0" fitWidth="43.0">
                <image>
                   <Image url="@../medicalIcons/stay-at-home.png" />
                </image>
@@ -62,7 +62,7 @@
             <Font name="System Bold Italic" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="back" layoutX="14.0" layoutY="542.0" mnemonicParsing="false" style="-fx-background-color: #484d4c;" text="&lt; Back" textFill="#0db9de">
+      <Button fx:id="back" layoutX="14.0" layoutY="542.0" mnemonicParsing="false" onAction="#backTo" style="-fx-background-color: #484d4c;" text="&lt; Back" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font>

@@ -3,6 +3,7 @@ package sample.controller;
 
 import com.sun.glass.ui.CommonDialogs;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -16,6 +17,7 @@ import sample.model.ExportToPdf;
 import sample.model.PatientTable;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ArrayList;
@@ -33,6 +35,8 @@ public class ScheduleController implements Initializable {
     @FXML private Button pdfButton;
     public String path;
     public List<String> lis;
+    SwitchScene sc = new SwitchScene();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -94,7 +98,8 @@ public class ScheduleController implements Initializable {
         }
     }
 
-    public void backTo() {
+    public void backTo(ActionEvent ae) throws IOException {
+        sc.newScene(ae, "/sample/view/nurse.fxml");
 
     }
 }

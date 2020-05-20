@@ -12,4 +12,8 @@ public class PlanerMenuController {
         sc.newScene(ae, "../view/schema.fxml");
 
     }
+    @FXML public void signOut(ActionEvent ae) throws IOException {
+        sc.newScene(ae, "../view/LogIn.fxml");
+
+    }
 }

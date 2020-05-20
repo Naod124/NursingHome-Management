@@ -19,12 +19,12 @@
          </font>
       </Button>
       <PasswordField fx:id="passWord" layoutX="231.0" layoutY="211.0" promptText="Password" stylesheets="@style.css" />
-          <Button fx:id="loginButton" layoutX="421.0" layoutY="326.0" mnemonicParsing="false" onAction="#logIn" prefHeight="0.0" prefWidth="160.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Log in" textFill="#0db9de">
+          <Button fx:id="loginButton" layoutX="443.0" layoutY="337.0" mnemonicParsing="false" onAction="#logIn" prefHeight="20.0" prefWidth="149.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Log in" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="25.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="49.0" fitWidth="49.0">
+            <ImageView fitHeight="35.0" fitWidth="36.0">
                <image>
                   <Image url="@../medicalIcons/enter-2.png" />
                </image>

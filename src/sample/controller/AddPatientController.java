@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.databaseConnection.PatientQueries;
-import sample.model.DataSource;
+import sample.model.AlertMaker;
 import sample.model.PatientTable;
 
 import java.io.IOException;
@@ -49,10 +49,7 @@ public class AddPatientController implements Initializable {
     private Button addButton;
 
     private SwitchScene sc = new SwitchScene();
-
-
-
-
+    private AlertMaker alertMaker = new AlertMaker();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -108,9 +105,7 @@ public class AddPatientController implements Initializable {
             PatientQueries pq = new PatientQueries();
             pq.insertIntoPatientTable(ssntextfield.getText(), firstnametextfield.getText(),
                     lastnametextfield.getText(), datetextfield.getText(), gendertextfield.getText());
-            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setHeaderText("Information added");
-            a.showAndWait();
+            alertMaker.confirmAlert("", "Information added");
             table.getItems().clear();
             viewPatient();
             ssntextfield.clear();
@@ -120,26 +115,23 @@ public class AddPatientController implements Initializable {
             gendertextfield.clear();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setTitle("Error!");
-            a.setContentText("Adding a patient did not go through!"+"\n"+"Please try again...");
+            alertMaker.errorAlert("Adding a patient did not go through!" + "\n" + "Please try again...","Error!");
         }
     }
 
 
+    public void viewPatient() throws SQLException {
 
+        rows();
+        PatientQueries pq = new PatientQueries();
+        pq.viewPatientTable();
 
-        public void viewPatient() throws SQLException {
+        table.setItems(pq.getObList());
 
-            rows();
-            PatientQueries pq = new PatientQueries();
-            pq.viewPatientTable();
+    }
 
-            table.setItems(pq.getObList());
-
-        }
-
-    @FXML public void sorter() throws SQLException {
+    @FXML
+    public void sorter() throws SQLException {
         rows();
         PatientQueries pq = new PatientQueries();
         pq.sortByName();
@@ -147,7 +139,8 @@ public class AddPatientController implements Initializable {
 
     }
 
-    @FXML public void zToAsort() throws SQLException {
+    @FXML
+    public void zToAsort() throws SQLException {
         rows();
         PatientQueries pq = new PatientQueries();
         pq.sortZtoA();
@@ -165,12 +158,9 @@ public class AddPatientController implements Initializable {
     }
 
 
-
-
-
     @FXML
     public void back(ActionEvent ae) throws IOException {
-        sc.newScene(ae,"/sample/view/nurse.fxml");
+        sc.newScene(ae, "/sample/view/nurse.fxml");
     }
 
     @FXML

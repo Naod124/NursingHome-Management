@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sample.databaseConnection.StaffQueries;
+import sample.model.AlertMaker;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -39,12 +41,10 @@ public class ForgotPasswordController implements Initializable {
     private Button sendButton;
 
 
-    SwitchScene sc = new SwitchScene();
-
+    private SwitchScene sc = new SwitchScene();
+    private AlertMaker alertMaker = new AlertMaker();
     Alert a = new Alert(Alert.AlertType.INFORMATION);
     Alert f = new Alert(Alert.AlertType.ERROR);
-
-
 
 
     Random rand = new Random();
@@ -52,11 +52,12 @@ public class ForgotPasswordController implements Initializable {
     int randomCode = rand.nextInt(999999);
 
 
-    @FXML public void send() throws SQLException {
+    @FXML
+    public void send() throws SQLException {
 
-       try{
-        StaffQueries sq = new StaffQueries();
-        sq.sendEmail(emailtxtfield.getText());
+        try {
+            StaffQueries sq = new StaffQueries();
+            sq.sendEmail(emailtxtfield.getText());
 
             String Host = "smtp.gmail.com";
             String User = "nursingHomeManagement@gmail.com";
@@ -85,64 +86,55 @@ public class ForgotPasswordController implements Initializable {
             transport.connect(Host, User, pass);
             transport.sendMessage(msg, msg.getAllRecipients());
             transport.close();
-
-            Alert a = new Alert(Alert.AlertType.INFORMATION);
-            a.setHeaderText(" Reset code has been sent to your email");
-            a.showAndWait();
-
-
-        } catch (MessagingException mx){
-           System.out.println(mx.getMessage());
-           f.setTitle("Error!");
-           f.setContentText("Sorry, the desired information could not be sent!"+"\n"+"Try again...");
-           f.showAndWait();
-
+            alertMaker.infoAlert("Reset code has been sent to your email", "Successfully!");
+        } catch (MessagingException mx) {
+            System.out.println(mx.getMessage());
+            alertMaker.errorAlert("Sorry, the desired information could not be sent!" + "\n" + "Try again...","Error!");
         }
 
     }
 
 
-    @FXML public void confirmButton(){
+    @FXML
+    public void confirmButton() {
         int b = Integer.parseInt(resettxtfield.getText());
         Alert m = new Alert(Alert.AlertType.ERROR);
 
-        if (randomCode == b){
+        if (randomCode == b) {
 
             if (newPassword.getText().equals(verifypassword.getText())) {
                 StaffQueries sq = new StaffQueries();
                 sq.newPassword(emailtxtfield.getText(), verifypassword.getText());
-                a.setHeaderText("Password Updated!");
-                a.showAndWait();
+                alertMaker.infoAlert("Password Updated!","Successfully!");
 
                 emailtxtfield.clear();
                 resettxtfield.clear();
                 newPassword.clear();
                 verifypassword.clear();
 
+            } else {
+                alertMaker.errorAlert("Password does not match","Error!");
             }
-            else {
-                m.setHeaderText("Password does not match");
-                m.showAndWait();
-            }
-        }
-        else {
-            f.setHeaderText("Reset code does not match");
-            f.setContentText("It doesn't match with the one sent to your email");
-            f.showAndWait();
+        } else {
+            alertMaker.errorAlert("It doesn't match with the one sent to your email","Reset code does not match");
         }
 
 
     }
 
-    @FXML public void signOut(ActionEvent ae) throws IOException {
+    @FXML
+    public void signOut(ActionEvent ae) throws IOException {
         sc.newScene(ae, "../view/LogIn.fxml");
     }
 
-    @FXML public void back(ActionEvent ae) throws IOException {
+    @FXML
+    public void back(ActionEvent ae) throws IOException {
         sc.newScene(ae, "../view/logInPanel.fxml");
 
     }
-    @FXML public void exit(){
+
+    @FXML
+    public void exit() {
         System.exit(0);
 
     }

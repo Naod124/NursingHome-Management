@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sample.databaseConnection.PatientQueries;
+import sample.model.AlertMaker;
 import sample.model.PatientTable;
 import java.io.IOException;
 import java.net.URL;
@@ -58,6 +59,7 @@ public class EditPatientInfo implements Initializable {
     int index = -1;
 
     private SwitchScene sc = new SwitchScene();
+    private AlertMaker alertMaker = new AlertMaker();
 
 
     @Override
@@ -130,9 +132,7 @@ public class EditPatientInfo implements Initializable {
             PatientQueries pq = new PatientQueries();
             pq.updateIntoPatientTable(firstnametextfield.getText(), lastnametextfield.getText(),
                     datetextfield.getText(), gendertextfield.getText(), ssntextfield.getText());
-            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setHeaderText("Information updated");
-            a.showAndWait();
+            alertMaker.infoAlert("Information updated","Done!");
             table.getItems().clear();
             checkPatient();
             ssntextfield.clear();
@@ -145,10 +145,7 @@ public class EditPatientInfo implements Initializable {
 
         catch (SQLException e) {
             System.out.println(e.getMessage());
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setTitle("Error!");
-            a.setContentText("updating a patient did not go through!"+"\n"+"Please try again...");
-            a.show();
+            alertMaker.errorAlert("updating a patient did not go through!"+"\n"+"Please try again...","Error!");
         }
 
     }

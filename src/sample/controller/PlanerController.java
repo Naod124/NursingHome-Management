@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import sample.databaseConnection.Connect;
 import sample.databaseConnection.PatientQueries;
 import sample.databaseConnection.StaffQueries;
+import sample.model.AlertMaker;
 import sample.model.Patient;
 import sample.model.Staff;
 
@@ -18,19 +19,25 @@ import java.util.ResourceBundle;
 
 public class PlanerController implements Initializable {
 
-    @FXML private ChoiceBox patient;
-    @FXML private ChoiceBox fromTime;
-    @FXML private ChoiceBox toTime;
-    @FXML private TextArea description;
-    @FXML private Label patientNameLabel;
-    @FXML private Label patientSSNLabel;
-
+    @FXML
+    private ChoiceBox patient;
+    @FXML
+    private ChoiceBox fromTime;
+    @FXML
+    private ChoiceBox toTime;
+    @FXML
+    private TextArea description;
+    @FXML
+    private Label patientNameLabel;
+    @FXML
+    private Label patientSSNLabel;
 
 
     public String ssnQ;
     public static ArrayList<Patient> pa = null;
     public static Patient patientHere;
-SwitchScene sc = new SwitchScene();
+    private SwitchScene sc = new SwitchScene();
+    private AlertMaker alertMaker = new AlertMaker();
 
 
     @Override
@@ -50,21 +57,20 @@ SwitchScene sc = new SwitchScene();
         fromTime.setTooltip(tooltiptoTime);
 
 
-
         ArrayList<String> time = getBoxValues();
-        for (String choiceBoxTimes : time){
+        for (String choiceBoxTimes : time) {
             fromTime.getItems().addAll(choiceBoxTimes);
             toTime.getItems().addAll(choiceBoxTimes);
         }
 
-        patient.setOnAction(e ->{
+        patient.setOnAction(e -> {
             String a = (String) patient.getValue();
             String[] b = a.split(" ");
             for (Patient patientss : pa) {
-                if (patientss.getFirstName().equals(b[0]) && patientss.getLastName().equals(b[1])){
+                if (patientss.getFirstName().equals(b[0]) && patientss.getLastName().equals(b[1])) {
                     ssnQ = patientss.getSSN();
                     patientSSNLabel.setText(patientss.getSSN());
-                    patientNameLabel.setText(patientss.getFirstName() +" "+patientss.getLastName());
+                    patientNameLabel.setText(patientss.getFirstName() + " " + patientss.getLastName());
                 }
 
             }
@@ -73,13 +79,14 @@ SwitchScene sc = new SwitchScene();
         labelSetter();
 
     }
+
     public void labelSetter() {
         try {
             PatientQueries psql = new PatientQueries();
             psql.viewPatientTable();
             pa = psql.getPatientsinfo();
-            for (Patient patients : pa){
-                patient.getItems().addAll(patients.getFirstName()+" "+patients.getLastName());
+            for (Patient patients : pa) {
+                patient.getItems().addAll(patients.getFirstName() + " " + patients.getLastName());
                 System.out.println(pa);
 
             }
@@ -98,38 +105,42 @@ SwitchScene sc = new SwitchScene();
         statement.executeUpdate();
         System.out.println("Worked!");
     */
-       try{
-        StaffQueries sq = new StaffQueries();
-        sq.planerApply(patient.getValue(), fromTime.getValue(), toTime.getValue(), description.getText());
-           Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-           a.setHeaderText("INSERTED!");
-           a.showAndWait();
-    } catch (Exception e){
-           Alert a = new Alert(Alert.AlertType.ERROR);
-           a.setTitle("Error!");
-           a.setContentText("Sorry, We could not apply your information!"+"\n"+"Try again...");
-           a.showAndWait();
-       }
+        try {
+            StaffQueries sq = new StaffQueries();
+            sq.planerApply(patient.getValue(), fromTime.getValue(), toTime.getValue(), description.getText());
+            alertMaker.confirmAlert("INSERTED!", "Successfully!");
+        } catch (Exception e) {
+            alertMaker.errorAlert("Sorry, We could not apply your information!" + "\n" + "Try again...","Error!");
+        }
     }
 
-   @FXML public void backTo(ActionEvent event) throws IOException {
-       sc.newScene(event, "../view/planer.fxml");
-   }
+    @FXML
+    public void backTo(ActionEvent event) throws IOException {
+        sc.newScene(event, "../view/planer.fxml");
+    }
 
 
-
-
-public ArrayList<String> getBoxValues() {
-    ArrayList<String> time = new ArrayList<>();
-        time.add("08:00"); time.add("08:30"); time.add("09:00");
-        time.add("09:30"); time.add("10:00"); time.add("10:30");
-        time.add("11:00"); time.add("11:30"); time.add("12:00");
-        time.add("12:30"); time.add("13:00"); time.add("13:30");
-        time.add("14:00"); time.add("14:30"); time.add("15:00");
-        time.add("15:30"); time.add("16:00");
-    return time;
-}
-
+    public ArrayList<String> getBoxValues() {
+        ArrayList<String> time = new ArrayList<>();
+        time.add("08:00");
+        time.add("08:30");
+        time.add("09:00");
+        time.add("09:30");
+        time.add("10:00");
+        time.add("10:30");
+        time.add("11:00");
+        time.add("11:30");
+        time.add("12:00");
+        time.add("12:30");
+        time.add("13:00");
+        time.add("13:30");
+        time.add("14:00");
+        time.add("14:30");
+        time.add("15:00");
+        time.add("15:30");
+        time.add("16:00");
+        return time;
+    }
 
 
 }

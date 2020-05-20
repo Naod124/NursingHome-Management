@@ -1,17 +1,13 @@
 package sample.controller;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import sample.databaseConnection.PatientQueries;
+import sample.model.AlertMaker;
 import sample.model.PatientTable;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -20,18 +16,23 @@ import java.util.ResourceBundle;
 public class RemovePatientController implements Initializable {
 
 
+    @FXML
+    private TableView<Object> table;
+    @FXML
+    private TableColumn<PatientTable, String> ssncol;
+    @FXML
+    private TableColumn<PatientTable, String> firstnamecol;
+    @FXML
+    private TableColumn<PatientTable, String> lastnamecol;
+    @FXML
+    private TableColumn<PatientTable, String> dobcol;
+    @FXML
+    private TableColumn<PatientTable, String> gendercol;
+    @FXML
+    private Button removeButton;
 
-
-    @FXML private TableView<Object> table;
-    @FXML private TableColumn<PatientTable, String> ssncol;
-    @FXML private TableColumn <PatientTable, String> firstnamecol;
-    @FXML private TableColumn <PatientTable, String> lastnamecol;
-    @FXML private TableColumn <PatientTable, String> dobcol;
-    @FXML private TableColumn <PatientTable, String> gendercol;
-    @FXML private Button removeButton;
-
-
-    SwitchScene sc = new SwitchScene();
+    private AlertMaker alerMaker = new AlertMaker();
+    private SwitchScene sc = new SwitchScene();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,43 +49,38 @@ public class RemovePatientController implements Initializable {
         try {
             seePatient();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());        }
+            System.out.println(e.getMessage());
+        }
     }
 
- public void seePatient() throws SQLException {
-     rows();
-     PatientQueries pq = new PatientQueries();
-     pq.viewPatientTable();
+    public void seePatient() throws SQLException {
+        rows();
+        PatientQueries pq = new PatientQueries();
+        pq.viewPatientTable();
 
-     table.setItems(pq.getObList());
-
-
- }
-    @FXML public void deletePatient() throws SQLException {
-
-       try {
-           PatientQueries pq = new PatientQueries();
-           PatientTable pt = (PatientTable) table.getSelectionModel().getSelectedItem();
-           pq.removePatient( pt.getSsn());
-           Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-           a.setHeaderText("Patient removed");
-           a.showAndWait();
-           table.getItems().clear();
-           seePatient();
-       }
-       catch (SQLException e){
-           Alert a = new Alert(Alert.AlertType.ERROR);
-           a.setHeaderText("ERROR");
-           a.showAndWait();
-           System.out.println(e.getMessage());
-
-       }
+        table.setItems(pq.getObList());
 
 
     }
 
+    @FXML
+    public void deletePatient() throws SQLException {
 
-    public void rows(){
+        try {
+            PatientQueries pq = new PatientQueries();
+            PatientTable pt = (PatientTable) table.getSelectionModel().getSelectedItem();
+            pq.removePatient(pt.getSsn());
+            alerMaker.confirmAlert("Patient removed","Successfully!");
+            table.getItems().clear();
+            seePatient();
+        } catch (SQLException e) {
+            alerMaker.errorAlert("", "ERROR");
+            System.out.println(e.getMessage());
+        }
+    }
+
+
+    public void rows() {
         ssncol.setCellValueFactory(new PropertyValueFactory<>("Ssn"));
         firstnamecol.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         lastnamecol.setCellValueFactory(new PropertyValueFactory<>("LastName"));
@@ -96,7 +92,7 @@ public class RemovePatientController implements Initializable {
 
     @FXML
     public void back(ActionEvent ae) throws IOException {
-        sc.newScene(ae,"/sample/view/nurse.fxml");
+        sc.newScene(ae, "/sample/view/nurse.fxml");
     }
 
     @FXML
@@ -104,7 +100,6 @@ public class RemovePatientController implements Initializable {
         System.exit(0);
 
     }
-
 
 
 }

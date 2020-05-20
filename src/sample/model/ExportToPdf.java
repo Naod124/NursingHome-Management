@@ -206,6 +206,7 @@ public class ExportToPdf {
         cell3.setUseBorderPadding(true);
         cell4.setUseBorderPadding(true);
 
+
         table.addCell(cell1);
         table.addCell(cell2);
         table.addCell(cell3);

@@ -107,8 +107,15 @@ public class PlanerController implements Initializable {
     */
         try {
             StaffQueries sq = new StaffQueries();
-            sq.planerApply(patient.getValue(), fromTime.getValue(), toTime.getValue(), description.getText());
-            alertMaker.confirmAlert("INSERTED!", "Successfully!");
+            if (patient.getValue() == null || fromTime.getValue() == null || toTime.getValue() == null
+                    || description.getText().isEmpty())
+            {
+                alertMaker.errorAlert("You have not added all fields", "Error");
+            }
+            else {
+                sq.planerApply(patient.getValue(), fromTime.getValue(), toTime.getValue(), description.getText());
+                alertMaker.confirmAlert("INSERTED!", "Successfully!");
+            }
         } catch (Exception e) {
             alertMaker.errorAlert("Sorry, We could not apply your information!" + "\n" + "Try again...","Error!");
         }

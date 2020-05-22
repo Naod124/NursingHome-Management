@@ -128,10 +128,10 @@ public class EditPatientInfo implements Initializable {
     public void handleUpdate() {
 
         try {
-            fromTableView();
             PatientQueries pq = new PatientQueries();
             pq.updateIntoPatientTable(firstnametextfield.getText(), lastnametextfield.getText(),
                     datetextfield.getText(), gendertextfield.getText(), ssntextfield.getText());
+            fromTableView();
             alertMaker.infoAlert("Information updated","Done!");
             table.getItems().clear();
             checkPatient();

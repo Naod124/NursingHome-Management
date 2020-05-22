@@ -39,12 +39,12 @@
          <image>
             <Image url="@../medicalIcons/Login-icon.png" />
          </image></ImageView>
-      <Label layoutX="171.0" layoutY="32.0" prefHeight="37.0" prefWidth="101.0" text="Nursing" textFill="#1ad4be">
+      <Label layoutX="158.0" layoutY="32.0" prefHeight="37.0" prefWidth="114.0" text="Nursing" textFill="#1ad4be">
          <font>
             <Font name="Calisto MT Bold Italic" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="272.0" layoutY="21.0" prefHeight="60.0" prefWidth="149.0" text="Home" textFill="#0db9de">
+      <Label layoutX="272.0" layoutY="21.0" prefHeight="60.0" prefWidth="172.0" text="Home" textFill="#0db9de">
          <font>
             <Font name="Calisto MT Bold Italic" size="30.0" />
          </font>

@@ -269,6 +269,12 @@ public class VisitPatientController implements Initializable {
         tooltipRemoveButton.setText("Press this button to remove the visit");
         removeButton.setTooltip(tooltipRemoveButton);
 
+        ssntextfield.setEditable(false);
+        firstnametextfield.setEditable(false);
+        lastnametextfield.setEditable(false);
+        datetextfield.setEditable(false);
+        gendertextfield.setEditable(false);
+
 
         // setting the table columns
         ssncol.setCellValueFactory(new PropertyValueFactory<>("Ssn"));

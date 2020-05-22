@@ -68,11 +68,17 @@ public class RemovePatientController implements Initializable {
 
         try {
             PatientQueries pq = new PatientQueries();
-            PatientTable pt = (PatientTable) table.getSelectionModel().getSelectedItem();
-            pq.removePatient(pt.getSsn());
-            alerMaker.confirmAlert("Patient removed","Successfully!");
-            table.getItems().clear();
-            seePatient();
+            if (!(table.getSelectionModel().getSelectedItem() == null)){
+                PatientTable pt = (PatientTable) table.getSelectionModel().getSelectedItem();
+                pq.removePatient(pt.getSsn());
+                alerMaker.confirmAlert("Patient removed","Successfully!");
+                table.getItems().clear();
+                seePatient();
+            }
+            else {
+                alerMaker.errorAlert("You have not selected anything", "Error");
+            }
+
         } catch (SQLException e) {
             alerMaker.errorAlert("", "ERROR");
             System.out.println(e.getMessage());

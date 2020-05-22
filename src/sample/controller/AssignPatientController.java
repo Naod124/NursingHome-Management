@@ -144,6 +144,13 @@ public class AssignPatientController implements Initializable {
 		gendertextfield.setText(table.getGender());
 		datetextfield.setText(table.getDateOfBirth());
 
+		ssntextfield.setEditable(false);
+		firstnametextfield.setEditable(false);
+		lastnametextfield.setEditable(false);
+		gendertextfield.setEditable(false);
+		datetextfield.setEditable(false);
+
+
 		timetable.clear();
 		// getting the free time of patient from database and spliting with respect to
 		// comma

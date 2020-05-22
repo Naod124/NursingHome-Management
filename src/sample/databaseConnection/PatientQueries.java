@@ -324,7 +324,7 @@ public class PatientQueries {
 
     public void scheduleTruncateThread() { //Deletes data from schedule every day at 12 during the night.
         ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Copenhagen"));
-        ZonedDateTime nextRun = now.withHour(12).withMinute(54).withSecond(0);
+        ZonedDateTime nextRun = now.withHour(1).withMinute(0).withSecond(0);
         if (now.compareTo(nextRun) == 1) {
             nextRun = nextRun.plusDays(1);
 

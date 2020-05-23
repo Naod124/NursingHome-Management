@@ -37,7 +37,7 @@ public class HelpController implements Initializable {
                 "\n  If you are the Adminstrator then log in with your admin login information \n and you can therefore" +
                 " have the access to view all patients,view all employees,\n add emplyoees and remove " +
                 "employees that no longer are working here. \n \n If you are a Nurse then log in with your nurse login" +
-                " \n information and you can therefore have the options to to" +
+                "  information \n and you can therefore have the options to to" +
                 " view all patients, \nremove patients, edit patient info, get assigned patients and check their\n diagnosis. \n\n" +
                 "If you are the planer then log in with your admin login information and you can\n therefore " +
                 "create the schedule for the nurses. ");

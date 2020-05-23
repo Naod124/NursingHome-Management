@@ -12,6 +12,7 @@ import sample.model.PatientTable;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 public class AddPatientController implements Initializable {
@@ -101,21 +102,51 @@ public class AddPatientController implements Initializable {
 
     @FXML
     public void handleAdd(ActionEvent ae) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+
         try {
+
             PatientQueries pq = new PatientQueries();
-            pq.insertIntoPatientTable(ssntextfield.getText(), firstnametextfield.getText(),
-                    lastnametextfield.getText(), datetextfield.getText(), gendertextfield.getText());
-            alertMaker.confirmAlert("", "Information added");
-            table.getItems().clear();
-            viewPatient();
-            ssntextfield.clear();
-            firstnametextfield.clear();
-            lastnametextfield.clear();
-            datetextfield.clear();
-            gendertextfield.clear();
+
+            if (ssntextfield.getText().trim().isEmpty() || firstnametextfield.getText().trim().isEmpty() ||
+            lastnametextfield.getText().trim().isEmpty() || datetextfield.getText().trim().isEmpty() || gendertextfield.getText().trim()
+                    .isEmpty() ){
+
+                alertMaker.errorAlert("You have not entered the necessary information", "Error");
+            }
+            else if (!firstnametextfield.getText().matches("[a-zA-Z ]+") || !lastnametextfield.getText().matches("[a-zA-Z ]+")) {
+
+                alertMaker.errorAlert("First name or Last name shall be only letters","Error");
+
+            }
+
+            else if (!ssntextfield.getText().matches("[0-9]{10}"))
+            {
+
+                alertMaker.errorAlert("The ssn is written in invalid form","Error");
+            }
+
+            else if (!(datetextfield.getText().matches("\\d{4}-\\d{2}-\\d{2}"))) {
+                alertMaker.errorAlert("The date format is wrong typed", "Error");
+            }
+            else
+             {
+                 pq.insertIntoPatientTable(ssntextfield.getText(), firstnametextfield.getText(),
+                        lastnametextfield.getText(), datetextfield.getText(), gendertextfield.getText());
+                alertMaker.confirmAlert("", "Information added");
+                table.getItems().clear();
+                viewPatient();
+                ssntextfield.clear();
+                firstnametextfield.clear();
+                lastnametextfield.clear();
+                datetextfield.clear();
+                gendertextfield.clear();
+
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            alertMaker.errorAlert("Adding a patient did not go through!" + "\n" + "Please try again...","Error!");
+            alertMaker.errorAlert("The gender shall only be Male or Female","Error!");
         }
     }
 

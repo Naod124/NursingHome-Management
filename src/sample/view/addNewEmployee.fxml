@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="658.0" prefWidth="693.0" style="-fx-background-color: #484d4c;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddNewEmployeeController">
+<AnchorPane prefHeight="660.0" prefWidth="727.0" style="-fx-background-color: #484d4c;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddNewEmployeeController">
    <children>
       <VBox layoutX="258.0" layoutY="108.0" prefHeight="385.0" prefWidth="269.0" spacing="20.0">
          <children>
@@ -22,10 +22,10 @@
             <TextField fx:id="email" promptText="Post E-address" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
             <TextField fx:id="userName" promptText="username" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
             <TextField fx:id="passWord" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
-            <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="321.0" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200;" />
+            <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="321.0" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-border-width: 2; -fx-border-radius: 200;" stylesheets="@style.css" />
          </children>
       </VBox>
-      <VBox alignment="CENTER" layoutX="568.0" layoutY="472.0" prefHeight="172.0" prefWidth="111.0" spacing="20.0">
+      <VBox alignment="CENTER" layoutX="602.0" layoutY="468.0" prefHeight="172.0" prefWidth="111.0" spacing="20.0">
          <children>
             <Button fx:id="addButton" mnemonicParsing="false" onAction="#add" prefHeight="69.0" prefWidth="82.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Add" textFill="#0db9de">
                <font>
@@ -120,5 +120,13 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Label>
+      <Label fx:id="firstNameLabel" layoutX="554.0" layoutY="116.0" prefHeight="17.0" prefWidth="44.0" textFill="#0db9de" />
+      <Label fx:id="lastNameLabel" layoutX="554.0" layoutY="166.0" prefHeight="17.0" prefWidth="50.0" textFill="#0db9de" />
+      <Label fx:id="addressLabel" layoutX="540.0" layoutY="216.0" prefHeight="25.0" prefWidth="50.0" textFill="#0db9de" />
+      <Label fx:id="ssnLabel" layoutX="554.0" layoutY="269.0" prefHeight="25.0" prefWidth="50.0" textFill="#0db9de" />
+      <Label fx:id="dobLabel" layoutX="554.0" layoutY="317.0" prefHeight="25.0" prefWidth="50.0" textFill="#0db9de" />
+      <Label fx:id="emailLabel" layoutX="554.0" layoutY="372.0" prefHeight="25.0" prefWidth="59.0" textFill="#0db9de" />
+      <Label fx:id="userNameLabel" layoutX="554.0" layoutY="422.0" prefHeight="25.0" prefWidth="50.0" textFill="#0db9de" />
+      <Label fx:id="passwordLabel" layoutX="549.0" layoutY="478.0" prefHeight="25.0" prefWidth="50.0" textFill="#0db9de" />
    </children>
 </AnchorPane>

@@ -87,6 +87,10 @@ public class ManageEmployeesController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        all.setOnAction(e -> showAll());
+        nurses.setOnAction(e -> showNurses());
+        planers.setOnMouseClicked(e -> showPlaners());
+
         searchFunctionById();
         searchFunctionByName();
 
@@ -103,10 +107,7 @@ public class ManageEmployeesController implements Initializable {
                     String lowerCaseFilter = newValue.toLowerCase();
                     if (s.getSsn().contains(newValue)) {
                         return true;
-                    } else if (s.getSsn().toLowerCase().contains(lowerCaseFilter)) {
-                        return true;
-                    }
-                    return false;
+                    } else return s.getSsn().toLowerCase().contains(lowerCaseFilter);
                 });
             }));
             SortedList<StaffTable> sortedList = new SortedList<>(filteredList);
@@ -126,10 +127,7 @@ public class ManageEmployeesController implements Initializable {
                     String lowerCaseFilter = newValue.toLowerCase();
                     if (s.getName().contains(newValue)) {
                         return true;
-                    } else if (s.getName().toLowerCase().contains(lowerCaseFilter)) {
-                        return true;
-                    }
-                    return false;
+                    } else return s.getName().toLowerCase().contains(lowerCaseFilter);
                 });
             }));
             SortedList<StaffTable> sortedList = new SortedList<>(filteredList);
@@ -176,7 +174,6 @@ public class ManageEmployeesController implements Initializable {
 
     public void deleteEmployeeFromTable() {
         try {
-
             StaffTable st = employeesTable.getSelectionModel().getSelectedItem();
             staffQueries.removeStaff(st.getSsn());
             alertMaker.confirmAlert(st.getName() + " has been successfully removed from employees ", "Done!");
@@ -188,10 +185,14 @@ public class ManageEmployeesController implements Initializable {
     }
 
 
-    public void showAll(ActionEvent actionEvent) throws SQLException {
+    public void showAll() {
         if (all.isSelected()) {
             employeesTable.getItems().clear();
-            viewStaff();
+            try {
+                viewStaff();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             nurses.setDisable(true);
             planers.setDisable(true);
         } else {
@@ -200,10 +201,14 @@ public class ManageEmployeesController implements Initializable {
         }
     }
 
-    public void showNurses(ActionEvent actionEvent) throws SQLException {
+    public void showNurses() {
         if (nurses.isSelected()) {
             employeesTable.getItems().clear();
-            viewNurse();
+            try {
+                viewNurse();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             all.setDisable(true);
             planers.setDisable(true);
         } else {
@@ -213,10 +218,14 @@ public class ManageEmployeesController implements Initializable {
 
     }
 
-    public void showPlaners(ActionEvent actionEvent) throws SQLException {
+    public void showPlaners() {
         if (planers.isSelected()) {
             employeesTable.getItems().clear();
-            viewPlaner();
+            try {
+                viewPlaner();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             nurses.setDisable(true);
             all.setDisable(true);
         } else {
@@ -248,14 +257,4 @@ public class ManageEmployeesController implements Initializable {
     public static StaffTable getSelectedItem() {
         return selectedItem;
     }
-    //    public StaffTable wlashe() {
-//        selectedPerson = employeesTable.getSelectionModel().getSelectedItem();
-//
-//            System.out.println(selectedPerson.getFirstName());
-//            return selectedPerson;
-//        } else {
-//            alertMaker.simpleAlert(" Please select an employee ", " No Employee selected  ");
-//            return null;
-//        }
-//    }
 }

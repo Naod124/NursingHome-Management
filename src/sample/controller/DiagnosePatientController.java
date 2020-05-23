@@ -3,9 +3,7 @@ package sample.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
+import java.util.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -68,14 +66,12 @@ public class DiagnosePatientController implements Initializable {
     @FXML
     private Button removeButton;
 
-
     // to keep track of nurse SSN
     public static int nurseSSN;
 
     private SwitchScene sc = new SwitchScene();
     private AlertMaker alerMaker = new AlertMaker();
-
-    // for storing data fetch from database 
+    // for storing data fetch from database
     ObservableList<DiagnoseTable> data = FXCollections.observableArrayList();
 
     DiagnosQueries dq = new DiagnosQueries();
@@ -136,7 +132,7 @@ public class DiagnosePatientController implements Initializable {
         // query for updating the data in database
         dq.updateIntoDiagnosTable(diagnosistextfield.getText(), ssntextfield.getText());
         // showing alert
-        alerMaker.infoAlert("Diagonosis Updated Successfully","Done!");
+        alerMaker.infoAlert("Diagonosis Updated Successfully", "Done!");
         for (int i = 0; i < data.size(); i++) {
             // getting the SSN of selected table data to change field of diagnose
             String ssn = data.get(i).getSsn();
@@ -176,7 +172,6 @@ public class DiagnosePatientController implements Initializable {
     // method for initializing table and getting data from database
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-
         final Tooltip tooltipSsn = new Tooltip();
         tooltipSsn.setText("Enter the patients social security number. It shall be in this format: yymmdd****");
         ssntextfield.setTooltip(tooltipSsn);
@@ -241,5 +236,4 @@ public class DiagnosePatientController implements Initializable {
     public void refresh() {
         table.setItems(data);
     }
-
 }

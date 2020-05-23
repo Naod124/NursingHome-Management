@@ -53,35 +53,6 @@ public class AddNewEmployeeController implements Initializable {
     private SwitchScene sc = new SwitchScene();
     private AlertMaker alertMaker = new AlertMaker();
 
-    public void add(ActionEvent actionEvent) throws FileNotFoundException {
-        try {
-            String firstNameO = firstName.getText();
-            String lastNameO = lastName.getText();
-            String addressO = address.getText();
-            String SSN = ssn.getText();
-            String dob = dOb.getText();
-            String Email = email.getText();
-            String username = userName.getText();
-            String password = passWord.getText();
-            String roleO = role.getValue();
-            StaffQueries logIn = new StaffQueries();
-            logIn.insertIntoPStaffTable(firstNameO, lastNameO, SSN, addressO, dob, Email, 20000, roleO, username, password);
-            System.out.println("Done ! Check DataBase");
-            alertMaker.infoAlert(firstNameO + "" + lastNameO + " has been successfully added to the dataBase as " + roleO , "Successfully");
-        } catch (Exception e) {
-          alertMaker.errorAlert("Adding a staff member did not go through!" + "\n" + "Please try again...","Error!");
-        }
-    }
-
-    public void cancel(ActionEvent actionEvent) throws IOException {
-        System.exit(0);
-
-    }
-
-    public void backToMain(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent, "/sample/view/admin.fxml");
-    }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -267,7 +238,8 @@ public class AddNewEmployeeController implements Initializable {
                 logIn.insertIntoPStaffTable(firstNameO, lastNameO, SSN, addressO, dob, Email, 20000, roleO, username, password);
                 System.out.println("Done ! Check DataBase");
                 alertMaker.infoAlert(firstNameO + "" + lastNameO + " has been successfully added to the dataBase as " + roleO, "Successfully");
-            } else alertMaker.simpleAlert("Some fields are incorrect or already exist , please check the red text .. ", "Invalid Input");
+            } else
+                alertMaker.simpleAlert("Some fields are incorrect or already exist , please check the red text .. ", "Invalid Input");
 //                                        alertMaker.simpleAlert("password must contain at least eight characters, at least one number and both lower and uppercase letters and special characters", "Invalid Input");
 //                                    alertMaker.simpleAlert("Please check your username it's maybe aleardy exist or has wrong format", "Invalid Input");
 //                                alertMaker.simpleAlert("Please Enter a valid Email address", "Invalid input");

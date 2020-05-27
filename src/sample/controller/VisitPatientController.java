@@ -81,38 +81,25 @@ public class VisitPatientController implements Initializable {
     private AlertMaker alertMaker = new AlertMaker();
 
     VisitQueries vq = new VisitQueries();
-    // to keep track of nurse SSN
     public static int nurseSSN;
-    // for keeping record of selected data
     VisitTable selectedItem = new VisitTable();
-    // for storing data fetch from database
     ObservableList<VisitTable> data = FXCollections.observableArrayList();
-    // keeping record of patient free time
     ArrayList<String> timetable = new ArrayList<>();
 
     @FXML
     void add(ActionEvent event) throws SQLException {
         String text = visittextfield.getText();
-        // checking if the field is empty before inserting diagnose
         if (!(text == null)) {
-            // setting the visitor and visitor time of the selected item
             selectedItem.setVisitor(visittextfield.getText());
             selectedItem.setVisitortime(freetime.getValue());
-            // get the remaining free time of the patient
             String updateFreeTime = updateFreeTime();
-            // inserting data into the database and update free time
             vq.insertIntoTable(visittextfield.getText(), ssntextfield.getText(), freetime.getValue(), updateFreeTime);
-            // setting the updated time of the patient
             selectedItem.setFreeTime(updateFreeTime);
-            // showing alert
             alertMaker.infoAlert("Visitor Added Successfully", "Done!");
             for (int i = 0; i < data.size(); i++) {
-                // getting the SSN of selected table data to change field of diagnose
                 String ssn = data.get(i).getSsn();
                 if (ssn.equals(selectedItem.getSsn())) {
-                    // updating the diagnose field present in table data
                     data.set(i, selectedItem);
-                    // refreshing table
                     refresh();
                 }
             }
@@ -124,21 +111,14 @@ public class VisitPatientController implements Initializable {
 
     @FXML
     void remove(ActionEvent event) throws SQLException {
-        // updating the diagnose field of selected data to null because we are going to
-        // remove it from database
         selectedItem.setVisitor("");
         selectedItem.setVisitortime("");
-        // query for removing the the data in database
         vq.deleteIntoTable(ssntextfield.getText());
-        // showing alert
         alertMaker.infoAlert("Visitor Removed Successfully", "Done!");
         for (int i = 0; i < data.size(); i++) {
-            // getting the SSN of selected table data to change field of diagnose
             String ssn = data.get(i).getSsn();
             if (ssn.equals(selectedItem.getSsn())) {
-                // updating the diagnose field present in table data
                 data.set(i, selectedItem);
-                // refreshing table
                 refresh();
             }
         }
@@ -146,24 +126,16 @@ public class VisitPatientController implements Initializable {
 
     @FXML
     void update(ActionEvent event) throws SQLException {
-        // setting the visitor and visitor time of the selected item
         selectedItem.setVisitor(visittextfield.getText());
         selectedItem.setVisitortime(freetime.getValue());
-        // get the remaining free time of the patient
         String updateFreeTime = updateFreeTime();
-        // inserting data into the database and update free time
         vq.UpdateIntoTable(visittextfield.getText(), ssntextfield.getText(), freetime.getValue(), updateFreeTime);
-        // setting the updated time of the patient
         selectedItem.setFreeTime(updateFreeTime);
-        // showing alert
         alertMaker.infoAlert("Diagonosis Updated Successfully", "Done!");
         for (int i = 0; i < data.size(); i++) {
-            // getting the SSN of selected table data to change field of diagnose
             String ssn = data.get(i).getSsn();
             if (ssn.equals(selectedItem.getSsn())) {
-                // updating the diagnose field present in table data
                 data.set(i, selectedItem);
-                // refreshing table
                 refresh();
             }
         }
@@ -182,9 +154,7 @@ public class VisitPatientController implements Initializable {
 
     @FXML
     void fectchdata(MouseEvent event) {
-        // getting the selected data from table while clicking on the row
         selectedItem = (VisitTable) table.getSelectionModel().getSelectedItem();
-        // setting the fields with information that is selected
         ssntextfield.setText(selectedItem.getSsn());
         firstnametextfield.setText(selectedItem.getFirstName());
         lastnametextfield.setText(selectedItem.getLastName());
@@ -193,23 +163,16 @@ public class VisitPatientController implements Initializable {
         visittextfield.setText(selectedItem.getVisitor());
         visitortime.setText(selectedItem.getVisitortime());
 
-        // getting the free time of patient from database and spliting with respect to
-        // comma
         String[] split = selectedItem.getFreeTime().split(",");
-        // clearing the array
         timetable.clear();
-        // now adding splited data into the timetable list
         if (split.length != 0) {
             for (int i = 0; i < split.length; i++) {
                 timetable.add(split[i]);
             }
-            // clearing the combo-box item
             freetime.getItems().clear();
-            // adding the time available to the combo-box
             freetime.getItems().addAll(timetable);
         } else {
             freetime.getItems().clear();
-            // setting no time Available if empty
             freetime.getItems().addAll("No Time Available");
         }
 
@@ -218,7 +181,6 @@ public class VisitPatientController implements Initializable {
 
     }
 
-    // method for initializing table and getting data from database
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -276,7 +238,6 @@ public class VisitPatientController implements Initializable {
         gendertextfield.setEditable(false);
 
 
-        // setting the table columns
         ssncol.setCellValueFactory(new PropertyValueFactory<>("Ssn"));
         firstnamecol.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         lastnamecol.setCellValueFactory(new PropertyValueFactory<>("LastName"));
@@ -286,10 +247,8 @@ public class VisitPatientController implements Initializable {
         visitorcol.setCellValueFactory(new PropertyValueFactory<>("Visitor"));
 
         try {
-            // getting data from database
             ArrayList<VisitTable> view = vq.viewTable();
             data.addAll(view);
-            // setting data to table
             table.setItems(data);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -297,12 +256,10 @@ public class VisitPatientController implements Initializable {
 
     }
 
-    // method to refresh change in data after different operation
     public void refresh() {
         table.setItems(data);
     }
 
-    // updating free time of the patient
     public String updateFreeTime() {
         String remainingfreetime = "";
         timetable.remove(freetime.getValue());

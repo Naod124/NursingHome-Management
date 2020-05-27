@@ -47,7 +47,6 @@ public class GetAssignPatientController implements Initializable {
 
 	PatientQueries pq = new PatientQueries();
 
-	// for storing data fetch from database
 	ObservableList<AssignTable> data = FXCollections.observableArrayList();
 
 	public void exit() {
@@ -69,10 +68,8 @@ public class GetAssignPatientController implements Initializable {
 		occupaidcol.setCellValueFactory(new PropertyValueFactory<>("Occupiedby"));
 
 		try {
-			// getting data from database
 			ArrayList<AssignTable> view = pq.viewAssigneTable();
 			data.addAll(view);
-			// setting data to table
 			table.setItems(data);
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

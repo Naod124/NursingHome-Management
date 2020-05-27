@@ -24,13 +24,11 @@ public class VisitQueries {
 		}
 	}
 
-	// insert query for adding diagnosis
 	public void insertIntoTable(String visitor, String SSN, String visitortime, String Freetime) throws SQLException {
 
 
 
 
-		// query for inserting visitor into patient table
 		String insertQuery = "UPDATE patient SET visitor = ?, visitortime = ? WHERE SSN = ?;";
 		PreparedStatement pstmt = connection.prepareStatement(insertQuery);
 		pstmt.setString(1, visitor);
@@ -39,7 +37,6 @@ public class VisitQueries {
 
 		pstmt.executeUpdate();
 
-		// update the free time of patient
 		String updateQuery = "UPDATE patient SET FreeTime = ? WHERE SSN = ?;";
 		PreparedStatement pstmt1 = connection.prepareStatement(updateQuery);
 		pstmt1.setString(1, Freetime);
@@ -48,11 +45,9 @@ public class VisitQueries {
 
 	}
 
-	// Update query for adding diagnosis
 	public void UpdateIntoTable(String visitor, String SSN, String visitortime, String Freetime) throws SQLException {
 
 
-		// query for inserting visitor into patient table
 		String insertQuery = "UPDATE patient SET visitor = ?, visitortime = ? WHERE SSN = ?;";
 		PreparedStatement pstmt = connection.prepareStatement(insertQuery);
 		pstmt.setString(1, visitor);
@@ -61,7 +56,6 @@ public class VisitQueries {
 
 		pstmt.executeUpdate();
 
-		// update the free time of patient
 		String updateQuery = "UPDATE patient SET FreeTime = ? WHERE SSN = ?;";
 		PreparedStatement pstmt1 = connection.prepareStatement(updateQuery);
 		pstmt1.setString(1, Freetime);
@@ -70,11 +64,8 @@ public class VisitQueries {
 
 	}
 
-	// for getting item from the database
 	public ArrayList<VisitTable> viewTable() throws SQLException {
 		ArrayList<VisitTable> list = new ArrayList<>();
-		// select query for getting data from patient and their diagnoses from diagnose
-		// table
 		String selectQuery = "SELECT * FROM patient;";
 
 		try {
@@ -83,7 +74,6 @@ public class VisitQueries {
 			resultSet = connection.createStatement().executeQuery(selectQuery);
 
 			while (resultSet.next()) {
-				// creating object and setting data
 				VisitTable visit = new VisitTable("", "", "", "", "", "", "", "");
 				visit.setDateOfBirth(resultSet.getString("DateOfBirth"));
 				visit.setVisitor(resultSet.getString("visitor"));
@@ -102,7 +92,6 @@ public class VisitQueries {
 		return list;
 	}
 
-	// for delete item from the database
 	public void deleteIntoTable(String SSN) throws SQLException {
 
 

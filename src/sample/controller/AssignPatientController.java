@@ -49,20 +49,17 @@ public class AssignPatientController implements Initializable {
 	@FXML
 	private ComboBox<String> freetime;
 
-	// to keep track of nurse that is login
 	public static int nurseSSN;
 
 	PatientQueries pq = new PatientQueries();
 
-	// keeping record of patient free time
+
 	ArrayList<String> timetable = new ArrayList<>();
 
 	@FXML
 	void assign(ActionEvent event) throws SQLException {
 
-		// get the remaining free time of the patient
 		String updateFreeTime = updateFreeTime();
-		// Adding or Asigning the patient time by nurse
 		pq.AssignNurseToPatient(ssntextfield.getText(), freetime.getValue(), String.valueOf(nurseSSN), updateFreeTime);
 
 		new Alert(Alert.AlertType.INFORMATION, "Paitient Assigned Successfully").showAndWait();
@@ -118,7 +115,6 @@ public class AssignPatientController implements Initializable {
 
 	@FXML
 	public void handleView() throws SQLException {
-		// setting the table columns
 		ssncol.setCellValueFactory(new PropertyValueFactory<>("Ssn"));
 		firstnamecol.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
 		lastnamecol.setCellValueFactory(new PropertyValueFactory<>("LastName"));
@@ -131,13 +127,9 @@ public class AssignPatientController implements Initializable {
 
 	@FXML
 	void fectchdata(MouseEvent event) throws SQLException {
-		// getting the selected data from table while clicking on the row
 		Object selectedItem = table.getSelectionModel().getSelectedItem();
-		// casting that object to patient table to access the different information or
-		// data
 		PatientTable table = (PatientTable) selectedItem;
 
-		// setting the fields with information that is selected
 		ssntextfield.setText(table.getSsn());
 		firstnametextfield.setText(table.getFirstName());
 		lastnametextfield.setText(table.getLastName());
@@ -152,17 +144,13 @@ public class AssignPatientController implements Initializable {
 
 
 		timetable.clear();
-		// getting the free time of patient from database and spliting with respect to
-		// comma
+
 		String[] split = table.getFreeTime().split(",");
-		// now adding splited data into the timetable list
 		if (split.length != 0) {
 			for (int i = 0; i < split.length; i++) {
 				timetable.add(split[i]);
 			}
-			// clearing the combo-box item
 			freetime.getItems().clear();
-			// adding the time available to the combo-box
 			freetime.getItems().addAll(timetable);
 		} else {
 			freetime.getItems().clear();
@@ -172,7 +160,6 @@ public class AssignPatientController implements Initializable {
 
 	}
 
-	// updating free time of the patient
 	public String updateFreeTime() {
 		String remainingfreetime = "";
 		timetable.remove(freetime.getValue());

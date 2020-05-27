@@ -4,23 +4,23 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class DiagnoseTable {
 
-	private SimpleStringProperty ssn, firstName, lastName, dateOfBirth, gender, diagnosis, FreeTime;
+	private SimpleStringProperty ssn, firstName, lastName, dateOfBirth, gender, diagnosis, medicien;
 
 	public DiagnoseTable() {
 
 	}
-	
-	public DiagnoseTable(String ssn, String firstName, String lastName, String dateOfBirth, String gender, String freetime, String diagnosis) {
+
+	public DiagnoseTable(String ssn, String firstName, String lastName, String dateOfBirth, String gender, String medicien, String diagnosis) {
 		this.ssn = new SimpleStringProperty(ssn);
 		this.firstName = new SimpleStringProperty(firstName);
 		this.lastName = new SimpleStringProperty(lastName);
 		this.dateOfBirth = new SimpleStringProperty(dateOfBirth);
 		this.gender = new SimpleStringProperty(gender);
-		this.FreeTime = new SimpleStringProperty(freetime);
+		this.medicien = new SimpleStringProperty(medicien);
 		this.diagnosis = new SimpleStringProperty(diagnosis);
 	}
-	
-	
+
+
 
 	public String getSsn() {
 		return ssn.get();
@@ -82,22 +82,22 @@ public class DiagnoseTable {
 		this.gender.set(gender);
 	}
 
-	public String getFreeTime() {
-		return FreeTime.get();
-	}
-
-	public void setFreeTime(String freeTime) {
-		this.FreeTime.set(freeTime);
-	}
-	
 	public String getDiagnosis() {
 		return diagnosis.get();
 	}
-	
+
 	public void setDiagnosis(String diagnosis) {
 		this.diagnosis.set(diagnosis);
 	}
 
-	
-	
+	public String getMedicien() {
+		return medicien.get();
+	}
+
+	public void setMedicien(String medicien) {
+		this.medicien.set(medicien);
+	}
+
+
+
 }

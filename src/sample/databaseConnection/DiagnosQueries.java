@@ -21,16 +21,15 @@ public class DiagnosQueries {
                     "nursinghome", "Vw3J!60l-0kd");
         } catch (SQLException e) {
             // TODO Auto-generated catch block
-
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
 
-    // insert query for adding diagnosis
     public void insertIntoDiagnosTable(String diagnose, String SSN) throws SQLException {
         int insertid = 0;
-
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
+                "Vw3J!60l-0kd");
 
         String insertQuery = "INSERT INTO diagnos (DiagnosType) VALUES(?);";
         String idQuery = "select max(idDiagnos) from diagnos;";
@@ -54,9 +53,8 @@ public class DiagnosQueries {
 
     public void updateIntoDiagnosTable(String diagnose, String SSN) throws SQLException {
         int id = 0;
-
-
-
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
+                "Vw3J!60l-0kd");
         String idQuery = "SELECT diagnoseid FROM patient where SSN = ?";
         PreparedStatement pstmt1 = connection.prepareStatement(idQuery);
         pstmt1.setString(1, SSN);
@@ -89,23 +87,22 @@ public class DiagnosQueries {
                 diagnose.setDateOfBirth(resultSet.getString("DateOfBirth"));
                 diagnose.setDiagnosis(resultSet.getString("DiagnosType"));
                 diagnose.setFirstName(resultSet.getString("FirstName"));
-                diagnose.setFreeTime(resultSet.getString("FreeTime"));
+                diagnose.setMedicien(resultSet.getString("medicien"));
                 diagnose.setGender(resultSet.getString("Gender"));
                 diagnose.setLastName(resultSet.getString("LastName"));
                 diagnose.setSsn(resultSet.getString("SSN"));
                 list.add(diagnose);
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-
+            e.printStackTrace();
         }
         return list;
     }
 
     public void deleteIntoDiagnosTable(String SSN) throws SQLException {
         int id = 0;
-
-
+        connection = DriverManager.getConnection("jdbc:mysql://den1.mysql3.gear.host:3306/nursinghome", "nursinghome",
+                "Vw3J!60l-0kd");
         String idQuery = "SELECT diagnoseid FROM patient where SSN = ?";
         PreparedStatement pstmt = connection.prepareStatement(idQuery);
         pstmt.setString(1, SSN);

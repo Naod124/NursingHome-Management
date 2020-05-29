@@ -97,8 +97,10 @@ public class ForgotPasswordController implements Initializable {
 
     @FXML
     public void confirmButton() {
+
         int b = Integer.parseInt(resettxtfield.getText());
-        Alert m = new Alert(Alert.AlertType.ERROR);
+
+
 
         if (randomCode == b) {
 
@@ -142,6 +144,7 @@ public class ForgotPasswordController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
 
         final Tooltip tooltipEmail = new Tooltip();
         tooltipEmail.setText("Enter your Email where you will receive a reset code. Email shall be your username.");

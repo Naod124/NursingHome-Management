@@ -53,15 +53,6 @@ public class ScheduleController implements Initializable {
     }
 
     public ObservableList<PatientTable> getPatients() throws SQLException {
-       /* ObservableList<PatientTable> patients = FXCollections.observableArrayList();
-        Connection conn = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
-        ResultSet rs = conn.createStatement().executeQuery("SELECT * FROM schedule;");
-        while (rs.next()) {
-            patients.add(new PatientTable(rs.getString("patient_name")
-                    ,rs.getString("time_from"),rs.getString("time_to")
-                    ,rs.getString("description")));
-
-        }*/
 
         PatientQueries pq = new PatientQueries();
         pq.scheduleView();
@@ -87,7 +78,6 @@ public class ScheduleController implements Initializable {
         File f = fc.showSaveDialog(null);
         if (f != null) {
             path = f.getAbsolutePath();
-           // System.out.println(path);
            ObservableList<PatientTable> p = patientScheduleTableView.getItems();
             ExportToPdf pdf = new ExportToPdf();
             pdf.createSchedulePdf(p, path);

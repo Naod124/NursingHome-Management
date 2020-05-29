@@ -19,7 +19,7 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="932.0" layoutY="646.0" mnemonicParsing="false" onAction="#back" prefHeight="37.0" prefWidth="74.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Back">
+      <Button layoutX="923.0" layoutY="646.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="83.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Back">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
@@ -143,7 +143,7 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="942.0" layoutY="561.0" mnemonicParsing="false" onAction="#remove" prefHeight="44.0" prefWidth="102.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Remove">
+      <Button layoutX="934.0" layoutY="561.0" mnemonicParsing="false" onAction="#remove" prefHeight="44.0" prefWidth="110.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Remove">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>

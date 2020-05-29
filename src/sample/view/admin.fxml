@@ -17,7 +17,7 @@
          </font>
       </Button>
         <Label fx:id="welcomeLabel" layoutX="287.0" layoutY="76.0" prefHeight="17.0" prefWidth="0.0" />
-      <Label layoutX="202.0" layoutY="32.0" prefHeight="37.0" prefWidth="101.0" text="Nursing" textFill="#1ad4be">
+      <Label layoutX="180.0" layoutY="32.0" prefHeight="37.0" prefWidth="123.0" text="Nursing" textFill="#1ad4be">
          <font>
             <Font name="Calisto MT Bold Italic" size="30.0" />
          </font>

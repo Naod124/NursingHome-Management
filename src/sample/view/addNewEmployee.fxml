@@ -25,7 +25,7 @@
             <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="321.0" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-border-width: 2; -fx-border-radius: 200;" stylesheets="@style.css" />
          </children>
       </VBox>
-      <VBox alignment="CENTER" layoutX="602.0" layoutY="468.0" prefHeight="172.0" prefWidth="111.0" spacing="20.0">
+      <VBox alignment="CENTER" layoutX="598.0" layoutY="484.0" prefHeight="88.0" prefWidth="111.0" spacing="20.0">
          <children>
             <Button fx:id="addButton" mnemonicParsing="false" onAction="#add" prefHeight="69.0" prefWidth="82.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Add" textFill="#0db9de">
                <font>
@@ -37,73 +37,14 @@
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Cancel" textFill="#0db9de">
-               <font>
-                  <Font name="System Bold Italic" size="20.0" />
-               </font>
-            </Button>
          </children>
       </VBox>
-      <VBox layoutX="122.0" layoutY="105.0" prefHeight="385.0" prefWidth="136.0" spacing="28.0">
-         <children>
-            <Label text="First Name" textFill="#0db9de">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" text="Last name" textFill="#0db9de">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" text="Address" textFill="#0db9de">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" text="SSN" textFill="#0db9de">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" prefHeight="25.0" prefWidth="130.0" text="Date of birthday" textFill="#0db9de">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" text="E-mail" textFill="#0db9de">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Label>
-            <Label text="User Name" textFill="#0db9de">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Label>
-            <Label text="Password" textFill="#0db9de">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Label>
-            <Label text="Role" textFill="#0db9de">
-               <font>
-                  <Font name="System Bold Italic" size="16.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-      <Button layoutX="14.0" layoutY="602.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="39.0" prefWidth="136.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Back to main" textFill="#0db9de">
-         <font>
-            <Font name="System Bold Italic" size="18.0" />
-         </font>
-      </Button>
-      <Label layoutX="494.0" layoutY="28.0" prefHeight="39.0" prefWidth="83.0" text="Nursing" textFill="#1ad4be">
+      <Label layoutX="484.0" layoutY="28.0" prefHeight="39.0" prefWidth="93.0" text="Nursing" textFill="#1ad4be">
          <font>
             <Font name="Calisto MT Bold Italic" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="577.0" layoutY="26.0" prefHeight="44.0" prefWidth="102.0" text="Home" textFill="#0db9de">
+      <Label layoutX="577.0" layoutY="26.0" prefHeight="44.0" prefWidth="111.0" text="Home" textFill="#0db9de">
          <font>
             <Font name="Calisto MT Bold Italic" size="25.0" />
          </font>
@@ -128,5 +69,55 @@
       <Label fx:id="emailLabel" layoutX="554.0" layoutY="372.0" prefHeight="25.0" prefWidth="59.0" textFill="#0db9de" />
       <Label fx:id="userNameLabel" layoutX="554.0" layoutY="422.0" prefHeight="25.0" prefWidth="50.0" textFill="#0db9de" />
       <Label fx:id="passwordLabel" layoutX="549.0" layoutY="478.0" prefHeight="25.0" prefWidth="50.0" textFill="#0db9de" />
+      <Label layoutX="137.0" layoutY="115.0" text="First Name" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="139.0" layoutY="165.0" text="Last name" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="147.0" layoutY="219.0" text="Address" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="162.0" layoutY="272.0" text="SSN" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="114.0" layoutY="317.0" prefHeight="25.0" prefWidth="130.0" text="Date of birthday" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="154.0" layoutY="375.0" text="E-mail" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="136.0" layoutY="425.0" text="User Name" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="141.0" layoutY="481.0" text="Password" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="161.0" layoutY="534.0" text="Role" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="5.0" layoutY="584.0" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: #484d4c; -fx-background-radius: 200;" text="Back" textFill="#0db9de">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

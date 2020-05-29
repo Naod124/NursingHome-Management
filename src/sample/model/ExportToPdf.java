@@ -19,7 +19,7 @@ public class ExportToPdf {
 
             Paragraph pg = new Paragraph();
             pg.add("\n Your daily schedule : \n\n\n");
-            pg.add("               Name :                    From :                      To :                         Description:  \n ");
+            pg.add("                Name :                    From :                      To :                         Description:  \n ");
             document.add(pg);
             PdfPTable table = new PdfPTable(4); // 3 columns.
             schedulePdfDesign(table);
@@ -41,6 +41,7 @@ public class ExportToPdf {
             }
 
             document.add(table);
+
             document.close();
             writer.close();
 

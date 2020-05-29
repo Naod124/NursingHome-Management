@@ -256,9 +256,6 @@ public class AddNewEmployeeController implements Initializable {
         sc.newScene(actionEvent, "/sample/view/admin.fxml");
     }
 
-    public void backToMain(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent, "/sample/view/logIn.fxml");
-    }
 
 
     public void done(ActionEvent actionEvent) throws IOException {

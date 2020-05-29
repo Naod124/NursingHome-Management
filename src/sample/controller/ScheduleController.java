@@ -87,7 +87,7 @@ public class ScheduleController implements Initializable {
         File f = fc.showSaveDialog(null);
         if (f != null) {
             path = f.getAbsolutePath();
-            System.out.println(path);
+           // System.out.println(path);
            ObservableList<PatientTable> p = patientScheduleTableView.getItems();
             ExportToPdf pdf = new ExportToPdf();
             pdf.createSchedulePdf(p, path);

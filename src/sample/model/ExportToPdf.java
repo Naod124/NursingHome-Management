@@ -16,8 +16,16 @@ public class ExportToPdf {
         try {
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
             document.open();
+
+            Paragraph pg = new Paragraph();
+            pg.add("\n Your daily schedule : \n\n\n");
+            pg.add("               Name :                    From :                      To :                         Description:  \n ");
+            document.add(pg);
             PdfPTable table = new PdfPTable(4); // 3 columns.
             schedulePdfDesign(table);
+
+
+
 
             ArrayList<PdfPCell> pdfcells = new ArrayList<>();
             for (PatientTable p : patients) {

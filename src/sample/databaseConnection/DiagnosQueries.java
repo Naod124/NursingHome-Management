@@ -83,7 +83,7 @@ public class DiagnosQueries {
             resultSet = connection.createStatement().executeQuery(selectQuery);
 
             while (resultSet.next()) {
-                DiagnoseTable diagnose = new DiagnoseTable("", "", "", "", "", "", "");
+                DiagnoseTable diagnose = new DiagnoseTable("", "", "", "", "", "", "","");
                 diagnose.setDateOfBirth(resultSet.getString("DateOfBirth"));
                 diagnose.setDiagnosis(resultSet.getString("DiagnosType"));
                 diagnose.setFirstName(resultSet.getString("FirstName"));

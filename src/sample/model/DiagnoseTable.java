@@ -4,15 +4,16 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class DiagnoseTable {
 
-	private SimpleStringProperty ssn, firstName, lastName, dateOfBirth, gender, diagnosis, medicien;
+	private SimpleStringProperty ssn, firstName, FreeTime, lastName, dateOfBirth, gender, diagnosis, medicien;
 
 	public DiagnoseTable() {
 
 	}
 
-	public DiagnoseTable(String ssn, String firstName, String lastName, String dateOfBirth, String gender, String medicien, String diagnosis) {
+	public DiagnoseTable(String ssn, String firstName, String FreeTime, String lastName,  String dateOfBirth, String gender, String medicien, String diagnosis) {
 		this.ssn = new SimpleStringProperty(ssn);
 		this.firstName = new SimpleStringProperty(firstName);
+		this.FreeTime = new SimpleStringProperty(FreeTime);
 		this.lastName = new SimpleStringProperty(lastName);
 		this.dateOfBirth = new SimpleStringProperty(dateOfBirth);
 		this.gender = new SimpleStringProperty(gender);
@@ -98,6 +99,23 @@ public class DiagnoseTable {
 		this.medicien.set(medicien);
 	}
 
+	public String getFreeTime() {
+		return FreeTime.get();
+	}
 
+	public SimpleStringProperty freeTimeProperty() {
+		return FreeTime;
+	}
 
+	public void setFreeTime(String freeTime) {
+		this.FreeTime.set(freeTime);
+	}
+
+	public SimpleStringProperty diagnosisProperty() {
+		return diagnosis;
+	}
+
+	public SimpleStringProperty medicienProperty() {
+		return medicien;
+	}
 }

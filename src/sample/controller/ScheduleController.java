@@ -49,7 +49,7 @@ public class ScheduleController implements Initializable {
             throwables.getMessage();
         }
         ObservableList<PatientTable> p = patientScheduleTableView.getItems();
-        System.out.println(p);
+
     }
 
     public ObservableList<PatientTable> getPatients() throws SQLException {

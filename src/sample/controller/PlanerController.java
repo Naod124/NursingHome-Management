@@ -87,7 +87,7 @@ public class PlanerController implements Initializable {
             pa = psql.getPatientsinfo();
             for (Patient patients : pa) {
                 patient.getItems().addAll(patients.getFirstName() + " " + patients.getLastName());
-                System.out.println(pa);
+
 
             }
         } catch (SQLException throwables) {

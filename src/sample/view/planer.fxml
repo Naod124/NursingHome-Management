@@ -36,5 +36,15 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
+      <Button layoutX="196.0" layoutY="188.0" mnemonicParsing="false" onAction="#switchToAssign" prefHeight="44.0" prefWidth="254.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Assign">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="196.0" layoutY="246.0" mnemonicParsing="false" onAction="#switchToViewAssignedPatients" prefHeight="44.0" prefWidth="254.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="view assigned patients">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

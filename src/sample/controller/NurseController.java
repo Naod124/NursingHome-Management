@@ -59,7 +59,7 @@ public class NurseController {
     void assign(ActionEvent ae) throws IOException, SQLException {
         sc.newScene(ae, "../view/AssignPatient.fxml");
         // Getting SSN of nurse to keep track of nurse
-        int nurseSSN = pq.getNurseSSN(username, password);
+        String nurseSSN = pq.getNurseSSN(username, password);
         // assigning SSN of nurse
         AssignPatientController.nurseSSN = nurseSSN;
     }
@@ -68,7 +68,7 @@ public class NurseController {
     void diagnoses(ActionEvent ae) throws IOException, SQLException {
         sc.newScene(ae, "../view/diagnosePatient.fxml");
         // Getting SSN of nurse to keep track of nurse
-        int nurseSSN = pq.getNurseSSN(username, password);
+        String nurseSSN = pq.getNurseSSN(username, password);
         // assigning SSN of nurse
         DiagnosePatientController.nurseSSN = nurseSSN;
     }
@@ -77,7 +77,7 @@ public class NurseController {
     void visit(ActionEvent ae) throws IOException, SQLException {
         sc.newScene(ae, "../view/VisitPatient.fxml");
         // Getting SSN of nurse to keep track of nurse
-        int nurseSSN = pq.getNurseSSN(username, password);
+        String nurseSSN = pq.getNurseSSN(username, password);
         // assigning SSN of nurse
         VisitPatientController.nurseSSN = nurseSSN;
     }

@@ -66,7 +66,7 @@ public class DiagnosePatientController implements Initializable {
 
     @FXML
     private TextField diagnosistextfield;
-    public static int nurseSSN;
+    public static String nurseSSN;
 
     private SwitchScene sc = new SwitchScene();
     ObservableList<DiagnoseTable> data = FXCollections.observableArrayList();

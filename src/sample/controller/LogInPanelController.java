@@ -59,6 +59,8 @@ public class LogInPanelController implements Initializable {
             sc.newScene(actionEvent, "/sample/view/admin.fxml");
         } else if (row == 1 && userName.getText().endsWith("@gmail.com")) {
             SwitchScene sc = new SwitchScene();
+            NurseController.username = userName.getText();
+            NurseController.password = passWord.getText();
             sc.newScene(actionEvent, "/sample/view/nurse.fxml");
         } else if (row == 1 && userName.getText().endsWith("@hotmail.com")) {
             SwitchScene sc = new SwitchScene();

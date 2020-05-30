@@ -81,7 +81,7 @@ public class VisitPatientController implements Initializable {
     private AlertMaker alertMaker = new AlertMaker();
 
     VisitQueries vq = new VisitQueries();
-    public static int nurseSSN;
+    public static String nurseSSN;
     VisitTable selectedItem = new VisitTable();
     ObservableList<VisitTable> data = FXCollections.observableArrayList();
     ArrayList<String> timetable = new ArrayList<>();

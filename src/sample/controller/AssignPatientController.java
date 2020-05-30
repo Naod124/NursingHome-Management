@@ -49,7 +49,7 @@ public class AssignPatientController implements Initializable {
 	@FXML
 	private ComboBox<String> freetime;
 
-	public static int nurseSSN;
+	public static String nurseSSN;
 
 	PatientQueries pq = new PatientQueries();
 
@@ -60,7 +60,7 @@ public class AssignPatientController implements Initializable {
 	void assign(ActionEvent event) throws SQLException {
 
 		String updateFreeTime = updateFreeTime();
-		pq.AssignNurseToPatient(ssntextfield.getText(), freetime.getValue(), String.valueOf(nurseSSN), updateFreeTime);
+		pq.AssignNurseToPatient(ssntextfield.getText(), freetime.getValue(), nurseSSN, updateFreeTime);
 
 		new Alert(Alert.AlertType.INFORMATION, "Paitient Assigned Successfully").showAndWait();
 

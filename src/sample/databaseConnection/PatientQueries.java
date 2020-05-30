@@ -275,8 +275,8 @@ public class PatientQueries {
 
     }
 
-    public int getNurseSSN(String username, String password) throws SQLException {
-        int id = 0;
+    public String getNurseSSN(String username, String password) throws SQLException {
+        String id = "";
 
         String selectQuery = "SELECT staff_SSN FROM login where Username =? AND Password =?;";
         PreparedStatement statement = connection.prepareStatement(selectQuery);
@@ -284,7 +284,7 @@ public class PatientQueries {
         statement.setString(2, password);
         ResultSet rs = statement.executeQuery();
         while (rs.next()) {
-            id = rs.getInt("staff_SSN");
+            id = rs.getString("staff_SSN");
         }
 
         return id;

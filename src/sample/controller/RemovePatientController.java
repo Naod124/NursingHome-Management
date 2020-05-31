@@ -98,7 +98,11 @@ public class RemovePatientController implements Initializable {
 
     @FXML
     public void back(ActionEvent ae) throws IOException {
-        sc.newScene(ae, "/sample/view/nurse.fxml");
+        if (LogInPanelController.role.equals("nurse")) {
+            sc.newScene(ae, "/sample/view/nurse.fxml");
+        }else {
+            sc.newScene(ae, "/sample/view/planer.fxml");
+        }
     }
 
     @FXML

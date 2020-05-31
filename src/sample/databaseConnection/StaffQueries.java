@@ -199,7 +199,6 @@ public class StaffQueries {
 
         try {
 
-
             PreparedStatement statement = connection.prepareStatement("INSERT INTO schedule (patient_name, time_from, time_to, description) VALUES(?,?,?,?);");
             statement.setString(1, (String) patient_name);
             statement.setString(2, (String) time_from);

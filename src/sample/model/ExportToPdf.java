@@ -77,8 +77,8 @@ public class ExportToPdf {
             ArrayList<PdfPCell> pdfcells = new ArrayList<>();
             for (PatientTable p : patients) {
                 pdfcells.add(new PdfPCell(new Paragraph(p.getFullName())));
-                pdfcells.add(new PdfPCell(new Paragraph(p.getTimeFrom())));
                 pdfcells.add(new PdfPCell(new Paragraph(p.getTimeTo())));
+                pdfcells.add(new PdfPCell(new Paragraph(p.getTimeFrom())));
                 pdfcells.add(new PdfPCell(new Paragraph(p.getDescription())));
 
 
@@ -113,8 +113,8 @@ public class ExportToPdf {
             ArrayList<PdfPCell> pdfcell = new ArrayList<>();
             for (PatientTable p : patients) {
                 pdfcell.add(new PdfPCell(new Paragraph(p.getFullName())));
-                pdfcell.add(new PdfPCell(new Paragraph(p.getTimeFrom())));
                 pdfcell.add(new PdfPCell(new Paragraph(p.getTimeTo())));
+                pdfcell.add(new PdfPCell(new Paragraph(p.getTimeFrom())));
                 pdfcell.add(new PdfPCell(new Paragraph(p.getDescription())));
 
 

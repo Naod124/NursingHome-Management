@@ -34,7 +34,13 @@ public class ViewPatientController implements Initializable {
     }
 
     public void back(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent, "/sample/view/admin.fxml");
+        if (LogInPanelController.role.equals("admin")) {
+            sc.newScene(actionEvent, "/sample/view/admin.fxml");
+        }else if (LogInPanelController.role.equals("nurse")) {
+            sc.newScene(actionEvent, "/sample/view/nurse.fxml");
+        }else {
+            sc.newScene(actionEvent, "/sample/view/planer.fxml");
+        }
     }
 
     @Override

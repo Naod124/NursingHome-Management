@@ -1,5 +1,6 @@
 package sample.controller;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -60,8 +61,8 @@ public class PlanerController implements Initializable {
 
         ArrayList<String> time = getBoxValues();
         for (String choiceBoxTimes : time) {
-            fromTime.getItems().addAll(choiceBoxTimes);
-            toTime.getItems().addAll(choiceBoxTimes);
+            fromTime.getItems().addAll(String.valueOf(choiceBoxTimes));
+            toTime.getItems().addAll(String.valueOf(choiceBoxTimes));
         }
 
         patient.setOnAction(e -> {
@@ -108,15 +109,21 @@ public class PlanerController implements Initializable {
     */
         try {
             StaffQueries sq = new StaffQueries();
+            String fromT = (String) fromTime.getValue();
+            int a = Integer.parseInt(fromT);
+            String toT = (String) toTime.getValue();
+            int b = Integer.parseInt(toT);
+
             if (patient.getValue() == null || fromTime.getValue() == null || toTime.getValue() == null
-                    || description.getText().isEmpty())
+                    || description.getText().isEmpty() || a < b)
             {
                 alertMaker.errorAlert("You have not added all fields", "Error");
             }
             else {
-                sq.planerApply(patient.getValue(), fromTime.getValue(), toTime.getValue(), description.getText());
+                sq.planerApply(patient.getValue(), toTime.getValue(), fromTime.getValue(),description.getText());
                 alertMaker.confirmAlert("INSERTED!", "Successfully!");
             }
+
         } catch (Exception e) {
             alertMaker.errorAlert("Sorry, We could not apply your information!" + "\n" + "Try again...","Error!");
         }
@@ -130,23 +137,16 @@ public class PlanerController implements Initializable {
 
     public ArrayList<String> getBoxValues() {
         ArrayList<String> time = new ArrayList<>();
-        time.add("08:00");
-        time.add("08:30");
-        time.add("09:00");
-        time.add("09:30");
-        time.add("10:00");
-        time.add("10:30");
-        time.add("11:00");
-        time.add("11:30");
-        time.add("12:00");
-        time.add("12:30");
-        time.add("13:00");
-        time.add("13:30");
-        time.add("14:00");
-        time.add("14:30");
-        time.add("15:00");
-        time.add("15:30");
-        time.add("16:00");
+        time.add("8");
+        time.add("9");
+        time.add("10");
+        time.add("11");
+        time.add("12");
+        time.add("13");
+        time.add("14");
+        time.add("15");
+        time.add("16");
+
         return time;
     }
 

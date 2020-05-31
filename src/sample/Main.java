@@ -12,7 +12,7 @@ import sample.databaseConnection.PatientQueries;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/sample/view/logIn.fxml"));
         primaryStage.setTitle("Nursing Home System");
         primaryStage.setScene(new Scene(root));
@@ -24,11 +24,10 @@ public class Main extends Application {
     @Override
     public void init() throws Exception {
         super.init();
-        if(!Connect.getInstance().open()){
+        if (!Connect.getInstance().open()) {
             System.out.println("Fatal error: Could not connect to database");
             Platform.exit();
-        }
-        else {
+        } else {
             System.out.println("Database connected!");
         }
     }

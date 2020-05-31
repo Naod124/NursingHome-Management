@@ -19,12 +19,52 @@ public class ExportToPdf {
 
             Paragraph pg = new Paragraph();
             pg.add("\n Your daily schedule : \n\n\n");
-            pg.add("                Name :                    From :                      To :                         Description:  \n ");
-            document.add(pg);
-            PdfPTable table = new PdfPTable(4); // 3 columns.
-            schedulePdfDesign(table);
+            PdfPCell pdfPCell = new PdfPCell(new Paragraph("Name"));
 
 
+            document.add(pdfPCell);
+            PdfPTable table;
+            table = new PdfPTable(4); // 3 columns.
+            table.setWidthPercentage(100); //Width 100%
+            table.setSpacingBefore(10f); //Space before table
+            table.setSpacingAfter(10f); //Space after table
+
+            float[] columnWidths = {1f, 1f, 1f, 1f};
+            table.setWidths(columnWidths);
+            PdfPCell cell1 = new PdfPCell(new Paragraph("Patient name"));
+            cell1.setBorderColor(BaseColor.BLACK);
+            cell1.setPaddingLeft(10);
+            cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+            PdfPCell cell2 = new PdfPCell(new Paragraph("Time from: "));
+            cell2.setBorderColor(BaseColor.BLACK);
+            cell2.setPaddingLeft(10);
+            cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell2.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+            PdfPCell cell3 = new PdfPCell(new Paragraph("Time to: "));
+            cell3.setBorderColor(BaseColor.BLACK);
+            cell3.setPaddingLeft(10);
+            cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell3.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+            PdfPCell cell4 = new PdfPCell(new Paragraph("Description: "));
+            cell3.setBorderColor(BaseColor.BLACK);
+            cell3.setPaddingLeft(10);
+            cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell3.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+            cell1.setUseBorderPadding(true);
+            cell2.setUseBorderPadding(true);
+            cell3.setUseBorderPadding(true);
+            cell4.setUseBorderPadding(true);
+
+
+            table.addCell(cell1);
+            table.addCell(cell2);
+            table.addCell(cell3);
+            table.addCell(cell4);
 
 
             ArrayList<PdfPCell> pdfcells = new ArrayList<>();
@@ -46,7 +86,6 @@ public class ExportToPdf {
             writer.close();
 
 
-            System.out.println("did work");
         } catch (Exception e) {
             System.out.println("did not work!");
             System.out.println(e.getMessage());
@@ -60,7 +99,7 @@ public class ExportToPdf {
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
             document.open();
             PdfPTable table = new PdfPTable(4); // 3 columns.
-            schedulePdfDesign(table); //Change this to PatientPDfDesign since they have different get methods and different constructors.
+            //schedulePdfDesign(table); //Change this to PatientPDfDesign since they have different get methods and different constructors.
 
             ArrayList<PdfPCell> pdfcell = new ArrayList<>();
             for (PatientTable p : patients) {
@@ -93,7 +132,7 @@ public class ExportToPdf {
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
             document.open();
             PdfPTable table = new PdfPTable(4); // 3 columns.
-            employeePdfDesign(table);
+            //employeePdfDesign(table);
 
             ArrayList<PdfPCell> pdfcells = new ArrayList<>();
             for (StaffTable p : employees) {
@@ -119,8 +158,10 @@ public class ExportToPdf {
             System.out.println(e.getMessage());
         }
     }
+}
 
-    public void employeePdfDesign(PdfPTable table) throws DocumentException {
+
+   /* public void employeePdfDesign(PdfPTable table) throws DocumentException {
         table = new PdfPTable(4); // 3 columns.
         table.setWidthPercentage(100); //Width 100%
         table.setSpacingBefore(10f); //Space before table
@@ -178,7 +219,11 @@ public class ExportToPdf {
 
     }
 
-    public void schedulePdfDesign(PdfPTable table) throws DocumentException {
+    */
+
+   /* public void schedulePdfDesign(PdfPTable table) throws DocumentException {
+
+
         table = new PdfPTable(4); // 3 columns.
         table.setWidthPercentage(100); //Width 100%
         table.setSpacingBefore(10f); //Space before table
@@ -223,3 +268,5 @@ public class ExportToPdf {
 
     }
 }
+
+    */

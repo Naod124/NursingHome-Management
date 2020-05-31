@@ -16,12 +16,12 @@
 
 <AnchorPane prefHeight="783.0" prefWidth="1073.0" style="-fx-background-color: #484d4c;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.VisitPatientController">
     <children>
-          <Button layoutX="14.0" layoutY="725.0" mnemonicParsing="false" onAction="#exit" prefHeight="37.0" prefWidth="74.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Exit">
+          <Button layoutX="26.0" layoutY="658.0" mnemonicParsing="false" onAction="#exit" prefHeight="37.0" prefWidth="74.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Exit">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-          <Button layoutX="962.0" layoutY="726.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="82.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Back">
+          <Button layoutX="960.0" layoutY="658.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="82.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Back">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
@@ -129,7 +129,7 @@
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="15.0" layoutY="330.0" prefHeight="1.0" prefWidth="91.0" text="Free Visitor" textFill="#0db9de">
+            <Label layoutX="15.0" layoutY="330.0" prefHeight="21.0" prefWidth="115.0" text="Visitor Name" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>

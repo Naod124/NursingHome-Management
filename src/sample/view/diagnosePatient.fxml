@@ -32,8 +32,8 @@
             <TableColumn fx:id="lastnamecol" prefWidth="194.0" text="Last name" />
             <TableColumn fx:id="dobcol" prefWidth="211.0" text="Date of birth" />
             <TableColumn fx:id="gendercol" prefWidth="149.0" text="Gender" />
-            <TableColumn fx:id="diagnosiscol" prefWidth="75.0" text="Diagnosis" />
-            <TableColumn fx:id="mediciencol" prefWidth="75.0" text="Medicine" />
+            <TableColumn fx:id="diagnosiscol" prefWidth="75.0" text="Diagnoses" />
+            <TableColumn fx:id="mediciencol" prefWidth="75.0" text="Medication" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

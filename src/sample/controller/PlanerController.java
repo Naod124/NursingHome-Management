@@ -131,7 +131,7 @@ public class PlanerController implements Initializable {
 
     @FXML
     public void backToNurse(ActionEvent event) throws IOException {
-        sc.newScene(event, "../view/nurse.fxml");
+        sc.newScene(event, "../view/planer.fxml");
     }
 
 

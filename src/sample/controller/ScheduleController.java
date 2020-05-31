@@ -85,7 +85,7 @@ public class ScheduleController implements Initializable {
     }
 
     public void backTo(ActionEvent ae) throws IOException {
-        sc.newScene(ae, "/sample/view/nurse.fxml");
+        sc.newScene(ae, "/sample/view/planer.fxml");
 
     }
 }

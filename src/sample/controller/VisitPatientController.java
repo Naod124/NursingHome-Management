@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import com.mysql.cj.log.Log;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -144,7 +145,11 @@ public class VisitPatientController implements Initializable {
 
     @FXML
     void back(ActionEvent event) throws IOException {
-        sc.newScene(event, "/sample/view/nurse.fxml");
+        if (LogInPanelController.role.equals("nurse")) {
+            sc.newScene(event, "/sample/view/nurse.fxml");
+        }else {
+            sc.newScene(event, "/sample/view/planer.fxml");
+        }
     }
 
     @FXML

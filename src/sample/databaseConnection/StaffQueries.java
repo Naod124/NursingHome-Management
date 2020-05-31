@@ -77,19 +77,18 @@ public class StaffQueries {
     }
 
     public void updateIntoStaffTable(String FirstName, String LastName, String Date,
-                                     String SSN, String Email, String Role, String Adress, String Salary) throws SQLException {
+                                     String SSN, String Email, String Adress, String Salary) throws SQLException {
 
         connection = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
-        String updateQuery = "UPDATE staff SET FirstName = ?,LastName = ?,DateOfbirth = ? , Email = ? , Salary = ? , Role = ? , Adress = ? WHERE SSN = ?";
+        String updateQuery = "UPDATE staff SET FirstName = ?,LastName = ?,DateOfbirth = ? , Email = ? , Salary = ? , Adress = ? WHERE SSN = ?";
         pstmt = connection.prepareStatement(updateQuery);
         pstmt.setString(1, FirstName);
         pstmt.setString(2, LastName);
         pstmt.setString(3, Date);
         pstmt.setString(4, Email);
         pstmt.setString(5, Salary);
-        pstmt.setString(6, Role);
-        pstmt.setString(7, Adress);
-        pstmt.setString(8, SSN);
+        pstmt.setString(6, Adress);
+        pstmt.setString(7, SSN);
         pstmt.executeUpdate();
     }
 

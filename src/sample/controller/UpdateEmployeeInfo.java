@@ -44,7 +44,7 @@ public class UpdateEmployeeInfo implements Initializable {
 
     public void update(ActionEvent actionEvent) {
         try {
-            staffQueries.updateIntoStaffTable(firstName.getText(), lastName.getText(), dOb.getText(), ssn.getText(), email.getText(), role.getValue(), address.getText(), salary.getText());
+            staffQueries.updateIntoStaffTable(firstName.getText(), lastName.getText(), dOb.getText(), ssn.getText(), email.getText(), address.getText(), salary.getText());
             String name = firstName.getText() + " " + lastName.getText();
             alertMaker.infoAlert( name + " information has been successfully updated in data base " , "Successfully");
         } catch (SQLException e) {
@@ -77,7 +77,6 @@ public class UpdateEmployeeInfo implements Initializable {
             ssn.setText(staffTable.getSsn());
             email.setText(staffTable.getEmail());
             address.setText(staffTable.getAddress());
-            role.setValue(staffTable.getRole());
         } catch (IOException e) {
             e.printStackTrace();
         }

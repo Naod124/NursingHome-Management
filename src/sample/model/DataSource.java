@@ -10,7 +10,6 @@ public class DataSource {
 
 
     private DataSource(){
-
     }
     public static DataSource getInstance(){
         return ourInstance;

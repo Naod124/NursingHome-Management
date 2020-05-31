@@ -30,7 +30,8 @@ public class PlanerMenuController implements Initializable {
         sc.newScene(ae, "/sample/view/AssignPatient.fxml");
     }
 
-    public void viewPatients(ActionEvent actionEvent) {
+    public void viewPatients(ActionEvent actionEvent) throws IOException {
+        sc.newScene(actionEvent,"/sample/view/viewPatients.fxml");
     }
 
     public void addPatientScene(ActionEvent actionEvent) throws IOException {

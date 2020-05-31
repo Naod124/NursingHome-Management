@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -20,13 +19,10 @@
                 <TextField fx:id="ssn" promptText="Social security number" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
                 <TextField fx:id="dOb" promptText="YYYY-MM-DD" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
                 <TextField fx:id="email" promptText="Post E-address" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
-                <TextField fx:id="userName" promptText="username" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
-                <TextField fx:id="passWord" promptText="password" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200; -fx-font-size: 14;" />
                 <TextField fx:id="salary" promptText="Salary" stylesheets="@style.css" />
-                <ChoiceBox fx:id="role" prefHeight="25.0" prefWidth="321.0" style="-fx-background-color: transparent; -fx-border-color: #0db9de; -fx-font-family: quicksand; -fx-border-width: 2; -fx-border-radius: 200;" />
             </children>
         </VBox>
-        <VBox layoutX="261.0" layoutY="70.0" prefHeight="385.0" prefWidth="136.0" spacing="28.0">
+        <VBox layoutX="261.0" layoutY="70.0" prefHeight="408.0" prefWidth="136.0" spacing="32.0">
             <children>
                 <Label text="First Name" textFill="#0db9de">
                     <font>
@@ -58,22 +54,7 @@
                         <Font name="System Bold Italic" size="16.0" />
                     </font>
                 </Label>
-                <Label text="User Name" textFill="#0db9de">
-                    <font>
-                        <Font name="System Bold Italic" size="16.0" />
-                    </font>
-                </Label>
-                <Label text="Password" textFill="#0db9de">
-                    <font>
-                        <Font name="System Bold Italic" size="16.0" />
-                    </font>
-                </Label>
                 <Label stylesheets="@style.css" text="Salary" textFill="#0db9de">
-                    <font>
-                        <Font name="System Bold Italic" size="16.0" />
-                    </font>
-                </Label>
-                <Label text="Role" textFill="#0db9de">
                     <font>
                         <Font name="System Bold Italic" size="16.0" />
                     </font>

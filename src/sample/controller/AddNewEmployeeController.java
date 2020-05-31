@@ -232,12 +232,12 @@ public class AddNewEmployeeController implements Initializable {
             String password = passWord.getText();
             String roleO = role.getValue();
             StaffQueries logIn = new StaffQueries();
-            if (firstNameO.matches("^[a-zA-Z]+$") && lastNameO.matches("^[a-zA-Z]+$") && SSN.matches("^[0-9]{12}$") && addressO.matches("^[#.0-9a-zA-Z-ÖöÄäÅå\\s,-]+$") && dob.matches("^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$")
+            if (firstNameO.matches("^[a-zA-Z]+$") && lastNameO.matches("^[a-zA-Z]+$") && SSN.matches("^[0-9]{10}$") && addressO.matches("^[#.0-9a-zA-Z-ÖöÄäÅå\\s,-]+$") && dob.matches("^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$")
                     && password.matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$") && username.contains("@") && email.getText().contains(".") && Email.contains("@") && email.getText().contains(".")) {
 
-                logIn.insertIntoPStaffTable(firstNameO, lastNameO, SSN, addressO, dob, Email, 20000, roleO, username, password);
+                logIn.insertIntoPStaffTable(firstNameO , lastNameO, SSN, addressO, dob, Email, 20000, roleO, username, password);
                 System.out.println("Done ! Check DataBase");
-                alertMaker.infoAlert(firstNameO + "" + lastNameO + " has been successfully added to the dataBase as " + roleO, "Successfully");
+                alertMaker.infoAlert(firstNameO + " " + lastNameO + " has been successfully added to the dataBase as " + roleO, "Successfully");
             } else
                 alertMaker.simpleAlert("Some fields are incorrect or already exist , please check the red text .. ", "Invalid Input");
         } catch (Exception e) {

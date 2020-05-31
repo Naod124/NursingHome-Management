@@ -37,7 +37,13 @@ public class NurseController implements Initializable {
 
     @FXML
     public void back(ActionEvent ae) throws IOException {
-        sc.newScene(ae, "../view/LogIn.fxml");
+        if (LogInPanelController.role.equals("nurse")) {
+            sc.newScene(ae, "/sample/view/nurse.fxml");
+        }else if (LogInPanelController.role.equals("admin")) {
+            sc.newScene(ae, "/sample/view/admin.fxml");
+        }else {
+            sc.newScene(ae, "sample/view/planer.fxml");
+        }
     }
 
     @FXML

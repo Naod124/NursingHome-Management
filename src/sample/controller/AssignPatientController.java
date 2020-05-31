@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -130,11 +131,12 @@ public class AssignPatientController implements Initializable {
 		Object selectedItem = table.getSelectionModel().getSelectedItem();
 		PatientTable table = (PatientTable) selectedItem;
 
-		ssntextfield.setText(table.getSsn());
 		firstnametextfield.setText(table.getFirstName());
 		lastnametextfield.setText(table.getLastName());
 		gendertextfield.setText(table.getGender());
 		datetextfield.setText(table.getDateOfBirth());
+		ssntextfield.setText(table.getSsn());
+
 
 		ssntextfield.setEditable(false);
 		firstnametextfield.setEditable(false);
@@ -147,9 +149,7 @@ public class AssignPatientController implements Initializable {
 
 		String[] split = table.getFreeTime().split(",");
 		if (split.length != 0) {
-			for (int i = 0; i < split.length; i++) {
-				timetable.add(split[i]);
-			}
+			timetable.addAll(Arrays.asList(split));
 			freetime.getItems().clear();
 			freetime.getItems().addAll(timetable);
 		} else {

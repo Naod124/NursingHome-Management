@@ -65,7 +65,7 @@ public class GetAssignPatientController implements Initializable {
 		dobcol.setCellValueFactory(new PropertyValueFactory<>("DateOfBirth"));
 		gendercol.setCellValueFactory(new PropertyValueFactory<>("Gender"));
 		appointcol.setCellValueFactory(new PropertyValueFactory<>("Appointed_time"));
-		occupaidcol.setCellValueFactory(new PropertyValueFactory<>("Occupiedby"));
+		occupaidcol.setCellValueFactory(new PropertyValueFactory<>("occupiedby"));
 
 		try {
 			ArrayList<AssignTable> view = pq.viewAssigneTable();

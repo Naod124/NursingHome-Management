@@ -58,7 +58,7 @@
                         <Font name="System Bold Italic" size="18.0" />
                     </font>
                 </Button>
-            <Button mnemonicParsing="false" onAction="#switchToAssign" prefWidth="243.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Assign">
+            <Button mnemonicParsing="false" onAction="#assign" prefWidth="243.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Assign">
                <font>
                   <Font name="System Bold Italic" size="20.0" />
                </font>

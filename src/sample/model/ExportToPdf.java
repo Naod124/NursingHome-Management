@@ -18,9 +18,16 @@ public class ExportToPdf {
             document.open();
 
             Paragraph pg = new Paragraph();
-            pg.add("\n Your daily schedule : \n\n\n");
+            pg.add("\n Your daily schedule : \n\n");
             PdfPCell pdfPCell = new PdfPCell(new Paragraph("Name"));
 
+            document.add(pg);
+            Image img = Image.getInstance("NursingLogo.png");
+            img.setAbsolutePosition(455f, 755f);
+            img.scaleAbsolute(120, 40);
+
+
+            document.add(img);
 
             document.add(pdfPCell);
             PdfPTable table;
@@ -80,7 +87,9 @@ public class ExportToPdf {
                 table.addCell(pdf);
             }
 
+
             document.add(table);
+
 
             document.close();
             writer.close();

@@ -79,7 +79,7 @@ public class NurseController implements Initializable {
     }
 
     public void viewPatients(ActionEvent actionEvent) throws IOException {
-        sc.newScene(actionEvent, "/sample/view/viewPatients.fxml");
+        sc.newScene(actionEvent, "/sample/view/viewPatientNurse.fxml");
     }
 
     public void switchToAssign(ActionEvent actionEvent) throws IOException {

@@ -61,16 +61,13 @@ public class LogInPanelController implements Initializable {
         int row = login.verifyStaffLogin(userName.getText(), passWord.getText());
         if (row == 1 && userName.getText().endsWith("@yahoo.com")) {
             login.getCurrentEmployeeName(userName.getText());
-    //        setEmployeeName(login.getObList1().get(0));
-//            System.out.println(employeeName);
+            setEmployeeName(login.getObList1().get(0));
             SwitchScene sc = new SwitchScene();
             sc.newScene(actionEvent, "/sample/view/admin.fxml");
             role = "admin";
         } else if (row == 1 && userName.getText().endsWith("@gmail.com")) {
             login.getCurrentEmployeeName(userName.getText());
-     //       setEmployeeName(login.getObList1().get(0));
-//            employeeName = login.getObList1().get(0);
-//            System.out.println(employeeName);
+            setEmployeeName(login.getObList1().get(0));
             SwitchScene sc = new SwitchScene();
             NurseController.username = userName.getText();
             NurseController.password = passWord.getText();
@@ -78,9 +75,7 @@ public class LogInPanelController implements Initializable {
             role = "nurse";
         } else if (row == 1 && userName.getText().endsWith("@hotmail.com")) {
             login.getCurrentEmployeeName(userName.getText());
-   //         setEmployeeName(login.getObList1().get(0));
-//            employeeName = login.getObList1().get(0);
-//            System.out.println(employeeName);
+            setEmployeeName(login.getObList1().get(0));
             SwitchScene sc = new SwitchScene();
             sc.newScene(actionEvent, "/sample/view/planer.fxml");
             role = "planer";

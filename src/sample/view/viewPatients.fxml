@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1020.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ViewPatientController">
+<AnchorPane prefHeight="700.0" prefWidth="1020.0" style="-fx-background-color: #484d4c;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ViewPatientController">
     <children>
           <Button layoutX="14.0" layoutY="646.0" mnemonicParsing="false" onAction="#exit" prefHeight="37.0" prefWidth="74.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Exit">
          <font>

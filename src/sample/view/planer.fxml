@@ -5,21 +5,17 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.PlanerMenuController">
+<AnchorPane prefHeight="575.0" prefWidth="830.0" style="-fx-background-color: #484d4c;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.PlanerMenuController">
    <children>
-      <Button layoutX="189.0" layoutY="137.0" mnemonicParsing="false" onAction="#createSchedule" prefHeight="44.0" prefWidth="254.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Create daily schedule">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Button>
-      <Label layoutX="148.0" layoutY="32.0" prefHeight="37.0" prefWidth="117.0" text="Nursing" textFill="#1ad4be">
+      <Label layoutX="267.0" layoutY="32.0" prefHeight="37.0" prefWidth="117.0" text="Nursing" textFill="#1ad4be">
          <font>
             <Font name="Calisto MT Bold Italic" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="265.0" layoutY="14.0" prefHeight="73.0" prefWidth="195.0" text="Home" textFill="#0db9de">
+      <Label layoutX="384.0" layoutY="14.0" prefHeight="73.0" prefWidth="195.0" text="Home" textFill="#0db9de">
          <font>
             <Font name="Calisto MT Bold Italic" size="30.0" />
          </font>
@@ -31,20 +27,48 @@
             </ImageView>
          </graphic>
       </Label>
-      <Button layoutX="14.0" layoutY="336.0" mnemonicParsing="false" onAction="#signOut" prefHeight="44.0" prefWidth="153.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Sign out">
+      <Button layoutX="14.0" layoutY="501.0" mnemonicParsing="false" onAction="#signOut" prefHeight="44.0" prefWidth="153.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Sign out">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="196.0" layoutY="188.0" mnemonicParsing="false" onAction="#switchToAssign" prefHeight="44.0" prefWidth="254.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Assign">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="196.0" layoutY="246.0" mnemonicParsing="false" onAction="#switchToViewAssignedPatients" prefHeight="44.0" prefWidth="254.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="view assigned patients">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Button>
+      <VBox alignment="CENTER" cache="true" layoutX="105.0" layoutY="123.0" prefHeight="324.0" prefWidth="299.0" spacing="35.0">
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#viewPatients" prefWidth="243.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200; -fx-border-color: #0db9de; -fx-border-radius: 200;" stylesheets="@style.css" text="View all Patients" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="managepatientbutton" mnemonicParsing="false" onAction="#addPatientScene" prefWidth="243.0" style="-fx-background-color: #484d4c;" text="Add new patient " textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="removepatientbutton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#removeScene" prefWidth="243.0" style="-fx-background-color: #484d4c;" text="Remove patient" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" cache="true" layoutX="463.0" layoutY="126.0" prefHeight="324.0" prefWidth="299.0" spacing="35.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#createSchedule" prefWidth="243.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Create daily schedule">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#schedule" prefWidth="243.0" style="-fx-background-color: #484d4c;" text="Check Schedule" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#visit" prefWidth="243.0" style="-fx-background-color: #484d4c;" text="Visit" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

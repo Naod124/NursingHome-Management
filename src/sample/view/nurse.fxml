@@ -8,63 +8,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="647.0" prefWidth="600.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.NurseController">
+<AnchorPane prefHeight="484.0" prefWidth="707.0" style="-fx-background-color: #484d4c;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.NurseController">
     <children>
-        <Button fx:id="backbutton" layoutX="6.0" layoutY="604.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #484d4c;" text="Sign out" textFill="#0db9de">
+        <Button fx:id="backbutton" layoutX="14.0" layoutY="429.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #484d4c;" text="Sign out" textFill="#0db9de">
             <font>
                 <Font name="System Bold Italic" size="16.0" />
             </font>
         </Button>
-        <VBox layoutX="193.0" layoutY="100.0" prefHeight="278.0" prefWidth="233.0" spacing="30.0">
-            <children>
-                <Button fx:id="managepatientbutton" mnemonicParsing="false" onAction="#addPatientScene" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Add new patient " textFill="#0db9de">
-                    <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                    </font>
-                </Button>
-                <Button fx:id="removepatientbutton" mnemonicParsing="false" onAction="#removeScene" prefHeight="39.0" prefWidth="235.0" style="-fx-background-color: #484d4c;" text="Remove patient" textFill="#0db9de">
-                    <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                    </font>
-                </Button>
-                <Button mnemonicParsing="false" onAction="#schedule" prefHeight="39.0" prefWidth="236.0" style="-fx-background-color: #484d4c;" text="Check Schedule" textFill="#0db9de">
-                    <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                    </font>
-                </Button>
-            <Button mnemonicParsing="false" onAction="#switchToCreateSchedule" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Create Schedule" textFill="#0db9de">
-               <font>
-                  <Font name="System Bold Italic" size="18.0" />
-               </font>
-            </Button>
-                <Button mnemonicParsing="false" onAction="#getassignpatient" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Get Assigned patients" textFill="#0db9de">
-                    <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                    </font>
-                </Button>
-                <Button mnemonicParsing="false" onAction="#assign" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Assign" textFill="#0db9de">
-                    <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                    </font>
-                </Button>
-                <Button mnemonicParsing="false" onAction="#diagnoses" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Diagnoses" textFill="#0db9de">
-                    <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                    </font>
-                </Button>
-                <Button mnemonicParsing="false" onAction="#visit" prefHeight="39.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Visit" textFill="#0db9de">
-                    <font>
-                        <Font name="System Bold Italic" size="18.0" />
-                    </font>
-                </Button>
-            </children>
-        </VBox>
-        <Label layoutX="153.0" layoutY="32.0" prefHeight="37.0" prefWidth="112.0" text="Nursing" textFill="#1ad4be">
+        <Label layoutX="225.0" layoutY="48.0" prefHeight="37.0" prefWidth="112.0" text="Nursing" textFill="#1ad4be">
             <font>
                 <Font name="Calisto MT Bold Italic" size="30.0" />
             </font>
         </Label>
-        <Label layoutX="265.0" layoutY="17.0" prefHeight="67.0" prefWidth="157.0" text="Home" textFill="#0db9de">
+        <Label layoutX="337.0" layoutY="33.0" prefHeight="67.0" prefWidth="157.0" text="Home" textFill="#0db9de">
             <font>
                 <Font name="Calisto MT Bold Italic" size="30.0" />
             </font>
@@ -76,5 +32,38 @@
                 </ImageView>
             </graphic>
         </Label>
+      <VBox layoutX="100.0" layoutY="174.0" prefHeight="203.0" prefWidth="215.0" spacing="35.0">
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#viewPatients" prefHeight="46.0" prefWidth="233.0" style="-fx-background-color: #484d4c; -fx-background-radius: 200; -fx-border-color: #0db9de; -fx-border-radius: 200;" text="View all Patients" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Button>
+                <Button mnemonicParsing="false" onAction="#getassignpatient" prefHeight="46.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Get Assigned patients" textFill="#0db9de">
+                    <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#diagnoses" prefHeight="46.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Diagnoses" textFill="#0db9de">
+                    <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                    </font>
+                </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="416.0" layoutY="203.0" prefHeight="146.0" prefWidth="233.0" spacing="35.0">
+         <children>
+                <Button mnemonicParsing="false" onAction="#schedule" prefHeight="46.0" prefWidth="233.0" style="-fx-background-color: #484d4c;" text="Check Schedule" textFill="#0db9de">
+                    <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                    </font>
+                </Button>
+            <Button mnemonicParsing="false" onAction="#switchToAssign" prefWidth="243.0" style="-fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Assign">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
     </children>
 </AnchorPane>

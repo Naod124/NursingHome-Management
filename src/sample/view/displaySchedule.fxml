@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ScheduleController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="658.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ScheduleController">
    <children>
-      <TableView fx:id="patientScheduleTableView" layoutX="11.0" layoutY="51.0" prefHeight="299.0" prefWidth="578.0">
+      <TableView fx:id="patientScheduleTableView" layoutX="30.0" layoutY="14.0" prefHeight="351.0" prefWidth="603.0">
         <columns>
           <TableColumn fx:id="firstName_lastName" prefWidth="114.4000244140625" text="Name" />
             <TableColumn fx:id="timeFrom" prefWidth="114.4000244140625" text="Time from:" />
@@ -15,8 +17,21 @@
             <TableColumn fx:id="description" prefWidth="231.5999755859375" text="Description" />
         </columns>
       </TableView>
-      <Button fx:id="previousPage" layoutX="23.0" layoutY="361.0" mnemonicParsing="false" onAction="#backTo" text="&lt; back" />
-      <Button fx:id="deletePatient" layoutX="469.0" layoutY="361.0" mnemonicParsing="false"  text="Delete " />
-      <Button fx:id="pdfButton" layoutX="417.0" layoutY="14.0" mnemonicParsing="false" onAction="#ScheduleToPdf" prefHeight="25.0" prefWidth="131.0" text="Export to PDF" />
+      <Button fx:id="previousPage" layoutX="14.0" layoutY="402.0" mnemonicParsing="false" onAction="#backTo" text="&lt; back">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font></Button>
+      <Button fx:id="deletePatient" layoutX="567.0" layoutY="402.0" mnemonicParsing="false" text="Delete ">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font></Button>
+      <Button fx:id="pdfButton" layoutX="266.0" layoutY="388.0" mnemonicParsing="false" onAction="#ScheduleToPdf" prefHeight="25.0" prefWidth="131.0" text="Export to PDF">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font></Button>
    </children>
+   <stylesheets>
+      <URL value="@style.css" />
+      <URL value="@style.css" />
+   </stylesheets>
 </Pane>

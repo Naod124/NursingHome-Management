@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="690.0" prefWidth="1037.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddPatientController">
+<AnchorPane prefHeight="713.0" prefWidth="1037.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AddPatientController">
 <children>
       <TableView fx:id="table" layoutX="17.0" layoutY="14.0" prefHeight="548.0" prefWidth="751.0">
         <columns>
@@ -23,17 +23,17 @@
             <TableColumn fx:id="gendercol" prefWidth="146.0" text="Gender" />
         </columns>
       </TableView>
-      <Button fx:id="addButton" layoutX="833.0" layoutY="484.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="34.0" prefWidth="83.0" stylesheets="@style.css" text="Add" textFill="#0db9de">
+      <Button fx:id="addButton" layoutX="351.0" layoutY="598.0" mnemonicParsing="false" onAction="#handleAdd" prefHeight="34.0" prefWidth="83.0" stylesheets="@style.css" text="Add" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-  <Button layoutX="14.0" layoutY="575.0" mnemonicParsing="false" onAction="#back" prefHeight="34.0" prefWidth="83.0" stylesheets="@style.css" text="Back" textFill="#0db9de">
+  <Button layoutX="940.0" layoutY="653.0" mnemonicParsing="false" onAction="#back" prefHeight="34.0" prefWidth="83.0" stylesheets="@style.css" text="Back" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-  <Button layoutX="14.0" layoutY="617.0" mnemonicParsing="false" onAction="#exit" prefHeight="34.0" prefWidth="83.0" stylesheets="@style.css" text="Exit" textFill="#0db9de">
+  <Button layoutX="14.0" layoutY="653.0" mnemonicParsing="false" onAction="#exit" prefHeight="34.0" prefWidth="83.0" stylesheets="@style.css" text="Exit" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
@@ -108,15 +108,19 @@
             </ImageView>
          </graphic>
       </Label>
-      <Button fx:id="aTozButton" layoutX="811.0" layoutY="542.0" mnemonicParsing="false" onAction="#sorter" prefHeight="40.0" prefWidth="126.0" stylesheets="@style.css" text="Sort A-Z" textFill="#0db9de">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="zToaButton" layoutX="816.0" layoutY="582.0" mnemonicParsing="false" onAction="#zToAsort" prefHeight="40.0" prefWidth="117.0" stylesheets="@style.css" text="Sort Z-A" textFill="#0db9de">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Button>
+      <VBox layoutX="824.0" layoutY="493.0" prefHeight="139.0" prefWidth="133.0" spacing="35.0">
+         <children>
+            <Button fx:id="aTozButton" mnemonicParsing="false" onAction="#sorter" prefHeight="40.0" prefWidth="126.0" stylesheets="@style.css" text="Sort A-Z" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="zToaButton" mnemonicParsing="false" onAction="#zToAsort" prefHeight="40.0" prefWidth="117.0" stylesheets="@style.css" text="Sort Z-A" textFill="#0db9de">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
 </children>
         </AnchorPane>

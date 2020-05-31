@@ -21,18 +21,8 @@ public class NurseController {
     SwitchScene sc = new SwitchScene();
 
     @FXML
-    public void addPatientScene(ActionEvent ae) throws IOException {
-        sc.newScene(ae, "../view/addPatient.fxml");
-    }
-
-    @FXML
-    public void removeScene(ActionEvent ae) throws IOException {
-        sc.newScene(ae, "../view/RemovePatient.fxml");
-    }
-
-    @FXML
     public void schedule(ActionEvent ae) throws IOException {
-        sc.newScene(ae,"../view/displaySchedule.fxml" );
+        sc.newScene(ae, "../view/displaySchedule.fxml");
     }
 
     @FXML
@@ -43,10 +33,6 @@ public class NurseController {
     @FXML
     public void back(ActionEvent ae) throws IOException {
         sc.newScene(ae, "../view/LogIn.fxml");
-    }
-    @FXML
-    public void switchToCreateSchedule(ActionEvent ae) throws IOException {
-        sc.newScene(ae, "../view/schema.fxml");
     }
 
     @FXML
@@ -85,5 +71,13 @@ public class NurseController {
     @FXML
     void getassignpatient(ActionEvent event) throws IOException {
         sc.newScene(event, "../view/GetAssignPatient.fxml");
+    }
+
+    public void viewPatients(ActionEvent actionEvent) throws IOException {
+        sc.newScene(actionEvent, "/sample/view/viewPatients.fxml");
+    }
+
+    public void switchToAssign(ActionEvent actionEvent) throws IOException {
+        sc.newScene(actionEvent, "/sample/view/AssignPatient.fxml");
     }
 }

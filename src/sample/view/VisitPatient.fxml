@@ -10,10 +10,11 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="783.0" prefWidth="1073.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.VisitPatientController">
+<AnchorPane prefHeight="783.0" prefWidth="1073.0" style="-fx-background-color: #484d4c;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.VisitPatientController">
     <children>
           <Button layoutX="14.0" layoutY="725.0" mnemonicParsing="false" onAction="#exit" prefHeight="37.0" prefWidth="74.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Exit">
          <font>
@@ -56,12 +57,7 @@
             </ImageView>
          </graphic>
       </Label>
-      <Button fx:id="addButton" layoutX="823.0" layoutY="634.0" mnemonicParsing="false" onAction="#add" prefHeight="44.0" prefWidth="102.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Add">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Button>
-      <VBox layoutX="885.0" layoutY="158.0" prefHeight="335.0" prefWidth="169.0" spacing="33.0">
+      <VBox layoutX="884.0" layoutY="109.0" prefHeight="335.0" prefWidth="169.0" spacing="33.0">
          <children>
             <TextField fx:id="ssntextfield" prefHeight="30.0" prefWidth="117.0" stylesheets="@style.css">
                <padding>
@@ -101,7 +97,7 @@
             </TextField>
          </children>
       </VBox>
-      <VBox alignment="CENTER" layoutX="717.0" layoutY="153.0" prefHeight="405.0" prefWidth="157.0" spacing="43.0">
+      <VBox alignment="CENTER" layoutX="716.0" layoutY="104.0" prefHeight="405.0" prefWidth="157.0" spacing="43.0">
          <children>
             <Label prefHeight="17.0" prefWidth="40.0" text="SSN" textFill="#0db9de">
                <font>
@@ -145,15 +141,24 @@
             </Label>
          </children>
       </VBox>
-      <Button fx:id="removeButton" layoutX="926.0" layoutY="672.0" mnemonicParsing="false" onAction="#remove" prefHeight="44.0" prefWidth="112.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Remove">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="UpdateButton" layoutX="732.0" layoutY="672.0" mnemonicParsing="false" onAction="#update" prefHeight="44.0" prefWidth="102.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Update">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Button>
+      <HBox layoutX="166.0" layoutY="597.0" prefHeight="61.0" prefWidth="401.0" spacing="35.0">
+         <children>
+            <Button fx:id="addButton" mnemonicParsing="false" onAction="#add" prefHeight="44.0" prefWidth="102.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Add">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="removeButton" mnemonicParsing="false" onAction="#remove" prefHeight="44.0" prefWidth="112.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Remove">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="UpdateButton" mnemonicParsing="false" onAction="#update" prefHeight="44.0" prefWidth="102.0" style="-fx-background-radius: 200; -fx-background-color: transparent; -fx-text-fill: #0db9de;" text="Update">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
     </children>
 </AnchorPane>

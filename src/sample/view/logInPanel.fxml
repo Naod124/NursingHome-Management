@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #484d4c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.LogInPanelController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="668.0" style="-fx-background-color: #484d4c;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.LogInPanelController">
     <children>
-          <TextField fx:id="userName" layoutX="231.0" layoutY="144.0" promptText="User Name" stylesheets="@style.css" />
-          <Button layoutX="14.0" layoutY="342.0" mnemonicParsing="false" onAction="#back" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Back" textFill="#0db9de">
+          <TextField fx:id="userName" layoutX="237.0" layoutY="138.0" promptText="User Name" stylesheets="@style.css" />
+          <Button layoutX="14.0" layoutY="365.0" mnemonicParsing="false" onAction="#back" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Back" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-      <PasswordField fx:id="passWord" layoutX="231.0" layoutY="211.0" promptText="Password" stylesheets="@style.css" />
-          <Button fx:id="loginButton" layoutX="443.0" layoutY="337.0" mnemonicParsing="false" onAction="#logIn" prefHeight="20.0" prefWidth="149.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Log in" textFill="#0db9de">
+      <PasswordField fx:id="passWord" layoutX="237.0" layoutY="205.0" promptText="Password" stylesheets="@style.css" />
+          <Button fx:id="loginButton" layoutX="505.0" layoutY="360.0" mnemonicParsing="false" onAction="#logIn" prefHeight="20.0" prefWidth="149.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Log in" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="25.0" />
          </font>
@@ -31,20 +31,20 @@
             </ImageView>
          </graphic>
       </Button>
-      <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="197.0" layoutY="144.0">
+      <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="198.0" layoutY="141.0">
          <image>
             <Image url="@../medicalIcons/person-icon.png" />
          </image></ImageView>
-      <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="197.0" layoutY="211.0">
+      <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="198.0" layoutY="208.0">
          <image>
             <Image url="@../medicalIcons/Login-icon.png" />
          </image></ImageView>
-      <Label layoutX="158.0" layoutY="32.0" prefHeight="37.0" prefWidth="114.0" text="Nursing" textFill="#1ad4be">
+      <Label layoutX="187.0" layoutY="32.0" prefHeight="37.0" prefWidth="114.0" text="Nursing" textFill="#1ad4be">
          <font>
             <Font name="Calisto MT Bold Italic" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="272.0" layoutY="21.0" prefHeight="60.0" prefWidth="172.0" text="Home" textFill="#0db9de">
+      <Label layoutX="301.0" layoutY="21.0" prefHeight="60.0" prefWidth="172.0" text="Home" textFill="#0db9de">
          <font>
             <Font name="Calisto MT Bold Italic" size="30.0" />
          </font>
@@ -56,12 +56,12 @@
             </ImageView>
          </graphic>
       </Label>
-      <CheckBox fx:id="showPass" layoutX="454.0" layoutY="218.0" mnemonicParsing="false" onAction="#showPass" text="Show Password" textFill="#0db9de">
+      <CheckBox fx:id="showPass" layoutX="446.0" layoutY="212.0" mnemonicParsing="false" onAction="#showPass" text="Show Password" textFill="#0db9de">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </CheckBox>
-      <Button fx:id="forgotPassButton" contentDisplay="CENTER" layoutX="226.0" layoutY="254.0" mnemonicParsing="false" onAction="#forgetPassword" prefHeight="37.0" prefWidth="160.0" style="-fx-background-color: #484d4c;" text="Forgot password ?" textFill="#0db9de">
+      <Button fx:id="forgotPassButton" contentDisplay="CENTER" layoutX="237.0" layoutY="290.0" mnemonicParsing="false" onAction="#forgetPassword" prefHeight="37.0" prefWidth="160.0" style="-fx-background-color: #484d4c;" text="Forgot password ?" textFill="#0db9de">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

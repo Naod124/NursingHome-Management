@@ -85,7 +85,11 @@ public class ScheduleController implements Initializable {
     }
 
     public void backTo(ActionEvent ae) throws IOException {
-        sc.newScene(ae, "/sample/view/planer.fxml");
+        if (LogInPanelController.role.equals("planer")) {
+            sc.newScene(ae, "/sample/view/planer.fxml");
+        }else {
+            sc.newScene(ae, "/sample/view/nurse.fxml");
+        }
 
     }
 }

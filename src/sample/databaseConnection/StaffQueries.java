@@ -14,8 +14,10 @@ public class StaffQueries {
     private PreparedStatement pstmt;
 
     private String password;
+    private String employeeName;
 
     private ObservableList<StaffTable> obList = FXCollections.observableArrayList();
+    private ObservableList<String> obList1 = FXCollections.observableArrayList();
 
 
     public StaffQueries() {
@@ -57,6 +59,21 @@ public class StaffQueries {
         }
 
 
+    }
+
+    public void getCurrentEmployeeName(String Email) {
+        try {
+            connection = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
+            pstmt = connection.prepareStatement(" SELECT FirstName from staff where Email = ?;");
+            pstmt.setString(1, Email);
+            rs = pstmt.executeQuery();
+            while (rs.next()) {
+                employeeName = rs.getString("FirstName");
+                obList1.add(employeeName);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void updateIntoStaffTable(String FirstName, String LastName, String Date,
@@ -246,5 +263,9 @@ public class StaffQueries {
 
     public void setObList(ObservableList<StaffTable> obList) {
         this.obList = obList;
+    }
+
+    public ObservableList<String> getObList1() {
+        return obList1;
     }
 }

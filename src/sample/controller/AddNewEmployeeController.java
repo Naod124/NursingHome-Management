@@ -240,13 +240,6 @@ public class AddNewEmployeeController implements Initializable {
                 alertMaker.infoAlert(firstNameO + "" + lastNameO + " has been successfully added to the dataBase as " + roleO, "Successfully");
             } else
                 alertMaker.simpleAlert("Some fields are incorrect or already exist , please check the red text .. ", "Invalid Input");
-//                                        alertMaker.simpleAlert("password must contain at least eight characters, at least one number and both lower and uppercase letters and special characters", "Invalid Input");
-//                                    alertMaker.simpleAlert("Please check your username it's maybe aleardy exist or has wrong format", "Invalid Input");
-//                                alertMaker.simpleAlert("Please Enter a valid Email address", "Invalid input");
-//                            alertMaker.simpleAlert("Please Cheack your Birthday field so it has this format (YYYY-MM-DD)", "Input mismatch");
-//                        alertMaker.simpleAlert("Please check your address fields", "Input mismatch");
-//                    alertMaker.simpleAlert("Please check your social security number so it should contain 10 digits", "Input mismatch");
-//                alertMaker.simpleAlert("Please check your name fields", "Input mismatch");
         } catch (Exception e) {
             alertMaker.errorAlert("Adding a staff member did not go through!" + "\n" + "Please try again...", "Error!");
         }
@@ -255,7 +248,6 @@ public class AddNewEmployeeController implements Initializable {
     public void cancel(ActionEvent actionEvent) throws IOException {
         sc.newScene(actionEvent, "/sample/view/admin.fxml");
     }
-
 
 
     public void done(ActionEvent actionEvent) throws IOException {

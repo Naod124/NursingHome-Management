@@ -1,10 +1,13 @@
 package sample.controller;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sample.databaseConnection.StaffQueries;
 import sample.model.AlertMaker;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -24,6 +27,9 @@ public class LogInPanelController implements Initializable {
 
     private SwitchScene sc = new SwitchScene();
     private AlertMaker alertMaker = new AlertMaker();
+    private StaffQueries login = new StaffQueries();
+    public static String employeeName;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -43,7 +49,6 @@ public class LogInPanelController implements Initializable {
         final Tooltip tooltipForgotPassword = new Tooltip();
         tooltipForgotPassword.setText("Press this button if you forgot your password and wish to reset it");
         forgotPassButton.setTooltip(tooltipForgotPassword);
-
     }
 
 
@@ -52,25 +57,45 @@ public class LogInPanelController implements Initializable {
     }
 
     public void logIn(ActionEvent actionEvent) throws IOException, SQLException {//i will add later some sql statements once the database is done
-        StaffQueries login = new StaffQueries();
         int row = login.verifyStaffLogin(userName.getText(), passWord.getText());
         if (row == 1 && userName.getText().endsWith("@yahoo.com")) {
+            login.getCurrentEmployeeName(userName.getText());
+            setEmployeeName(login.getObList1().get(0));
+//            System.out.println(employeeName);
             SwitchScene sc = new SwitchScene();
             sc.newScene(actionEvent, "/sample/view/admin.fxml");
         } else if (row == 1 && userName.getText().endsWith("@gmail.com")) {
+            login.getCurrentEmployeeName(userName.getText());
+            setEmployeeName(login.getObList1().get(0));
+//            employeeName = login.getObList1().get(0);
+//            System.out.println(employeeName);
             SwitchScene sc = new SwitchScene();
             NurseController.username = userName.getText();
             NurseController.password = passWord.getText();
             sc.newScene(actionEvent, "/sample/view/nurse.fxml");
         } else if (row == 1 && userName.getText().endsWith("@hotmail.com")) {
+            login.getCurrentEmployeeName(userName.getText());
+            setEmployeeName(login.getObList1().get(0));
+//            employeeName = login.getObList1().get(0);
+//            System.out.println(employeeName);
             SwitchScene sc = new SwitchScene();
             sc.newScene(actionEvent, "/sample/view/planer.fxml");
         } else {
-            alertMaker.errorAlert("Sorry, logging in was not possible please make sure your account information is correct!" + "\n" + "Try again...","Error!");
+            alertMaker.errorAlert("Sorry, logging in was not possible please make sure your account information is correct!" + "\n" + "Try again...", "Error!");
         }
     }
 
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
+        System.out.println(this.employeeName);
+    }
+
     public void showPass(ActionEvent actionEvent) {
+        System.out.println(employeeName);
         if (showPass.isSelected()) {
             passWord.setPromptText(passWord.getText());
             passWord.setText("");

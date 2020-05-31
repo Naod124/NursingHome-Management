@@ -145,20 +145,16 @@ public class AddPatientController implements Initializable {
 
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
             alertMaker.errorAlert("The gender shall only be Male or Female","Error!");
         }
     }
 
 
     public void viewPatient() throws SQLException {
-
         rows();
         PatientQueries pq = new PatientQueries();
         pq.viewPatientTable();
-
         table.setItems(pq.getObList());
-
     }
 
     @FXML
@@ -198,8 +194,5 @@ public class AddPatientController implements Initializable {
     public void exit(ActionEvent ae) throws IOException {
         System.exit(0);
 
-    }
-
-    public void help(ActionEvent actionEvent) {
     }
 }

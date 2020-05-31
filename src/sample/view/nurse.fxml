@@ -65,5 +65,10 @@
             </Button>
          </children>
       </VBox>
+      <Label fx:id="welcomeLabel" layoutX="14.0" layoutY="100.0" prefHeight="46.0" prefWidth="222.0" textFill="#bcbcbc">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="22.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

@@ -3,17 +3,22 @@ package sample.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-import javafx.scene.control.Button;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import sample.databaseConnection.PatientQueries;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class NurseController {
+public class NurseController implements Initializable {
 
     // keep track of nurse username , password and SSN
     public static String username;
     public static String password;
+    public Label welcomeLabel;
 
     // creating object to access patient query class method
     PatientQueries pq = new PatientQueries();
@@ -79,5 +84,24 @@ public class NurseController {
 
     public void switchToAssign(ActionEvent actionEvent) throws IOException {
         sc.newScene(actionEvent, "/sample/view/AssignPatient.fxml");
+    }
+
+    public void setName() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/sample/view/logInPanel.fxml"));
+            loader.load();
+            LogInPanelController log = loader.getController();
+            String name = log.getEmployeeName();
+            welcomeLabel.setText("Welcome " + name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        welcomeLabel.setVisible(true);
+        setName();
     }
 }

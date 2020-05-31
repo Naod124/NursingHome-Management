@@ -2,6 +2,7 @@ package sample.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sample.databaseConnection.Connect;
@@ -148,7 +149,6 @@ public class PlanerController implements Initializable {
         time.add("16:00");
         return time;
     }
-
 
 
 

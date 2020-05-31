@@ -16,7 +16,10 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Button>
-        <Label fx:id="welcomeLabel" layoutX="287.0" layoutY="76.0" prefHeight="17.0" prefWidth="0.0" />
+        <Label fx:id="welcomeLabel" layoutX="30.0" layoutY="82.0" prefHeight="46.0" prefWidth="222.0" textFill="#bcbcbc">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="22.0" />
+         </font></Label>
       <Label layoutX="180.0" layoutY="32.0" prefHeight="37.0" prefWidth="123.0" text="Nursing" textFill="#1ad4be">
          <font>
             <Font name="Calisto MT Bold Italic" size="30.0" />

@@ -26,18 +26,18 @@
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="36.0">
                <image>
-                  <Image url="@../medicalIcons/enter-2.png" />
+                  <Image url="@../resources/enter-2.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
       <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="198.0" layoutY="141.0">
          <image>
-            <Image url="@../medicalIcons/person-icon.png" />
+            <Image url="@../resources/person-icon.png" />
          </image></ImageView>
       <ImageView fitHeight="25.0" fitWidth="29.0" layoutX="198.0" layoutY="208.0">
          <image>
-            <Image url="@../medicalIcons/Login-icon.png" />
+            <Image url="@../resources/Login-icon.png" />
          </image></ImageView>
       <Label layoutX="187.0" layoutY="32.0" prefHeight="37.0" prefWidth="114.0" text="Nursing" textFill="#1ad4be">
          <font>
@@ -51,7 +51,7 @@
          <graphic>
             <ImageView fitHeight="56.0" fitWidth="63.0">
                <image>
-                  <Image url="@../medicalIcons/stay-at-home.png" />
+                  <Image url="@../resources/stay-at-home.png" />
                </image>
             </ImageView>
          </graphic>

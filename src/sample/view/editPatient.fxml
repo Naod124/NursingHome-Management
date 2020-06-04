@@ -98,7 +98,7 @@
             <graphic>
                 <ImageView fitHeight="32.0" fitWidth="39.0">
                     <image>
-                        <Image url="@../medicalIcons/stay-at-home.png" />
+                        <Image url="@../resources/stay-at-home.png" />
                     </image>
                 </ImageView>
             </graphic>

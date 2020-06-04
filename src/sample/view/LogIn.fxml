@@ -22,7 +22,7 @@
          <graphic>
             <ImageView fitHeight="75.0" fitWidth="98.0">
                <image>
-                  <Image url="@../medicalIcons/stay-at-home.png" />
+                  <Image url="@../resources/stay-at-home.png" />
                </image>
             </ImageView>
          </graphic>
@@ -41,7 +41,7 @@
             </Button>
             <ImageView fitHeight="69.0" fitWidth="77.0">
                <image>
-                  <Image url="@../medicalIcons/receptionist-icon.png" />
+                  <Image url="@../resources/receptionist-icon.png" />
                </image>
             </ImageView>
                 <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exit" prefHeight="54.0" prefWidth="193.0" style="-fx-background-radius: 200; -fx-background-color: #484d4c;" text="Exit" textFill="#01a0fa">

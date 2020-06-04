@@ -23,7 +23,7 @@
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="43.0">
                <image>
-                  <Image url="@../medicalIcons/stay-at-home.png" />
+                  <Image url="@../resources/stay-at-home.png" />
                </image>
             </ImageView>
          </graphic>

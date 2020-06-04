@@ -57,7 +57,7 @@ public class LogInPanelController implements Initializable {
         sc.newScene(actionEvent, "/sample/view/LogIn.fxml");
     }
 
-    public void logIn(ActionEvent actionEvent) throws IOException, SQLException {//i will add later some sql statements once the database is done
+    public void logIn(ActionEvent actionEvent) throws IOException, SQLException {
         int row = login.verifyStaffLogin(userName.getText(), passWord.getText());
         if (row == 1 && userName.getText().endsWith("@yahoo.com")) {
             login.getCurrentEmployeeName(userName.getText());
@@ -90,7 +90,6 @@ public class LogInPanelController implements Initializable {
 
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
-        System.out.println(this.employeeName);
     }
 
     public void showPass(ActionEvent actionEvent) {

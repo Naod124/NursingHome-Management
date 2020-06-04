@@ -23,7 +23,7 @@ import sample.model.DiagnoseTable;
 public class DiagnosePatientController implements Initializable {
 
     @FXML
-    private TableView table;
+    private TableView<DiagnoseTable> table;
 
     @FXML
     private TableColumn<DiagnoseTable, String> ssncol;

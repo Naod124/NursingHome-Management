@@ -17,15 +17,15 @@
             <TableColumn fx:id="description" prefWidth="231.5999755859375" text="Description" />
         </columns>
       </TableView>
-      <Button fx:id="previousPage" layoutX="14.0" layoutY="402.0" mnemonicParsing="false" onAction="#backTo" text="&lt; back">
+      <Button  layoutX="14.0" layoutY="402.0" mnemonicParsing="false" onAction="#backTo" text="&lt; back">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font></Button>
-      <Button fx:id="deletePatient" layoutX="567.0" layoutY="402.0" mnemonicParsing="false" text="Delete ">
+      <Button layoutX="567.0" layoutY="402.0" mnemonicParsing="false" text="Delete ">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font></Button>
-      <Button fx:id="pdfButton" layoutX="266.0" layoutY="388.0" mnemonicParsing="false" onAction="#ScheduleToPdf" prefHeight="25.0" prefWidth="131.0" text="Export to PDF">
+      <Button  layoutX="266.0" layoutY="388.0" mnemonicParsing="false" onAction="#ScheduleToPdf" prefHeight="25.0" prefWidth="131.0" text="Export to PDF">
          <font>
             <Font name="System Bold Italic" size="16.0" />
          </font></Button>

@@ -27,12 +27,12 @@
                 </ImageView>
             </graphic>
         </Label>
-        <Button fx:id="backbutton" layoutX="14.0" layoutY="496.0" mnemonicParsing="false" onAction="#backtoLogIn" style="-fx-background-color: #484d4c;" text="Back" textFill="#0db9de">
+        <Button  layoutX="14.0" layoutY="496.0" mnemonicParsing="false" onAction="#backtoLogIn" style="-fx-background-color: #484d4c;" text="Back" textFill="#0db9de">
             <font>
                 <Font name="System Bold Italic" size="16.0" />
             </font>
         </Button>
-        <Button fx:id="exitButton" layoutX="545.0" layoutY="496.0" mnemonicParsing="false" onAction="#exitApp" style="-fx-background-color: #484d4c;" text="Exit" textFill="#0db9de">
+        <Button  layoutX="545.0" layoutY="496.0" mnemonicParsing="false" onAction="#exitApp" style="-fx-background-color: #484d4c;" text="Exit" textFill="#0db9de">
             <font>
                 <Font name="System Bold Italic" size="16.0" />
             </font>

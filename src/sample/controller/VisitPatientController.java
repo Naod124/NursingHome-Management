@@ -5,7 +5,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import com.mysql.cj.log.Log;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

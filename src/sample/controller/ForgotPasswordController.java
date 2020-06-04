@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sample.databaseConnection.StaffQueries;
 import sample.model.AlertMaker;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;

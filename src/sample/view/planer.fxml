@@ -39,12 +39,12 @@
                   <Font name="System Bold Italic" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="managepatientbutton" mnemonicParsing="false" onAction="#addPatientScene" prefWidth="243.0" style="-fx-background-color: #484d4c;" text="Add new patient " textFill="#0db9de">
+            <Button  mnemonicParsing="false" onAction="#addPatientScene" prefWidth="243.0" style="-fx-background-color: #484d4c;" text="Add new patient " textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="removepatientbutton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#removeScene" prefWidth="243.0" style="-fx-background-color: #484d4c;" text="Remove patient" textFill="#0db9de">
+            <Button  alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#removeScene" prefWidth="243.0" style="-fx-background-color: #484d4c;" text="Remove patient" textFill="#0db9de">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>

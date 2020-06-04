@@ -1,18 +1,13 @@
 package sample.controller;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import sample.databaseConnection.Connect;
 import sample.databaseConnection.PatientQueries;
 import sample.databaseConnection.StaffQueries;
 import sample.model.AlertMaker;
 import sample.model.Patient;
-import sample.model.Staff;
-
 import java.io.*;
 import java.net.URL;
 import java.sql.*;
@@ -98,15 +93,6 @@ public class PlanerController implements Initializable {
     }
 
     public void apply() throws SQLException {
-       /* Connection connect = DriverManager.getConnection(Connect.CONNECTION_URL, Connect.DB_NAME, Connect.PASSWORD);
-        PreparedStatement statement = connect.prepareStatement("INSERT INTO schedule (patient_name, time_from, time_to, description) VALUES(?,?,?,?);");
-        statement.setString(1, (String) patient.getValue());
-        statement.setString(2, (String) fromTime.getValue());
-        statement.setString(3, (String) toTime.getValue());
-        statement.setString(4, description.getText());
-        statement.executeUpdate();
-        System.out.println("Worked!");
-    */
         try {
             StaffQueries sq = new StaffQueries();
             String fromT = (String) fromTime.getValue();

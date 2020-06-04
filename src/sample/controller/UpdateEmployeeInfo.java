@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import sample.databaseConnection.StaffQueries;
@@ -31,10 +30,6 @@ public class UpdateEmployeeInfo implements Initializable {
     private TextField dOb;
     @FXML
     private TextField email;
-    @FXML
-    private TextField userName;
-    @FXML
-    private TextField passWord;
     @FXML
     private ChoiceBox<String> role;
     private StaffQueries staffQueries = new StaffQueries();
